@@ -17,10 +17,11 @@ fun main() {
     val lastName = "Pavlyuchenko"
     var height = 191
     val weight = 105f
-    val isChild = height < 150 || weight < 40
+    var isChild = height < 150 || weight < 40
     var info  = "My name is $firstName $lastName, my height is $height cm and weight is $weight kg. Im ${if (isChild) "a child." else "not child."}"
     println(info)
-    height = 193
+    height = 149
+    isChild = height < 150 || weight < 40
     info = "My name is $firstName $lastName, my height is $height cm and weight is $weight kg. Im ${if (isChild) "a child." else "not child."}"
     print(info)
 }
