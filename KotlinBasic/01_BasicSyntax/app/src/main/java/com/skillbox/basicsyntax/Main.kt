@@ -18,9 +18,9 @@ fun main() {
     var height = 191
     val weight = 105f
     val isChild = height < 150 || weight < 40
-    val info  = "My name is $firstName $lastName, my height is $height cm and weight is $weight kg. Im ${if (isChild) "a child." else "not child."}"
+    var info  = "My name is $firstName $lastName, my height is $height cm and weight is $weight kg. Im ${if (isChild) "a child." else "not child."}"
     println(info)
     height = 193
-    val info2  = "My name is $firstName $lastName, my height is $height cm and weight is $weight kg. Im ${if (isChild) "a child." else "not child."}"
-    print(info2)
+    info = "My name is $firstName $lastName, my height is $height cm and weight is $weight kg. Im ${if (isChild) "a child." else "not child."}"
+    print(info)
 }
