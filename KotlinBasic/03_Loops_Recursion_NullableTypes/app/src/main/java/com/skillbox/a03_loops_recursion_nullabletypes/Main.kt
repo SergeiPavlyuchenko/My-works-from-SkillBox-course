@@ -26,7 +26,7 @@ fun main() {
     }
     println("The number of positive numbers = $count\nThe sum of this numbers = $sum")
     println("\nEnter a number for \"gcd\" function")
-    print("Greatest common factor = ${gcd(readLine()!!.toInt(), sum)}")
+    print("Greatest common factor = ${readLine()?.toIntOrNull()?.let { gcd(it, sum) } ?: "null, because you data is incorrect."}")
 
 }
 
