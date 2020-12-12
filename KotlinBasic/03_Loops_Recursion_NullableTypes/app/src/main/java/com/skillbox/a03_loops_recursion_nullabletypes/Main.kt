@@ -20,11 +20,6 @@ fun main() {
             }
             if (repeatCount == numbers) isDone = true
         }
-        if(!isDone) {
-            println("Incorrect data. Enter $numbers numbers again.")
-            positiveCount = 0
-            sum = 0
-        }
     }
     println("The number of positive numbers = $positiveCount\nThe sum of this numbers = $sum")
     println("\nEnter a number for \"gcd\" function")
