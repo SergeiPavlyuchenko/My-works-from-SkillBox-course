@@ -4,33 +4,31 @@ fun main() {
 
     print("Enter the number of phones: ")
     val number = inputInt()
-    val numberOfPhones = numberOfPhones(number)
+    val numberOfPhones = getNumberOfPhones(number)
     print("The phones which starting at \"+7\": ")
-    println(numberOfPhones.filter { it.substring(0, 2) == "+7" }.joinToString(", "))
+    println(numberOfPhones.filter { it.startsWith("+7")  }.joinToString(", "))
     println("The number of unique phones = ${numberOfPhones.toSet().size}")
     println("The sum of length of all phones = ${numberOfPhones.sumBy { it.length }}\n")
 
-    val map = map(numberOfPhones.toSet())
+    val map = convertSetOfPhonesToMap(numberOfPhones.toSet())
     map.forEach { println("Человек: ${it.value}. Номер телефона: ${it.key}")}
 }
 
-fun numberOfPhones(n: Int): List<String> {
+fun getNumberOfPhones(n: Int): List<String> {
     println("Enter the $n phones: ")
-    var currentNumber = 0
-    val phonesList = mutableListOf<String>()
-    while (currentNumber < n) {
-        readLine()?.let { phonesList.add(it) }
-        currentNumber++
+    val phones = mutableListOf<String>()
+    repeat (n) {
+        readLine()?.let { phones.add(it) }
     }
-    return phonesList
+    return phones
 }
 
-fun map(set: Set<String>): MutableMap<String, String?> {
+fun convertSetOfPhonesToMap(setOfPhones: Set<String>): MutableMap<String, String?> {
     val map = mutableMapOf<String, String?>()
-    for (i in set) {
-        print("Введите имя человека с номером телефона $i: ")
+    setOfPhones.forEach {
+        print("Введите имя человека с номером телефона $it: ")
         val name = readLine().toString()
-        map[i] = name
+        map[it] = name
     }
     return map
 }
