@@ -12,10 +12,10 @@ fun main() {
         val number = inputInt()
         if (number > 0) {
             positiveCount++
-            sum += number
             }
+        sum += number
         }
-    println("The number of positive numbers = $positiveCount\nThe sum of this numbers = $sum")
+    println("The number of positive numbers = $positiveCount\nThe sum of all numbers = $sum")
     println("\nEnter a number for \"gcd\" function")
     print("Greatest common factor = ${ gcd(inputInt(), sum) }")
 

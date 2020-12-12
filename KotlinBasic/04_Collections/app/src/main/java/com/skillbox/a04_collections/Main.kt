@@ -3,7 +3,7 @@ package com.skillbox.a04_collections
 fun main() {
 
     print("Enter the number of phones: ")
-    val number = readLine()?.toIntOrNull() ?: return print("This is not a number")
+    val number = inputInt()
     val numberOfPhones = numberOfPhones(number)
     print("The phones which starting at \"+7\": ")
     println(numberOfPhones.filter { it.substring(0, 2) == "+7" }.joinToString(", "))
@@ -33,4 +33,8 @@ fun map(set: Set<String>): MutableMap<String, String?> {
         map[i] = name
     }
     return map
+}
+
+tailrec fun inputInt(): Int {
+    return readLine()?.toIntOrNull() ?: inputInt()
 }
