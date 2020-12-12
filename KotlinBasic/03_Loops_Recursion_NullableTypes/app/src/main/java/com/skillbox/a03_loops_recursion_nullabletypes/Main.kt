@@ -8,19 +8,13 @@ fun main() {
     val numbers = inputInt()
     var positiveCount = 0
     var sum = 0
-    var isDone = false
-    while (!isDone) {
-        var repeatCount = 1
-        repeat(numbers) {
-            repeatCount++
-            val number = inputInt()
-            if (number > 0) {
-                positiveCount++
-                sum += number
+    repeat(numbers) {
+        val number = inputInt()
+        if (number > 0) {
+            positiveCount++
+            sum += number
             }
-            if (repeatCount == numbers) isDone = true
         }
-    }
     println("The number of positive numbers = $positiveCount\nThe sum of this numbers = $sum")
     println("\nEnter a number for \"gcd\" function")
     print("Greatest common factor = ${ gcd(inputInt(), sum) }")
