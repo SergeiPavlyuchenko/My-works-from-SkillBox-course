@@ -58,7 +58,11 @@ abstract class Animal(energy: Int = 5, weight: Int = 5, maxAge: Int = 30, name: 
         return child
     }
 
-
+   /* Напишите программу, которая создаёт животное. Животное должно есть, двигаться и спать до того
+    момента, пока не станет старым. После этого рождается новое животное, и оно продолжает этот
+    цикл. Убедитесь по логам, что цикл продолжается бесконечно и постоянно происходит рождение
+    новых животных.*/
+    
     tailrec fun toLiveFromBornToDie(animal: Animal) {
         if (animal.isTooOld) {
             println("Old ${animal.name} died :(\nWas born new child! Yohooo))")

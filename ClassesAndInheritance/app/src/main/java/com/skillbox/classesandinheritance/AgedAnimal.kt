@@ -1,7 +1,3 @@
 package com.skillbox.classesandinheritance
 
-abstract class AgedAnimal(val maxAge: Int) {
-
-
-
-}
+abstract class AgedAnimal(val maxAge: Int)
