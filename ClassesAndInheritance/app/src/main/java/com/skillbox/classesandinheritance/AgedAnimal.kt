@@ -1,8 +1,7 @@
 package com.skillbox.classesandinheritance
 
-abstract class AgedAnimal {
+abstract class AgedAnimal(val maxAge: Int) {
 
-    protected open val maxAge: Int
-        get() = 30
+
 
 }

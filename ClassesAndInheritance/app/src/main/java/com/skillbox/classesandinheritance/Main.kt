@@ -1,25 +1,35 @@
 package com.skillbox.classesandinheritance
 
-import kotlin.random.Random
+import android.os.Build
+import androidx.annotation.RequiresApi
 
+@RequiresApi(Build.VERSION_CODES.N)
 fun main() {
-    val lion = object : Animal() { }
+    val lion = object : Animal(0) {}
     val bird = Bird()
     val fish = Fish()
     val dog = Dog()
-    val zoo = Zoo()
-    val zooContains = zoo.zooContains()
+    var zoo = Zoo().create().toMutableList()
 
 
-//    lion.toLiveFromBornToDie(lion)
+    repeat(10) {
+        if (zoo.isEmpty()) return println("Zoo is empty")
+        val temp = mutableListOf<Animal>()
+        val died = mutableListOf<Animal>()
+        zoo.forEach { animal ->
+            if(animal.isTooOld){
+                println("Old ${animal.name} died...")
+                died += animal
+            } else temp += animal
+            animal.doSomeActionOrReturnBornChild()?.let { temp += it }
+        }
+        zoo = temp
+        died.clear()
+        }
 
 
-    repeat(300) {
-
-        lion.doSomeAction()?.let { zoo.addingAChild(it, zooContains) }
-        bird.doSomeAction()?.also { zoo.addingAChild(it, zooContains) }
-        fish.doSomeAction()?.also { zoo.addingAChild(it, zooContains) }
-        dog.doSomeAction()?.also { zoo.addingAChild(it, zooContains) }
+        println()
+        println(zoo.size)
+        println()
+        zoo.forEach { println(it.age) }
     }
-    println(zooContains.size)
-}

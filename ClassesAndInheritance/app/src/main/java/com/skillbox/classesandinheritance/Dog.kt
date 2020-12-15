@@ -2,23 +2,17 @@ package com.skillbox.classesandinheritance
 
 import kotlin.random.Random
 
-class Dog: Animal(), Soundable {
+class Dog(energy: Int = 5, weight: Int = 5, maxAge: Int = 40, name: String = "Bird"): Animal(energy, weight, maxAge, name), Soundable {
 
-    override val maxAge = 40
+
 
     override fun move() {
         name = "Dog"
-        when {
-            isTooOld -> return
-            energy < 5 -> return
-            weight < 1 -> return
-            else -> {
-                energy -= 5
-                weight--
-                incrementAgeSometimes()
-                println("$name is running")
-            }
-        }
+        if (isTooOld || energy < 5 || weight < 1) return
+        energy -= 5
+        weight--
+        incrementAgeSometimes()
+        println("$name is running")
     }
 
     override fun makeChild(): Dog {
@@ -34,7 +28,7 @@ class Dog: Animal(), Soundable {
         println("A dog says \"woof - woof\"")
     }
 
-    override fun doSomeAction(): Animal? = when (Random.nextInt(5)) {
+    override fun doSomeActionOrReturnBornChild(): Animal? = when (Random.nextInt(5)) {
         0 -> null.also { eat() }
         1 -> null.also { sleep() }
         2 -> null.also { move() }

@@ -2,23 +2,16 @@ package com.skillbox.classesandinheritance
 
 import kotlin.random.Random
 
-class Fish: Animal() {
+class Fish(energy: Int = 5, weight: Int = 5, maxAge: Int = 20, name: String = "Bird"): Animal(energy, weight, maxAge, name) {
 
-    override val maxAge = 10
 
     override fun move() {
         name = "Fish"
-        when {
-            isTooOld -> return
-            energy < 5 -> return
-            weight < 1 -> return
-            else -> {
-                energy -= 5
-                weight--
-                incrementAgeSometimes()
-                println("$name is swims")
-            }
-        }
+        if (isTooOld || energy < 5 || weight < 1) return
+        energy -= 5
+        weight--
+        incrementAgeSometimes()
+        println("$name is swims")
     }
 
     override fun makeChild(): Fish {
@@ -28,6 +21,14 @@ class Fish: Animal() {
         child.weight = Random.nextInt(5) + 1
         println("${child.name} was born with ${child.energy} energy and ${child.weight} weight.")
         return child
+    }
+
+    override fun doSomeActionOrReturnBornChild(): Animal? = when (Random.nextInt(4)) {
+        0 -> null.also { eat() }
+        1 -> null.also { sleep() }
+        2 -> null.also { move() }
+        3 -> makeChild()
+        else -> throw IllegalStateException("Unknown case")
     }
 
 }
