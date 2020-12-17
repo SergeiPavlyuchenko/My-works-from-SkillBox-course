@@ -1,16 +1,16 @@
 package com.skillbox.classesandinheritance
 
 
+
 fun main() {
-    var zoo = Zoo().create().toMutableList()
+    var zoo = Zoo().contains.toMutableList()
 
-
-    repeat(6) {
+    repeat(8) {
         if (zoo.isEmpty()) return println("Zoo is empty")
         val temp = mutableListOf<Animal>()
         zoo.forEach { animal ->
             if(animal.isTooOld){
-                println("Old ${animal.name} died...")
+                println("Old $animal died...")
             } else temp += animal
             animal.doSomeActionOrReturnBornChild()?.let { temp += it }
         }
@@ -20,6 +20,7 @@ fun main() {
 
         println()
         println(zoo.size)
-        println()
-        zoo.forEach { println(it.age) }
-    }
+//        println()
+//        zoo.forEach { println(it.age) }
+
+}

@@ -2,27 +2,19 @@ package com.skillbox.classesandinheritance
 
 import kotlin.random.Random
 
-class Bird(energy: Int = 5, weight: Int = 5, maxAge: Int = 15, name: String = "Bird"): Animal(energy, weight, maxAge, name), Soundable {
-
-
-
-
+class Bird(energy: Int, weight: Int, maxAge: Int = 15, name: String): Animal(energy, weight, maxAge, name), Soundable {
 
     override fun move() {
-        name = "Bird"
-        if (isTooOld || energy < 5 || weight < 1) return
-        energy -= 5
-        weight--
-        incrementAgeSometimes()
-        println("$name is flying")
+        super.move()
+        println("$name flying")
     }
 
 
     override fun makeChild(): Bird {
-        val child = Bird()
-        child.name = "Bird"
-        child.energy = Random.nextInt(10) + 1
-        child.weight = Random.nextInt(5) + 1
+        val child = Bird(
+                energy = Random.nextInt(10) + 1,
+                weight = Random.nextInt(5) + 1,
+                name = "Bird")
         println("${child.name} was born with ${child.energy} energy and ${child.weight} weight.")
         return child
     }
@@ -39,6 +31,7 @@ class Bird(energy: Int = 5, weight: Int = 5, maxAge: Int = 15, name: String = "B
         4 -> makeChild()
         else -> throw IllegalStateException("Unknown case")
     }
+
 
 
 

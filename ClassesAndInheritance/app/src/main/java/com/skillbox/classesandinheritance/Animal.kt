@@ -2,20 +2,29 @@ package com.skillbox.classesandinheritance
 
 import kotlin.random.Random
 
-abstract class Animal(energy: Int = 5, weight: Int = 5, maxAge: Int = 30, name: String = "Lion") : AgedAnimal(maxAge) {
+abstract class Animal(
+        energy: Int,
+        weight: Int,
+        maxAge: Int,
+        name: String
+) : AgedAnimal(maxAge) {
 
     var energy: Int = energy
-        get() = field
+        get
+        private set(value) {
+            field = value
+        }
 
     var weight: Int = weight
-        get() = field
+        get
+        private set
 
     var age: Int = 0
-        get() = field
+        get
         private set
 
     var name: String = name
-        get() = field
+        get
 
 
     val isTooOld: Boolean
@@ -51,9 +60,11 @@ abstract class Animal(energy: Int = 5, weight: Int = 5, maxAge: Int = 30, name: 
 
 
     open fun makeChild(): Animal {
-        val child = object : Animal(this@Animal.maxAge, name = "Lion") {}
-        child.energy = Random.nextInt(10) + 1
-        child.weight = Random.nextInt(5) + 1
+        val child = object : Animal(
+                energy = Random.nextInt(10) + 1,
+                weight = Random.nextInt(5) + 1,
+                this@Animal.maxAge,
+                this@Animal.name) {}
         println("${child.name} was born with ${child.energy} energy and ${child.weight} weight.")
         return child
     }
@@ -62,7 +73,7 @@ abstract class Animal(energy: Int = 5, weight: Int = 5, maxAge: Int = 30, name: 
     момента, пока не станет старым. После этого рождается новое животное, и оно продолжает этот
     цикл. Убедитесь по логам, что цикл продолжается бесконечно и постоянно происходит рождение
     новых животных.*/
-    
+
     tailrec fun toLiveFromBornToDie(animal: Animal) {
         if (animal.isTooOld) {
             println("Old ${animal.name} died :(\nWas born new child! Yohooo))")
@@ -76,7 +87,7 @@ abstract class Animal(energy: Int = 5, weight: Int = 5, maxAge: Int = 30, name: 
     }
 
 
-    open fun doSomeActionOrReturnBornChild(): Animal? = when (Random.nextInt(4)) {
+        open fun doSomeActionOrReturnBornChild(): Animal? = when (Random.nextInt(4)) {
         0 -> null.also { eat() }
         1 -> null.also { sleep() }
         2 -> null.also { move() }
