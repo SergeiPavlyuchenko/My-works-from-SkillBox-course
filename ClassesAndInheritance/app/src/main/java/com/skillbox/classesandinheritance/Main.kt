@@ -4,10 +4,10 @@ import kotlin.random.Random
 
 
 fun main() {
-    val zoo = Zoo().animals
+    var zoo = Zoo().animals
     val tempZoo = ArrayList(zoo)
 
-    repeat(1) {
+    repeat(3) {
         if (zoo.isEmpty()) return println("Zoo is empty")
         zoo.forEach {
             if (it.isTooOld) {
@@ -23,10 +23,9 @@ fun main() {
             if (it is Soundable) it.makeSound()
 
         }
-        zoo.clear()
-        zoo += tempZoo
-        tempZoo.clear()
     }
+
+    zoo = tempZoo
 
 
         println()
