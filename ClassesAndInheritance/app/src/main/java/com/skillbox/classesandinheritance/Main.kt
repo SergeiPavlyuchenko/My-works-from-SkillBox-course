@@ -4,15 +4,15 @@ import kotlin.random.Random
 
 
 fun main() {
-    var zoo = Zoo().animals
+    val zoo = Zoo().animals.toMutableList()
     val tempZoo = mutableListOf<Animal>()
 
-    repeat(10) {
+    repeat(5) {
         if (zoo.isEmpty()) return println("Zoo is empty")
         zoo.forEach {
             if (it.isTooOld) {
                 println("Old $it died...")
-            } else tempZoo += it
+            } else tempZoo.add(it)
             when (Random.nextInt(4)) {
                 0 -> it.eat()
                 1 -> it.sleep()
@@ -21,17 +21,16 @@ fun main() {
                 else -> throw IllegalStateException("Unknown case")
             }
             if (it is Soundable) it.makeSound()
-            tempZoo.add(it.makeChild())
-            zoo = tempZoo
+
         }
+        zoo.clear()
+        zoo += tempZoo
         tempZoo.clear()
     }
 
 
-
         println()
         println(zoo.size)
-        zoo.forEach { println(it.age) }
-        zoo.forEach { println(it) }
+//        zoo.forEach { println(it.age) }
 
 }

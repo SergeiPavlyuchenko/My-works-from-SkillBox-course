@@ -17,7 +17,8 @@ abstract class Animal(
     var age: Int = 0
         private set
 
-    override val maxAge: Int = 50
+    override val maxAge: Int
+        get() = 50
 
     val isTooOld: Boolean
         get() = age >= maxAge
