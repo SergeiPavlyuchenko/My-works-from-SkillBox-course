@@ -5,27 +5,19 @@ import kotlin.random.Random
 abstract class Animal(
         energy: Int,
         weight: Int,
-        maxAge: Int,
-        name: String
-) : AgedAnimal(maxAge) {
+        val  name: String
+) : AgedAnimal() {
 
     var energy: Int = energy
-        get
-        private set(value) {
-            field = value
-        }
+        private set
 
     var weight: Int = weight
-        get
         private set
 
     var age: Int = 0
-        get
         private set
 
-    var name: String = name
-        get
-
+    override val maxAge: Int = 50
 
     val isTooOld: Boolean
         get() = age >= maxAge
@@ -63,8 +55,8 @@ abstract class Animal(
         val child = object : Animal(
                 energy = Random.nextInt(10) + 1,
                 weight = Random.nextInt(5) + 1,
-                this@Animal.maxAge,
-                this@Animal.name) {}
+                name) {
+        }
         println("${child.name} was born with ${child.energy} energy and ${child.weight} weight.")
         return child
     }
@@ -85,15 +77,5 @@ abstract class Animal(
             toLiveFromBornToDie(animal)
         }
     }
-
-
-        open fun doSomeActionOrReturnBornChild(): Animal? = when (Random.nextInt(4)) {
-        0 -> null.also { eat() }
-        1 -> null.also { sleep() }
-        2 -> null.also { move() }
-        3 -> makeChild()
-        else -> throw IllegalStateException("Unknown case")
-    }
-
 
 }

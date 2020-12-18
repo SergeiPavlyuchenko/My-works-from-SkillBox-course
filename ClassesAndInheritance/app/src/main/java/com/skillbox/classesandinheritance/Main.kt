@@ -1,26 +1,37 @@
 package com.skillbox.classesandinheritance
 
+import kotlin.random.Random
 
 
 fun main() {
-    var zoo = Zoo().contains.toMutableList()
+    var zoo = Zoo().animals
+    val tempZoo = mutableListOf<Animal>()
 
-    repeat(8) {
+    repeat(10) {
         if (zoo.isEmpty()) return println("Zoo is empty")
-        val temp = mutableListOf<Animal>()
-        zoo.forEach { animal ->
-            if(animal.isTooOld){
-                println("Old $animal died...")
-            } else temp += animal
-            animal.doSomeActionOrReturnBornChild()?.let { temp += it }
+        zoo.forEach {
+            if (it.isTooOld) {
+                println("Old $it died...")
+            } else tempZoo += it
+            when (Random.nextInt(4)) {
+                0 -> it.eat()
+                1 -> it.sleep()
+                2 -> it.move()
+                3 -> tempZoo.add(it.makeChild())
+                else -> throw IllegalStateException("Unknown case")
+            }
+            if (it is Soundable) it.makeSound()
+            tempZoo.add(it.makeChild())
+            zoo = tempZoo
         }
-        zoo = temp
-        }
+        tempZoo.clear()
+    }
+
 
 
         println()
         println(zoo.size)
-//        println()
-//        zoo.forEach { println(it.age) }
+        zoo.forEach { println(it.age) }
+        zoo.forEach { println(it) }
 
 }
