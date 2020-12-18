@@ -4,10 +4,10 @@ import kotlin.random.Random
 
 
 fun main() {
-    val zoo = Zoo().animals.toMutableList()
-    val tempZoo = mutableListOf<Animal>()
+    val zoo = Zoo().animals
+    val tempZoo = ArrayList(zoo)
 
-    repeat(5) {
+    repeat(1) {
         if (zoo.isEmpty()) return println("Zoo is empty")
         zoo.forEach {
             if (it.isTooOld) {
