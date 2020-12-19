@@ -2,7 +2,7 @@ package com.skillbox.basemethodsandpropertydelegates
 
 import kotlin.random.Random
 
-class Person(height: Int, weight: Int, name: String, pets: HashSet<Animal> = hashSetOf()) {
+class Person(height: Int, weight: Int, name: String, pet: HashSet<Animal> = hashSetOf()) {
 
     val height: Int = height
         get() = field
@@ -13,7 +13,8 @@ class Person(height: Int, weight: Int, name: String, pets: HashSet<Animal> = has
     val name: String = name
         get() = field
 
-    val pets: HashSet<Animal>  by PetsOfPersons(hashSetOf())
+    val pets: HashSet<Animal>  by PetsOfPersons(pet)
+
 
 
     fun byPet() {

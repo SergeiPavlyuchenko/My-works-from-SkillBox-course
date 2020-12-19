@@ -7,7 +7,7 @@ class PetsOfPersons <T> (
 ) : ReadOnlyProperty<Person, T> {
 
     override fun getValue(thisRef: Person, property: KProperty<*>): T {
-        println(thisRef.pets)
+        println("${thisRef.name} pets: $value")
         return value
     }
 
