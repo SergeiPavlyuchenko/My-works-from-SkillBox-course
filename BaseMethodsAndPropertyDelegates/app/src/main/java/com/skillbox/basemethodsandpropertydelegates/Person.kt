@@ -2,27 +2,17 @@ package com.skillbox.basemethodsandpropertydelegates
 
 import kotlin.random.Random
 
-class Person(height: Int, weight: Int, name: String, pet: HashSet<Animal> = hashSetOf()) {
-
-    val height: Int = height
-        get() = field
-
-    val weight: Int = weight
-        get() = field
-
-    val name: String = name
-        get() = field
-
-    val pets: HashSet<Animal>  by PetsOfPersons(pet)
+class Person(val height: Int, val weight: Int, val name: String) {
 
 
+    val pets: HashSet<Animal>  by PetsOfPersons(hashSetOf())
 
     fun byPet() {
-       // print("Enter a pet name: ")
+        //print("Enter a pet name: ")
         val pet = Animal(
             Random.nextInt(10) + 1,
             Random.nextInt(10) + 1,
-            //readLine() ?: listOf("Lion", "Goose", "Herring", "Shepherd").random()
+//            readLine() ?: listOf("Lion", "Goose", "Herring", "Shepherd").random()
             listOf("Lion", "Goose", "Herring", "Shepherd").random()
         )
         pets.add(pet)

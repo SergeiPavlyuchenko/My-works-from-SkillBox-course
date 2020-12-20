@@ -5,4 +5,8 @@ data class Animal(
     val weight: Int ,
     val name: String
 ) {
+
+    override fun toString(): String {
+        return "Animal(energy = $energy, weight = $weight, name = '$name')"
+    }
 }

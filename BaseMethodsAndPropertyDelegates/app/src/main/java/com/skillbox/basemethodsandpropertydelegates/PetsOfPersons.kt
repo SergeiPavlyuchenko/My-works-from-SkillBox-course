@@ -2,12 +2,12 @@ package com.skillbox.basemethodsandpropertydelegates
 import kotlin.properties.ReadOnlyProperty
 import kotlin.reflect.KProperty
 
-class PetsOfPersons <T> (
-        private var value: T
-) : ReadOnlyProperty<Person, T> {
+class PetsOfPersons  (
+        private var value: HashSet<Animal>
+) : ReadOnlyProperty<Person, HashSet<Animal>> {
 
-    override fun getValue(thisRef: Person, property: KProperty<*>): T {
-        println("${thisRef.name} pets: $value")
+    override fun getValue(thisRef: Person, property: KProperty<*>): HashSet<Animal> {
+        if(value.isNotEmpty()) println("${thisRef.name} pets: $value")
         return value
     }
 
