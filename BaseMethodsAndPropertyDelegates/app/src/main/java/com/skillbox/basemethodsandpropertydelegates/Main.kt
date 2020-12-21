@@ -10,7 +10,7 @@ fun main() {
     )
 
     val alex = Person(185, 100, "Alex")
-    
+
     tyler.byPet()
     tyler.byPet()
     tyler.byPet()

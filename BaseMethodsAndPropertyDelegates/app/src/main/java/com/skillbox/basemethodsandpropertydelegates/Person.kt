@@ -8,16 +8,23 @@ class Person(val height: Int, val weight: Int, val name: String) {
     val pets: HashSet<Animal>  by PetsOfPersons(hashSetOf())
 
     fun byPet() {
-        //print("Enter a pet name: ")
+
         val pet = Animal(
             Random.nextInt(10) + 1,
             Random.nextInt(10) + 1,
-//            readLine() ?: listOf("Lion", "Goose", "Herring", "Shepherd").random()
-            listOf("Lion", "Goose", "Herring", "Shepherd").random()
+            readLine() ?: listOf("Lion", "Goose", "Herring", "Shepherd").random()
+
         )
         pets.add(pet)
     }
 
+    private fun getNameAnimal(): String {
+        print("Enter a pet name: ")
+        val input = readLine()
+        return if(input.isNullOrBlank()) {
+            listOf("Lion", "Goose", "Herring", "Shepherd").random()
+        } else input
+    }
     
 
     override fun equals(other: Any?): Boolean {
