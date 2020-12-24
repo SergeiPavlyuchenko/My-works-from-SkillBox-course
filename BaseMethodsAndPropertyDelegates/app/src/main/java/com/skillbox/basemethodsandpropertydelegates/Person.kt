@@ -12,8 +12,7 @@ class Person(val height: Int, val weight: Int, val name: String) {
         val pet = Animal(
             Random.nextInt(10) + 1,
             Random.nextInt(10) + 1,
-            readLine() ?: listOf("Lion", "Goose", "Herring", "Shepherd").random()
-
+            getNameAnimal()
         )
         pets.add(pet)
     }
