@@ -12,32 +12,21 @@ abstract class AbstractWeapon(
     abstract fun createTheAmmo(): Ammo
 
     fun reload() {
+        val temp = mutableListOf<Ammo>()
         while (currentAmmo.size < sizeOfMagazine) {
-            currentAmmo.add(createTheAmmo())
+            temp.add(createTheAmmo())
         }
+        currentAmmo = temp
     }
 
-    private fun addingAmmoFromCurrent(ammoToFire: MutableList<Ammo>, ammo: Ammo) {
-        if (hasAmmo) {
-            ammoToFire.add(ammo)
-            currentAmmo.removeAt(currentAmmo.lastIndex)
-        }
-    }
+
 
     fun getAmmoToFire(): List<Ammo> {
-        val ammoToFire = mutableListOf<Ammo>()
-        val ammo = createTheAmmo()
-        when (fireType) {
-            FireType.Single -> addingAmmoFromCurrent(ammoToFire, ammo)
-            FireType.Burst(2) -> {
-                repeat(2) { addingAmmoFromCurrent(ammoToFire, ammo) }
+        return mutableListOf<Ammo>().apply {
+            while (size < fireType.numbersOfAmmo && hasAmmo) {
+                add(currentAmmo.removeFirst())
             }
-            FireType.Burst(sizeOfMagazine) -> {
-                repeat(sizeOfMagazine) { addingAmmoFromCurrent(ammoToFire, ammo) }
-            }
-            else -> getAmmoToFire()
         }
-        return ammoToFire
     }
 }
 

@@ -9,12 +9,12 @@ fun main() {
     val firstTeam = Team(numbersOfWarriors)
     val secondTeam = Team(numbersOfWarriors)
     val battle = Battle(firstTeam, secondTeam)
-    val battleIsFinished: Boolean = battle.getBattleState() == BattleState.Progress(firstTeam, secondTeam)
+    val battleIsFinished: Boolean = battle.getBattleState() != BattleState.Progress(firstTeam.getHpOfTeam(), secondTeam.getHpOfTeam())
     Battle(firstTeam, secondTeam)
     while (battleIsFinished) {
         battle.doBattleTurn()
-        println("HP of first team: ${BattleState.HpOfTeam.getInfo(firstTeam)}")
-        println("HP of second team: ${BattleState.HpOfTeam.getInfo(secondTeam)}")
+        println("HP of first team: ${BattleState.Progress(firstTeam.getHpOfTeam(), secondTeam.getHpOfTeam()).print()}")
+        println("HP of second team: ${BattleState.Progress(firstTeam.getHpOfTeam(), secondTeam.getHpOfTeam()).print()}")
     }
 
 }

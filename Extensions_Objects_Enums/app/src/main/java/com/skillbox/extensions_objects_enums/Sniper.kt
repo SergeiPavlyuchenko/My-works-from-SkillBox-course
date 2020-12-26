@@ -6,8 +6,7 @@ class Sniper(maxHP: Int = 100,
               weapon: AbstractWeapon = Weapons.sniperRifle
 ): AbstractWarrior(maxHP, dodgeChance, accuracy, weapon) {
 
-    override val isKilled: Boolean
-        get() = currentHP == 0
+    override val isKilled: Boolean = super.isKilled
 
     override fun toString(): String {
         return "Sniper"

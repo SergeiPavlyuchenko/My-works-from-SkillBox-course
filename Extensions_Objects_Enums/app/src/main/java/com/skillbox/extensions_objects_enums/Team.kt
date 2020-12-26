@@ -5,10 +5,9 @@ class Team(
         private val number: Int
 )  {
 
-    val warriors: MutableList<Warrior>
-        get() = create()
+    val warriors: MutableList<Warrior> = createTheTeam()
 
-    private fun create(): MutableList<Warrior> {
+    private fun createTheTeam(): MutableList<Warrior> {
         var currentIndex = 0
         while(currentIndex <= number) {
             when {

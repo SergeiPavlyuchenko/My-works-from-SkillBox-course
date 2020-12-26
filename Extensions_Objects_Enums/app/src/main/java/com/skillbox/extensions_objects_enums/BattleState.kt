@@ -1,28 +1,26 @@
 package com.skillbox.extensions_objects_enums
 
-sealed class BattleState {
+sealed class BattleState(private val stateMessage: String) {
+
+    open fun print() = println(stateMessage)
 
     class Progress(
-            private val firstTeam: Team,
-            private val secondTeam: Team,
-    ): BattleState()
-
-    object HpOfTeam: BattleState() {
-        fun getInfo(team: Team): Int = team.getHpOfTeam()
+            private val firstTeamHp: Int,
+            private val secondTeamHp: Int
+    ): BattleState("HP of 1'st team: $firstTeamHp\nHP of 2'nd team: $secondTeamHp") {
+        override fun print() = super.print()
     }
 
-    object FirstTeamWin: BattleState() {
-        fun print() = println("First team is winner")
+    object FirstTeamWin: BattleState("First team is winner") {
+        override fun print() = super.print()
     }
 
-    object SecondTeamWin: BattleState() {
-        fun print() = println("Second team is winner")
+    object SecondTeamWin: BattleState("Second team is winner") {
+        override fun print() = super.print()
     }
 
-    object TheDraw: BattleState() {
-        fun print() = println("The draw")
+    object TheDraw: BattleState("The draw") {
+        override fun print() = super.print()
     }
-
-
 
 }

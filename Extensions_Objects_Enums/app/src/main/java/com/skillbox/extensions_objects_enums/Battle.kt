@@ -5,14 +5,12 @@ class Battle(
         private val secondTeam: Team
 ) {
 
-    private val firstTeamHp = firstTeam.getHpOfTeam()
-    private val secondTeamHp = secondTeam.getHpOfTeam()
 
     fun getBattleState(): BattleState {
         return when {
-            firstTeamHp != 0 && secondTeamHp != 0 -> BattleState.Progress(firstTeam, secondTeam)
-            firstTeamHp != 0 && secondTeamHp == 0 -> BattleState.FirstTeamWin
-            secondTeamHp != 0 && firstTeamHp == 0 -> BattleState.SecondTeamWin
+            firstTeam.getHpOfTeam() != 0 && secondTeam.getHpOfTeam() != 0 -> BattleState.Progress(firstTeam.getHpOfTeam(), secondTeam.getHpOfTeam())
+            firstTeam.getHpOfTeam() != 0 && secondTeam.getHpOfTeam() == 0 -> BattleState.FirstTeamWin
+            secondTeam.getHpOfTeam() != 0 && firstTeam.getHpOfTeam() == 0 -> BattleState.SecondTeamWin
             else ->  BattleState.TheDraw
         }
     }

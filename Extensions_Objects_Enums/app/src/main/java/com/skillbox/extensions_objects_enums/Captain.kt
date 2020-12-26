@@ -6,8 +6,7 @@ class Captain(maxHP: Int = 500,
               weapon: AbstractWeapon = Weapons.shotgun
 ): AbstractWarrior(maxHP, dodgeChance, accuracy, weapon) {
 
-    override val isKilled: Boolean
-        get() = currentHP == 0
+    override val isKilled: Boolean = super.isKilled
 
     override fun toString(): String {
         return "Captain"

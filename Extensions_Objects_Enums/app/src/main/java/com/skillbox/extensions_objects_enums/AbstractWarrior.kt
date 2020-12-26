@@ -7,6 +7,9 @@ abstract class AbstractWarrior(
         val weapon: AbstractWeapon,
 ): Warrior {
 
+    override val isKilled: Boolean
+        get() = currentHP == 0
+
     override var currentHP = maxHP
 
     override fun attack(warrior: Warrior) {
@@ -22,8 +25,8 @@ abstract class AbstractWarrior(
         warrior.takeDamage(summaryDamage)
     }
 
-    override fun takeDamage(damage: Int) {
-        currentHP - damage
+    override fun takeDamage(damage: Int): Int {
+        return currentHP - damage
     }
 
 
