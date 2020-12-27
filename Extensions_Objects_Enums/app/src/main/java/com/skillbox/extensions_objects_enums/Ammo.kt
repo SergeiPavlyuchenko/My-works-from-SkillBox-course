@@ -7,7 +7,7 @@ enum class Ammo(val damage: Int,
     FIRE(40,15,2),
     ELECTRIC(25, 60,3),
     WATER(30, 85,2),
-    LONGSHOT(50,90,3);
+    LONGSHOT(50,90,4);
 
 
     fun getTheDamage(): Int {

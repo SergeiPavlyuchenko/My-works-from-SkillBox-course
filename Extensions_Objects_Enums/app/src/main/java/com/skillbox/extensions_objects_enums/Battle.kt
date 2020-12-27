@@ -25,7 +25,7 @@ class Battle(
                 if(haveHp(firstWarrior) && haveHp(secondWarrior)) {
                     firstWarrior.attack(secondWarrior)
                     if(haveHp(secondWarrior)) secondWarrior.attack(firstWarrior) else break
-                } else continue
+                }
             }
         }
     }

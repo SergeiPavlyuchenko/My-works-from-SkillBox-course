@@ -7,16 +7,17 @@ abstract class AbstractWeapon(
 
     var currentAmmo: MutableList<Ammo> = mutableListOf()
 
-    val hasAmmo: Boolean = currentAmmo.isNotEmpty()
+    val hasAmmo: Boolean
+        get() = currentAmmo.isNotEmpty()
 
     abstract fun createTheAmmo(): Ammo
 
     fun reload() {
         val temp = mutableListOf<Ammo>()
-        while (currentAmmo.size < sizeOfMagazine) {
+        while (temp.size < sizeOfMagazine) {
             temp.add(createTheAmmo())
         }
-        currentAmmo = temp
+        currentAmmo.plusAssign(temp)
     }
 
 
@@ -34,34 +35,34 @@ abstract class AbstractWeapon(
 
     object Weapons {
 
-        private fun createPistol(): AbstractWeapon {
+        private fun Ammo.createPistol(): AbstractWeapon {
             return object : AbstractWeapon(7,FireType.Single) {
-                override fun createTheAmmo(): Ammo = createTheAmmo()
+                override fun createTheAmmo(): Ammo = this@createPistol
             }
         }
 
-        private fun createShotgun(): AbstractWeapon {
+        private fun Ammo.createShotgun(): AbstractWeapon {
             return object : AbstractWeapon(2,FireType.Burst(2)) {
-                override fun createTheAmmo(): Ammo = createTheAmmo()
+                override fun createTheAmmo(): Ammo = this@createShotgun
             }
         }
 
-        private fun createSniperRifle(): AbstractWeapon {
+        private fun Ammo.createSniperRifle(): AbstractWeapon {
             return object : AbstractWeapon(5, FireType.Single) {
-                override fun createTheAmmo(): Ammo = createTheAmmo()
+                override fun createTheAmmo(): Ammo = this@createSniperRifle
             }
         }
 
-        private fun createAutomaticWeapon(): AbstractWeapon {
+        private fun Ammo.createAutomaticWeapon(): AbstractWeapon {
             return object : AbstractWeapon(30, FireType.Burst(30)) {
-                override fun createTheAmmo(): Ammo = createTheAmmo()
+                override fun createTheAmmo(): Ammo = this@createAutomaticWeapon
             }
         }
 
-        val pistol: AbstractWeapon = createPistol()
-        val shotgun: AbstractWeapon = createShotgun()
-        val sniperRifle: AbstractWeapon = createSniperRifle()
-        val automaticWeapon: AbstractWeapon = createAutomaticWeapon()
+        val pistol: AbstractWeapon = Ammo.WATER.createPistol()
+        val shotgun: AbstractWeapon = Ammo.FIRE.createShotgun()
+        val sniperRifle: AbstractWeapon = Ammo.LONGSHOT.createSniperRifle()
+        val automaticWeapon: AbstractWeapon = Ammo.ELECTRIC.createAutomaticWeapon()
 
     }
 

@@ -26,7 +26,8 @@ abstract class AbstractWarrior(
     }
 
     override fun takeDamage(damage: Int): Int {
-        return currentHP - damage
+        currentHP -= damage
+        return if(currentHP < 0) 0 else currentHP
     }
 
 
