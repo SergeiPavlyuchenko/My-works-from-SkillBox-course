@@ -10,6 +10,6 @@ interface Warrior {
 
     fun attack(warrior: Warrior)
 
-    fun takeDamage(damage: Int): Int
+    fun takeDamage(damage: Int)
 
 }

@@ -6,8 +6,6 @@ class General(maxHP: Int = 1000,
               weapon: AbstractWeapon = Weapons.automaticWeapon
 ): AbstractWarrior(maxHP, dodgeChance, accuracy, weapon) {
 
-    override val isKilled: Boolean = super.isKilled
-
     override fun toString(): String {
         return "General"
     }

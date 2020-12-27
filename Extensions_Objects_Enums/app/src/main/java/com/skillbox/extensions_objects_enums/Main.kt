@@ -17,7 +17,11 @@ fun main() {
     while (!battleIsFinished) {
         battle.doBattleTurn()
         BattleState.Progress(firstTeam.getHpOfTeam(), secondTeam.getHpOfTeam()).print()
+        if(firstTeam.getHpOfTeam() == 0) break
+        if(secondTeam.getHpOfTeam() == 0) break
     }
+    battle.getBattleState().print()
+    return
 
 }
 

@@ -25,9 +25,8 @@ abstract class AbstractWarrior(
         warrior.takeDamage(summaryDamage)
     }
 
-    override fun takeDamage(damage: Int): Int {
-        currentHP -= damage
-        return if(currentHP < 0) 0 else currentHP
+    override fun takeDamage(damage: Int) {
+        if (currentHP - damage < 0) currentHP = 0 else currentHP -= damage
     }
 
 
