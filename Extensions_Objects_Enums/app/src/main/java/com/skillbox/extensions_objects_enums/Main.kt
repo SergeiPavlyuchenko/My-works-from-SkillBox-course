@@ -9,12 +9,8 @@ fun main() {
     val firstTeam = Team(numbersOfWarriors)
     val secondTeam = Team(numbersOfWarriors)
     val battle = Battle(firstTeam, secondTeam)
-    val battleIsFinished: Boolean =
-            battle.getBattleState() == BattleState.FirstTeamWin ||
-            battle.getBattleState() == BattleState.SecondTeamWin ||
-            battle.getBattleState() == BattleState.TheDraw
     Battle(firstTeam, secondTeam)
-    while (!battleIsFinished) {
+    while (true) {
         battle.doBattleTurn()
         BattleState.Progress(firstTeam.getHpOfTeam(), secondTeam.getHpOfTeam()).print()
         if(firstTeam.getHpOfTeam() == 0) break
