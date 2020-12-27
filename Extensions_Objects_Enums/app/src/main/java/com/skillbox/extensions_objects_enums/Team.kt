@@ -5,11 +5,12 @@ class Team(
         private val number: Int
 )  {
 
-    val warriors: MutableList<Warrior> = createTheTeam()
+    val warriors: MutableList<Warrior> by lazy { createTheTeam() }
 
     private fun createTheTeam(): MutableList<Warrior> {
+        val warriors = mutableListOf<Warrior>()
         var currentIndex = 0
-        while(currentIndex <= number) {
+        while(currentIndex < number) {
             when {
                 10.toBoolean() -> warriors.add(General())
                 15.toBoolean() -> warriors.add(Sniper())
