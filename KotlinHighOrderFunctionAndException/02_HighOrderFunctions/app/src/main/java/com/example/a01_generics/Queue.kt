@@ -1,5 +1,7 @@
 package com.example.a01_generics
 
+import java.util.function.BiPredicate
+
 class Queue<T> {
 
     val elements: MutableSet<T> = mutableSetOf()
@@ -11,5 +13,7 @@ class Queue<T> {
     fun dequeue(): T? {
         return elements.firstOrNull()
     }
+
+
 
 }

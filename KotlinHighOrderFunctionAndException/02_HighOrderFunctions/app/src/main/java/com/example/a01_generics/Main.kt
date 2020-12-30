@@ -9,9 +9,8 @@ fun main() {
     println(getEvenElements(int))
     println(getEvenElements(double))
     println(getEvenElements(float))
-
+    filter { getEvenElements(int) }
 }
-
 
 fun <T: Number> getEvenElements(elements: List<T>): List<T> {
     return elements.filter {
@@ -25,3 +24,8 @@ fun <T: Number> getEvenElements(elements: List<T>): List<T> {
     }
 }
 
+ fun <T: Number> filter(callBack: (List<T>) -> List<T>): Queue<T> {
+     val newObject: Queue<T> = Queue()
+     callBack(newObject.elements.toList())
+     return newObject
+ }
