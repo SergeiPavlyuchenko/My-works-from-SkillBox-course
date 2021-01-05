@@ -14,14 +14,9 @@ fun main() {
 
 
 fun <T: Number> getEvenElements(elements: List<T>): List<T> {
-    return elements.filter {
-        when (it) {
-            is Short -> it % 2 == 0
-            is Int -> it % 2 == 0
-            is Double -> it % 2.0 == 0.0
-            is Float -> it % 2f == 0f
-            else -> throw Exception("Unknown type")
-        }
-    }
+    return elements.filter { it.toDouble() % 2 == 0.0}
 }
 
+fun returnIntStringObject(item: Result<Int, String>): Result<Int, String> {
+    return item
+}

@@ -8,8 +8,9 @@ class Queue<T> {
         elements.add(item)
     }
 
+    @ExperimentalStdlibApi
     fun dequeue(): T? {
-        return elements.firstOrNull()
+        return elements.toMutableList().removeFirstOrNull()
     }
 
 }
