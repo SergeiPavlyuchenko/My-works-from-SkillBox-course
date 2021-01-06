@@ -10,6 +10,9 @@ fun main() {
     println(getEvenElements(double))
     println(getEvenElements(float))
 
+    val lambdaFunction = { println("result: ${Queue<Int>().filter { getEvenElements(int) }}") }
+    lambdaFunction()
+
 }
 
 
