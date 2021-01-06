@@ -1,2 +1,1 @@
-# Основы Kotlin: функции высшего порядка, исключения
-### Code conventions
+# Расширения, oбъявление объектов, enums, sealed classes

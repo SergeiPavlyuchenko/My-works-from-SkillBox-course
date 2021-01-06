@@ -16,8 +16,8 @@ fun main() {
 }
 
 
-fun <T: Number> getEvenElements(elements: List<T>): List<T> {
-    return elements.filter { it.toDouble() % 2 == 0.0}
+fun <T : Number> getEvenElements(elements: List<T>): List<T> {
+    return elements.filter { it.toDouble() % 2 == 0.0 }
 }
 
 fun returnIntStringObject(item: Result<Int, String>): Result<Int, String> {
