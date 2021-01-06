@@ -24,8 +24,16 @@ abstract class AbstractWeapon(
 
     fun getAmmoToFire(): List<Ammo> {
         return mutableListOf<Ammo>().apply {
-            while (size < fireType.numbersOfAmmo && hasAmmo) {
-                add(currentAmmo.removeFirst())
+            while (size < fireType.numbersOfAmmo /*&& hasAmmo*/) {
+                try {
+                    if(!hasAmmo) throw NoAmmoException()
+                    add(currentAmmo.removeFirst())
+                } catch (t: NoAmmoException) {
+//                    println(t.message)
+//                    println("Reloading weapon")
+                    reload()
+                }
+
             }
         }
     }

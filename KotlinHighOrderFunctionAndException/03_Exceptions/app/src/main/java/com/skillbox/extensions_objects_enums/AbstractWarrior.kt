@@ -14,14 +14,14 @@ abstract class AbstractWarrior(
 
     override fun attack(warrior: Warrior) {
         var summaryDamage = 0
-        if(!weapon.hasAmmo) {
-            weapon.reload()
-            return
-        } else {
+//        if(!weapon.hasAmmo) {
+//            weapon.reload()
+//            return
+//        } else {
             weapon.getAmmoToFire()
                     .filter { accuracy > warrior.dodgeChance }
                     .forEach { summaryDamage += it.getTheDamage() }
-        }
+//        }
         warrior.takeDamage(summaryDamage)
     }
 
