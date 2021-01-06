@@ -9,23 +9,14 @@ fun main() {
     println(getEvenElements(int))
     println(getEvenElements(double))
     println(getEvenElements(float))
-    filter { getEvenElements(int) }
+
 }
+
 
 fun <T: Number> getEvenElements(elements: List<T>): List<T> {
-    return elements.filter {
-        when (it) {
-            is Short -> it % 2 == 0
-            is Int -> it % 2 == 0
-            is Double -> it % 2.0 == 0.0
-            is Float -> it % 2f == 0f
-            else -> throw Exception("Unknown type")
-        }
-    }
+    return elements.filter { it.toDouble() % 2 == 0.0}
 }
 
- fun <T: Number> filter(callBack: (List<T>) -> List<T>): Queue<T> {
-     val newObject: Queue<T> = Queue()
-     callBack(newObject.elements.toList())
-     return newObject
- }
+fun returnIntStringObject(item: Result<Int, String>): Result<Int, String> {
+    return item
+}

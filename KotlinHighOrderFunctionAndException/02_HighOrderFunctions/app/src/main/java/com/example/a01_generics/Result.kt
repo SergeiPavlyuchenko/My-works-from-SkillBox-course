@@ -1,18 +1,14 @@
 package com.example.a01_generics
 
-sealed class Result<out T: Any, R> {
-    abstract val item: Result<Int, String>
-
-    fun returnObject(): Result<Int, String> {
-        return item
-    }
+sealed class Result<out T, R> {
+    data class Success<T, R> (val success: T) : Result<T, R>()
+    data class Error<T, R> (val error: R) : Result<T, R>()
 }
 
 
 
 
 
-data class Success<T : Any, R> (val newItem: T, override val item: Result<Int, String>) : Result<T, R>()
 
 
-data class Error<T: Any, R> (val newItem: R, override val item: Result<Int, String>) : Result<T, R>()
+
