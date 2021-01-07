@@ -1,9 +1,8 @@
 package com.example.a01_generics
 
-class Queue<T : Number> {
+class Queue<T : Number>(currentList: MutableList<T>) {
 
-    private val elements: MutableList<T> = mutableListOf()
-
+    var elements: MutableList<T> = currentList
     fun enqueue(item: T) {
         elements.add(item)
     }
@@ -11,6 +10,14 @@ class Queue<T : Number> {
     @ExperimentalStdlibApi
     fun dequeue(): T? {
         return elements.removeFirstOrNull()
+    }
+
+    fun filter(callBack: (MutableList<T>) -> MutableList<T>): Queue<T> {
+        return Queue(callBack(elements))
+    }
+
+    override fun toString(): String {
+        return "Queue(elements = $elements)"
     }
 
 
