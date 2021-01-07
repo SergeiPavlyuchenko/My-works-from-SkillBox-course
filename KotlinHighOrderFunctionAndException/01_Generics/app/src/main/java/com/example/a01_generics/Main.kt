@@ -1,6 +1,7 @@
 package com.example.a01_generics
 
 import java.lang.Exception
+import kotlin.random.Random
 
 fun main() {
     val int = listOf(1, 2, 4, 5, 6)
@@ -10,13 +11,15 @@ fun main() {
     println(getEvenElements(double))
     println(getEvenElements(float))
 
+    val a: Result<Number, String> = returnIntStringObject<Int, String>()
+    val b: Result<Int, CharSequence> = returnIntStringObject<Int, CharSequence>()
 }
 
 
-fun <T: Number> getEvenElements(elements: List<T>): List<T> {
-    return elements.filter { it.toDouble() % 2 == 0.0}
+fun <T : Number> getEvenElements(elements: List<T>): List<T> {
+    return elements.filter { it.toDouble() % 2 == 0.0 }
 }
 
-fun returnIntStringObject(item: Result<Int, String>): Result<Int, String> {
-    return item
+fun <T, R> returnIntStringObject(): Result<Int, String> {
+    return if(Random.nextBoolean()) Result.Success(1) else Result.Error("Error")
 }

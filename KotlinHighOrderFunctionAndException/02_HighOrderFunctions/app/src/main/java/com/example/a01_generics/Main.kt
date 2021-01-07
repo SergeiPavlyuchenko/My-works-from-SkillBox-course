@@ -20,6 +20,6 @@ fun <T : Number> getEvenElements(elements: List<T>): List<T> {
     return elements.filter { it.toDouble() % 2 == 0.0 }
 }
 
-fun returnIntStringObject(item: Result<Int, String>): Result<Int, String> {
-    return item
+fun <T, R>returnIntStringObject(item: Result<T, R>): Result<Int, String> {
+     if(T is Int) Result.Success<Int, String>.success
 }
