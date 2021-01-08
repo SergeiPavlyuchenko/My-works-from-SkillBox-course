@@ -18,11 +18,15 @@ abstract class AbstractWarrior(
 //            weapon.reload()
 //            return
 //        } else {
+        try {
             weapon.getAmmoToFire()
                     .filter { accuracy > warrior.dodgeChance }
                     .forEach { summaryDamage += it.getTheDamage() }
-//        }
-        warrior.takeDamage(summaryDamage)
+            warrior.takeDamage(summaryDamage)
+        } catch (t: NoAmmoException) {
+            weapon.reload()
+        }
+
     }
 
     override fun takeDamage(damage: Int) {

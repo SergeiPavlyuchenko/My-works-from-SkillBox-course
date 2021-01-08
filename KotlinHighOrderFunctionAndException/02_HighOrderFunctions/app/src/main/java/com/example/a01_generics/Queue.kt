@@ -3,6 +3,7 @@ package com.example.a01_generics
 class Queue<T : Number>(currentList: MutableList<T>) {
 
     var elements: MutableList<T> = currentList
+
     fun enqueue(item: T) {
         elements.add(item)
     }
