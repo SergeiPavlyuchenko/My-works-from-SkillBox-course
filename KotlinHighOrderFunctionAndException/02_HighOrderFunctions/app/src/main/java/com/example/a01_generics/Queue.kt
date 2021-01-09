@@ -1,20 +1,24 @@
 package com.example.a01_generics
 
-class Queue<T : Number>(currentList: MutableList<T>) {
+import java.util.function.BiPredicate
 
-    var elements: MutableList<T> = currentList
+class Queue<T : Number>(currentList: List<T>) {
+
+    private var elements: List<T> = currentList
 
     fun enqueue(item: T) {
-        elements.add(item)
+        elements.toMutableList().add(item)
     }
 
     @ExperimentalStdlibApi
     fun dequeue(): T? {
-        return elements.removeFirstOrNull()
+        return elements.toMutableList().removeFirstOrNull()
     }
 
-    fun filter(callBack: (MutableList<T>) -> MutableList<T>): Queue<T> {
-        return Queue(callBack(elements))
+    fun filter(predicate: (T) -> Boolean): Queue<T> {
+        val tempList: MutableList<T> = mutableListOf()
+        elements.forEach { if(predicate(it)) tempList.add(it) }
+        return Queue(tempList)
     }
 
     override fun toString(): String {
