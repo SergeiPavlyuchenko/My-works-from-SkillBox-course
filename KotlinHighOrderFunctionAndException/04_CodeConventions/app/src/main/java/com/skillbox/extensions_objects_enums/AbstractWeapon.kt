@@ -13,11 +13,8 @@ abstract class AbstractWeapon(
     abstract fun createTheAmmo(): Ammo
 
     fun reload() {
-        val temp = mutableListOf<Ammo>()
-        while (temp.size < sizeOfMagazine) {
-            temp.add(createTheAmmo())
-        }
-        currentAmmo.plusAssign(temp)
+        val tempAmmo = MutableList(sizeOfMagazine) { createTheAmmo() }
+        currentAmmo = tempAmmo
     }
 
     fun getAmmoToFire(): List<Ammo> {

@@ -14,7 +14,7 @@ fun main() {
 //    val b: Result<Int, CharSequence> = returnIntStringObject<Int, CharSequence>()
 
     val queue = Queue(int)
-    val lambdaFunction = { println("result: ${queue.filter { it % 2 == 0}}") }
+    val lambdaFunction = { println("result: ${queue.filter { it % 2 == 0 }}") }
     lambdaFunction()
 }
 
@@ -24,5 +24,5 @@ fun <T : Number> getEvenElements(elements: List<T>): List<T> {
 }
 
 fun <T, R> returnIntStringObject(): Result<Int, String> {
-    return if(Random.nextBoolean()) Result.Success(1) else Result.Error("Error")
+    return if (Random.nextBoolean()) Result.Success(1) else Result.Error("Error")
 }
