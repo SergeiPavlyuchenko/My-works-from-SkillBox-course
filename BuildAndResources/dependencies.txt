@@ -1,0 +1,2524 @@
+D:\Temp\sbx_glb\android_basic\BuildAndResources>gradlew asD taskTree
+
+> Task :app:taskTree
+
+------------------------------------------------------------
+Project :app
+------------------------------------------------------------
+
+:app:assembleDebug
++--- :app:assembleFreeApplicationDebug
+|    +--- :app:compileFreeApplicationDebugSources
+|    |    \--- :app:compileFreeApplicationDebugJavaWithJavac
+|    |         +--- :app:compileFreeApplicationDebugAidl
+|    |         |    \--- :app:preFreeApplicationDebugBuild
+|    |         |         \--- :app:preBuild
+|    |         +--- :app:compileFreeApplicationDebugKotlin
+|    |         |    +--- :app:compileFreeApplicationDebugAidl
+|    |         |    |    \--- :app:preFreeApplicationDebugBuild
+|    |         |    |         \--- :app:preBuild
+|    |         |    +--- :app:compileFreeApplicationDebugRenderscript
+|    |         |    |    \--- :app:preFreeApplicationDebugBuild
+|    |         |    |         \--- :app:preBuild
+|    |         |    +--- :app:generateFreeApplicationDebugBuildConfig
+|    |         |    |    \--- :app:preFreeApplicationDebugBuild
+|    |         |    |         \--- :app:preBuild
+|    |         |    \--- :app:processFreeApplicationDebugResources
+|    |         |         +--- :app:checkFreeApplicationDebugAarMetadata
+|    |         |         |    \--- :app:preFreeApplicationDebugBuild
+|    |         |         |         \--- :app:preBuild
+|    |         |         +--- :app:mergeFreeApplicationDebugResources
+|    |         |         |    +--- :app:generateFreeApplicationDebugResources
+|    |         |         |    |    +--- :app:compileFreeApplicationDebugRenderscript
+|    |         |         |    |    |    \--- :app:preFreeApplicationDebugBuild
+|    |         |         |    |    |         \--- :app:preBuild
+|    |         |         |    |    \--- :app:generateFreeApplicationDebugResValues
+|    |         |         |    |         \--- :app:preFreeApplicationDebugBuild
+|    |         |         |    |              \--- :app:preBuild
+|    |         |         |    \--- :app:preFreeApplicationDebugBuild
+|    |         |         |         \--- :app:preBuild
+|    |         |         +--- :app:preFreeApplicationDebugBuild
+|    |         |         |    \--- :app:preBuild
+|    |         |         +--- :app:processFreeApplicationDebugManifest
+|    |         |         |    +--- :app:createFreeApplicationDebugCompatibleScreenManifests
+|    |         |         |    |    \--- :app:preFreeApplicationDebugBuild
+|    |         |         |    |         \--- :app:preBuild
+|    |         |         |    +--- :app:preFreeApplicationDebugBuild
+|    |         |         |    |    \--- :app:preBuild
+|    |         |         |    \--- :app:processFreeApplicationDebugMainManifest
+|    |         |         |         +--- :app:extractDeepLinksFreeApplicationDebug
+|    |         |         |         |    \--- :app:preFreeApplicationDebugBuild
+|    |         |         |         |         \--- :app:preBuild
+|    |         |         |         \--- :app:preFreeApplicationDebugBuild
+|    |         |         |              \--- :app:preBuild
+|    |         |         \--- :app:processFreeApplicationDebugManifestForPackage
+|    |         |              +--- :app:preFreeApplicationDebugBuild
+|    |         |              |    \--- :app:preBuild
+|    |         |              \--- :app:processFreeApplicationDebugManifest
+|    |         |                   +--- :app:createFreeApplicationDebugCompatibleScreenManifests
+|    |         |                   |    \--- :app:preFreeApplicationDebugBuild
+|    |         |                   |         \--- :app:preBuild
+|    |         |                   +--- :app:preFreeApplicationDebugBuild
+|    |         |                   |    \--- :app:preBuild
+|    |         |                   \--- :app:processFreeApplicationDebugMainManifest
+|    |         |                        +--- :app:extractDeepLinksFreeApplicationDebug
+|    |         |                        |    \--- :app:preFreeApplicationDebugBuild
+|    |         |                        |         \--- :app:preBuild
+|    |         |                        \--- :app:preFreeApplicationDebugBuild
+|    |         |                             \--- :app:preBuild
+|    |         +--- :app:compileFreeApplicationDebugRenderscript
+|    |         |    \--- :app:preFreeApplicationDebugBuild
+|    |         |         \--- :app:preBuild
+|    |         +--- :app:generateFreeApplicationDebugBuildConfig
+|    |         |    \--- :app:preFreeApplicationDebugBuild
+|    |         |         \--- :app:preBuild
+|    |         +--- :app:javaPreCompileFreeApplicationDebug
+|    |         |    \--- :app:preFreeApplicationDebugBuild
+|    |         |         \--- :app:preBuild
+|    |         +--- :app:preFreeApplicationDebugBuild
+|    |         |    \--- :app:preBuild
+|    |         \--- :app:processFreeApplicationDebugResources
+|    |              +--- :app:checkFreeApplicationDebugAarMetadata
+|    |              |    \--- :app:preFreeApplicationDebugBuild
+|    |              |         \--- :app:preBuild
+|    |              +--- :app:mergeFreeApplicationDebugResources
+|    |              |    +--- :app:generateFreeApplicationDebugResources
+|    |              |    |    +--- :app:compileFreeApplicationDebugRenderscript
+|    |              |    |    |    \--- :app:preFreeApplicationDebugBuild
+|    |              |    |    |         \--- :app:preBuild
+|    |              |    |    \--- :app:generateFreeApplicationDebugResValues
+|    |              |    |         \--- :app:preFreeApplicationDebugBuild
+|    |              |    |              \--- :app:preBuild
+|    |              |    \--- :app:preFreeApplicationDebugBuild
+|    |              |         \--- :app:preBuild
+|    |              +--- :app:preFreeApplicationDebugBuild
+|    |              |    \--- :app:preBuild
+|    |              +--- :app:processFreeApplicationDebugManifest
+|    |              |    +--- :app:createFreeApplicationDebugCompatibleScreenManifests
+|    |              |    |    \--- :app:preFreeApplicationDebugBuild
+|    |              |    |         \--- :app:preBuild
+|    |              |    +--- :app:preFreeApplicationDebugBuild
+|    |              |    |    \--- :app:preBuild
+|    |              |    \--- :app:processFreeApplicationDebugMainManifest
+|    |              |         +--- :app:extractDeepLinksFreeApplicationDebug
+|    |              |         |    \--- :app:preFreeApplicationDebugBuild
+|    |              |         |         \--- :app:preBuild
+|    |              |         \--- :app:preFreeApplicationDebugBuild
+|    |              |              \--- :app:preBuild
+|    |              \--- :app:processFreeApplicationDebugManifestForPackage
+|    |                   +--- :app:preFreeApplicationDebugBuild
+|    |                   |    \--- :app:preBuild
+|    |                   \--- :app:processFreeApplicationDebugManifest
+|    |                        +--- :app:createFreeApplicationDebugCompatibleScreenManifests
+|    |                        |    \--- :app:preFreeApplicationDebugBuild
+|    |                        |         \--- :app:preBuild
+|    |                        +--- :app:preFreeApplicationDebugBuild
+|    |                        |    \--- :app:preBuild
+|    |                        \--- :app:processFreeApplicationDebugMainManifest
+|    |                             +--- :app:extractDeepLinksFreeApplicationDebug
+|    |                             |    \--- :app:preFreeApplicationDebugBuild
+|    |                             |         \--- :app:preBuild
+|    |                             \--- :app:preFreeApplicationDebugBuild
+|    |                                  \--- :app:preBuild
+|    +--- :app:mergeFreeApplicationDebugNativeDebugMetadata
+|    |    \--- :app:preFreeApplicationDebugBuild
+|    |         \--- :app:preBuild
+|    \--- :app:packageFreeApplicationDebug
+|         +--- :app:compileFreeApplicationDebugJavaWithJavac
+|         |    +--- :app:compileFreeApplicationDebugAidl
+|         |    |    \--- :app:preFreeApplicationDebugBuild
+|         |    |         \--- :app:preBuild
+|         |    +--- :app:compileFreeApplicationDebugKotlin
+|         |    |    +--- :app:compileFreeApplicationDebugAidl
+|         |    |    |    \--- :app:preFreeApplicationDebugBuild
+|         |    |    |         \--- :app:preBuild
+|         |    |    +--- :app:compileFreeApplicationDebugRenderscript
+|         |    |    |    \--- :app:preFreeApplicationDebugBuild
+|         |    |    |         \--- :app:preBuild
+|         |    |    +--- :app:generateFreeApplicationDebugBuildConfig
+|         |    |    |    \--- :app:preFreeApplicationDebugBuild
+|         |    |    |         \--- :app:preBuild
+|         |    |    \--- :app:processFreeApplicationDebugResources
+|         |    |         +--- :app:checkFreeApplicationDebugAarMetadata
+|         |    |         |    \--- :app:preFreeApplicationDebugBuild
+|         |    |         |         \--- :app:preBuild
+|         |    |         +--- :app:mergeFreeApplicationDebugResources
+|         |    |         |    +--- :app:generateFreeApplicationDebugResources
+|         |    |         |    |    +--- :app:compileFreeApplicationDebugRenderscript
+|         |    |         |    |    |    \--- :app:preFreeApplicationDebugBuild
+|         |    |         |    |    |         \--- :app:preBuild
+|         |    |         |    |    \--- :app:generateFreeApplicationDebugResValues
+|         |    |         |    |         \--- :app:preFreeApplicationDebugBuild
+|         |    |         |    |              \--- :app:preBuild
+|         |    |         |    \--- :app:preFreeApplicationDebugBuild
+|         |    |         |         \--- :app:preBuild
+|         |    |         +--- :app:preFreeApplicationDebugBuild
+|         |    |         |    \--- :app:preBuild
+|         |    |         +--- :app:processFreeApplicationDebugManifest
+|         |    |         |    +--- :app:createFreeApplicationDebugCompatibleScreenManifests
+|         |    |         |    |    \--- :app:preFreeApplicationDebugBuild
+|         |    |         |    |         \--- :app:preBuild
+|         |    |         |    +--- :app:preFreeApplicationDebugBuild
+|         |    |         |    |    \--- :app:preBuild
+|         |    |         |    \--- :app:processFreeApplicationDebugMainManifest
+|         |    |         |         +--- :app:extractDeepLinksFreeApplicationDebug
+|         |    |         |         |    \--- :app:preFreeApplicationDebugBuild
+|         |    |         |         |         \--- :app:preBuild
+|         |    |         |         \--- :app:preFreeApplicationDebugBuild
+|         |    |         |              \--- :app:preBuild
+|         |    |         \--- :app:processFreeApplicationDebugManifestForPackage
+|         |    |              +--- :app:preFreeApplicationDebugBuild
+|         |    |              |    \--- :app:preBuild
+|         |    |              \--- :app:processFreeApplicationDebugManifest
+|         |    |                   +--- :app:createFreeApplicationDebugCompatibleScreenManifests
+|         |    |                   |    \--- :app:preFreeApplicationDebugBuild
+|         |    |                   |         \--- :app:preBuild
+|         |    |                   +--- :app:preFreeApplicationDebugBuild
+|         |    |                   |    \--- :app:preBuild
+|         |    |                   \--- :app:processFreeApplicationDebugMainManifest
+|         |    |                        +--- :app:extractDeepLinksFreeApplicationDebug
+|         |    |                        |    \--- :app:preFreeApplicationDebugBuild
+|         |    |                        |         \--- :app:preBuild
+|         |    |                        \--- :app:preFreeApplicationDebugBuild
+|         |    |                             \--- :app:preBuild
+|         |    +--- :app:compileFreeApplicationDebugRenderscript
+|         |    |    \--- :app:preFreeApplicationDebugBuild
+|         |    |         \--- :app:preBuild
+|         |    +--- :app:generateFreeApplicationDebugBuildConfig
+|         |    |    \--- :app:preFreeApplicationDebugBuild
+|         |    |         \--- :app:preBuild
+|         |    +--- :app:javaPreCompileFreeApplicationDebug
+|         |    |    \--- :app:preFreeApplicationDebugBuild
+|         |    |         \--- :app:preBuild
+|         |    +--- :app:preFreeApplicationDebugBuild
+|         |    |    \--- :app:preBuild
+|         |    \--- :app:processFreeApplicationDebugResources
+|         |         +--- :app:checkFreeApplicationDebugAarMetadata
+|         |         |    \--- :app:preFreeApplicationDebugBuild
+|         |         |         \--- :app:preBuild
+|         |         +--- :app:mergeFreeApplicationDebugResources
+|         |         |    +--- :app:generateFreeApplicationDebugResources
+|         |         |    |    +--- :app:compileFreeApplicationDebugRenderscript
+|         |         |    |    |    \--- :app:preFreeApplicationDebugBuild
+|         |         |    |    |         \--- :app:preBuild
+|         |         |    |    \--- :app:generateFreeApplicationDebugResValues
+|         |         |    |         \--- :app:preFreeApplicationDebugBuild
+|         |         |    |              \--- :app:preBuild
+|         |         |    \--- :app:preFreeApplicationDebugBuild
+|         |         |         \--- :app:preBuild
+|         |         +--- :app:preFreeApplicationDebugBuild
+|         |         |    \--- :app:preBuild
+|         |         +--- :app:processFreeApplicationDebugManifest
+|         |         |    +--- :app:createFreeApplicationDebugCompatibleScreenManifests
+|         |         |    |    \--- :app:preFreeApplicationDebugBuild
+|         |         |    |         \--- :app:preBuild
+|         |         |    +--- :app:preFreeApplicationDebugBuild
+|         |         |    |    \--- :app:preBuild
+|         |         |    \--- :app:processFreeApplicationDebugMainManifest
+|         |         |         +--- :app:extractDeepLinksFreeApplicationDebug
+|         |         |         |    \--- :app:preFreeApplicationDebugBuild
+|         |         |         |         \--- :app:preBuild
+|         |         |         \--- :app:preFreeApplicationDebugBuild
+|         |         |              \--- :app:preBuild
+|         |         \--- :app:processFreeApplicationDebugManifestForPackage
+|         |              +--- :app:preFreeApplicationDebugBuild
+|         |              |    \--- :app:preBuild
+|         |              \--- :app:processFreeApplicationDebugManifest
+|         |                   +--- :app:createFreeApplicationDebugCompatibleScreenManifests
+|         |                   |    \--- :app:preFreeApplicationDebugBuild
+|         |                   |         \--- :app:preBuild
+|         |                   +--- :app:preFreeApplicationDebugBuild
+|         |                   |    \--- :app:preBuild
+|         |                   \--- :app:processFreeApplicationDebugMainManifest
+|         |                        +--- :app:extractDeepLinksFreeApplicationDebug
+|         |                        |    \--- :app:preFreeApplicationDebugBuild
+|         |                        |         \--- :app:preBuild
+|         |                        \--- :app:preFreeApplicationDebugBuild
+|         |                             \--- :app:preBuild
+|         +--- :app:compressFreeApplicationDebugAssets
+|         |    +--- :app:mergeFreeApplicationDebugAssets
+|         |    |    +--- :app:compileFreeApplicationDebugShaders
+|         |    |    |    +--- :app:mergeFreeApplicationDebugShaders
+|         |    |    |    |    \--- :app:preFreeApplicationDebugBuild
+|         |    |    |    |         \--- :app:preBuild
+|         |    |    |    \--- :app:preFreeApplicationDebugBuild
+|         |    |    |         \--- :app:preBuild
+|         |    |    +--- :app:generateFreeApplicationDebugAssets
+|         |    |    |    \--- :app:compileFreeApplicationDebugShaders
+|         |    |    |         +--- :app:mergeFreeApplicationDebugShaders
+|         |    |    |         |    \--- :app:preFreeApplicationDebugBuild
+|         |    |    |         |         \--- :app:preBuild
+|         |    |    |         \--- :app:preFreeApplicationDebugBuild
+|         |    |    |              \--- :app:preBuild
+|         |    |    \--- :app:preFreeApplicationDebugBuild
+|         |    |         \--- :app:preBuild
+|         |    \--- :app:preFreeApplicationDebugBuild
+|         |         \--- :app:preBuild
+|         +--- :app:mergeExtDexFreeApplicationDebug
+|         |    +--- :app:checkFreeApplicationDebugDuplicateClasses
+|         |    |    \--- :app:preFreeApplicationDebugBuild
+|         |    |         \--- :app:preBuild
+|         |    +--- :app:desugarFreeApplicationDebugFileDependencies
+|         |    |    \--- :app:preFreeApplicationDebugBuild
+|         |    |         \--- :app:preBuild
+|         |    \--- :app:preFreeApplicationDebugBuild
+|         |         \--- :app:preBuild
+|         +--- :app:mergeFreeApplicationDebugAssets
+|         |    +--- :app:compileFreeApplicationDebugShaders
+|         |    |    +--- :app:mergeFreeApplicationDebugShaders
+|         |    |    |    \--- :app:preFreeApplicationDebugBuild
+|         |    |    |         \--- :app:preBuild
+|         |    |    \--- :app:preFreeApplicationDebugBuild
+|         |    |         \--- :app:preBuild
+|         |    +--- :app:generateFreeApplicationDebugAssets
+|         |    |    \--- :app:compileFreeApplicationDebugShaders
+|         |    |         +--- :app:mergeFreeApplicationDebugShaders
+|         |    |         |    \--- :app:preFreeApplicationDebugBuild
+|         |    |         |         \--- :app:preBuild
+|         |    |         \--- :app:preFreeApplicationDebugBuild
+|         |    |              \--- :app:preBuild
+|         |    \--- :app:preFreeApplicationDebugBuild
+|         |         \--- :app:preBuild
+|         +--- :app:mergeFreeApplicationDebugJavaResource
+|         |    +--- :app:compileFreeApplicationDebugKotlin
+|         |    |    +--- :app:compileFreeApplicationDebugAidl
+|         |    |    |    \--- :app:preFreeApplicationDebugBuild
+|         |    |    |         \--- :app:preBuild
+|         |    |    +--- :app:compileFreeApplicationDebugRenderscript
+|         |    |    |    \--- :app:preFreeApplicationDebugBuild
+|         |    |    |         \--- :app:preBuild
+|         |    |    +--- :app:generateFreeApplicationDebugBuildConfig
+|         |    |    |    \--- :app:preFreeApplicationDebugBuild
+|         |    |    |         \--- :app:preBuild
+|         |    |    \--- :app:processFreeApplicationDebugResources
+|         |    |         +--- :app:checkFreeApplicationDebugAarMetadata
+|         |    |         |    \--- :app:preFreeApplicationDebugBuild
+|         |    |         |         \--- :app:preBuild
+|         |    |         +--- :app:mergeFreeApplicationDebugResources
+|         |    |         |    +--- :app:generateFreeApplicationDebugResources
+|         |    |         |    |    +--- :app:compileFreeApplicationDebugRenderscript
+|         |    |         |    |    |    \--- :app:preFreeApplicationDebugBuild
+|         |    |         |    |    |         \--- :app:preBuild
+|         |    |         |    |    \--- :app:generateFreeApplicationDebugResValues
+|         |    |         |    |         \--- :app:preFreeApplicationDebugBuild
+|         |    |         |    |              \--- :app:preBuild
+|         |    |         |    \--- :app:preFreeApplicationDebugBuild
+|         |    |         |         \--- :app:preBuild
+|         |    |         +--- :app:preFreeApplicationDebugBuild
+|         |    |         |    \--- :app:preBuild
+|         |    |         +--- :app:processFreeApplicationDebugManifest
+|         |    |         |    +--- :app:createFreeApplicationDebugCompatibleScreenManifests
+|         |    |         |    |    \--- :app:preFreeApplicationDebugBuild
+|         |    |         |    |         \--- :app:preBuild
+|         |    |         |    +--- :app:preFreeApplicationDebugBuild
+|         |    |         |    |    \--- :app:preBuild
+|         |    |         |    \--- :app:processFreeApplicationDebugMainManifest
+|         |    |         |         +--- :app:extractDeepLinksFreeApplicationDebug
+|         |    |         |         |    \--- :app:preFreeApplicationDebugBuild
+|         |    |         |         |         \--- :app:preBuild
+|         |    |         |         \--- :app:preFreeApplicationDebugBuild
+|         |    |         |              \--- :app:preBuild
+|         |    |         \--- :app:processFreeApplicationDebugManifestForPackage
+|         |    |              +--- :app:preFreeApplicationDebugBuild
+|         |    |              |    \--- :app:preBuild
+|         |    |              \--- :app:processFreeApplicationDebugManifest
+|         |    |                   +--- :app:createFreeApplicationDebugCompatibleScreenManifests
+|         |    |                   |    \--- :app:preFreeApplicationDebugBuild
+|         |    |                   |         \--- :app:preBuild
+|         |    |                   +--- :app:preFreeApplicationDebugBuild
+|         |    |                   |    \--- :app:preBuild
+|         |    |                   \--- :app:processFreeApplicationDebugMainManifest
+|         |    |                        +--- :app:extractDeepLinksFreeApplicationDebug
+|         |    |                        |    \--- :app:preFreeApplicationDebugBuild
+|         |    |                        |         \--- :app:preBuild
+|         |    |                        \--- :app:preFreeApplicationDebugBuild
+|         |    |                             \--- :app:preBuild
+|         |    +--- :app:preFreeApplicationDebugBuild
+|         |    |    \--- :app:preBuild
+|         |    \--- :app:processFreeApplicationDebugJavaRes
+|         |         \--- :app:preFreeApplicationDebugBuild
+|         |              \--- :app:preBuild
+|         +--- :app:mergeLibDexFreeApplicationDebug
+|         |    +--- :app:checkFreeApplicationDebugDuplicateClasses
+|         |    |    \--- :app:preFreeApplicationDebugBuild
+|         |    |         \--- :app:preBuild
+|         |    \--- :app:preFreeApplicationDebugBuild
+|         |         \--- :app:preBuild
+|         +--- :app:mergeProjectDexFreeApplicationDebug
+|         |    +--- :app:checkFreeApplicationDebugDuplicateClasses
+|         |    |    \--- :app:preFreeApplicationDebugBuild
+|         |    |         \--- :app:preBuild
+|         |    +--- :app:dexBuilderFreeApplicationDebug
+|         |    |    +--- :app:compileFreeApplicationDebugJavaWithJavac
+|         |    |    |    +--- :app:compileFreeApplicationDebugAidl
+|         |    |    |    |    \--- :app:preFreeApplicationDebugBuild
+|         |    |    |    |         \--- :app:preBuild
+|         |    |    |    +--- :app:compileFreeApplicationDebugKotlin
+|         |    |    |    |    +--- :app:compileFreeApplicationDebugAidl
+|         |    |    |    |    |    \--- :app:preFreeApplicationDebugBuild
+|         |    |    |    |    |         \--- :app:preBuild
+|         |    |    |    |    +--- :app:compileFreeApplicationDebugRenderscript
+|         |    |    |    |    |    \--- :app:preFreeApplicationDebugBuild
+|         |    |    |    |    |         \--- :app:preBuild
+|         |    |    |    |    +--- :app:generateFreeApplicationDebugBuildConfig
+|         |    |    |    |    |    \--- :app:preFreeApplicationDebugBuild
+|         |    |    |    |    |         \--- :app:preBuild
+|         |    |    |    |    \--- :app:processFreeApplicationDebugResources
+|         |    |    |    |         +--- :app:checkFreeApplicationDebugAarMetadata
+|         |    |    |    |         |    \--- :app:preFreeApplicationDebugBuild
+|         |    |    |    |         |         \--- :app:preBuild
+|         |    |    |    |         +--- :app:mergeFreeApplicationDebugResources
+|         |    |    |    |         |    +--- :app:generateFreeApplicationDebugResources
+|         |    |    |    |         |    |    +--- :app:compileFreeApplicationDebugRenderscript
+|         |    |    |    |         |    |    |    \--- :app:preFreeApplicationDebugBuild
+|         |    |    |    |         |    |    |         \--- :app:preBuild
+|         |    |    |    |         |    |    \--- :app:generateFreeApplicationDebugResValues
+|         |    |    |    |         |    |         \--- :app:preFreeApplicationDebugBuild
+|         |    |    |    |         |    |              \--- :app:preBuild
+|         |    |    |    |         |    \--- :app:preFreeApplicationDebugBuild
+|         |    |    |    |         |         \--- :app:preBuild
+|         |    |    |    |         +--- :app:preFreeApplicationDebugBuild
+|         |    |    |    |         |    \--- :app:preBuild
+|         |    |    |    |         +--- :app:processFreeApplicationDebugManifest
+|         |    |    |    |         |    +--- :app:createFreeApplicationDebugCompatibleScreenManifests
+|         |    |    |    |         |    |    \--- :app:preFreeApplicationDebugBuild
+|         |    |    |    |         |    |         \--- :app:preBuild
+|         |    |    |    |         |    +--- :app:preFreeApplicationDebugBuild
+|         |    |    |    |         |    |    \--- :app:preBuild
+|         |    |    |    |         |    \--- :app:processFreeApplicationDebugMainManifest
+|         |    |    |    |         |         +--- :app:extractDeepLinksFreeApplicationDebug
+|         |    |    |    |         |         |    \--- :app:preFreeApplicationDebugBuild
+|         |    |    |    |         |         |         \--- :app:preBuild
+|         |    |    |    |         |         \--- :app:preFreeApplicationDebugBuild
+|         |    |    |    |         |              \--- :app:preBuild
+|         |    |    |    |         \--- :app:processFreeApplicationDebugManifestForPackage
+|         |    |    |    |              +--- :app:preFreeApplicationDebugBuild
+|         |    |    |    |              |    \--- :app:preBuild
+|         |    |    |    |              \--- :app:processFreeApplicationDebugManifest
+|         |    |    |    |                   +--- :app:createFreeApplicationDebugCompatibleScreenManifests
+|         |    |    |    |                   |    \--- :app:preFreeApplicationDebugBuild
+|         |    |    |    |                   |         \--- :app:preBuild
+|         |    |    |    |                   +--- :app:preFreeApplicationDebugBuild
+|         |    |    |    |                   |    \--- :app:preBuild
+|         |    |    |    |                   \--- :app:processFreeApplicationDebugMainManifest
+|         |    |    |    |                        +--- :app:extractDeepLinksFreeApplicationDebug
+|         |    |    |    |                        |    \--- :app:preFreeApplicationDebugBuild
+|         |    |    |    |                        |         \--- :app:preBuild
+|         |    |    |    |                        \--- :app:preFreeApplicationDebugBuild
+|         |    |    |    |                             \--- :app:preBuild
+|         |    |    |    +--- :app:compileFreeApplicationDebugRenderscript
+|         |    |    |    |    \--- :app:preFreeApplicationDebugBuild
+|         |    |    |    |         \--- :app:preBuild
+|         |    |    |    +--- :app:generateFreeApplicationDebugBuildConfig
+|         |    |    |    |    \--- :app:preFreeApplicationDebugBuild
+|         |    |    |    |         \--- :app:preBuild
+|         |    |    |    +--- :app:javaPreCompileFreeApplicationDebug
+|         |    |    |    |    \--- :app:preFreeApplicationDebugBuild
+|         |    |    |    |         \--- :app:preBuild
+|         |    |    |    +--- :app:preFreeApplicationDebugBuild
+|         |    |    |    |    \--- :app:preBuild
+|         |    |    |    \--- :app:processFreeApplicationDebugResources
+|         |    |    |         +--- :app:checkFreeApplicationDebugAarMetadata
+|         |    |    |         |    \--- :app:preFreeApplicationDebugBuild
+|         |    |    |         |         \--- :app:preBuild
+|         |    |    |         +--- :app:mergeFreeApplicationDebugResources
+|         |    |    |         |    +--- :app:generateFreeApplicationDebugResources
+|         |    |    |         |    |    +--- :app:compileFreeApplicationDebugRenderscript
+|         |    |    |         |    |    |    \--- :app:preFreeApplicationDebugBuild
+|         |    |    |         |    |    |         \--- :app:preBuild
+|         |    |    |         |    |    \--- :app:generateFreeApplicationDebugResValues
+|         |    |    |         |    |         \--- :app:preFreeApplicationDebugBuild
+|         |    |    |         |    |              \--- :app:preBuild
+|         |    |    |         |    \--- :app:preFreeApplicationDebugBuild
+|         |    |    |         |         \--- :app:preBuild
+|         |    |    |         +--- :app:preFreeApplicationDebugBuild
+|         |    |    |         |    \--- :app:preBuild
+|         |    |    |         +--- :app:processFreeApplicationDebugManifest
+|         |    |    |         |    +--- :app:createFreeApplicationDebugCompatibleScreenManifests
+|         |    |    |         |    |    \--- :app:preFreeApplicationDebugBuild
+|         |    |    |         |    |         \--- :app:preBuild
+|         |    |    |         |    +--- :app:preFreeApplicationDebugBuild
+|         |    |    |         |    |    \--- :app:preBuild
+|         |    |    |         |    \--- :app:processFreeApplicationDebugMainManifest
+|         |    |    |         |         +--- :app:extractDeepLinksFreeApplicationDebug
+|         |    |    |         |         |    \--- :app:preFreeApplicationDebugBuild
+|         |    |    |         |         |         \--- :app:preBuild
+|         |    |    |         |         \--- :app:preFreeApplicationDebugBuild
+|         |    |    |         |              \--- :app:preBuild
+|         |    |    |         \--- :app:processFreeApplicationDebugManifestForPackage
+|         |    |    |              +--- :app:preFreeApplicationDebugBuild
+|         |    |    |              |    \--- :app:preBuild
+|         |    |    |              \--- :app:processFreeApplicationDebugManifest
+|         |    |    |                   +--- :app:createFreeApplicationDebugCompatibleScreenManifests
+|         |    |    |                   |    \--- :app:preFreeApplicationDebugBuild
+|         |    |    |                   |         \--- :app:preBuild
+|         |    |    |                   +--- :app:preFreeApplicationDebugBuild
+|         |    |    |                   |    \--- :app:preBuild
+|         |    |    |                   \--- :app:processFreeApplicationDebugMainManifest
+|         |    |    |                        +--- :app:extractDeepLinksFreeApplicationDebug
+|         |    |    |                        |    \--- :app:preFreeApplicationDebugBuild
+|         |    |    |                        |         \--- :app:preBuild
+|         |    |    |                        \--- :app:preFreeApplicationDebugBuild
+|         |    |    |                             \--- :app:preBuild
+|         |    |    +--- :app:compileFreeApplicationDebugKotlin
+|         |    |    |    +--- :app:compileFreeApplicationDebugAidl
+|         |    |    |    |    \--- :app:preFreeApplicationDebugBuild
+|         |    |    |    |         \--- :app:preBuild
+|         |    |    |    +--- :app:compileFreeApplicationDebugRenderscript
+|         |    |    |    |    \--- :app:preFreeApplicationDebugBuild
+|         |    |    |    |         \--- :app:preBuild
+|         |    |    |    +--- :app:generateFreeApplicationDebugBuildConfig
+|         |    |    |    |    \--- :app:preFreeApplicationDebugBuild
+|         |    |    |    |         \--- :app:preBuild
+|         |    |    |    \--- :app:processFreeApplicationDebugResources
+|         |    |    |         +--- :app:checkFreeApplicationDebugAarMetadata
+|         |    |    |         |    \--- :app:preFreeApplicationDebugBuild
+|         |    |    |         |         \--- :app:preBuild
+|         |    |    |         +--- :app:mergeFreeApplicationDebugResources
+|         |    |    |         |    +--- :app:generateFreeApplicationDebugResources
+|         |    |    |         |    |    +--- :app:compileFreeApplicationDebugRenderscript
+|         |    |    |         |    |    |    \--- :app:preFreeApplicationDebugBuild
+|         |    |    |         |    |    |         \--- :app:preBuild
+|         |    |    |         |    |    \--- :app:generateFreeApplicationDebugResValues
+|         |    |    |         |    |         \--- :app:preFreeApplicationDebugBuild
+|         |    |    |         |    |              \--- :app:preBuild
+|         |    |    |         |    \--- :app:preFreeApplicationDebugBuild
+|         |    |    |         |         \--- :app:preBuild
+|         |    |    |         +--- :app:preFreeApplicationDebugBuild
+|         |    |    |         |    \--- :app:preBuild
+|         |    |    |         +--- :app:processFreeApplicationDebugManifest
+|         |    |    |         |    +--- :app:createFreeApplicationDebugCompatibleScreenManifests
+|         |    |    |         |    |    \--- :app:preFreeApplicationDebugBuild
+|         |    |    |         |    |         \--- :app:preBuild
+|         |    |    |         |    +--- :app:preFreeApplicationDebugBuild
+|         |    |    |         |    |    \--- :app:preBuild
+|         |    |    |         |    \--- :app:processFreeApplicationDebugMainManifest
+|         |    |    |         |         +--- :app:extractDeepLinksFreeApplicationDebug
+|         |    |    |         |         |    \--- :app:preFreeApplicationDebugBuild
+|         |    |    |         |         |         \--- :app:preBuild
+|         |    |    |         |         \--- :app:preFreeApplicationDebugBuild
+|         |    |    |         |              \--- :app:preBuild
+|         |    |    |         \--- :app:processFreeApplicationDebugManifestForPackage
+|         |    |    |              +--- :app:preFreeApplicationDebugBuild
+|         |    |    |              |    \--- :app:preBuild
+|         |    |    |              \--- :app:processFreeApplicationDebugManifest
+|         |    |    |                   +--- :app:createFreeApplicationDebugCompatibleScreenManifests
+|         |    |    |                   |    \--- :app:preFreeApplicationDebugBuild
+|         |    |    |                   |         \--- :app:preBuild
+|         |    |    |                   +--- :app:preFreeApplicationDebugBuild
+|         |    |    |                   |    \--- :app:preBuild
+|         |    |    |                   \--- :app:processFreeApplicationDebugMainManifest
+|         |    |    |                        +--- :app:extractDeepLinksFreeApplicationDebug
+|         |    |    |                        |    \--- :app:preFreeApplicationDebugBuild
+|         |    |    |                        |         \--- :app:preBuild
+|         |    |    |                        \--- :app:preFreeApplicationDebugBuild
+|         |    |    |                             \--- :app:preBuild
+|         |    |    +--- :app:preFreeApplicationDebugBuild
+|         |    |    |    \--- :app:preBuild
+|         |    |    \--- :app:processFreeApplicationDebugResources
+|         |    |         +--- :app:checkFreeApplicationDebugAarMetadata
+|         |    |         |    \--- :app:preFreeApplicationDebugBuild
+|         |    |         |         \--- :app:preBuild
+|         |    |         +--- :app:mergeFreeApplicationDebugResources
+|         |    |         |    +--- :app:generateFreeApplicationDebugResources
+|         |    |         |    |    +--- :app:compileFreeApplicationDebugRenderscript
+|         |    |         |    |    |    \--- :app:preFreeApplicationDebugBuild
+|         |    |         |    |    |         \--- :app:preBuild
+|         |    |         |    |    \--- :app:generateFreeApplicationDebugResValues
+|         |    |         |    |         \--- :app:preFreeApplicationDebugBuild
+|         |    |         |    |              \--- :app:preBuild
+|         |    |         |    \--- :app:preFreeApplicationDebugBuild
+|         |    |         |         \--- :app:preBuild
+|         |    |         +--- :app:preFreeApplicationDebugBuild
+|         |    |         |    \--- :app:preBuild
+|         |    |         +--- :app:processFreeApplicationDebugManifest
+|         |    |         |    +--- :app:createFreeApplicationDebugCompatibleScreenManifests
+|         |    |         |    |    \--- :app:preFreeApplicationDebugBuild
+|         |    |         |    |         \--- :app:preBuild
+|         |    |         |    +--- :app:preFreeApplicationDebugBuild
+|         |    |         |    |    \--- :app:preBuild
+|         |    |         |    \--- :app:processFreeApplicationDebugMainManifest
+|         |    |         |         +--- :app:extractDeepLinksFreeApplicationDebug
+|         |    |         |         |    \--- :app:preFreeApplicationDebugBuild
+|         |    |         |         |         \--- :app:preBuild
+|         |    |         |         \--- :app:preFreeApplicationDebugBuild
+|         |    |         |              \--- :app:preBuild
+|         |    |         \--- :app:processFreeApplicationDebugManifestForPackage
+|         |    |              +--- :app:preFreeApplicationDebugBuild
+|         |    |              |    \--- :app:preBuild
+|         |    |              \--- :app:processFreeApplicationDebugManifest
+|         |    |                   +--- :app:createFreeApplicationDebugCompatibleScreenManifests
+|         |    |                   |    \--- :app:preFreeApplicationDebugBuild
+|         |    |                   |         \--- :app:preBuild
+|         |    |                   +--- :app:preFreeApplicationDebugBuild
+|         |    |                   |    \--- :app:preBuild
+|         |    |                   \--- :app:processFreeApplicationDebugMainManifest
+|         |    |                        +--- :app:extractDeepLinksFreeApplicationDebug
+|         |    |                        |    \--- :app:preFreeApplicationDebugBuild
+|         |    |                        |         \--- :app:preBuild
+|         |    |                        \--- :app:preFreeApplicationDebugBuild
+|         |    |                             \--- :app:preBuild
+|         |    \--- :app:preFreeApplicationDebugBuild
+|         |         \--- :app:preBuild
+|         +--- :app:preFreeApplicationDebugBuild
+|         |    \--- :app:preBuild
+|         +--- :app:processFreeApplicationDebugManifestForPackage
+|         |    +--- :app:preFreeApplicationDebugBuild
+|         |    |    \--- :app:preBuild
+|         |    \--- :app:processFreeApplicationDebugManifest
+|         |         +--- :app:createFreeApplicationDebugCompatibleScreenManifests
+|         |         |    \--- :app:preFreeApplicationDebugBuild
+|         |         |         \--- :app:preBuild
+|         |         +--- :app:preFreeApplicationDebugBuild
+|         |         |    \--- :app:preBuild
+|         |         \--- :app:processFreeApplicationDebugMainManifest
+|         |              +--- :app:extractDeepLinksFreeApplicationDebug
+|         |              |    \--- :app:preFreeApplicationDebugBuild
+|         |              |         \--- :app:preBuild
+|         |              \--- :app:preFreeApplicationDebugBuild
+|         |                   \--- :app:preBuild
+|         +--- :app:processFreeApplicationDebugResources
+|         |    +--- :app:checkFreeApplicationDebugAarMetadata
+|         |    |    \--- :app:preFreeApplicationDebugBuild
+|         |    |         \--- :app:preBuild
+|         |    +--- :app:mergeFreeApplicationDebugResources
+|         |    |    +--- :app:generateFreeApplicationDebugResources
+|         |    |    |    +--- :app:compileFreeApplicationDebugRenderscript
+|         |    |    |    |    \--- :app:preFreeApplicationDebugBuild
+|         |    |    |    |         \--- :app:preBuild
+|         |    |    |    \--- :app:generateFreeApplicationDebugResValues
+|         |    |    |         \--- :app:preFreeApplicationDebugBuild
+|         |    |    |              \--- :app:preBuild
+|         |    |    \--- :app:preFreeApplicationDebugBuild
+|         |    |         \--- :app:preBuild
+|         |    +--- :app:preFreeApplicationDebugBuild
+|         |    |    \--- :app:preBuild
+|         |    +--- :app:processFreeApplicationDebugManifest
+|         |    |    +--- :app:createFreeApplicationDebugCompatibleScreenManifests
+|         |    |    |    \--- :app:preFreeApplicationDebugBuild
+|         |    |    |         \--- :app:preBuild
+|         |    |    +--- :app:preFreeApplicationDebugBuild
+|         |    |    |    \--- :app:preBuild
+|         |    |    \--- :app:processFreeApplicationDebugMainManifest
+|         |    |         +--- :app:extractDeepLinksFreeApplicationDebug
+|         |    |         |    \--- :app:preFreeApplicationDebugBuild
+|         |    |         |         \--- :app:preBuild
+|         |    |         \--- :app:preFreeApplicationDebugBuild
+|         |    |              \--- :app:preBuild
+|         |    \--- :app:processFreeApplicationDebugManifestForPackage
+|         |         +--- :app:preFreeApplicationDebugBuild
+|         |         |    \--- :app:preBuild
+|         |         \--- :app:processFreeApplicationDebugManifest
+|         |              +--- :app:createFreeApplicationDebugCompatibleScreenManifests
+|         |              |    \--- :app:preFreeApplicationDebugBuild
+|         |              |         \--- :app:preBuild
+|         |              +--- :app:preFreeApplicationDebugBuild
+|         |              |    \--- :app:preBuild
+|         |              \--- :app:processFreeApplicationDebugMainManifest
+|         |                   +--- :app:extractDeepLinksFreeApplicationDebug
+|         |                   |    \--- :app:preFreeApplicationDebugBuild
+|         |                   |         \--- :app:preBuild
+|         |                   \--- :app:preFreeApplicationDebugBuild
+|         |                        \--- :app:preBuild
+|         +--- :app:stripFreeApplicationDebugDebugSymbols
+|         |    +--- :app:mergeFreeApplicationDebugNativeLibs
+|         |    |    +--- :app:mergeFreeApplicationDebugJniLibFolders
+|         |    |    |    \--- :app:preFreeApplicationDebugBuild
+|         |    |    |         \--- :app:preBuild
+|         |    |    \--- :app:preFreeApplicationDebugBuild
+|         |    |         \--- :app:preBuild
+|         |    \--- :app:preFreeApplicationDebugBuild
+|         |         \--- :app:preBuild
+|         \--- :app:validateSigningFreeApplicationDebug
+|              \--- :app:preFreeApplicationDebugBuild
+|                   \--- :app:preBuild
++--- :app:assembleFreeGameDebug
+|    +--- :app:compileFreeGameDebugSources
+|    |    \--- :app:compileFreeGameDebugJavaWithJavac
+|    |         +--- :app:compileFreeGameDebugAidl
+|    |         |    \--- :app:preFreeGameDebugBuild
+|    |         |         \--- :app:preBuild
+|    |         +--- :app:compileFreeGameDebugKotlin
+|    |         |    +--- :app:compileFreeGameDebugAidl
+|    |         |    |    \--- :app:preFreeGameDebugBuild
+|    |         |    |         \--- :app:preBuild
+|    |         |    +--- :app:compileFreeGameDebugRenderscript
+|    |         |    |    \--- :app:preFreeGameDebugBuild
+|    |         |    |         \--- :app:preBuild
+|    |         |    +--- :app:generateFreeGameDebugBuildConfig
+|    |         |    |    \--- :app:preFreeGameDebugBuild
+|    |         |    |         \--- :app:preBuild
+|    |         |    \--- :app:processFreeGameDebugResources
+|    |         |         +--- :app:checkFreeGameDebugAarMetadata
+|    |         |         |    \--- :app:preFreeGameDebugBuild
+|    |         |         |         \--- :app:preBuild
+|    |         |         +--- :app:mergeFreeGameDebugResources
+|    |         |         |    +--- :app:generateFreeGameDebugResources
+|    |         |         |    |    +--- :app:compileFreeGameDebugRenderscript
+|    |         |         |    |    |    \--- :app:preFreeGameDebugBuild
+|    |         |         |    |    |         \--- :app:preBuild
+|    |         |         |    |    \--- :app:generateFreeGameDebugResValues
+|    |         |         |    |         \--- :app:preFreeGameDebugBuild
+|    |         |         |    |              \--- :app:preBuild
+|    |         |         |    \--- :app:preFreeGameDebugBuild
+|    |         |         |         \--- :app:preBuild
+|    |         |         +--- :app:preFreeGameDebugBuild
+|    |         |         |    \--- :app:preBuild
+|    |         |         +--- :app:processFreeGameDebugManifest
+|    |         |         |    +--- :app:createFreeGameDebugCompatibleScreenManifests
+|    |         |         |    |    \--- :app:preFreeGameDebugBuild
+|    |         |         |    |         \--- :app:preBuild
+|    |         |         |    +--- :app:preFreeGameDebugBuild
+|    |         |         |    |    \--- :app:preBuild
+|    |         |         |    \--- :app:processFreeGameDebugMainManifest
+|    |         |         |         +--- :app:extractDeepLinksFreeGameDebug
+|    |         |         |         |    \--- :app:preFreeGameDebugBuild
+|    |         |         |         |         \--- :app:preBuild
+|    |         |         |         \--- :app:preFreeGameDebugBuild
+|    |         |         |              \--- :app:preBuild
+|    |         |         \--- :app:processFreeGameDebugManifestForPackage
+|    |         |              +--- :app:preFreeGameDebugBuild
+|    |         |              |    \--- :app:preBuild
+|    |         |              \--- :app:processFreeGameDebugManifest
+|    |         |                   +--- :app:createFreeGameDebugCompatibleScreenManifests
+|    |         |                   |    \--- :app:preFreeGameDebugBuild
+|    |         |                   |         \--- :app:preBuild
+|    |         |                   +--- :app:preFreeGameDebugBuild
+|    |         |                   |    \--- :app:preBuild
+|    |         |                   \--- :app:processFreeGameDebugMainManifest
+|    |         |                        +--- :app:extractDeepLinksFreeGameDebug
+|    |         |                        |    \--- :app:preFreeGameDebugBuild
+|    |         |                        |         \--- :app:preBuild
+|    |         |                        \--- :app:preFreeGameDebugBuild
+|    |         |                             \--- :app:preBuild
+|    |         +--- :app:compileFreeGameDebugRenderscript
+|    |         |    \--- :app:preFreeGameDebugBuild
+|    |         |         \--- :app:preBuild
+|    |         +--- :app:generateFreeGameDebugBuildConfig
+|    |         |    \--- :app:preFreeGameDebugBuild
+|    |         |         \--- :app:preBuild
+|    |         +--- :app:javaPreCompileFreeGameDebug
+|    |         |    \--- :app:preFreeGameDebugBuild
+|    |         |         \--- :app:preBuild
+|    |         +--- :app:preFreeGameDebugBuild
+|    |         |    \--- :app:preBuild
+|    |         \--- :app:processFreeGameDebugResources
+|    |              +--- :app:checkFreeGameDebugAarMetadata
+|    |              |    \--- :app:preFreeGameDebugBuild
+|    |              |         \--- :app:preBuild
+|    |              +--- :app:mergeFreeGameDebugResources
+|    |              |    +--- :app:generateFreeGameDebugResources
+|    |              |    |    +--- :app:compileFreeGameDebugRenderscript
+|    |              |    |    |    \--- :app:preFreeGameDebugBuild
+|    |              |    |    |         \--- :app:preBuild
+|    |              |    |    \--- :app:generateFreeGameDebugResValues
+|    |              |    |         \--- :app:preFreeGameDebugBuild
+|    |              |    |              \--- :app:preBuild
+|    |              |    \--- :app:preFreeGameDebugBuild
+|    |              |         \--- :app:preBuild
+|    |              +--- :app:preFreeGameDebugBuild
+|    |              |    \--- :app:preBuild
+|    |              +--- :app:processFreeGameDebugManifest
+|    |              |    +--- :app:createFreeGameDebugCompatibleScreenManifests
+|    |              |    |    \--- :app:preFreeGameDebugBuild
+|    |              |    |         \--- :app:preBuild
+|    |              |    +--- :app:preFreeGameDebugBuild
+|    |              |    |    \--- :app:preBuild
+|    |              |    \--- :app:processFreeGameDebugMainManifest
+|    |              |         +--- :app:extractDeepLinksFreeGameDebug
+|    |              |         |    \--- :app:preFreeGameDebugBuild
+|    |              |         |         \--- :app:preBuild
+|    |              |         \--- :app:preFreeGameDebugBuild
+|    |              |              \--- :app:preBuild
+|    |              \--- :app:processFreeGameDebugManifestForPackage
+|    |                   +--- :app:preFreeGameDebugBuild
+|    |                   |    \--- :app:preBuild
+|    |                   \--- :app:processFreeGameDebugManifest
+|    |                        +--- :app:createFreeGameDebugCompatibleScreenManifests
+|    |                        |    \--- :app:preFreeGameDebugBuild
+|    |                        |         \--- :app:preBuild
+|    |                        +--- :app:preFreeGameDebugBuild
+|    |                        |    \--- :app:preBuild
+|    |                        \--- :app:processFreeGameDebugMainManifest
+|    |                             +--- :app:extractDeepLinksFreeGameDebug
+|    |                             |    \--- :app:preFreeGameDebugBuild
+|    |                             |         \--- :app:preBuild
+|    |                             \--- :app:preFreeGameDebugBuild
+|    |                                  \--- :app:preBuild
+|    +--- :app:mergeFreeGameDebugNativeDebugMetadata
+|    |    \--- :app:preFreeGameDebugBuild
+|    |         \--- :app:preBuild
+|    \--- :app:packageFreeGameDebug
+|         +--- :app:compileFreeGameDebugJavaWithJavac
+|         |    +--- :app:compileFreeGameDebugAidl
+|         |    |    \--- :app:preFreeGameDebugBuild
+|         |    |         \--- :app:preBuild
+|         |    +--- :app:compileFreeGameDebugKotlin
+|         |    |    +--- :app:compileFreeGameDebugAidl
+|         |    |    |    \--- :app:preFreeGameDebugBuild
+|         |    |    |         \--- :app:preBuild
+|         |    |    +--- :app:compileFreeGameDebugRenderscript
+|         |    |    |    \--- :app:preFreeGameDebugBuild
+|         |    |    |         \--- :app:preBuild
+|         |    |    +--- :app:generateFreeGameDebugBuildConfig
+|         |    |    |    \--- :app:preFreeGameDebugBuild
+|         |    |    |         \--- :app:preBuild
+|         |    |    \--- :app:processFreeGameDebugResources
+|         |    |         +--- :app:checkFreeGameDebugAarMetadata
+|         |    |         |    \--- :app:preFreeGameDebugBuild
+|         |    |         |         \--- :app:preBuild
+|         |    |         +--- :app:mergeFreeGameDebugResources
+|         |    |         |    +--- :app:generateFreeGameDebugResources
+|         |    |         |    |    +--- :app:compileFreeGameDebugRenderscript
+|         |    |         |    |    |    \--- :app:preFreeGameDebugBuild
+|         |    |         |    |    |         \--- :app:preBuild
+|         |    |         |    |    \--- :app:generateFreeGameDebugResValues
+|         |    |         |    |         \--- :app:preFreeGameDebugBuild
+|         |    |         |    |              \--- :app:preBuild
+|         |    |         |    \--- :app:preFreeGameDebugBuild
+|         |    |         |         \--- :app:preBuild
+|         |    |         +--- :app:preFreeGameDebugBuild
+|         |    |         |    \--- :app:preBuild
+|         |    |         +--- :app:processFreeGameDebugManifest
+|         |    |         |    +--- :app:createFreeGameDebugCompatibleScreenManifests
+|         |    |         |    |    \--- :app:preFreeGameDebugBuild
+|         |    |         |    |         \--- :app:preBuild
+|         |    |         |    +--- :app:preFreeGameDebugBuild
+|         |    |         |    |    \--- :app:preBuild
+|         |    |         |    \--- :app:processFreeGameDebugMainManifest
+|         |    |         |         +--- :app:extractDeepLinksFreeGameDebug
+|         |    |         |         |    \--- :app:preFreeGameDebugBuild
+|         |    |         |         |         \--- :app:preBuild
+|         |    |         |         \--- :app:preFreeGameDebugBuild
+|         |    |         |              \--- :app:preBuild
+|         |    |         \--- :app:processFreeGameDebugManifestForPackage
+|         |    |              +--- :app:preFreeGameDebugBuild
+|         |    |              |    \--- :app:preBuild
+|         |    |              \--- :app:processFreeGameDebugManifest
+|         |    |                   +--- :app:createFreeGameDebugCompatibleScreenManifests
+|         |    |                   |    \--- :app:preFreeGameDebugBuild
+|         |    |                   |         \--- :app:preBuild
+|         |    |                   +--- :app:preFreeGameDebugBuild
+|         |    |                   |    \--- :app:preBuild
+|         |    |                   \--- :app:processFreeGameDebugMainManifest
+|         |    |                        +--- :app:extractDeepLinksFreeGameDebug
+|         |    |                        |    \--- :app:preFreeGameDebugBuild
+|         |    |                        |         \--- :app:preBuild
+|         |    |                        \--- :app:preFreeGameDebugBuild
+|         |    |                             \--- :app:preBuild
+|         |    +--- :app:compileFreeGameDebugRenderscript
+|         |    |    \--- :app:preFreeGameDebugBuild
+|         |    |         \--- :app:preBuild
+|         |    +--- :app:generateFreeGameDebugBuildConfig
+|         |    |    \--- :app:preFreeGameDebugBuild
+|         |    |         \--- :app:preBuild
+|         |    +--- :app:javaPreCompileFreeGameDebug
+|         |    |    \--- :app:preFreeGameDebugBuild
+|         |    |         \--- :app:preBuild
+|         |    +--- :app:preFreeGameDebugBuild
+|         |    |    \--- :app:preBuild
+|         |    \--- :app:processFreeGameDebugResources
+|         |         +--- :app:checkFreeGameDebugAarMetadata
+|         |         |    \--- :app:preFreeGameDebugBuild
+|         |         |         \--- :app:preBuild
+|         |         +--- :app:mergeFreeGameDebugResources
+|         |         |    +--- :app:generateFreeGameDebugResources
+|         |         |    |    +--- :app:compileFreeGameDebugRenderscript
+|         |         |    |    |    \--- :app:preFreeGameDebugBuild
+|         |         |    |    |         \--- :app:preBuild
+|         |         |    |    \--- :app:generateFreeGameDebugResValues
+|         |         |    |         \--- :app:preFreeGameDebugBuild
+|         |         |    |              \--- :app:preBuild
+|         |         |    \--- :app:preFreeGameDebugBuild
+|         |         |         \--- :app:preBuild
+|         |         +--- :app:preFreeGameDebugBuild
+|         |         |    \--- :app:preBuild
+|         |         +--- :app:processFreeGameDebugManifest
+|         |         |    +--- :app:createFreeGameDebugCompatibleScreenManifests
+|         |         |    |    \--- :app:preFreeGameDebugBuild
+|         |         |    |         \--- :app:preBuild
+|         |         |    +--- :app:preFreeGameDebugBuild
+|         |         |    |    \--- :app:preBuild
+|         |         |    \--- :app:processFreeGameDebugMainManifest
+|         |         |         +--- :app:extractDeepLinksFreeGameDebug
+|         |         |         |    \--- :app:preFreeGameDebugBuild
+|         |         |         |         \--- :app:preBuild
+|         |         |         \--- :app:preFreeGameDebugBuild
+|         |         |              \--- :app:preBuild
+|         |         \--- :app:processFreeGameDebugManifestForPackage
+|         |              +--- :app:preFreeGameDebugBuild
+|         |              |    \--- :app:preBuild
+|         |              \--- :app:processFreeGameDebugManifest
+|         |                   +--- :app:createFreeGameDebugCompatibleScreenManifests
+|         |                   |    \--- :app:preFreeGameDebugBuild
+|         |                   |         \--- :app:preBuild
+|         |                   +--- :app:preFreeGameDebugBuild
+|         |                   |    \--- :app:preBuild
+|         |                   \--- :app:processFreeGameDebugMainManifest
+|         |                        +--- :app:extractDeepLinksFreeGameDebug
+|         |                        |    \--- :app:preFreeGameDebugBuild
+|         |                        |         \--- :app:preBuild
+|         |                        \--- :app:preFreeGameDebugBuild
+|         |                             \--- :app:preBuild
+|         +--- :app:compressFreeGameDebugAssets
+|         |    +--- :app:mergeFreeGameDebugAssets
+|         |    |    +--- :app:compileFreeGameDebugShaders
+|         |    |    |    +--- :app:mergeFreeGameDebugShaders
+|         |    |    |    |    \--- :app:preFreeGameDebugBuild
+|         |    |    |    |         \--- :app:preBuild
+|         |    |    |    \--- :app:preFreeGameDebugBuild
+|         |    |    |         \--- :app:preBuild
+|         |    |    +--- :app:generateFreeGameDebugAssets
+|         |    |    |    \--- :app:compileFreeGameDebugShaders
+|         |    |    |         +--- :app:mergeFreeGameDebugShaders
+|         |    |    |         |    \--- :app:preFreeGameDebugBuild
+|         |    |    |         |         \--- :app:preBuild
+|         |    |    |         \--- :app:preFreeGameDebugBuild
+|         |    |    |              \--- :app:preBuild
+|         |    |    \--- :app:preFreeGameDebugBuild
+|         |    |         \--- :app:preBuild
+|         |    \--- :app:preFreeGameDebugBuild
+|         |         \--- :app:preBuild
+|         +--- :app:mergeExtDexFreeGameDebug
+|         |    +--- :app:checkFreeGameDebugDuplicateClasses
+|         |    |    \--- :app:preFreeGameDebugBuild
+|         |    |         \--- :app:preBuild
+|         |    +--- :app:desugarFreeGameDebugFileDependencies
+|         |    |    \--- :app:preFreeGameDebugBuild
+|         |    |         \--- :app:preBuild
+|         |    \--- :app:preFreeGameDebugBuild
+|         |         \--- :app:preBuild
+|         +--- :app:mergeFreeGameDebugAssets
+|         |    +--- :app:compileFreeGameDebugShaders
+|         |    |    +--- :app:mergeFreeGameDebugShaders
+|         |    |    |    \--- :app:preFreeGameDebugBuild
+|         |    |    |         \--- :app:preBuild
+|         |    |    \--- :app:preFreeGameDebugBuild
+|         |    |         \--- :app:preBuild
+|         |    +--- :app:generateFreeGameDebugAssets
+|         |    |    \--- :app:compileFreeGameDebugShaders
+|         |    |         +--- :app:mergeFreeGameDebugShaders
+|         |    |         |    \--- :app:preFreeGameDebugBuild
+|         |    |         |         \--- :app:preBuild
+|         |    |         \--- :app:preFreeGameDebugBuild
+|         |    |              \--- :app:preBuild
+|         |    \--- :app:preFreeGameDebugBuild
+|         |         \--- :app:preBuild
+|         +--- :app:mergeFreeGameDebugJavaResource
+|         |    +--- :app:compileFreeGameDebugKotlin
+|         |    |    +--- :app:compileFreeGameDebugAidl
+|         |    |    |    \--- :app:preFreeGameDebugBuild
+|         |    |    |         \--- :app:preBuild
+|         |    |    +--- :app:compileFreeGameDebugRenderscript
+|         |    |    |    \--- :app:preFreeGameDebugBuild
+|         |    |    |         \--- :app:preBuild
+|         |    |    +--- :app:generateFreeGameDebugBuildConfig
+|         |    |    |    \--- :app:preFreeGameDebugBuild
+|         |    |    |         \--- :app:preBuild
+|         |    |    \--- :app:processFreeGameDebugResources
+|         |    |         +--- :app:checkFreeGameDebugAarMetadata
+|         |    |         |    \--- :app:preFreeGameDebugBuild
+|         |    |         |         \--- :app:preBuild
+|         |    |         +--- :app:mergeFreeGameDebugResources
+|         |    |         |    +--- :app:generateFreeGameDebugResources
+|         |    |         |    |    +--- :app:compileFreeGameDebugRenderscript
+|         |    |         |    |    |    \--- :app:preFreeGameDebugBuild
+|         |    |         |    |    |         \--- :app:preBuild
+|         |    |         |    |    \--- :app:generateFreeGameDebugResValues
+|         |    |         |    |         \--- :app:preFreeGameDebugBuild
+|         |    |         |    |              \--- :app:preBuild
+|         |    |         |    \--- :app:preFreeGameDebugBuild
+|         |    |         |         \--- :app:preBuild
+|         |    |         +--- :app:preFreeGameDebugBuild
+|         |    |         |    \--- :app:preBuild
+|         |    |         +--- :app:processFreeGameDebugManifest
+|         |    |         |    +--- :app:createFreeGameDebugCompatibleScreenManifests
+|         |    |         |    |    \--- :app:preFreeGameDebugBuild
+|         |    |         |    |         \--- :app:preBuild
+|         |    |         |    +--- :app:preFreeGameDebugBuild
+|         |    |         |    |    \--- :app:preBuild
+|         |    |         |    \--- :app:processFreeGameDebugMainManifest
+|         |    |         |         +--- :app:extractDeepLinksFreeGameDebug
+|         |    |         |         |    \--- :app:preFreeGameDebugBuild
+|         |    |         |         |         \--- :app:preBuild
+|         |    |         |         \--- :app:preFreeGameDebugBuild
+|         |    |         |              \--- :app:preBuild
+|         |    |         \--- :app:processFreeGameDebugManifestForPackage
+|         |    |              +--- :app:preFreeGameDebugBuild
+|         |    |              |    \--- :app:preBuild
+|         |    |              \--- :app:processFreeGameDebugManifest
+|         |    |                   +--- :app:createFreeGameDebugCompatibleScreenManifests
+|         |    |                   |    \--- :app:preFreeGameDebugBuild
+|         |    |                   |         \--- :app:preBuild
+|         |    |                   +--- :app:preFreeGameDebugBuild
+|         |    |                   |    \--- :app:preBuild
+|         |    |                   \--- :app:processFreeGameDebugMainManifest
+|         |    |                        +--- :app:extractDeepLinksFreeGameDebug
+|         |    |                        |    \--- :app:preFreeGameDebugBuild
+|         |    |                        |         \--- :app:preBuild
+|         |    |                        \--- :app:preFreeGameDebugBuild
+|         |    |                             \--- :app:preBuild
+|         |    +--- :app:preFreeGameDebugBuild
+|         |    |    \--- :app:preBuild
+|         |    \--- :app:processFreeGameDebugJavaRes
+|         |         \--- :app:preFreeGameDebugBuild
+|         |              \--- :app:preBuild
+|         +--- :app:mergeLibDexFreeGameDebug
+|         |    +--- :app:checkFreeGameDebugDuplicateClasses
+|         |    |    \--- :app:preFreeGameDebugBuild
+|         |    |         \--- :app:preBuild
+|         |    \--- :app:preFreeGameDebugBuild
+|         |         \--- :app:preBuild
+|         +--- :app:mergeProjectDexFreeGameDebug
+|         |    +--- :app:checkFreeGameDebugDuplicateClasses
+|         |    |    \--- :app:preFreeGameDebugBuild
+|         |    |         \--- :app:preBuild
+|         |    +--- :app:dexBuilderFreeGameDebug
+|         |    |    +--- :app:compileFreeGameDebugJavaWithJavac
+|         |    |    |    +--- :app:compileFreeGameDebugAidl
+|         |    |    |    |    \--- :app:preFreeGameDebugBuild
+|         |    |    |    |         \--- :app:preBuild
+|         |    |    |    +--- :app:compileFreeGameDebugKotlin
+|         |    |    |    |    +--- :app:compileFreeGameDebugAidl
+|         |    |    |    |    |    \--- :app:preFreeGameDebugBuild
+|         |    |    |    |    |         \--- :app:preBuild
+|         |    |    |    |    +--- :app:compileFreeGameDebugRenderscript
+|         |    |    |    |    |    \--- :app:preFreeGameDebugBuild
+|         |    |    |    |    |         \--- :app:preBuild
+|         |    |    |    |    +--- :app:generateFreeGameDebugBuildConfig
+|         |    |    |    |    |    \--- :app:preFreeGameDebugBuild
+|         |    |    |    |    |         \--- :app:preBuild
+|         |    |    |    |    \--- :app:processFreeGameDebugResources
+|         |    |    |    |         +--- :app:checkFreeGameDebugAarMetadata
+|         |    |    |    |         |    \--- :app:preFreeGameDebugBuild
+|         |    |    |    |         |         \--- :app:preBuild
+|         |    |    |    |         +--- :app:mergeFreeGameDebugResources
+|         |    |    |    |         |    +--- :app:generateFreeGameDebugResources
+|         |    |    |    |         |    |    +--- :app:compileFreeGameDebugRenderscript
+|         |    |    |    |         |    |    |    \--- :app:preFreeGameDebugBuild
+|         |    |    |    |         |    |    |         \--- :app:preBuild
+|         |    |    |    |         |    |    \--- :app:generateFreeGameDebugResValues
+|         |    |    |    |         |    |         \--- :app:preFreeGameDebugBuild
+|         |    |    |    |         |    |              \--- :app:preBuild
+|         |    |    |    |         |    \--- :app:preFreeGameDebugBuild
+|         |    |    |    |         |         \--- :app:preBuild
+|         |    |    |    |         +--- :app:preFreeGameDebugBuild
+|         |    |    |    |         |    \--- :app:preBuild
+|         |    |    |    |         +--- :app:processFreeGameDebugManifest
+|         |    |    |    |         |    +--- :app:createFreeGameDebugCompatibleScreenManifests
+|         |    |    |    |         |    |    \--- :app:preFreeGameDebugBuild
+|         |    |    |    |         |    |         \--- :app:preBuild
+|         |    |    |    |         |    +--- :app:preFreeGameDebugBuild
+|         |    |    |    |         |    |    \--- :app:preBuild
+|         |    |    |    |         |    \--- :app:processFreeGameDebugMainManifest
+|         |    |    |    |         |         +--- :app:extractDeepLinksFreeGameDebug
+|         |    |    |    |         |         |    \--- :app:preFreeGameDebugBuild
+|         |    |    |    |         |         |         \--- :app:preBuild
+|         |    |    |    |         |         \--- :app:preFreeGameDebugBuild
+|         |    |    |    |         |              \--- :app:preBuild
+|         |    |    |    |         \--- :app:processFreeGameDebugManifestForPackage
+|         |    |    |    |              +--- :app:preFreeGameDebugBuild
+|         |    |    |    |              |    \--- :app:preBuild
+|         |    |    |    |              \--- :app:processFreeGameDebugManifest
+|         |    |    |    |                   +--- :app:createFreeGameDebugCompatibleScreenManifests
+|         |    |    |    |                   |    \--- :app:preFreeGameDebugBuild
+|         |    |    |    |                   |         \--- :app:preBuild
+|         |    |    |    |                   +--- :app:preFreeGameDebugBuild
+|         |    |    |    |                   |    \--- :app:preBuild
+|         |    |    |    |                   \--- :app:processFreeGameDebugMainManifest
+|         |    |    |    |                        +--- :app:extractDeepLinksFreeGameDebug
+|         |    |    |    |                        |    \--- :app:preFreeGameDebugBuild
+|         |    |    |    |                        |         \--- :app:preBuild
+|         |    |    |    |                        \--- :app:preFreeGameDebugBuild
+|         |    |    |    |                             \--- :app:preBuild
+|         |    |    |    +--- :app:compileFreeGameDebugRenderscript
+|         |    |    |    |    \--- :app:preFreeGameDebugBuild
+|         |    |    |    |         \--- :app:preBuild
+|         |    |    |    +--- :app:generateFreeGameDebugBuildConfig
+|         |    |    |    |    \--- :app:preFreeGameDebugBuild
+|         |    |    |    |         \--- :app:preBuild
+|         |    |    |    +--- :app:javaPreCompileFreeGameDebug
+|         |    |    |    |    \--- :app:preFreeGameDebugBuild
+|         |    |    |    |         \--- :app:preBuild
+|         |    |    |    +--- :app:preFreeGameDebugBuild
+|         |    |    |    |    \--- :app:preBuild
+|         |    |    |    \--- :app:processFreeGameDebugResources
+|         |    |    |         +--- :app:checkFreeGameDebugAarMetadata
+|         |    |    |         |    \--- :app:preFreeGameDebugBuild
+|         |    |    |         |         \--- :app:preBuild
+|         |    |    |         +--- :app:mergeFreeGameDebugResources
+|         |    |    |         |    +--- :app:generateFreeGameDebugResources
+|         |    |    |         |    |    +--- :app:compileFreeGameDebugRenderscript
+|         |    |    |         |    |    |    \--- :app:preFreeGameDebugBuild
+|         |    |    |         |    |    |         \--- :app:preBuild
+|         |    |    |         |    |    \--- :app:generateFreeGameDebugResValues
+|         |    |    |         |    |         \--- :app:preFreeGameDebugBuild
+|         |    |    |         |    |              \--- :app:preBuild
+|         |    |    |         |    \--- :app:preFreeGameDebugBuild
+|         |    |    |         |         \--- :app:preBuild
+|         |    |    |         +--- :app:preFreeGameDebugBuild
+|         |    |    |         |    \--- :app:preBuild
+|         |    |    |         +--- :app:processFreeGameDebugManifest
+|         |    |    |         |    +--- :app:createFreeGameDebugCompatibleScreenManifests
+|         |    |    |         |    |    \--- :app:preFreeGameDebugBuild
+|         |    |    |         |    |         \--- :app:preBuild
+|         |    |    |         |    +--- :app:preFreeGameDebugBuild
+|         |    |    |         |    |    \--- :app:preBuild
+|         |    |    |         |    \--- :app:processFreeGameDebugMainManifest
+|         |    |    |         |         +--- :app:extractDeepLinksFreeGameDebug
+|         |    |    |         |         |    \--- :app:preFreeGameDebugBuild
+|         |    |    |         |         |         \--- :app:preBuild
+|         |    |    |         |         \--- :app:preFreeGameDebugBuild
+|         |    |    |         |              \--- :app:preBuild
+|         |    |    |         \--- :app:processFreeGameDebugManifestForPackage
+|         |    |    |              +--- :app:preFreeGameDebugBuild
+|         |    |    |              |    \--- :app:preBuild
+|         |    |    |              \--- :app:processFreeGameDebugManifest
+|         |    |    |                   +--- :app:createFreeGameDebugCompatibleScreenManifests
+|         |    |    |                   |    \--- :app:preFreeGameDebugBuild
+|         |    |    |                   |         \--- :app:preBuild
+|         |    |    |                   +--- :app:preFreeGameDebugBuild
+|         |    |    |                   |    \--- :app:preBuild
+|         |    |    |                   \--- :app:processFreeGameDebugMainManifest
+|         |    |    |                        +--- :app:extractDeepLinksFreeGameDebug
+|         |    |    |                        |    \--- :app:preFreeGameDebugBuild
+|         |    |    |                        |         \--- :app:preBuild
+|         |    |    |                        \--- :app:preFreeGameDebugBuild
+|         |    |    |                             \--- :app:preBuild
+|         |    |    +--- :app:compileFreeGameDebugKotlin
+|         |    |    |    +--- :app:compileFreeGameDebugAidl
+|         |    |    |    |    \--- :app:preFreeGameDebugBuild
+|         |    |    |    |         \--- :app:preBuild
+|         |    |    |    +--- :app:compileFreeGameDebugRenderscript
+|         |    |    |    |    \--- :app:preFreeGameDebugBuild
+|         |    |    |    |         \--- :app:preBuild
+|         |    |    |    +--- :app:generateFreeGameDebugBuildConfig
+|         |    |    |    |    \--- :app:preFreeGameDebugBuild
+|         |    |    |    |         \--- :app:preBuild
+|         |    |    |    \--- :app:processFreeGameDebugResources
+|         |    |    |         +--- :app:checkFreeGameDebugAarMetadata
+|         |    |    |         |    \--- :app:preFreeGameDebugBuild
+|         |    |    |         |         \--- :app:preBuild
+|         |    |    |         +--- :app:mergeFreeGameDebugResources
+|         |    |    |         |    +--- :app:generateFreeGameDebugResources
+|         |    |    |         |    |    +--- :app:compileFreeGameDebugRenderscript
+|         |    |    |         |    |    |    \--- :app:preFreeGameDebugBuild
+|         |    |    |         |    |    |         \--- :app:preBuild
+|         |    |    |         |    |    \--- :app:generateFreeGameDebugResValues
+|         |    |    |         |    |         \--- :app:preFreeGameDebugBuild
+|         |    |    |         |    |              \--- :app:preBuild
+|         |    |    |         |    \--- :app:preFreeGameDebugBuild
+|         |    |    |         |         \--- :app:preBuild
+|         |    |    |         +--- :app:preFreeGameDebugBuild
+|         |    |    |         |    \--- :app:preBuild
+|         |    |    |         +--- :app:processFreeGameDebugManifest
+|         |    |    |         |    +--- :app:createFreeGameDebugCompatibleScreenManifests
+|         |    |    |         |    |    \--- :app:preFreeGameDebugBuild
+|         |    |    |         |    |         \--- :app:preBuild
+|         |    |    |         |    +--- :app:preFreeGameDebugBuild
+|         |    |    |         |    |    \--- :app:preBuild
+|         |    |    |         |    \--- :app:processFreeGameDebugMainManifest
+|         |    |    |         |         +--- :app:extractDeepLinksFreeGameDebug
+|         |    |    |         |         |    \--- :app:preFreeGameDebugBuild
+|         |    |    |         |         |         \--- :app:preBuild
+|         |    |    |         |         \--- :app:preFreeGameDebugBuild
+|         |    |    |         |              \--- :app:preBuild
+|         |    |    |         \--- :app:processFreeGameDebugManifestForPackage
+|         |    |    |              +--- :app:preFreeGameDebugBuild
+|         |    |    |              |    \--- :app:preBuild
+|         |    |    |              \--- :app:processFreeGameDebugManifest
+|         |    |    |                   +--- :app:createFreeGameDebugCompatibleScreenManifests
+|         |    |    |                   |    \--- :app:preFreeGameDebugBuild
+|         |    |    |                   |         \--- :app:preBuild
+|         |    |    |                   +--- :app:preFreeGameDebugBuild
+|         |    |    |                   |    \--- :app:preBuild
+|         |    |    |                   \--- :app:processFreeGameDebugMainManifest
+|         |    |    |                        +--- :app:extractDeepLinksFreeGameDebug
+|         |    |    |                        |    \--- :app:preFreeGameDebugBuild
+|         |    |    |                        |         \--- :app:preBuild
+|         |    |    |                        \--- :app:preFreeGameDebugBuild
+|         |    |    |                             \--- :app:preBuild
+|         |    |    +--- :app:preFreeGameDebugBuild
+|         |    |    |    \--- :app:preBuild
+|         |    |    \--- :app:processFreeGameDebugResources
+|         |    |         +--- :app:checkFreeGameDebugAarMetadata
+|         |    |         |    \--- :app:preFreeGameDebugBuild
+|         |    |         |         \--- :app:preBuild
+|         |    |         +--- :app:mergeFreeGameDebugResources
+|         |    |         |    +--- :app:generateFreeGameDebugResources
+|         |    |         |    |    +--- :app:compileFreeGameDebugRenderscript
+|         |    |         |    |    |    \--- :app:preFreeGameDebugBuild
+|         |    |         |    |    |         \--- :app:preBuild
+|         |    |         |    |    \--- :app:generateFreeGameDebugResValues
+|         |    |         |    |         \--- :app:preFreeGameDebugBuild
+|         |    |         |    |              \--- :app:preBuild
+|         |    |         |    \--- :app:preFreeGameDebugBuild
+|         |    |         |         \--- :app:preBuild
+|         |    |         +--- :app:preFreeGameDebugBuild
+|         |    |         |    \--- :app:preBuild
+|         |    |         +--- :app:processFreeGameDebugManifest
+|         |    |         |    +--- :app:createFreeGameDebugCompatibleScreenManifests
+|         |    |         |    |    \--- :app:preFreeGameDebugBuild
+|         |    |         |    |         \--- :app:preBuild
+|         |    |         |    +--- :app:preFreeGameDebugBuild
+|         |    |         |    |    \--- :app:preBuild
+|         |    |         |    \--- :app:processFreeGameDebugMainManifest
+|         |    |         |         +--- :app:extractDeepLinksFreeGameDebug
+|         |    |         |         |    \--- :app:preFreeGameDebugBuild
+|         |    |         |         |         \--- :app:preBuild
+|         |    |         |         \--- :app:preFreeGameDebugBuild
+|         |    |         |              \--- :app:preBuild
+|         |    |         \--- :app:processFreeGameDebugManifestForPackage
+|         |    |              +--- :app:preFreeGameDebugBuild
+|         |    |              |    \--- :app:preBuild
+|         |    |              \--- :app:processFreeGameDebugManifest
+|         |    |                   +--- :app:createFreeGameDebugCompatibleScreenManifests
+|         |    |                   |    \--- :app:preFreeGameDebugBuild
+|         |    |                   |         \--- :app:preBuild
+|         |    |                   +--- :app:preFreeGameDebugBuild
+|         |    |                   |    \--- :app:preBuild
+|         |    |                   \--- :app:processFreeGameDebugMainManifest
+|         |    |                        +--- :app:extractDeepLinksFreeGameDebug
+|         |    |                        |    \--- :app:preFreeGameDebugBuild
+|         |    |                        |         \--- :app:preBuild
+|         |    |                        \--- :app:preFreeGameDebugBuild
+|         |    |                             \--- :app:preBuild
+|         |    \--- :app:preFreeGameDebugBuild
+|         |         \--- :app:preBuild
+|         +--- :app:preFreeGameDebugBuild
+|         |    \--- :app:preBuild
+|         +--- :app:processFreeGameDebugManifestForPackage
+|         |    +--- :app:preFreeGameDebugBuild
+|         |    |    \--- :app:preBuild
+|         |    \--- :app:processFreeGameDebugManifest
+|         |         +--- :app:createFreeGameDebugCompatibleScreenManifests
+|         |         |    \--- :app:preFreeGameDebugBuild
+|         |         |         \--- :app:preBuild
+|         |         +--- :app:preFreeGameDebugBuild
+|         |         |    \--- :app:preBuild
+|         |         \--- :app:processFreeGameDebugMainManifest
+|         |              +--- :app:extractDeepLinksFreeGameDebug
+|         |              |    \--- :app:preFreeGameDebugBuild
+|         |              |         \--- :app:preBuild
+|         |              \--- :app:preFreeGameDebugBuild
+|         |                   \--- :app:preBuild
+|         +--- :app:processFreeGameDebugResources
+|         |    +--- :app:checkFreeGameDebugAarMetadata
+|         |    |    \--- :app:preFreeGameDebugBuild
+|         |    |         \--- :app:preBuild
+|         |    +--- :app:mergeFreeGameDebugResources
+|         |    |    +--- :app:generateFreeGameDebugResources
+|         |    |    |    +--- :app:compileFreeGameDebugRenderscript
+|         |    |    |    |    \--- :app:preFreeGameDebugBuild
+|         |    |    |    |         \--- :app:preBuild
+|         |    |    |    \--- :app:generateFreeGameDebugResValues
+|         |    |    |         \--- :app:preFreeGameDebugBuild
+|         |    |    |              \--- :app:preBuild
+|         |    |    \--- :app:preFreeGameDebugBuild
+|         |    |         \--- :app:preBuild
+|         |    +--- :app:preFreeGameDebugBuild
+|         |    |    \--- :app:preBuild
+|         |    +--- :app:processFreeGameDebugManifest
+|         |    |    +--- :app:createFreeGameDebugCompatibleScreenManifests
+|         |    |    |    \--- :app:preFreeGameDebugBuild
+|         |    |    |         \--- :app:preBuild
+|         |    |    +--- :app:preFreeGameDebugBuild
+|         |    |    |    \--- :app:preBuild
+|         |    |    \--- :app:processFreeGameDebugMainManifest
+|         |    |         +--- :app:extractDeepLinksFreeGameDebug
+|         |    |         |    \--- :app:preFreeGameDebugBuild
+|         |    |         |         \--- :app:preBuild
+|         |    |         \--- :app:preFreeGameDebugBuild
+|         |    |              \--- :app:preBuild
+|         |    \--- :app:processFreeGameDebugManifestForPackage
+|         |         +--- :app:preFreeGameDebugBuild
+|         |         |    \--- :app:preBuild
+|         |         \--- :app:processFreeGameDebugManifest
+|         |              +--- :app:createFreeGameDebugCompatibleScreenManifests
+|         |              |    \--- :app:preFreeGameDebugBuild
+|         |              |         \--- :app:preBuild
+|         |              +--- :app:preFreeGameDebugBuild
+|         |              |    \--- :app:preBuild
+|         |              \--- :app:processFreeGameDebugMainManifest
+|         |                   +--- :app:extractDeepLinksFreeGameDebug
+|         |                   |    \--- :app:preFreeGameDebugBuild
+|         |                   |         \--- :app:preBuild
+|         |                   \--- :app:preFreeGameDebugBuild
+|         |                        \--- :app:preBuild
+|         +--- :app:stripFreeGameDebugDebugSymbols
+|         |    +--- :app:mergeFreeGameDebugNativeLibs
+|         |    |    +--- :app:mergeFreeGameDebugJniLibFolders
+|         |    |    |    \--- :app:preFreeGameDebugBuild
+|         |    |    |         \--- :app:preBuild
+|         |    |    \--- :app:preFreeGameDebugBuild
+|         |    |         \--- :app:preBuild
+|         |    \--- :app:preFreeGameDebugBuild
+|         |         \--- :app:preBuild
+|         \--- :app:validateSigningFreeGameDebug
+|              \--- :app:preFreeGameDebugBuild
+|                   \--- :app:preBuild
++--- :app:assemblePaidApplicationDebug
+|    +--- :app:compilePaidApplicationDebugSources
+|    |    \--- :app:compilePaidApplicationDebugJavaWithJavac
+|    |         +--- :app:compilePaidApplicationDebugAidl
+|    |         |    \--- :app:prePaidApplicationDebugBuild
+|    |         |         \--- :app:preBuild
+|    |         +--- :app:compilePaidApplicationDebugKotlin
+|    |         |    +--- :app:compilePaidApplicationDebugAidl
+|    |         |    |    \--- :app:prePaidApplicationDebugBuild
+|    |         |    |         \--- :app:preBuild
+|    |         |    +--- :app:compilePaidApplicationDebugRenderscript
+|    |         |    |    \--- :app:prePaidApplicationDebugBuild
+|    |         |    |         \--- :app:preBuild
+|    |         |    +--- :app:generatePaidApplicationDebugBuildConfig
+|    |         |    |    \--- :app:prePaidApplicationDebugBuild
+|    |         |    |         \--- :app:preBuild
+|    |         |    \--- :app:processPaidApplicationDebugResources
+|    |         |         +--- :app:checkPaidApplicationDebugAarMetadata
+|    |         |         |    \--- :app:prePaidApplicationDebugBuild
+|    |         |         |         \--- :app:preBuild
+|    |         |         +--- :app:mergePaidApplicationDebugResources
+|    |         |         |    +--- :app:generatePaidApplicationDebugResources
+|    |         |         |    |    +--- :app:compilePaidApplicationDebugRenderscript
+|    |         |         |    |    |    \--- :app:prePaidApplicationDebugBuild
+|    |         |         |    |    |         \--- :app:preBuild
+|    |         |         |    |    \--- :app:generatePaidApplicationDebugResValues
+|    |         |         |    |         \--- :app:prePaidApplicationDebugBuild
+|    |         |         |    |              \--- :app:preBuild
+|    |         |         |    \--- :app:prePaidApplicationDebugBuild
+|    |         |         |         \--- :app:preBuild
+|    |         |         +--- :app:prePaidApplicationDebugBuild
+|    |         |         |    \--- :app:preBuild
+|    |         |         +--- :app:processPaidApplicationDebugManifest
+|    |         |         |    +--- :app:createPaidApplicationDebugCompatibleScreenManifests
+|    |         |         |    |    \--- :app:prePaidApplicationDebugBuild
+|    |         |         |    |         \--- :app:preBuild
+|    |         |         |    +--- :app:prePaidApplicationDebugBuild
+|    |         |         |    |    \--- :app:preBuild
+|    |         |         |    \--- :app:processPaidApplicationDebugMainManifest
+|    |         |         |         +--- :app:extractDeepLinksPaidApplicationDebug
+|    |         |         |         |    \--- :app:prePaidApplicationDebugBuild
+|    |         |         |         |         \--- :app:preBuild
+|    |         |         |         \--- :app:prePaidApplicationDebugBuild
+|    |         |         |              \--- :app:preBuild
+|    |         |         \--- :app:processPaidApplicationDebugManifestForPackage
+|    |         |              +--- :app:prePaidApplicationDebugBuild
+|    |         |              |    \--- :app:preBuild
+|    |         |              \--- :app:processPaidApplicationDebugManifest
+|    |         |                   +--- :app:createPaidApplicationDebugCompatibleScreenManifests
+|    |         |                   |    \--- :app:prePaidApplicationDebugBuild
+|    |         |                   |         \--- :app:preBuild
+|    |         |                   +--- :app:prePaidApplicationDebugBuild
+|    |         |                   |    \--- :app:preBuild
+|    |         |                   \--- :app:processPaidApplicationDebugMainManifest
+|    |         |                        +--- :app:extractDeepLinksPaidApplicationDebug
+|    |         |                        |    \--- :app:prePaidApplicationDebugBuild
+|    |         |                        |         \--- :app:preBuild
+|    |         |                        \--- :app:prePaidApplicationDebugBuild
+|    |         |                             \--- :app:preBuild
+|    |         +--- :app:compilePaidApplicationDebugRenderscript
+|    |         |    \--- :app:prePaidApplicationDebugBuild
+|    |         |         \--- :app:preBuild
+|    |         +--- :app:generatePaidApplicationDebugBuildConfig
+|    |         |    \--- :app:prePaidApplicationDebugBuild
+|    |         |         \--- :app:preBuild
+|    |         +--- :app:javaPreCompilePaidApplicationDebug
+|    |         |    \--- :app:prePaidApplicationDebugBuild
+|    |         |         \--- :app:preBuild
+|    |         +--- :app:prePaidApplicationDebugBuild
+|    |         |    \--- :app:preBuild
+|    |         \--- :app:processPaidApplicationDebugResources
+|    |              +--- :app:checkPaidApplicationDebugAarMetadata
+|    |              |    \--- :app:prePaidApplicationDebugBuild
+|    |              |         \--- :app:preBuild
+|    |              +--- :app:mergePaidApplicationDebugResources
+|    |              |    +--- :app:generatePaidApplicationDebugResources
+|    |              |    |    +--- :app:compilePaidApplicationDebugRenderscript
+|    |              |    |    |    \--- :app:prePaidApplicationDebugBuild
+|    |              |    |    |         \--- :app:preBuild
+|    |              |    |    \--- :app:generatePaidApplicationDebugResValues
+|    |              |    |         \--- :app:prePaidApplicationDebugBuild
+|    |              |    |              \--- :app:preBuild
+|    |              |    \--- :app:prePaidApplicationDebugBuild
+|    |              |         \--- :app:preBuild
+|    |              +--- :app:prePaidApplicationDebugBuild
+|    |              |    \--- :app:preBuild
+|    |              +--- :app:processPaidApplicationDebugManifest
+|    |              |    +--- :app:createPaidApplicationDebugCompatibleScreenManifests
+|    |              |    |    \--- :app:prePaidApplicationDebugBuild
+|    |              |    |         \--- :app:preBuild
+|    |              |    +--- :app:prePaidApplicationDebugBuild
+|    |              |    |    \--- :app:preBuild
+|    |              |    \--- :app:processPaidApplicationDebugMainManifest
+|    |              |         +--- :app:extractDeepLinksPaidApplicationDebug
+|    |              |         |    \--- :app:prePaidApplicationDebugBuild
+|    |              |         |         \--- :app:preBuild
+|    |              |         \--- :app:prePaidApplicationDebugBuild
+|    |              |              \--- :app:preBuild
+|    |              \--- :app:processPaidApplicationDebugManifestForPackage
+|    |                   +--- :app:prePaidApplicationDebugBuild
+|    |                   |    \--- :app:preBuild
+|    |                   \--- :app:processPaidApplicationDebugManifest
+|    |                        +--- :app:createPaidApplicationDebugCompatibleScreenManifests
+|    |                        |    \--- :app:prePaidApplicationDebugBuild
+|    |                        |         \--- :app:preBuild
+|    |                        +--- :app:prePaidApplicationDebugBuild
+|    |                        |    \--- :app:preBuild
+|    |                        \--- :app:processPaidApplicationDebugMainManifest
+|    |                             +--- :app:extractDeepLinksPaidApplicationDebug
+|    |                             |    \--- :app:prePaidApplicationDebugBuild
+|    |                             |         \--- :app:preBuild
+|    |                             \--- :app:prePaidApplicationDebugBuild
+|    |                                  \--- :app:preBuild
+|    +--- :app:mergePaidApplicationDebugNativeDebugMetadata
+|    |    \--- :app:prePaidApplicationDebugBuild
+|    |         \--- :app:preBuild
+|    \--- :app:packagePaidApplicationDebug
+|         +--- :app:compilePaidApplicationDebugJavaWithJavac
+|         |    +--- :app:compilePaidApplicationDebugAidl
+|         |    |    \--- :app:prePaidApplicationDebugBuild
+|         |    |         \--- :app:preBuild
+|         |    +--- :app:compilePaidApplicationDebugKotlin
+|         |    |    +--- :app:compilePaidApplicationDebugAidl
+|         |    |    |    \--- :app:prePaidApplicationDebugBuild
+|         |    |    |         \--- :app:preBuild
+|         |    |    +--- :app:compilePaidApplicationDebugRenderscript
+|         |    |    |    \--- :app:prePaidApplicationDebugBuild
+|         |    |    |         \--- :app:preBuild
+|         |    |    +--- :app:generatePaidApplicationDebugBuildConfig
+|         |    |    |    \--- :app:prePaidApplicationDebugBuild
+|         |    |    |         \--- :app:preBuild
+|         |    |    \--- :app:processPaidApplicationDebugResources
+|         |    |         +--- :app:checkPaidApplicationDebugAarMetadata
+|         |    |         |    \--- :app:prePaidApplicationDebugBuild
+|         |    |         |         \--- :app:preBuild
+|         |    |         +--- :app:mergePaidApplicationDebugResources
+|         |    |         |    +--- :app:generatePaidApplicationDebugResources
+|         |    |         |    |    +--- :app:compilePaidApplicationDebugRenderscript
+|         |    |         |    |    |    \--- :app:prePaidApplicationDebugBuild
+|         |    |         |    |    |         \--- :app:preBuild
+|         |    |         |    |    \--- :app:generatePaidApplicationDebugResValues
+|         |    |         |    |         \--- :app:prePaidApplicationDebugBuild
+|         |    |         |    |              \--- :app:preBuild
+|         |    |         |    \--- :app:prePaidApplicationDebugBuild
+|         |    |         |         \--- :app:preBuild
+|         |    |         +--- :app:prePaidApplicationDebugBuild
+|         |    |         |    \--- :app:preBuild
+|         |    |         +--- :app:processPaidApplicationDebugManifest
+|         |    |         |    +--- :app:createPaidApplicationDebugCompatibleScreenManifests
+|         |    |         |    |    \--- :app:prePaidApplicationDebugBuild
+|         |    |         |    |         \--- :app:preBuild
+|         |    |         |    +--- :app:prePaidApplicationDebugBuild
+|         |    |         |    |    \--- :app:preBuild
+|         |    |         |    \--- :app:processPaidApplicationDebugMainManifest
+|         |    |         |         +--- :app:extractDeepLinksPaidApplicationDebug
+|         |    |         |         |    \--- :app:prePaidApplicationDebugBuild
+|         |    |         |         |         \--- :app:preBuild
+|         |    |         |         \--- :app:prePaidApplicationDebugBuild
+|         |    |         |              \--- :app:preBuild
+|         |    |         \--- :app:processPaidApplicationDebugManifestForPackage
+|         |    |              +--- :app:prePaidApplicationDebugBuild
+|         |    |              |    \--- :app:preBuild
+|         |    |              \--- :app:processPaidApplicationDebugManifest
+|         |    |                   +--- :app:createPaidApplicationDebugCompatibleScreenManifests
+|         |    |                   |    \--- :app:prePaidApplicationDebugBuild
+|         |    |                   |         \--- :app:preBuild
+|         |    |                   +--- :app:prePaidApplicationDebugBuild
+|         |    |                   |    \--- :app:preBuild
+|         |    |                   \--- :app:processPaidApplicationDebugMainManifest
+|         |    |                        +--- :app:extractDeepLinksPaidApplicationDebug
+|         |    |                        |    \--- :app:prePaidApplicationDebugBuild
+|         |    |                        |         \--- :app:preBuild
+|         |    |                        \--- :app:prePaidApplicationDebugBuild
+|         |    |                             \--- :app:preBuild
+|         |    +--- :app:compilePaidApplicationDebugRenderscript
+|         |    |    \--- :app:prePaidApplicationDebugBuild
+|         |    |         \--- :app:preBuild
+|         |    +--- :app:generatePaidApplicationDebugBuildConfig
+|         |    |    \--- :app:prePaidApplicationDebugBuild
+|         |    |         \--- :app:preBuild
+|         |    +--- :app:javaPreCompilePaidApplicationDebug
+|         |    |    \--- :app:prePaidApplicationDebugBuild
+|         |    |         \--- :app:preBuild
+|         |    +--- :app:prePaidApplicationDebugBuild
+|         |    |    \--- :app:preBuild
+|         |    \--- :app:processPaidApplicationDebugResources
+|         |         +--- :app:checkPaidApplicationDebugAarMetadata
+|         |         |    \--- :app:prePaidApplicationDebugBuild
+|         |         |         \--- :app:preBuild
+|         |         +--- :app:mergePaidApplicationDebugResources
+|         |         |    +--- :app:generatePaidApplicationDebugResources
+|         |         |    |    +--- :app:compilePaidApplicationDebugRenderscript
+|         |         |    |    |    \--- :app:prePaidApplicationDebugBuild
+|         |         |    |    |         \--- :app:preBuild
+|         |         |    |    \--- :app:generatePaidApplicationDebugResValues
+|         |         |    |         \--- :app:prePaidApplicationDebugBuild
+|         |         |    |              \--- :app:preBuild
+|         |         |    \--- :app:prePaidApplicationDebugBuild
+|         |         |         \--- :app:preBuild
+|         |         +--- :app:prePaidApplicationDebugBuild
+|         |         |    \--- :app:preBuild
+|         |         +--- :app:processPaidApplicationDebugManifest
+|         |         |    +--- :app:createPaidApplicationDebugCompatibleScreenManifests
+|         |         |    |    \--- :app:prePaidApplicationDebugBuild
+|         |         |    |         \--- :app:preBuild
+|         |         |    +--- :app:prePaidApplicationDebugBuild
+|         |         |    |    \--- :app:preBuild
+|         |         |    \--- :app:processPaidApplicationDebugMainManifest
+|         |         |         +--- :app:extractDeepLinksPaidApplicationDebug
+|         |         |         |    \--- :app:prePaidApplicationDebugBuild
+|         |         |         |         \--- :app:preBuild
+|         |         |         \--- :app:prePaidApplicationDebugBuild
+|         |         |              \--- :app:preBuild
+|         |         \--- :app:processPaidApplicationDebugManifestForPackage
+|         |              +--- :app:prePaidApplicationDebugBuild
+|         |              |    \--- :app:preBuild
+|         |              \--- :app:processPaidApplicationDebugManifest
+|         |                   +--- :app:createPaidApplicationDebugCompatibleScreenManifests
+|         |                   |    \--- :app:prePaidApplicationDebugBuild
+|         |                   |         \--- :app:preBuild
+|         |                   +--- :app:prePaidApplicationDebugBuild
+|         |                   |    \--- :app:preBuild
+|         |                   \--- :app:processPaidApplicationDebugMainManifest
+|         |                        +--- :app:extractDeepLinksPaidApplicationDebug
+|         |                        |    \--- :app:prePaidApplicationDebugBuild
+|         |                        |         \--- :app:preBuild
+|         |                        \--- :app:prePaidApplicationDebugBuild
+|         |                             \--- :app:preBuild
+|         +--- :app:compressPaidApplicationDebugAssets
+|         |    +--- :app:mergePaidApplicationDebugAssets
+|         |    |    +--- :app:compilePaidApplicationDebugShaders
+|         |    |    |    +--- :app:mergePaidApplicationDebugShaders
+|         |    |    |    |    \--- :app:prePaidApplicationDebugBuild
+|         |    |    |    |         \--- :app:preBuild
+|         |    |    |    \--- :app:prePaidApplicationDebugBuild
+|         |    |    |         \--- :app:preBuild
+|         |    |    +--- :app:generatePaidApplicationDebugAssets
+|         |    |    |    \--- :app:compilePaidApplicationDebugShaders
+|         |    |    |         +--- :app:mergePaidApplicationDebugShaders
+|         |    |    |         |    \--- :app:prePaidApplicationDebugBuild
+|         |    |    |         |         \--- :app:preBuild
+|         |    |    |         \--- :app:prePaidApplicationDebugBuild
+|         |    |    |              \--- :app:preBuild
+|         |    |    \--- :app:prePaidApplicationDebugBuild
+|         |    |         \--- :app:preBuild
+|         |    \--- :app:prePaidApplicationDebugBuild
+|         |         \--- :app:preBuild
+|         +--- :app:mergeExtDexPaidApplicationDebug
+|         |    +--- :app:checkPaidApplicationDebugDuplicateClasses
+|         |    |    \--- :app:prePaidApplicationDebugBuild
+|         |    |         \--- :app:preBuild
+|         |    +--- :app:desugarPaidApplicationDebugFileDependencies
+|         |    |    \--- :app:prePaidApplicationDebugBuild
+|         |    |         \--- :app:preBuild
+|         |    \--- :app:prePaidApplicationDebugBuild
+|         |         \--- :app:preBuild
+|         +--- :app:mergeLibDexPaidApplicationDebug
+|         |    +--- :app:checkPaidApplicationDebugDuplicateClasses
+|         |    |    \--- :app:prePaidApplicationDebugBuild
+|         |    |         \--- :app:preBuild
+|         |    \--- :app:prePaidApplicationDebugBuild
+|         |         \--- :app:preBuild
+|         +--- :app:mergePaidApplicationDebugAssets
+|         |    +--- :app:compilePaidApplicationDebugShaders
+|         |    |    +--- :app:mergePaidApplicationDebugShaders
+|         |    |    |    \--- :app:prePaidApplicationDebugBuild
+|         |    |    |         \--- :app:preBuild
+|         |    |    \--- :app:prePaidApplicationDebugBuild
+|         |    |         \--- :app:preBuild
+|         |    +--- :app:generatePaidApplicationDebugAssets
+|         |    |    \--- :app:compilePaidApplicationDebugShaders
+|         |    |         +--- :app:mergePaidApplicationDebugShaders
+|         |    |         |    \--- :app:prePaidApplicationDebugBuild
+|         |    |         |         \--- :app:preBuild
+|         |    |         \--- :app:prePaidApplicationDebugBuild
+|         |    |              \--- :app:preBuild
+|         |    \--- :app:prePaidApplicationDebugBuild
+|         |         \--- :app:preBuild
+|         +--- :app:mergePaidApplicationDebugJavaResource
+|         |    +--- :app:compilePaidApplicationDebugKotlin
+|         |    |    +--- :app:compilePaidApplicationDebugAidl
+|         |    |    |    \--- :app:prePaidApplicationDebugBuild
+|         |    |    |         \--- :app:preBuild
+|         |    |    +--- :app:compilePaidApplicationDebugRenderscript
+|         |    |    |    \--- :app:prePaidApplicationDebugBuild
+|         |    |    |         \--- :app:preBuild
+|         |    |    +--- :app:generatePaidApplicationDebugBuildConfig
+|         |    |    |    \--- :app:prePaidApplicationDebugBuild
+|         |    |    |         \--- :app:preBuild
+|         |    |    \--- :app:processPaidApplicationDebugResources
+|         |    |         +--- :app:checkPaidApplicationDebugAarMetadata
+|         |    |         |    \--- :app:prePaidApplicationDebugBuild
+|         |    |         |         \--- :app:preBuild
+|         |    |         +--- :app:mergePaidApplicationDebugResources
+|         |    |         |    +--- :app:generatePaidApplicationDebugResources
+|         |    |         |    |    +--- :app:compilePaidApplicationDebugRenderscript
+|         |    |         |    |    |    \--- :app:prePaidApplicationDebugBuild
+|         |    |         |    |    |         \--- :app:preBuild
+|         |    |         |    |    \--- :app:generatePaidApplicationDebugResValues
+|         |    |         |    |         \--- :app:prePaidApplicationDebugBuild
+|         |    |         |    |              \--- :app:preBuild
+|         |    |         |    \--- :app:prePaidApplicationDebugBuild
+|         |    |         |         \--- :app:preBuild
+|         |    |         +--- :app:prePaidApplicationDebugBuild
+|         |    |         |    \--- :app:preBuild
+|         |    |         +--- :app:processPaidApplicationDebugManifest
+|         |    |         |    +--- :app:createPaidApplicationDebugCompatibleScreenManifests
+|         |    |         |    |    \--- :app:prePaidApplicationDebugBuild
+|         |    |         |    |         \--- :app:preBuild
+|         |    |         |    +--- :app:prePaidApplicationDebugBuild
+|         |    |         |    |    \--- :app:preBuild
+|         |    |         |    \--- :app:processPaidApplicationDebugMainManifest
+|         |    |         |         +--- :app:extractDeepLinksPaidApplicationDebug
+|         |    |         |         |    \--- :app:prePaidApplicationDebugBuild
+|         |    |         |         |         \--- :app:preBuild
+|         |    |         |         \--- :app:prePaidApplicationDebugBuild
+|         |    |         |              \--- :app:preBuild
+|         |    |         \--- :app:processPaidApplicationDebugManifestForPackage
+|         |    |              +--- :app:prePaidApplicationDebugBuild
+|         |    |              |    \--- :app:preBuild
+|         |    |              \--- :app:processPaidApplicationDebugManifest
+|         |    |                   +--- :app:createPaidApplicationDebugCompatibleScreenManifests
+|         |    |                   |    \--- :app:prePaidApplicationDebugBuild
+|         |    |                   |         \--- :app:preBuild
+|         |    |                   +--- :app:prePaidApplicationDebugBuild
+|         |    |                   |    \--- :app:preBuild
+|         |    |                   \--- :app:processPaidApplicationDebugMainManifest
+|         |    |                        +--- :app:extractDeepLinksPaidApplicationDebug
+|         |    |                        |    \--- :app:prePaidApplicationDebugBuild
+|         |    |                        |         \--- :app:preBuild
+|         |    |                        \--- :app:prePaidApplicationDebugBuild
+|         |    |                             \--- :app:preBuild
+|         |    +--- :app:prePaidApplicationDebugBuild
+|         |    |    \--- :app:preBuild
+|         |    \--- :app:processPaidApplicationDebugJavaRes
+|         |         \--- :app:prePaidApplicationDebugBuild
+|         |              \--- :app:preBuild
+|         +--- :app:mergeProjectDexPaidApplicationDebug
+|         |    +--- :app:checkPaidApplicationDebugDuplicateClasses
+|         |    |    \--- :app:prePaidApplicationDebugBuild
+|         |    |         \--- :app:preBuild
+|         |    +--- :app:dexBuilderPaidApplicationDebug
+|         |    |    +--- :app:compilePaidApplicationDebugJavaWithJavac
+|         |    |    |    +--- :app:compilePaidApplicationDebugAidl
+|         |    |    |    |    \--- :app:prePaidApplicationDebugBuild
+|         |    |    |    |         \--- :app:preBuild
+|         |    |    |    +--- :app:compilePaidApplicationDebugKotlin
+|         |    |    |    |    +--- :app:compilePaidApplicationDebugAidl
+|         |    |    |    |    |    \--- :app:prePaidApplicationDebugBuild
+|         |    |    |    |    |         \--- :app:preBuild
+|         |    |    |    |    +--- :app:compilePaidApplicationDebugRenderscript
+|         |    |    |    |    |    \--- :app:prePaidApplicationDebugBuild
+|         |    |    |    |    |         \--- :app:preBuild
+|         |    |    |    |    +--- :app:generatePaidApplicationDebugBuildConfig
+|         |    |    |    |    |    \--- :app:prePaidApplicationDebugBuild
+|         |    |    |    |    |         \--- :app:preBuild
+|         |    |    |    |    \--- :app:processPaidApplicationDebugResources
+|         |    |    |    |         +--- :app:checkPaidApplicationDebugAarMetadata
+|         |    |    |    |         |    \--- :app:prePaidApplicationDebugBuild
+|         |    |    |    |         |         \--- :app:preBuild
+|         |    |    |    |         +--- :app:mergePaidApplicationDebugResources
+|         |    |    |    |         |    +--- :app:generatePaidApplicationDebugResources
+|         |    |    |    |         |    |    +--- :app:compilePaidApplicationDebugRenderscript
+|         |    |    |    |         |    |    |    \--- :app:prePaidApplicationDebugBuild
+|         |    |    |    |         |    |    |         \--- :app:preBuild
+|         |    |    |    |         |    |    \--- :app:generatePaidApplicationDebugResValues
+|         |    |    |    |         |    |         \--- :app:prePaidApplicationDebugBuild
+|         |    |    |    |         |    |              \--- :app:preBuild
+|         |    |    |    |         |    \--- :app:prePaidApplicationDebugBuild
+|         |    |    |    |         |         \--- :app:preBuild
+|         |    |    |    |         +--- :app:prePaidApplicationDebugBuild
+|         |    |    |    |         |    \--- :app:preBuild
+|         |    |    |    |         +--- :app:processPaidApplicationDebugManifest
+|         |    |    |    |         |    +--- :app:createPaidApplicationDebugCompatibleScreenManifests
+|         |    |    |    |         |    |    \--- :app:prePaidApplicationDebugBuild
+|         |    |    |    |         |    |         \--- :app:preBuild
+|         |    |    |    |         |    +--- :app:prePaidApplicationDebugBuild
+|         |    |    |    |         |    |    \--- :app:preBuild
+|         |    |    |    |         |    \--- :app:processPaidApplicationDebugMainManifest
+|         |    |    |    |         |         +--- :app:extractDeepLinksPaidApplicationDebug
+|         |    |    |    |         |         |    \--- :app:prePaidApplicationDebugBuild
+|         |    |    |    |         |         |         \--- :app:preBuild
+|         |    |    |    |         |         \--- :app:prePaidApplicationDebugBuild
+|         |    |    |    |         |              \--- :app:preBuild
+|         |    |    |    |         \--- :app:processPaidApplicationDebugManifestForPackage
+|         |    |    |    |              +--- :app:prePaidApplicationDebugBuild
+|         |    |    |    |              |    \--- :app:preBuild
+|         |    |    |    |              \--- :app:processPaidApplicationDebugManifest
+|         |    |    |    |                   +--- :app:createPaidApplicationDebugCompatibleScreenManifests
+|         |    |    |    |                   |    \--- :app:prePaidApplicationDebugBuild
+|         |    |    |    |                   |         \--- :app:preBuild
+|         |    |    |    |                   +--- :app:prePaidApplicationDebugBuild
+|         |    |    |    |                   |    \--- :app:preBuild
+|         |    |    |    |                   \--- :app:processPaidApplicationDebugMainManifest
+|         |    |    |    |                        +--- :app:extractDeepLinksPaidApplicationDebug
+|         |    |    |    |                        |    \--- :app:prePaidApplicationDebugBuild
+|         |    |    |    |                        |         \--- :app:preBuild
+|         |    |    |    |                        \--- :app:prePaidApplicationDebugBuild
+|         |    |    |    |                             \--- :app:preBuild
+|         |    |    |    +--- :app:compilePaidApplicationDebugRenderscript
+|         |    |    |    |    \--- :app:prePaidApplicationDebugBuild
+|         |    |    |    |         \--- :app:preBuild
+|         |    |    |    +--- :app:generatePaidApplicationDebugBuildConfig
+|         |    |    |    |    \--- :app:prePaidApplicationDebugBuild
+|         |    |    |    |         \--- :app:preBuild
+|         |    |    |    +--- :app:javaPreCompilePaidApplicationDebug
+|         |    |    |    |    \--- :app:prePaidApplicationDebugBuild
+|         |    |    |    |         \--- :app:preBuild
+|         |    |    |    +--- :app:prePaidApplicationDebugBuild
+|         |    |    |    |    \--- :app:preBuild
+|         |    |    |    \--- :app:processPaidApplicationDebugResources
+|         |    |    |         +--- :app:checkPaidApplicationDebugAarMetadata
+|         |    |    |         |    \--- :app:prePaidApplicationDebugBuild
+|         |    |    |         |         \--- :app:preBuild
+|         |    |    |         +--- :app:mergePaidApplicationDebugResources
+|         |    |    |         |    +--- :app:generatePaidApplicationDebugResources
+|         |    |    |         |    |    +--- :app:compilePaidApplicationDebugRenderscript
+|         |    |    |         |    |    |    \--- :app:prePaidApplicationDebugBuild
+|         |    |    |         |    |    |         \--- :app:preBuild
+|         |    |    |         |    |    \--- :app:generatePaidApplicationDebugResValues
+|         |    |    |         |    |         \--- :app:prePaidApplicationDebugBuild
+|         |    |    |         |    |              \--- :app:preBuild
+|         |    |    |         |    \--- :app:prePaidApplicationDebugBuild
+|         |    |    |         |         \--- :app:preBuild
+|         |    |    |         +--- :app:prePaidApplicationDebugBuild
+|         |    |    |         |    \--- :app:preBuild
+|         |    |    |         +--- :app:processPaidApplicationDebugManifest
+|         |    |    |         |    +--- :app:createPaidApplicationDebugCompatibleScreenManifests
+|         |    |    |         |    |    \--- :app:prePaidApplicationDebugBuild
+|         |    |    |         |    |         \--- :app:preBuild
+|         |    |    |         |    +--- :app:prePaidApplicationDebugBuild
+|         |    |    |         |    |    \--- :app:preBuild
+|         |    |    |         |    \--- :app:processPaidApplicationDebugMainManifest
+|         |    |    |         |         +--- :app:extractDeepLinksPaidApplicationDebug
+|         |    |    |         |         |    \--- :app:prePaidApplicationDebugBuild
+|         |    |    |         |         |         \--- :app:preBuild
+|         |    |    |         |         \--- :app:prePaidApplicationDebugBuild
+|         |    |    |         |              \--- :app:preBuild
+|         |    |    |         \--- :app:processPaidApplicationDebugManifestForPackage
+|         |    |    |              +--- :app:prePaidApplicationDebugBuild
+|         |    |    |              |    \--- :app:preBuild
+|         |    |    |              \--- :app:processPaidApplicationDebugManifest
+|         |    |    |                   +--- :app:createPaidApplicationDebugCompatibleScreenManifests
+|         |    |    |                   |    \--- :app:prePaidApplicationDebugBuild
+|         |    |    |                   |         \--- :app:preBuild
+|         |    |    |                   +--- :app:prePaidApplicationDebugBuild
+|         |    |    |                   |    \--- :app:preBuild
+|         |    |    |                   \--- :app:processPaidApplicationDebugMainManifest
+|         |    |    |                        +--- :app:extractDeepLinksPaidApplicationDebug
+|         |    |    |                        |    \--- :app:prePaidApplicationDebugBuild
+|         |    |    |                        |         \--- :app:preBuild
+|         |    |    |                        \--- :app:prePaidApplicationDebugBuild
+|         |    |    |                             \--- :app:preBuild
+|         |    |    +--- :app:compilePaidApplicationDebugKotlin
+|         |    |    |    +--- :app:compilePaidApplicationDebugAidl
+|         |    |    |    |    \--- :app:prePaidApplicationDebugBuild
+|         |    |    |    |         \--- :app:preBuild
+|         |    |    |    +--- :app:compilePaidApplicationDebugRenderscript
+|         |    |    |    |    \--- :app:prePaidApplicationDebugBuild
+|         |    |    |    |         \--- :app:preBuild
+|         |    |    |    +--- :app:generatePaidApplicationDebugBuildConfig
+|         |    |    |    |    \--- :app:prePaidApplicationDebugBuild
+|         |    |    |    |         \--- :app:preBuild
+|         |    |    |    \--- :app:processPaidApplicationDebugResources
+|         |    |    |         +--- :app:checkPaidApplicationDebugAarMetadata
+|         |    |    |         |    \--- :app:prePaidApplicationDebugBuild
+|         |    |    |         |         \--- :app:preBuild
+|         |    |    |         +--- :app:mergePaidApplicationDebugResources
+|         |    |    |         |    +--- :app:generatePaidApplicationDebugResources
+|         |    |    |         |    |    +--- :app:compilePaidApplicationDebugRenderscript
+|         |    |    |         |    |    |    \--- :app:prePaidApplicationDebugBuild
+|         |    |    |         |    |    |         \--- :app:preBuild
+|         |    |    |         |    |    \--- :app:generatePaidApplicationDebugResValues
+|         |    |    |         |    |         \--- :app:prePaidApplicationDebugBuild
+|         |    |    |         |    |              \--- :app:preBuild
+|         |    |    |         |    \--- :app:prePaidApplicationDebugBuild
+|         |    |    |         |         \--- :app:preBuild
+|         |    |    |         +--- :app:prePaidApplicationDebugBuild
+|         |    |    |         |    \--- :app:preBuild
+|         |    |    |         +--- :app:processPaidApplicationDebugManifest
+|         |    |    |         |    +--- :app:createPaidApplicationDebugCompatibleScreenManifests
+|         |    |    |         |    |    \--- :app:prePaidApplicationDebugBuild
+|         |    |    |         |    |         \--- :app:preBuild
+|         |    |    |         |    +--- :app:prePaidApplicationDebugBuild
+|         |    |    |         |    |    \--- :app:preBuild
+|         |    |    |         |    \--- :app:processPaidApplicationDebugMainManifest
+|         |    |    |         |         +--- :app:extractDeepLinksPaidApplicationDebug
+|         |    |    |         |         |    \--- :app:prePaidApplicationDebugBuild
+|         |    |    |         |         |         \--- :app:preBuild
+|         |    |    |         |         \--- :app:prePaidApplicationDebugBuild
+|         |    |    |         |              \--- :app:preBuild
+|         |    |    |         \--- :app:processPaidApplicationDebugManifestForPackage
+|         |    |    |              +--- :app:prePaidApplicationDebugBuild
+|         |    |    |              |    \--- :app:preBuild
+|         |    |    |              \--- :app:processPaidApplicationDebugManifest
+|         |    |    |                   +--- :app:createPaidApplicationDebugCompatibleScreenManifests
+|         |    |    |                   |    \--- :app:prePaidApplicationDebugBuild
+|         |    |    |                   |         \--- :app:preBuild
+|         |    |    |                   +--- :app:prePaidApplicationDebugBuild
+|         |    |    |                   |    \--- :app:preBuild
+|         |    |    |                   \--- :app:processPaidApplicationDebugMainManifest
+|         |    |    |                        +--- :app:extractDeepLinksPaidApplicationDebug
+|         |    |    |                        |    \--- :app:prePaidApplicationDebugBuild
+|         |    |    |                        |         \--- :app:preBuild
+|         |    |    |                        \--- :app:prePaidApplicationDebugBuild
+|         |    |    |                             \--- :app:preBuild
+|         |    |    +--- :app:prePaidApplicationDebugBuild
+|         |    |    |    \--- :app:preBuild
+|         |    |    \--- :app:processPaidApplicationDebugResources
+|         |    |         +--- :app:checkPaidApplicationDebugAarMetadata
+|         |    |         |    \--- :app:prePaidApplicationDebugBuild
+|         |    |         |         \--- :app:preBuild
+|         |    |         +--- :app:mergePaidApplicationDebugResources
+|         |    |         |    +--- :app:generatePaidApplicationDebugResources
+|         |    |         |    |    +--- :app:compilePaidApplicationDebugRenderscript
+|         |    |         |    |    |    \--- :app:prePaidApplicationDebugBuild
+|         |    |         |    |    |         \--- :app:preBuild
+|         |    |         |    |    \--- :app:generatePaidApplicationDebugResValues
+|         |    |         |    |         \--- :app:prePaidApplicationDebugBuild
+|         |    |         |    |              \--- :app:preBuild
+|         |    |         |    \--- :app:prePaidApplicationDebugBuild
+|         |    |         |         \--- :app:preBuild
+|         |    |         +--- :app:prePaidApplicationDebugBuild
+|         |    |         |    \--- :app:preBuild
+|         |    |         +--- :app:processPaidApplicationDebugManifest
+|         |    |         |    +--- :app:createPaidApplicationDebugCompatibleScreenManifests
+|         |    |         |    |    \--- :app:prePaidApplicationDebugBuild
+|         |    |         |    |         \--- :app:preBuild
+|         |    |         |    +--- :app:prePaidApplicationDebugBuild
+|         |    |         |    |    \--- :app:preBuild
+|         |    |         |    \--- :app:processPaidApplicationDebugMainManifest
+|         |    |         |         +--- :app:extractDeepLinksPaidApplicationDebug
+|         |    |         |         |    \--- :app:prePaidApplicationDebugBuild
+|         |    |         |         |         \--- :app:preBuild
+|         |    |         |         \--- :app:prePaidApplicationDebugBuild
+|         |    |         |              \--- :app:preBuild
+|         |    |         \--- :app:processPaidApplicationDebugManifestForPackage
+|         |    |              +--- :app:prePaidApplicationDebugBuild
+|         |    |              |    \--- :app:preBuild
+|         |    |              \--- :app:processPaidApplicationDebugManifest
+|         |    |                   +--- :app:createPaidApplicationDebugCompatibleScreenManifests
+|         |    |                   |    \--- :app:prePaidApplicationDebugBuild
+|         |    |                   |         \--- :app:preBuild
+|         |    |                   +--- :app:prePaidApplicationDebugBuild
+|         |    |                   |    \--- :app:preBuild
+|         |    |                   \--- :app:processPaidApplicationDebugMainManifest
+|         |    |                        +--- :app:extractDeepLinksPaidApplicationDebug
+|         |    |                        |    \--- :app:prePaidApplicationDebugBuild
+|         |    |                        |         \--- :app:preBuild
+|         |    |                        \--- :app:prePaidApplicationDebugBuild
+|         |    |                             \--- :app:preBuild
+|         |    \--- :app:prePaidApplicationDebugBuild
+|         |         \--- :app:preBuild
+|         +--- :app:prePaidApplicationDebugBuild
+|         |    \--- :app:preBuild
+|         +--- :app:processPaidApplicationDebugManifestForPackage
+|         |    +--- :app:prePaidApplicationDebugBuild
+|         |    |    \--- :app:preBuild
+|         |    \--- :app:processPaidApplicationDebugManifest
+|         |         +--- :app:createPaidApplicationDebugCompatibleScreenManifests
+|         |         |    \--- :app:prePaidApplicationDebugBuild
+|         |         |         \--- :app:preBuild
+|         |         +--- :app:prePaidApplicationDebugBuild
+|         |         |    \--- :app:preBuild
+|         |         \--- :app:processPaidApplicationDebugMainManifest
+|         |              +--- :app:extractDeepLinksPaidApplicationDebug
+|         |              |    \--- :app:prePaidApplicationDebugBuild
+|         |              |         \--- :app:preBuild
+|         |              \--- :app:prePaidApplicationDebugBuild
+|         |                   \--- :app:preBuild
+|         +--- :app:processPaidApplicationDebugResources
+|         |    +--- :app:checkPaidApplicationDebugAarMetadata
+|         |    |    \--- :app:prePaidApplicationDebugBuild
+|         |    |         \--- :app:preBuild
+|         |    +--- :app:mergePaidApplicationDebugResources
+|         |    |    +--- :app:generatePaidApplicationDebugResources
+|         |    |    |    +--- :app:compilePaidApplicationDebugRenderscript
+|         |    |    |    |    \--- :app:prePaidApplicationDebugBuild
+|         |    |    |    |         \--- :app:preBuild
+|         |    |    |    \--- :app:generatePaidApplicationDebugResValues
+|         |    |    |         \--- :app:prePaidApplicationDebugBuild
+|         |    |    |              \--- :app:preBuild
+|         |    |    \--- :app:prePaidApplicationDebugBuild
+|         |    |         \--- :app:preBuild
+|         |    +--- :app:prePaidApplicationDebugBuild
+|         |    |    \--- :app:preBuild
+|         |    +--- :app:processPaidApplicationDebugManifest
+|         |    |    +--- :app:createPaidApplicationDebugCompatibleScreenManifests
+|         |    |    |    \--- :app:prePaidApplicationDebugBuild
+|         |    |    |         \--- :app:preBuild
+|         |    |    +--- :app:prePaidApplicationDebugBuild
+|         |    |    |    \--- :app:preBuild
+|         |    |    \--- :app:processPaidApplicationDebugMainManifest
+|         |    |         +--- :app:extractDeepLinksPaidApplicationDebug
+|         |    |         |    \--- :app:prePaidApplicationDebugBuild
+|         |    |         |         \--- :app:preBuild
+|         |    |         \--- :app:prePaidApplicationDebugBuild
+|         |    |              \--- :app:preBuild
+|         |    \--- :app:processPaidApplicationDebugManifestForPackage
+|         |         +--- :app:prePaidApplicationDebugBuild
+|         |         |    \--- :app:preBuild
+|         |         \--- :app:processPaidApplicationDebugManifest
+|         |              +--- :app:createPaidApplicationDebugCompatibleScreenManifests
+|         |              |    \--- :app:prePaidApplicationDebugBuild
+|         |              |         \--- :app:preBuild
+|         |              +--- :app:prePaidApplicationDebugBuild
+|         |              |    \--- :app:preBuild
+|         |              \--- :app:processPaidApplicationDebugMainManifest
+|         |                   +--- :app:extractDeepLinksPaidApplicationDebug
+|         |                   |    \--- :app:prePaidApplicationDebugBuild
+|         |                   |         \--- :app:preBuild
+|         |                   \--- :app:prePaidApplicationDebugBuild
+|         |                        \--- :app:preBuild
+|         +--- :app:stripPaidApplicationDebugDebugSymbols
+|         |    +--- :app:mergePaidApplicationDebugNativeLibs
+|         |    |    +--- :app:mergePaidApplicationDebugJniLibFolders
+|         |    |    |    \--- :app:prePaidApplicationDebugBuild
+|         |    |    |         \--- :app:preBuild
+|         |    |    \--- :app:prePaidApplicationDebugBuild
+|         |    |         \--- :app:preBuild
+|         |    \--- :app:prePaidApplicationDebugBuild
+|         |         \--- :app:preBuild
+|         \--- :app:validateSigningPaidApplicationDebug
+|              \--- :app:prePaidApplicationDebugBuild
+|                   \--- :app:preBuild
+\--- :app:assemblePaidGameDebug
+     +--- :app:compilePaidGameDebugSources
+     |    \--- :app:compilePaidGameDebugJavaWithJavac
+     |         +--- :app:compilePaidGameDebugAidl
+     |         |    \--- :app:prePaidGameDebugBuild
+     |         |         \--- :app:preBuild
+     |         +--- :app:compilePaidGameDebugKotlin
+     |         |    +--- :app:compilePaidGameDebugAidl
+     |         |    |    \--- :app:prePaidGameDebugBuild
+     |         |    |         \--- :app:preBuild
+     |         |    +--- :app:compilePaidGameDebugRenderscript
+     |         |    |    \--- :app:prePaidGameDebugBuild
+     |         |    |         \--- :app:preBuild
+     |         |    +--- :app:generatePaidGameDebugBuildConfig
+     |         |    |    \--- :app:prePaidGameDebugBuild
+     |         |    |         \--- :app:preBuild
+     |         |    \--- :app:processPaidGameDebugResources
+     |         |         +--- :app:checkPaidGameDebugAarMetadata
+     |         |         |    \--- :app:prePaidGameDebugBuild
+     |         |         |         \--- :app:preBuild
+     |         |         +--- :app:mergePaidGameDebugResources
+     |         |         |    +--- :app:generatePaidGameDebugResources
+     |         |         |    |    +--- :app:compilePaidGameDebugRenderscript
+     |         |         |    |    |    \--- :app:prePaidGameDebugBuild
+     |         |         |    |    |         \--- :app:preBuild
+     |         |         |    |    \--- :app:generatePaidGameDebugResValues
+     |         |         |    |         \--- :app:prePaidGameDebugBuild
+     |         |         |    |              \--- :app:preBuild
+     |         |         |    \--- :app:prePaidGameDebugBuild
+     |         |         |         \--- :app:preBuild
+     |         |         +--- :app:prePaidGameDebugBuild
+     |         |         |    \--- :app:preBuild
+     |         |         +--- :app:processPaidGameDebugManifest
+     |         |         |    +--- :app:createPaidGameDebugCompatibleScreenManifests
+     |         |         |    |    \--- :app:prePaidGameDebugBuild
+     |         |         |    |         \--- :app:preBuild
+     |         |         |    +--- :app:prePaidGameDebugBuild
+     |         |         |    |    \--- :app:preBuild
+     |         |         |    \--- :app:processPaidGameDebugMainManifest
+     |         |         |         +--- :app:extractDeepLinksPaidGameDebug
+     |         |         |         |    \--- :app:prePaidGameDebugBuild
+     |         |         |         |         \--- :app:preBuild
+     |         |         |         \--- :app:prePaidGameDebugBuild
+     |         |         |              \--- :app:preBuild
+     |         |         \--- :app:processPaidGameDebugManifestForPackage
+     |         |              +--- :app:prePaidGameDebugBuild
+     |         |              |    \--- :app:preBuild
+     |         |              \--- :app:processPaidGameDebugManifest
+     |         |                   +--- :app:createPaidGameDebugCompatibleScreenManifests
+     |         |                   |    \--- :app:prePaidGameDebugBuild
+     |         |                   |         \--- :app:preBuild
+     |         |                   +--- :app:prePaidGameDebugBuild
+     |         |                   |    \--- :app:preBuild
+     |         |                   \--- :app:processPaidGameDebugMainManifest
+     |         |                        +--- :app:extractDeepLinksPaidGameDebug
+     |         |                        |    \--- :app:prePaidGameDebugBuild
+     |         |                        |         \--- :app:preBuild
+     |         |                        \--- :app:prePaidGameDebugBuild
+     |         |                             \--- :app:preBuild
+     |         +--- :app:compilePaidGameDebugRenderscript
+     |         |    \--- :app:prePaidGameDebugBuild
+     |         |         \--- :app:preBuild
+     |         +--- :app:generatePaidGameDebugBuildConfig
+     |         |    \--- :app:prePaidGameDebugBuild
+     |         |         \--- :app:preBuild
+     |         +--- :app:javaPreCompilePaidGameDebug
+     |         |    \--- :app:prePaidGameDebugBuild
+     |         |         \--- :app:preBuild
+     |         +--- :app:prePaidGameDebugBuild
+     |         |    \--- :app:preBuild
+     |         \--- :app:processPaidGameDebugResources
+     |              +--- :app:checkPaidGameDebugAarMetadata
+     |              |    \--- :app:prePaidGameDebugBuild
+     |              |         \--- :app:preBuild
+     |              +--- :app:mergePaidGameDebugResources
+     |              |    +--- :app:generatePaidGameDebugResources
+     |              |    |    +--- :app:compilePaidGameDebugRenderscript
+     |              |    |    |    \--- :app:prePaidGameDebugBuild
+     |              |    |    |         \--- :app:preBuild
+     |              |    |    \--- :app:generatePaidGameDebugResValues
+     |              |    |         \--- :app:prePaidGameDebugBuild
+     |              |    |              \--- :app:preBuild
+     |              |    \--- :app:prePaidGameDebugBuild
+     |              |         \--- :app:preBuild
+     |              +--- :app:prePaidGameDebugBuild
+     |              |    \--- :app:preBuild
+     |              +--- :app:processPaidGameDebugManifest
+     |              |    +--- :app:createPaidGameDebugCompatibleScreenManifests
+     |              |    |    \--- :app:prePaidGameDebugBuild
+     |              |    |         \--- :app:preBuild
+     |              |    +--- :app:prePaidGameDebugBuild
+     |              |    |    \--- :app:preBuild
+     |              |    \--- :app:processPaidGameDebugMainManifest
+     |              |         +--- :app:extractDeepLinksPaidGameDebug
+     |              |         |    \--- :app:prePaidGameDebugBuild
+     |              |         |         \--- :app:preBuild
+     |              |         \--- :app:prePaidGameDebugBuild
+     |              |              \--- :app:preBuild
+     |              \--- :app:processPaidGameDebugManifestForPackage
+     |                   +--- :app:prePaidGameDebugBuild
+     |                   |    \--- :app:preBuild
+     |                   \--- :app:processPaidGameDebugManifest
+     |                        +--- :app:createPaidGameDebugCompatibleScreenManifests
+     |                        |    \--- :app:prePaidGameDebugBuild
+     |                        |         \--- :app:preBuild
+     |                        +--- :app:prePaidGameDebugBuild
+     |                        |    \--- :app:preBuild
+     |                        \--- :app:processPaidGameDebugMainManifest
+     |                             +--- :app:extractDeepLinksPaidGameDebug
+     |                             |    \--- :app:prePaidGameDebugBuild
+     |                             |         \--- :app:preBuild
+     |                             \--- :app:prePaidGameDebugBuild
+     |                                  \--- :app:preBuild
+     +--- :app:mergePaidGameDebugNativeDebugMetadata
+     |    \--- :app:prePaidGameDebugBuild
+     |         \--- :app:preBuild
+     \--- :app:packagePaidGameDebug
+          +--- :app:compilePaidGameDebugJavaWithJavac
+          |    +--- :app:compilePaidGameDebugAidl
+          |    |    \--- :app:prePaidGameDebugBuild
+          |    |         \--- :app:preBuild
+          |    +--- :app:compilePaidGameDebugKotlin
+          |    |    +--- :app:compilePaidGameDebugAidl
+          |    |    |    \--- :app:prePaidGameDebugBuild
+          |    |    |         \--- :app:preBuild
+          |    |    +--- :app:compilePaidGameDebugRenderscript
+          |    |    |    \--- :app:prePaidGameDebugBuild
+          |    |    |         \--- :app:preBuild
+          |    |    +--- :app:generatePaidGameDebugBuildConfig
+          |    |    |    \--- :app:prePaidGameDebugBuild
+          |    |    |         \--- :app:preBuild
+          |    |    \--- :app:processPaidGameDebugResources
+          |    |         +--- :app:checkPaidGameDebugAarMetadata
+          |    |         |    \--- :app:prePaidGameDebugBuild
+          |    |         |         \--- :app:preBuild
+          |    |         +--- :app:mergePaidGameDebugResources
+          |    |         |    +--- :app:generatePaidGameDebugResources
+          |    |         |    |    +--- :app:compilePaidGameDebugRenderscript
+          |    |         |    |    |    \--- :app:prePaidGameDebugBuild
+          |    |         |    |    |         \--- :app:preBuild
+          |    |         |    |    \--- :app:generatePaidGameDebugResValues
+          |    |         |    |         \--- :app:prePaidGameDebugBuild
+          |    |         |    |              \--- :app:preBuild
+          |    |         |    \--- :app:prePaidGameDebugBuild
+          |    |         |         \--- :app:preBuild
+          |    |         +--- :app:prePaidGameDebugBuild
+          |    |         |    \--- :app:preBuild
+          |    |         +--- :app:processPaidGameDebugManifest
+          |    |         |    +--- :app:createPaidGameDebugCompatibleScreenManifests
+          |    |         |    |    \--- :app:prePaidGameDebugBuild
+          |    |         |    |         \--- :app:preBuild
+          |    |         |    +--- :app:prePaidGameDebugBuild
+          |    |         |    |    \--- :app:preBuild
+          |    |         |    \--- :app:processPaidGameDebugMainManifest
+          |    |         |         +--- :app:extractDeepLinksPaidGameDebug
+          |    |         |         |    \--- :app:prePaidGameDebugBuild
+          |    |         |         |         \--- :app:preBuild
+          |    |         |         \--- :app:prePaidGameDebugBuild
+          |    |         |              \--- :app:preBuild
+          |    |         \--- :app:processPaidGameDebugManifestForPackage
+          |    |              +--- :app:prePaidGameDebugBuild
+          |    |              |    \--- :app:preBuild
+          |    |              \--- :app:processPaidGameDebugManifest
+          |    |                   +--- :app:createPaidGameDebugCompatibleScreenManifests
+          |    |                   |    \--- :app:prePaidGameDebugBuild
+          |    |                   |         \--- :app:preBuild
+          |    |                   +--- :app:prePaidGameDebugBuild
+          |    |                   |    \--- :app:preBuild
+          |    |                   \--- :app:processPaidGameDebugMainManifest
+          |    |                        +--- :app:extractDeepLinksPaidGameDebug
+          |    |                        |    \--- :app:prePaidGameDebugBuild
+          |    |                        |         \--- :app:preBuild
+          |    |                        \--- :app:prePaidGameDebugBuild
+          |    |                             \--- :app:preBuild
+          |    +--- :app:compilePaidGameDebugRenderscript
+          |    |    \--- :app:prePaidGameDebugBuild
+          |    |         \--- :app:preBuild
+          |    +--- :app:generatePaidGameDebugBuildConfig
+          |    |    \--- :app:prePaidGameDebugBuild
+          |    |         \--- :app:preBuild
+          |    +--- :app:javaPreCompilePaidGameDebug
+          |    |    \--- :app:prePaidGameDebugBuild
+          |    |         \--- :app:preBuild
+          |    +--- :app:prePaidGameDebugBuild
+          |    |    \--- :app:preBuild
+          |    \--- :app:processPaidGameDebugResources
+          |         +--- :app:checkPaidGameDebugAarMetadata
+          |         |    \--- :app:prePaidGameDebugBuild
+          |         |         \--- :app:preBuild
+          |         +--- :app:mergePaidGameDebugResources
+          |         |    +--- :app:generatePaidGameDebugResources
+          |         |    |    +--- :app:compilePaidGameDebugRenderscript
+          |         |    |    |    \--- :app:prePaidGameDebugBuild
+          |         |    |    |         \--- :app:preBuild
+          |         |    |    \--- :app:generatePaidGameDebugResValues
+          |         |    |         \--- :app:prePaidGameDebugBuild
+          |         |    |              \--- :app:preBuild
+          |         |    \--- :app:prePaidGameDebugBuild
+          |         |         \--- :app:preBuild
+          |         +--- :app:prePaidGameDebugBuild
+          |         |    \--- :app:preBuild
+          |         +--- :app:processPaidGameDebugManifest
+          |         |    +--- :app:createPaidGameDebugCompatibleScreenManifests
+          |         |    |    \--- :app:prePaidGameDebugBuild
+          |         |    |         \--- :app:preBuild
+          |         |    +--- :app:prePaidGameDebugBuild
+          |         |    |    \--- :app:preBuild
+          |         |    \--- :app:processPaidGameDebugMainManifest
+          |         |         +--- :app:extractDeepLinksPaidGameDebug
+          |         |         |    \--- :app:prePaidGameDebugBuild
+          |         |         |         \--- :app:preBuild
+          |         |         \--- :app:prePaidGameDebugBuild
+          |         |              \--- :app:preBuild
+          |         \--- :app:processPaidGameDebugManifestForPackage
+          |              +--- :app:prePaidGameDebugBuild
+          |              |    \--- :app:preBuild
+          |              \--- :app:processPaidGameDebugManifest
+          |                   +--- :app:createPaidGameDebugCompatibleScreenManifests
+          |                   |    \--- :app:prePaidGameDebugBuild
+          |                   |         \--- :app:preBuild
+          |                   +--- :app:prePaidGameDebugBuild
+          |                   |    \--- :app:preBuild
+          |                   \--- :app:processPaidGameDebugMainManifest
+          |                        +--- :app:extractDeepLinksPaidGameDebug
+          |                        |    \--- :app:prePaidGameDebugBuild
+          |                        |         \--- :app:preBuild
+          |                        \--- :app:prePaidGameDebugBuild
+          |                             \--- :app:preBuild
+          +--- :app:compressPaidGameDebugAssets
+          |    +--- :app:mergePaidGameDebugAssets
+          |    |    +--- :app:compilePaidGameDebugShaders
+          |    |    |    +--- :app:mergePaidGameDebugShaders
+          |    |    |    |    \--- :app:prePaidGameDebugBuild
+          |    |    |    |         \--- :app:preBuild
+          |    |    |    \--- :app:prePaidGameDebugBuild
+          |    |    |         \--- :app:preBuild
+          |    |    +--- :app:generatePaidGameDebugAssets
+          |    |    |    \--- :app:compilePaidGameDebugShaders
+          |    |    |         +--- :app:mergePaidGameDebugShaders
+          |    |    |         |    \--- :app:prePaidGameDebugBuild
+          |    |    |         |         \--- :app:preBuild
+          |    |    |         \--- :app:prePaidGameDebugBuild
+          |    |    |              \--- :app:preBuild
+          |    |    \--- :app:prePaidGameDebugBuild
+          |    |         \--- :app:preBuild
+          |    \--- :app:prePaidGameDebugBuild
+          |         \--- :app:preBuild
+          +--- :app:mergeExtDexPaidGameDebug
+          |    +--- :app:checkPaidGameDebugDuplicateClasses
+          |    |    \--- :app:prePaidGameDebugBuild
+          |    |         \--- :app:preBuild
+          |    +--- :app:desugarPaidGameDebugFileDependencies
+          |    |    \--- :app:prePaidGameDebugBuild
+          |    |         \--- :app:preBuild
+          |    \--- :app:prePaidGameDebugBuild
+          |         \--- :app:preBuild
+          +--- :app:mergeLibDexPaidGameDebug
+          |    +--- :app:checkPaidGameDebugDuplicateClasses
+          |    |    \--- :app:prePaidGameDebugBuild
+          |    |         \--- :app:preBuild
+          |    \--- :app:prePaidGameDebugBuild
+          |         \--- :app:preBuild
+          +--- :app:mergePaidGameDebugAssets
+          |    +--- :app:compilePaidGameDebugShaders
+          |    |    +--- :app:mergePaidGameDebugShaders
+          |    |    |    \--- :app:prePaidGameDebugBuild
+          |    |    |         \--- :app:preBuild
+          |    |    \--- :app:prePaidGameDebugBuild
+          |    |         \--- :app:preBuild
+          |    +--- :app:generatePaidGameDebugAssets
+          |    |    \--- :app:compilePaidGameDebugShaders
+          |    |         +--- :app:mergePaidGameDebugShaders
+          |    |         |    \--- :app:prePaidGameDebugBuild
+          |    |         |         \--- :app:preBuild
+          |    |         \--- :app:prePaidGameDebugBuild
+          |    |              \--- :app:preBuild
+          |    \--- :app:prePaidGameDebugBuild
+          |         \--- :app:preBuild
+          +--- :app:mergePaidGameDebugJavaResource
+          |    +--- :app:compilePaidGameDebugKotlin
+          |    |    +--- :app:compilePaidGameDebugAidl
+          |    |    |    \--- :app:prePaidGameDebugBuild
+          |    |    |         \--- :app:preBuild
+          |    |    +--- :app:compilePaidGameDebugRenderscript
+          |    |    |    \--- :app:prePaidGameDebugBuild
+          |    |    |         \--- :app:preBuild
+          |    |    +--- :app:generatePaidGameDebugBuildConfig
+          |    |    |    \--- :app:prePaidGameDebugBuild
+          |    |    |         \--- :app:preBuild
+          |    |    \--- :app:processPaidGameDebugResources
+          |    |         +--- :app:checkPaidGameDebugAarMetadata
+          |    |         |    \--- :app:prePaidGameDebugBuild
+          |    |         |         \--- :app:preBuild
+          |    |         +--- :app:mergePaidGameDebugResources
+          |    |         |    +--- :app:generatePaidGameDebugResources
+          |    |         |    |    +--- :app:compilePaidGameDebugRenderscript
+          |    |         |    |    |    \--- :app:prePaidGameDebugBuild
+          |    |         |    |    |         \--- :app:preBuild
+          |    |         |    |    \--- :app:generatePaidGameDebugResValues
+          |    |         |    |         \--- :app:prePaidGameDebugBuild
+          |    |         |    |              \--- :app:preBuild
+          |    |         |    \--- :app:prePaidGameDebugBuild
+          |    |         |         \--- :app:preBuild
+          |    |         +--- :app:prePaidGameDebugBuild
+          |    |         |    \--- :app:preBuild
+          |    |         +--- :app:processPaidGameDebugManifest
+          |    |         |    +--- :app:createPaidGameDebugCompatibleScreenManifests
+          |    |         |    |    \--- :app:prePaidGameDebugBuild
+          |    |         |    |         \--- :app:preBuild
+          |    |         |    +--- :app:prePaidGameDebugBuild
+          |    |         |    |    \--- :app:preBuild
+          |    |         |    \--- :app:processPaidGameDebugMainManifest
+          |    |         |         +--- :app:extractDeepLinksPaidGameDebug
+          |    |         |         |    \--- :app:prePaidGameDebugBuild
+          |    |         |         |         \--- :app:preBuild
+          |    |         |         \--- :app:prePaidGameDebugBuild
+          |    |         |              \--- :app:preBuild
+          |    |         \--- :app:processPaidGameDebugManifestForPackage
+          |    |              +--- :app:prePaidGameDebugBuild
+          |    |              |    \--- :app:preBuild
+          |    |              \--- :app:processPaidGameDebugManifest
+          |    |                   +--- :app:createPaidGameDebugCompatibleScreenManifests
+          |    |                   |    \--- :app:prePaidGameDebugBuild
+          |    |                   |         \--- :app:preBuild
+          |    |                   +--- :app:prePaidGameDebugBuild
+          |    |                   |    \--- :app:preBuild
+          |    |                   \--- :app:processPaidGameDebugMainManifest
+          |    |                        +--- :app:extractDeepLinksPaidGameDebug
+          |    |                        |    \--- :app:prePaidGameDebugBuild
+          |    |                        |         \--- :app:preBuild
+          |    |                        \--- :app:prePaidGameDebugBuild
+          |    |                             \--- :app:preBuild
+          |    +--- :app:prePaidGameDebugBuild
+          |    |    \--- :app:preBuild
+          |    \--- :app:processPaidGameDebugJavaRes
+          |         \--- :app:prePaidGameDebugBuild
+          |              \--- :app:preBuild
+          +--- :app:mergeProjectDexPaidGameDebug
+          |    +--- :app:checkPaidGameDebugDuplicateClasses
+          |    |    \--- :app:prePaidGameDebugBuild
+          |    |         \--- :app:preBuild
+          |    +--- :app:dexBuilderPaidGameDebug
+          |    |    +--- :app:compilePaidGameDebugJavaWithJavac
+          |    |    |    +--- :app:compilePaidGameDebugAidl
+          |    |    |    |    \--- :app:prePaidGameDebugBuild
+          |    |    |    |         \--- :app:preBuild
+          |    |    |    +--- :app:compilePaidGameDebugKotlin
+          |    |    |    |    +--- :app:compilePaidGameDebugAidl
+          |    |    |    |    |    \--- :app:prePaidGameDebugBuild
+          |    |    |    |    |         \--- :app:preBuild
+          |    |    |    |    +--- :app:compilePaidGameDebugRenderscript
+          |    |    |    |    |    \--- :app:prePaidGameDebugBuild
+          |    |    |    |    |         \--- :app:preBuild
+          |    |    |    |    +--- :app:generatePaidGameDebugBuildConfig
+          |    |    |    |    |    \--- :app:prePaidGameDebugBuild
+          |    |    |    |    |         \--- :app:preBuild
+          |    |    |    |    \--- :app:processPaidGameDebugResources
+          |    |    |    |         +--- :app:checkPaidGameDebugAarMetadata
+          |    |    |    |         |    \--- :app:prePaidGameDebugBuild
+          |    |    |    |         |         \--- :app:preBuild
+          |    |    |    |         +--- :app:mergePaidGameDebugResources
+          |    |    |    |         |    +--- :app:generatePaidGameDebugResources
+          |    |    |    |         |    |    +--- :app:compilePaidGameDebugRenderscript
+          |    |    |    |         |    |    |    \--- :app:prePaidGameDebugBuild
+          |    |    |    |         |    |    |         \--- :app:preBuild
+          |    |    |    |         |    |    \--- :app:generatePaidGameDebugResValues
+          |    |    |    |         |    |         \--- :app:prePaidGameDebugBuild
+          |    |    |    |         |    |              \--- :app:preBuild
+          |    |    |    |         |    \--- :app:prePaidGameDebugBuild
+          |    |    |    |         |         \--- :app:preBuild
+          |    |    |    |         +--- :app:prePaidGameDebugBuild
+          |    |    |    |         |    \--- :app:preBuild
+          |    |    |    |         +--- :app:processPaidGameDebugManifest
+          |    |    |    |         |    +--- :app:createPaidGameDebugCompatibleScreenManifests
+          |    |    |    |         |    |    \--- :app:prePaidGameDebugBuild
+          |    |    |    |         |    |         \--- :app:preBuild
+          |    |    |    |         |    +--- :app:prePaidGameDebugBuild
+          |    |    |    |         |    |    \--- :app:preBuild
+          |    |    |    |         |    \--- :app:processPaidGameDebugMainManifest
+          |    |    |    |         |         +--- :app:extractDeepLinksPaidGameDebug
+          |    |    |    |         |         |    \--- :app:prePaidGameDebugBuild
+          |    |    |    |         |         |         \--- :app:preBuild
+          |    |    |    |         |         \--- :app:prePaidGameDebugBuild
+          |    |    |    |         |              \--- :app:preBuild
+          |    |    |    |         \--- :app:processPaidGameDebugManifestForPackage
+          |    |    |    |              +--- :app:prePaidGameDebugBuild
+          |    |    |    |              |    \--- :app:preBuild
+          |    |    |    |              \--- :app:processPaidGameDebugManifest
+          |    |    |    |                   +--- :app:createPaidGameDebugCompatibleScreenManifests
+          |    |    |    |                   |    \--- :app:prePaidGameDebugBuild
+          |    |    |    |                   |         \--- :app:preBuild
+          |    |    |    |                   +--- :app:prePaidGameDebugBuild
+          |    |    |    |                   |    \--- :app:preBuild
+          |    |    |    |                   \--- :app:processPaidGameDebugMainManifest
+          |    |    |    |                        +--- :app:extractDeepLinksPaidGameDebug
+          |    |    |    |                        |    \--- :app:prePaidGameDebugBuild
+          |    |    |    |                        |         \--- :app:preBuild
+          |    |    |    |                        \--- :app:prePaidGameDebugBuild
+          |    |    |    |                             \--- :app:preBuild
+          |    |    |    +--- :app:compilePaidGameDebugRenderscript
+          |    |    |    |    \--- :app:prePaidGameDebugBuild
+          |    |    |    |         \--- :app:preBuild
+          |    |    |    +--- :app:generatePaidGameDebugBuildConfig
+          |    |    |    |    \--- :app:prePaidGameDebugBuild
+          |    |    |    |         \--- :app:preBuild
+          |    |    |    +--- :app:javaPreCompilePaidGameDebug
+          |    |    |    |    \--- :app:prePaidGameDebugBuild
+          |    |    |    |         \--- :app:preBuild
+          |    |    |    +--- :app:prePaidGameDebugBuild
+          |    |    |    |    \--- :app:preBuild
+          |    |    |    \--- :app:processPaidGameDebugResources
+          |    |    |         +--- :app:checkPaidGameDebugAarMetadata
+          |    |    |         |    \--- :app:prePaidGameDebugBuild
+          |    |    |         |         \--- :app:preBuild
+          |    |    |         +--- :app:mergePaidGameDebugResources
+          |    |    |         |    +--- :app:generatePaidGameDebugResources
+          |    |    |         |    |    +--- :app:compilePaidGameDebugRenderscript
+          |    |    |         |    |    |    \--- :app:prePaidGameDebugBuild
+          |    |    |         |    |    |         \--- :app:preBuild
+          |    |    |         |    |    \--- :app:generatePaidGameDebugResValues
+          |    |    |         |    |         \--- :app:prePaidGameDebugBuild
+          |    |    |         |    |              \--- :app:preBuild
+          |    |    |         |    \--- :app:prePaidGameDebugBuild
+          |    |    |         |         \--- :app:preBuild
+          |    |    |         +--- :app:prePaidGameDebugBuild
+          |    |    |         |    \--- :app:preBuild
+          |    |    |         +--- :app:processPaidGameDebugManifest
+          |    |    |         |    +--- :app:createPaidGameDebugCompatibleScreenManifests
+          |    |    |         |    |    \--- :app:prePaidGameDebugBuild
+          |    |    |         |    |         \--- :app:preBuild
+          |    |    |         |    +--- :app:prePaidGameDebugBuild
+          |    |    |         |    |    \--- :app:preBuild
+          |    |    |         |    \--- :app:processPaidGameDebugMainManifest
+          |    |    |         |         +--- :app:extractDeepLinksPaidGameDebug
+          |    |    |         |         |    \--- :app:prePaidGameDebugBuild
+          |    |    |         |         |         \--- :app:preBuild
+          |    |    |         |         \--- :app:prePaidGameDebugBuild
+          |    |    |         |              \--- :app:preBuild
+          |    |    |         \--- :app:processPaidGameDebugManifestForPackage
+          |    |    |              +--- :app:prePaidGameDebugBuild
+          |    |    |              |    \--- :app:preBuild
+          |    |    |              \--- :app:processPaidGameDebugManifest
+          |    |    |                   +--- :app:createPaidGameDebugCompatibleScreenManifests
+          |    |    |                   |    \--- :app:prePaidGameDebugBuild
+          |    |    |                   |         \--- :app:preBuild
+          |    |    |                   +--- :app:prePaidGameDebugBuild
+          |    |    |                   |    \--- :app:preBuild
+          |    |    |                   \--- :app:processPaidGameDebugMainManifest
+          |    |    |                        +--- :app:extractDeepLinksPaidGameDebug
+          |    |    |                        |    \--- :app:prePaidGameDebugBuild
+          |    |    |                        |         \--- :app:preBuild
+          |    |    |                        \--- :app:prePaidGameDebugBuild
+          |    |    |                             \--- :app:preBuild
+          |    |    +--- :app:compilePaidGameDebugKotlin
+          |    |    |    +--- :app:compilePaidGameDebugAidl
+          |    |    |    |    \--- :app:prePaidGameDebugBuild
+          |    |    |    |         \--- :app:preBuild
+          |    |    |    +--- :app:compilePaidGameDebugRenderscript
+          |    |    |    |    \--- :app:prePaidGameDebugBuild
+          |    |    |    |         \--- :app:preBuild
+          |    |    |    +--- :app:generatePaidGameDebugBuildConfig
+          |    |    |    |    \--- :app:prePaidGameDebugBuild
+          |    |    |    |         \--- :app:preBuild
+          |    |    |    \--- :app:processPaidGameDebugResources
+          |    |    |         +--- :app:checkPaidGameDebugAarMetadata
+          |    |    |         |    \--- :app:prePaidGameDebugBuild
+          |    |    |         |         \--- :app:preBuild
+          |    |    |         +--- :app:mergePaidGameDebugResources
+          |    |    |         |    +--- :app:generatePaidGameDebugResources
+          |    |    |         |    |    +--- :app:compilePaidGameDebugRenderscript
+          |    |    |         |    |    |    \--- :app:prePaidGameDebugBuild
+          |    |    |         |    |    |         \--- :app:preBuild
+          |    |    |         |    |    \--- :app:generatePaidGameDebugResValues
+          |    |    |         |    |         \--- :app:prePaidGameDebugBuild
+          |    |    |         |    |              \--- :app:preBuild
+          |    |    |         |    \--- :app:prePaidGameDebugBuild
+          |    |    |         |         \--- :app:preBuild
+          |    |    |         +--- :app:prePaidGameDebugBuild
+          |    |    |         |    \--- :app:preBuild
+          |    |    |         +--- :app:processPaidGameDebugManifest
+          |    |    |         |    +--- :app:createPaidGameDebugCompatibleScreenManifests
+          |    |    |         |    |    \--- :app:prePaidGameDebugBuild
+          |    |    |         |    |         \--- :app:preBuild
+          |    |    |         |    +--- :app:prePaidGameDebugBuild
+          |    |    |         |    |    \--- :app:preBuild
+          |    |    |         |    \--- :app:processPaidGameDebugMainManifest
+          |    |    |         |         +--- :app:extractDeepLinksPaidGameDebug
+          |    |    |         |         |    \--- :app:prePaidGameDebugBuild
+          |    |    |         |         |         \--- :app:preBuild
+          |    |    |         |         \--- :app:prePaidGameDebugBuild
+          |    |    |         |              \--- :app:preBuild
+          |    |    |         \--- :app:processPaidGameDebugManifestForPackage
+          |    |    |              +--- :app:prePaidGameDebugBuild
+          |    |    |              |    \--- :app:preBuild
+          |    |    |              \--- :app:processPaidGameDebugManifest
+          |    |    |                   +--- :app:createPaidGameDebugCompatibleScreenManifests
+          |    |    |                   |    \--- :app:prePaidGameDebugBuild
+          |    |    |                   |         \--- :app:preBuild
+          |    |    |                   +--- :app:prePaidGameDebugBuild
+          |    |    |                   |    \--- :app:preBuild
+          |    |    |                   \--- :app:processPaidGameDebugMainManifest
+          |    |    |                        +--- :app:extractDeepLinksPaidGameDebug
+          |    |    |                        |    \--- :app:prePaidGameDebugBuild
+          |    |    |                        |         \--- :app:preBuild
+          |    |    |                        \--- :app:prePaidGameDebugBuild
+          |    |    |                             \--- :app:preBuild
+          |    |    +--- :app:prePaidGameDebugBuild
+          |    |    |    \--- :app:preBuild
+          |    |    \--- :app:processPaidGameDebugResources
+          |    |         +--- :app:checkPaidGameDebugAarMetadata
+          |    |         |    \--- :app:prePaidGameDebugBuild
+          |    |         |         \--- :app:preBuild
+          |    |         +--- :app:mergePaidGameDebugResources
+          |    |         |    +--- :app:generatePaidGameDebugResources
+          |    |         |    |    +--- :app:compilePaidGameDebugRenderscript
+          |    |         |    |    |    \--- :app:prePaidGameDebugBuild
+          |    |         |    |    |         \--- :app:preBuild
+          |    |         |    |    \--- :app:generatePaidGameDebugResValues
+          |    |         |    |         \--- :app:prePaidGameDebugBuild
+          |    |         |    |              \--- :app:preBuild
+          |    |         |    \--- :app:prePaidGameDebugBuild
+          |    |         |         \--- :app:preBuild
+          |    |         +--- :app:prePaidGameDebugBuild
+          |    |         |    \--- :app:preBuild
+          |    |         +--- :app:processPaidGameDebugManifest
+          |    |         |    +--- :app:createPaidGameDebugCompatibleScreenManifests
+          |    |         |    |    \--- :app:prePaidGameDebugBuild
+          |    |         |    |         \--- :app:preBuild
+          |    |         |    +--- :app:prePaidGameDebugBuild
+          |    |         |    |    \--- :app:preBuild
+          |    |         |    \--- :app:processPaidGameDebugMainManifest
+          |    |         |         +--- :app:extractDeepLinksPaidGameDebug
+          |    |         |         |    \--- :app:prePaidGameDebugBuild
+          |    |         |         |         \--- :app:preBuild
+          |    |         |         \--- :app:prePaidGameDebugBuild
+          |    |         |              \--- :app:preBuild
+          |    |         \--- :app:processPaidGameDebugManifestForPackage
+          |    |              +--- :app:prePaidGameDebugBuild
+          |    |              |    \--- :app:preBuild
+          |    |              \--- :app:processPaidGameDebugManifest
+          |    |                   +--- :app:createPaidGameDebugCompatibleScreenManifests
+          |    |                   |    \--- :app:prePaidGameDebugBuild
+          |    |                   |         \--- :app:preBuild
+          |    |                   +--- :app:prePaidGameDebugBuild
+          |    |                   |    \--- :app:preBuild
+          |    |                   \--- :app:processPaidGameDebugMainManifest
+          |    |                        +--- :app:extractDeepLinksPaidGameDebug
+          |    |                        |    \--- :app:prePaidGameDebugBuild
+          |    |                        |         \--- :app:preBuild
+          |    |                        \--- :app:prePaidGameDebugBuild
+          |    |                             \--- :app:preBuild
+          |    \--- :app:prePaidGameDebugBuild
+          |         \--- :app:preBuild
+          +--- :app:prePaidGameDebugBuild
+          |    \--- :app:preBuild
+          +--- :app:processPaidGameDebugManifestForPackage
+          |    +--- :app:prePaidGameDebugBuild
+          |    |    \--- :app:preBuild
+          |    \--- :app:processPaidGameDebugManifest
+          |         +--- :app:createPaidGameDebugCompatibleScreenManifests
+          |         |    \--- :app:prePaidGameDebugBuild
+          |         |         \--- :app:preBuild
+          |         +--- :app:prePaidGameDebugBuild
+          |         |    \--- :app:preBuild
+          |         \--- :app:processPaidGameDebugMainManifest
+          |              +--- :app:extractDeepLinksPaidGameDebug
+          |              |    \--- :app:prePaidGameDebugBuild
+          |              |         \--- :app:preBuild
+          |              \--- :app:prePaidGameDebugBuild
+          |                   \--- :app:preBuild
+          +--- :app:processPaidGameDebugResources
+          |    +--- :app:checkPaidGameDebugAarMetadata
+          |    |    \--- :app:prePaidGameDebugBuild
+          |    |         \--- :app:preBuild
+          |    +--- :app:mergePaidGameDebugResources
+          |    |    +--- :app:generatePaidGameDebugResources
+          |    |    |    +--- :app:compilePaidGameDebugRenderscript
+          |    |    |    |    \--- :app:prePaidGameDebugBuild
+          |    |    |    |         \--- :app:preBuild
+          |    |    |    \--- :app:generatePaidGameDebugResValues
+          |    |    |         \--- :app:prePaidGameDebugBuild
+          |    |    |              \--- :app:preBuild
+          |    |    \--- :app:prePaidGameDebugBuild
+          |    |         \--- :app:preBuild
+          |    +--- :app:prePaidGameDebugBuild
+          |    |    \--- :app:preBuild
+          |    +--- :app:processPaidGameDebugManifest
+          |    |    +--- :app:createPaidGameDebugCompatibleScreenManifests
+          |    |    |    \--- :app:prePaidGameDebugBuild
+          |    |    |         \--- :app:preBuild
+          |    |    +--- :app:prePaidGameDebugBuild
+          |    |    |    \--- :app:preBuild
+          |    |    \--- :app:processPaidGameDebugMainManifest
+          |    |         +--- :app:extractDeepLinksPaidGameDebug
+          |    |         |    \--- :app:prePaidGameDebugBuild
+          |    |         |         \--- :app:preBuild
+          |    |         \--- :app:prePaidGameDebugBuild
+          |    |              \--- :app:preBuild
+          |    \--- :app:processPaidGameDebugManifestForPackage
+          |         +--- :app:prePaidGameDebugBuild
+          |         |    \--- :app:preBuild
+          |         \--- :app:processPaidGameDebugManifest
+          |              +--- :app:createPaidGameDebugCompatibleScreenManifests
+          |              |    \--- :app:prePaidGameDebugBuild
+          |              |         \--- :app:preBuild
+          |              +--- :app:prePaidGameDebugBuild
+          |              |    \--- :app:preBuild
+          |              \--- :app:processPaidGameDebugMainManifest
+          |                   +--- :app:extractDeepLinksPaidGameDebug
+          |                   |    \--- :app:prePaidGameDebugBuild
+          |                   |         \--- :app:preBuild
+          |                   \--- :app:prePaidGameDebugBuild
+          |                        \--- :app:preBuild
+          +--- :app:stripPaidGameDebugDebugSymbols
+          |    +--- :app:mergePaidGameDebugNativeLibs
+          |    |    +--- :app:mergePaidGameDebugJniLibFolders
+          |    |    |    \--- :app:prePaidGameDebugBuild
+          |    |    |         \--- :app:preBuild
+          |    |    \--- :app:prePaidGameDebugBuild
+          |    |         \--- :app:preBuild
+          |    \--- :app:prePaidGameDebugBuild
+          |         \--- :app:preBuild
+          \--- :app:validateSigningPaidGameDebug
+               \--- :app:prePaidGameDebugBuild
+                    \--- :app:preBuild
+
+
+To see task dependency tree for a specific task, run gradlew <project-path>:<task> <project-path>:taskTree [--no-repeat] [--task-depth <depth>]
+Executions of all tasks except for taskTree will be skipped. They will be used for building the task graph only.
+
+Add --no-repeat to prevent printing a subtree of the same task more than once.
+
+For example, try running gradlew :app:build :app:taskTree
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 7.0.
+Use '--warning-mode all' to show the individual deprecation warnings.
+See https://docs.gradle.org/6.5/userguide/command_line_interface.html#sec:command_line_warnings
+
+BUILD SUCCESSFUL in 2s
+1 actionable task: 1 executed

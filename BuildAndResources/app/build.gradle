@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+//    id 'com.dorongold.gradle.tasktree.TaskTreePlugin'
+    id 'com.dorongold.task-tree'
 }
 
 android {
