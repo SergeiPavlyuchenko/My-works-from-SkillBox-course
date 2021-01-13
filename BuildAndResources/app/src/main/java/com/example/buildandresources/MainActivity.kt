@@ -11,11 +11,15 @@ class MainActivity : AppCompatActivity() {
 
         val textView = findViewById<TextView>(R.id.textView)
         textView.text = """
-            Application id = ${BuildConfig.APPLICATION_ID}
             Build type = ${BuildConfig.BUILD_TYPE}
             Flavor = ${BuildConfig.FLAVOR}
             VersionCode = ${BuildConfig.VERSION_CODE}
             VersionName = ${BuildConfig.VERSION_NAME}
+            Application id = ${BuildConfig.APPLICATION_ID}
         """
+
+       /* val count = 12
+        val pluralString = resources.getQuantityString(R.plurals.second_quantity_string, count, count)
+        textView.text = pluralString*/
     }
 }
