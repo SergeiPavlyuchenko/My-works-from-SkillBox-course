@@ -2,6 +2,7 @@ package com.example.buildandresources
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ImageView
 import android.widget.TextView
 
 class MainActivity : AppCompatActivity() {
@@ -18,8 +19,9 @@ class MainActivity : AppCompatActivity() {
             Application id = ${BuildConfig.APPLICATION_ID}
         """
 
-       /* val count = 12
-        val pluralString = resources.getQuantityString(R.plurals.second_quantity_string, count, count)
-        textView.text = pluralString*/
+
+//        val count = 3
+//        val pluralString = resources.getQuantityString(R.plurals.second_quantity_string, count, count)
+//        textView.text = pluralString
     }
 }

@@ -22,17 +22,14 @@ android {
     buildTypes {
         debug {
             applicationIdSuffix ".debug"
-            manifestPlaceholders = [appName: "DebugSkillBox"]
         }
 
         qa {
             initWith debug
-            manifestPlaceholders = [appName: "QaSkillbox"]
             applicationIdSuffix ".qa"
         }
 
         release {
-            manifestPlaceholders = [appName: "ReleaseSkillbox"]
             applicationIdSuffix ".release"
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
@@ -40,7 +37,7 @@ android {
         }
     }
 
-    flavorDimensions "versionСost", "type"
+    flavorDimensions "versionСost"
 
     productFlavors {
 
@@ -55,14 +52,6 @@ android {
             versionNameSuffix " isFree"
             applicationIdSuffix ".free"
             dimension "versionСost"
-        }
-
-        game {
-            dimension "type"
-        }
-
-        application {
-            dimension "type"
         }
 
     }

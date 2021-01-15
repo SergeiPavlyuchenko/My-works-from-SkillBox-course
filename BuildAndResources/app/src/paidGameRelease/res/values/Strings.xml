@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="app_name">paidGameReleaseWithSourceSet</string>
-    <plurals name="main_quantity_string">
-        <item quantity="one">%1$d значение</item>
-        <item quantity="few">%1$d значения</item>
-        <item quantity="other">%1$d значений</item>
-    </plurals>
-</resources>
