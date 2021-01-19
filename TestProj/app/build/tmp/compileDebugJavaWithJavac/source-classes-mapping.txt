@@ -1,0 +1,8 @@
+com/example/testproj/databinding/ActivityMainBinding.java
+ com.example.testproj.databinding.ActivityMainBinding
+com/example/testproj/BuildConfig.java
+ com.example.testproj.BuildConfig
+com/example/testproj/databinding/ActivityContainerBinding.java
+ com.example.testproj.databinding.ActivityContainerBinding
+com/example/testproj/databinding/ActivityDinamicBinding.java
+ com.example.testproj.databinding.ActivityDinamicBinding
