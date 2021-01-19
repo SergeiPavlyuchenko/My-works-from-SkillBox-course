@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">ViewAndLayout</string>
+    <string name="text_email">E-Mail:</string>
+    <string name="enter_email">Enter you E-mail address</string>
+    <string name="enter_password">Enter you password</string>
+    <string name="text_password">Password:</string>
+    <string name="accept_user_agreement">Accept user agreement</string>
+    <string name="text_login">Login</string>
+</resources>
