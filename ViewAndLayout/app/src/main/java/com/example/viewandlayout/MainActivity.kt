@@ -74,7 +74,9 @@ class MainActivity : AppCompatActivity() {
             Handler().postDelayed({
                 changeStates()
                 binding.mainContainer.removeView(barToAdd)
+                Toast.makeText(this, "Success", Toast.LENGTH_SHORT).show()
             }, 2000)
+
         }
 
 
