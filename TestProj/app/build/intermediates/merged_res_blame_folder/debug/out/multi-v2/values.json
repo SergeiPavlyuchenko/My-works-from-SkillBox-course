@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\Temp\\sbx_glb\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
+            "outputFile": "D:\\Temp\\sbx_glb\\android_basic\\TestProj\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Engineer\\.gradle\\caches\\transforms-2\\files-2.1\\f1f33b62267c75a6f99331b460a092b0\\appcompat-1.2.0\\res\\values\\values.xml",
@@ -42,7 +42,7 @@
                     }
                 },
                 {
-                    "source": "D:\\Temp\\sbx_glb\\app\\src\\main\\res\\values\\colors.xml",
+                    "source": "D:\\Temp\\sbx_glb\\android_basic\\TestProj\\app\\src\\main\\res\\values\\colors.xml",
                     "from": {
                         "startLines": "7,2,3,4,5,6,8",
                         "startColumns": "4,4,4,4,4,4,4",
@@ -59,7 +59,7 @@
                     }
                 },
                 {
-                    "source": "D:\\Temp\\sbx_glb\\app\\src\\main\\res\\values\\themes.xml",
+                    "source": "D:\\Temp\\sbx_glb\\android_basic\\TestProj\\app\\src\\main\\res\\values\\themes.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -75,6 +75,23 @@
                         "endLines": "3664",
                         "endColumns": "12",
                         "endOffsets": "241472"
+                    }
+                },
+                {
+                    "source": "D:\\Temp\\sbx_glb\\android_basic\\TestProj\\app\\src\\main\\res\\values\\strings.xml",
+                    "from": {
+                        "startLines": "10,1,5,6,4,9,8,7,3,2",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "540,17,231,282,176,486,414,339,119,64",
+                        "endColumns": "40,45,49,55,53,52,70,73,55,53",
+                        "endOffsets": "576,58,276,333,225,534,480,408,170,113"
+                    },
+                    "to": {
+                        "startLines": "975,976,983,984,990,993,995,996,1034,1042",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "56477,56518,57191,57241,57844,58205,58317,58388,65302,66284",
+                        "endColumns": "40,45,49,55,53,52,70,73,55,53",
+                        "endOffsets": "56513,56559,57236,57292,57893,58253,58383,58457,65353,66333"
                     }
                 },
                 {
@@ -225,23 +242,6 @@
                         "startOffsets": "50829,50869,51358,51540,51595,52632,52686,52738,52787,52848",
                         "endColumns": "39,46,42,54,46,53,51,48,60,49",
                         "endOffsets": "50864,50911,51396,51590,51637,52681,52733,52782,52843,52893"
-                    }
-                },
-                {
-                    "source": "D:\\Temp\\sbx_glb\\app\\src\\main\\res\\values\\strings.xml",
-                    "from": {
-                        "startLines": "10,1,5,6,4,9,8,7,3,2",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "540,17,231,282,176,486,414,339,119,64",
-                        "endColumns": "40,45,49,55,53,52,70,73,55,53",
-                        "endOffsets": "576,58,276,333,225,534,480,408,170,113"
-                    },
-                    "to": {
-                        "startLines": "975,976,983,984,990,993,995,996,1034,1042",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "56477,56518,57191,57241,57844,58205,58317,58388,65302,66284",
-                        "endColumns": "40,45,49,55,53,52,70,73,55,53",
-                        "endOffsets": "56513,56559,57236,57292,57893,58253,58383,58457,65353,66333"
                     }
                 }
             ]

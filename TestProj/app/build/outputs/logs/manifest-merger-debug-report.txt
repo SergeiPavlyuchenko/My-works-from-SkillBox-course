@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from D:\Temp\sbx_glb\app\src\main\AndroidManifest.xml:2:1-24:12
-INJECTED from D:\Temp\sbx_glb\app\src\main\AndroidManifest.xml:2:1-24:12
-INJECTED from D:\Temp\sbx_glb\app\src\main\AndroidManifest.xml:2:1-24:12
-INJECTED from D:\Temp\sbx_glb\app\src\main\AndroidManifest.xml:2:1-24:12
+ADDED from D:\Temp\sbx_glb\android_basic\TestProj\app\src\main\AndroidManifest.xml:2:1-24:12
+INJECTED from D:\Temp\sbx_glb\android_basic\TestProj\app\src\main\AndroidManifest.xml:2:1-24:12
+INJECTED from D:\Temp\sbx_glb\android_basic\TestProj\app\src\main\AndroidManifest.xml:2:1-24:12
+INJECTED from D:\Temp\sbx_glb\android_basic\TestProj\app\src\main\AndroidManifest.xml:2:1-24:12
 MERGED from [androidx.databinding:viewbinding:4.1.1] C:\Users\Engineer\.gradle\caches\transforms-2\files-2.1\088b7485e805dcbe5eacdb632761df66\jetified-viewbinding-4.1.1\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.core:core-ktx:1.3.2] C:\Users\Engineer\.gradle\caches\transforms-2\files-2.1\41361b9f7b46ed6e014dbe34eeefad87\jetified-core-ktx-1.3.2\AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.android.material:material:1.2.1] C:\Users\Engineer\.gradle\caches\transforms-2\files-2.1\510c987a74b26e0d326e9880d2cc3fe0\material-1.2.1\AndroidManifest.xml:17:1-24:12
@@ -34,25 +34,25 @@ MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\Engineer\.gra
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\Engineer\.gradle\caches\transforms-2\files-2.1\416c3602f83ec574991e5bd9eab8a865\lifecycle-livedata-core-2.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\Engineer\.gradle\caches\transforms-2\files-2.1\0e939b520824d323d350ca62540c13c1\core-runtime-2.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.annotation:annotation-experimental:1.0.0] C:\Users\Engineer\.gradle\caches\transforms-2\files-2.1\c1bc2009ed393c1281f28af6bb79c366\jetified-annotation-experimental-1.0.0\AndroidManifest.xml:17:1-24:12
-INJECTED from D:\Temp\sbx_glb\app\src\main\AndroidManifest.xml:2:1-24:12
-INJECTED from D:\Temp\sbx_glb\app\src\main\AndroidManifest.xml:2:1-24:12
-INJECTED from D:\Temp\sbx_glb\app\src\main\AndroidManifest.xml:2:1-24:12
+INJECTED from D:\Temp\sbx_glb\android_basic\TestProj\app\src\main\AndroidManifest.xml:2:1-24:12
+INJECTED from D:\Temp\sbx_glb\android_basic\TestProj\app\src\main\AndroidManifest.xml:2:1-24:12
+INJECTED from D:\Temp\sbx_glb\android_basic\TestProj\app\src\main\AndroidManifest.xml:2:1-24:12
 	package
-		ADDED from D:\Temp\sbx_glb\app\src\main\AndroidManifest.xml:3:5-35
-		INJECTED from D:\Temp\sbx_glb\app\src\main\AndroidManifest.xml
-		INJECTED from D:\Temp\sbx_glb\app\src\main\AndroidManifest.xml
+		ADDED from D:\Temp\sbx_glb\android_basic\TestProj\app\src\main\AndroidManifest.xml:3:5-35
+		INJECTED from D:\Temp\sbx_glb\android_basic\TestProj\app\src\main\AndroidManifest.xml
+		INJECTED from D:\Temp\sbx_glb\android_basic\TestProj\app\src\main\AndroidManifest.xml
 	android:versionName
-		INJECTED from D:\Temp\sbx_glb\app\src\main\AndroidManifest.xml
-		ADDED from D:\Temp\sbx_glb\app\src\main\AndroidManifest.xml:2:1-24:12
-		INJECTED from D:\Temp\sbx_glb\app\src\main\AndroidManifest.xml
+		INJECTED from D:\Temp\sbx_glb\android_basic\TestProj\app\src\main\AndroidManifest.xml
+		ADDED from D:\Temp\sbx_glb\android_basic\TestProj\app\src\main\AndroidManifest.xml:2:1-24:12
+		INJECTED from D:\Temp\sbx_glb\android_basic\TestProj\app\src\main\AndroidManifest.xml
 	android:versionCode
-		INJECTED from D:\Temp\sbx_glb\app\src\main\AndroidManifest.xml
-		ADDED from D:\Temp\sbx_glb\app\src\main\AndroidManifest.xml:2:1-24:12
-		INJECTED from D:\Temp\sbx_glb\app\src\main\AndroidManifest.xml
+		INJECTED from D:\Temp\sbx_glb\android_basic\TestProj\app\src\main\AndroidManifest.xml
+		ADDED from D:\Temp\sbx_glb\android_basic\TestProj\app\src\main\AndroidManifest.xml:2:1-24:12
+		INJECTED from D:\Temp\sbx_glb\android_basic\TestProj\app\src\main\AndroidManifest.xml
 	xmlns:android
-		ADDED from D:\Temp\sbx_glb\app\src\main\AndroidManifest.xml:2:11-69
+		ADDED from D:\Temp\sbx_glb\android_basic\TestProj\app\src\main\AndroidManifest.xml:2:11-69
 application
-ADDED from D:\Temp\sbx_glb\app\src\main\AndroidManifest.xml:5:5-22:19
+ADDED from D:\Temp\sbx_glb\android_basic\TestProj\app\src\main\AndroidManifest.xml:5:5-22:19
 MERGED from [com.google.android.material:material:1.2.1] C:\Users\Engineer\.gradle\caches\transforms-2\files-2.1\510c987a74b26e0d326e9880d2cc3fe0\material-1.2.1\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.2.1] C:\Users\Engineer\.gradle\caches\transforms-2\files-2.1\510c987a74b26e0d326e9880d2cc3fe0\material-1.2.1\AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] C:\Users\Engineer\.gradle\caches\transforms-2\files-2.1\74d3dfb417b8176313f67b6d530795eb\constraintlayout-2.0.4\AndroidManifest.xml:9:5-20
@@ -64,39 +64,39 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\En
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.3.2] C:\Users\Engineer\.gradle\caches\transforms-2\files-2.1\79ee559483d346866425453a88a27286\core-1.3.2\AndroidManifest.xml:24:18-86
 	android:supportsRtl
-		ADDED from D:\Temp\sbx_glb\app\src\main\AndroidManifest.xml:10:9-35
+		ADDED from D:\Temp\sbx_glb\android_basic\TestProj\app\src\main\AndroidManifest.xml:10:9-35
 	android:label
-		ADDED from D:\Temp\sbx_glb\app\src\main\AndroidManifest.xml:8:9-41
+		ADDED from D:\Temp\sbx_glb\android_basic\TestProj\app\src\main\AndroidManifest.xml:8:9-41
 	android:roundIcon
-		ADDED from D:\Temp\sbx_glb\app\src\main\AndroidManifest.xml:9:9-54
+		ADDED from D:\Temp\sbx_glb\android_basic\TestProj\app\src\main\AndroidManifest.xml:9:9-54
 	android:icon
-		ADDED from D:\Temp\sbx_glb\app\src\main\AndroidManifest.xml:7:9-43
+		ADDED from D:\Temp\sbx_glb\android_basic\TestProj\app\src\main\AndroidManifest.xml:7:9-43
 	android:allowBackup
-		ADDED from D:\Temp\sbx_glb\app\src\main\AndroidManifest.xml:6:9-35
+		ADDED from D:\Temp\sbx_glb\android_basic\TestProj\app\src\main\AndroidManifest.xml:6:9-35
 	android:theme
-		ADDED from D:\Temp\sbx_glb\app\src\main\AndroidManifest.xml:11:9-46
+		ADDED from D:\Temp\sbx_glb\android_basic\TestProj\app\src\main\AndroidManifest.xml:11:9-46
 activity#com.example.testproj.MainActivity
-ADDED from D:\Temp\sbx_glb\app\src\main\AndroidManifest.xml:12:9-13:20
+ADDED from D:\Temp\sbx_glb\android_basic\TestProj\app\src\main\AndroidManifest.xml:12:9-13:20
 	android:name
-		ADDED from D:\Temp\sbx_glb\app\src\main\AndroidManifest.xml:12:19-47
+		ADDED from D:\Temp\sbx_glb\android_basic\TestProj\app\src\main\AndroidManifest.xml:12:19-47
 activity#com.example.testproj.DynamicActivity
-ADDED from D:\Temp\sbx_glb\app\src\main\AndroidManifest.xml:15:9-21:20
+ADDED from D:\Temp\sbx_glb\android_basic\TestProj\app\src\main\AndroidManifest.xml:15:9-21:20
 	android:name
-		ADDED from D:\Temp\sbx_glb\app\src\main\AndroidManifest.xml:15:19-50
+		ADDED from D:\Temp\sbx_glb\android_basic\TestProj\app\src\main\AndroidManifest.xml:15:19-50
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from D:\Temp\sbx_glb\app\src\main\AndroidManifest.xml:16:13-20:29
+ADDED from D:\Temp\sbx_glb\android_basic\TestProj\app\src\main\AndroidManifest.xml:16:13-20:29
 action#android.intent.action.MAIN
-ADDED from D:\Temp\sbx_glb\app\src\main\AndroidManifest.xml:17:17-69
+ADDED from D:\Temp\sbx_glb\android_basic\TestProj\app\src\main\AndroidManifest.xml:17:17-69
 	android:name
-		ADDED from D:\Temp\sbx_glb\app\src\main\AndroidManifest.xml:17:25-66
+		ADDED from D:\Temp\sbx_glb\android_basic\TestProj\app\src\main\AndroidManifest.xml:17:25-66
 category#android.intent.category.LAUNCHER
-ADDED from D:\Temp\sbx_glb\app\src\main\AndroidManifest.xml:19:17-77
+ADDED from D:\Temp\sbx_glb\android_basic\TestProj\app\src\main\AndroidManifest.xml:19:17-77
 	android:name
-		ADDED from D:\Temp\sbx_glb\app\src\main\AndroidManifest.xml:19:27-74
+		ADDED from D:\Temp\sbx_glb\android_basic\TestProj\app\src\main\AndroidManifest.xml:19:27-74
 uses-sdk
-INJECTED from D:\Temp\sbx_glb\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from D:\Temp\sbx_glb\app\src\main\AndroidManifest.xml
-INJECTED from D:\Temp\sbx_glb\app\src\main\AndroidManifest.xml
+INJECTED from D:\Temp\sbx_glb\android_basic\TestProj\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from D:\Temp\sbx_glb\android_basic\TestProj\app\src\main\AndroidManifest.xml
+INJECTED from D:\Temp\sbx_glb\android_basic\TestProj\app\src\main\AndroidManifest.xml
 MERGED from [androidx.databinding:viewbinding:4.1.1] C:\Users\Engineer\.gradle\caches\transforms-2\files-2.1\088b7485e805dcbe5eacdb632761df66\jetified-viewbinding-4.1.1\AndroidManifest.xml:20:5-44
 MERGED from [androidx.databinding:viewbinding:4.1.1] C:\Users\Engineer\.gradle\caches\transforms-2\files-2.1\088b7485e805dcbe5eacdb632761df66\jetified-viewbinding-4.1.1\AndroidManifest.xml:20:5-44
 MERGED from [androidx.core:core-ktx:1.3.2] C:\Users\Engineer\.gradle\caches\transforms-2\files-2.1\41361b9f7b46ed6e014dbe34eeefad87\jetified-core-ktx-1.3.2\AndroidManifest.xml:5:5-7:41
@@ -157,13 +157,13 @@ MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\Engineer\.gradle\ca
 MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\Engineer\.gradle\caches\transforms-2\files-2.1\0e939b520824d323d350ca62540c13c1\core-runtime-2.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.annotation:annotation-experimental:1.0.0] C:\Users\Engineer\.gradle\caches\transforms-2\files-2.1\c1bc2009ed393c1281f28af6bb79c366\jetified-annotation-experimental-1.0.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.annotation:annotation-experimental:1.0.0] C:\Users\Engineer\.gradle\caches\transforms-2\files-2.1\c1bc2009ed393c1281f28af6bb79c366\jetified-annotation-experimental-1.0.0\AndroidManifest.xml:20:5-22:41
-INJECTED from D:\Temp\sbx_glb\app\src\main\AndroidManifest.xml
-INJECTED from D:\Temp\sbx_glb\app\src\main\AndroidManifest.xml
+INJECTED from D:\Temp\sbx_glb\android_basic\TestProj\app\src\main\AndroidManifest.xml
+INJECTED from D:\Temp\sbx_glb\android_basic\TestProj\app\src\main\AndroidManifest.xml
 	android:targetSdkVersion
-		INJECTED from D:\Temp\sbx_glb\app\src\main\AndroidManifest.xml
-		ADDED from D:\Temp\sbx_glb\app\src\main\AndroidManifest.xml
-		INJECTED from D:\Temp\sbx_glb\app\src\main\AndroidManifest.xml
+		INJECTED from D:\Temp\sbx_glb\android_basic\TestProj\app\src\main\AndroidManifest.xml
+		ADDED from D:\Temp\sbx_glb\android_basic\TestProj\app\src\main\AndroidManifest.xml
+		INJECTED from D:\Temp\sbx_glb\android_basic\TestProj\app\src\main\AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from D:\Temp\sbx_glb\app\src\main\AndroidManifest.xml
-		ADDED from D:\Temp\sbx_glb\app\src\main\AndroidManifest.xml
-		INJECTED from D:\Temp\sbx_glb\app\src\main\AndroidManifest.xml
+		INJECTED from D:\Temp\sbx_glb\android_basic\TestProj\app\src\main\AndroidManifest.xml
+		ADDED from D:\Temp\sbx_glb\android_basic\TestProj\app\src\main\AndroidManifest.xml
+		INJECTED from D:\Temp\sbx_glb\android_basic\TestProj\app\src\main\AndroidManifest.xml

@@ -1,14 +1,18 @@
 [
     {
-        "merged": "D:\\Temp\\sbx_glb\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_dinamic.xml",
-        "source": "D:\\Temp\\sbx_glb\\app\\src\\main\\res\\layout\\activity_dinamic.xml"
+        "merged": "D:\\Temp\\sbx_glb\\android_basic\\TestProj\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\item_text.xml",
+        "source": "D:\\Temp\\sbx_glb\\android_basic\\TestProj\\app\\src\\main\\res\\layout\\item_text.xml"
     },
     {
-        "merged": "D:\\Temp\\sbx_glb\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_container.xml",
-        "source": "D:\\Temp\\sbx_glb\\app\\src\\main\\res\\layout\\activity_container.xml"
+        "merged": "D:\\Temp\\sbx_glb\\android_basic\\TestProj\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_dinamic.xml",
+        "source": "D:\\Temp\\sbx_glb\\android_basic\\TestProj\\app\\src\\main\\res\\layout\\activity_dinamic.xml"
     },
     {
-        "merged": "D:\\Temp\\sbx_glb\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_main.xml",
-        "source": "D:\\Temp\\sbx_glb\\app\\src\\main\\res\\layout\\activity_main.xml"
+        "merged": "D:\\Temp\\sbx_glb\\android_basic\\TestProj\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_main.xml",
+        "source": "D:\\Temp\\sbx_glb\\android_basic\\TestProj\\app\\src\\main\\res\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "D:\\Temp\\sbx_glb\\android_basic\\TestProj\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_container.xml",
+        "source": "D:\\Temp\\sbx_glb\\android_basic\\TestProj\\app\\src\\main\\res\\layout\\activity_container.xml"
     }
 ]

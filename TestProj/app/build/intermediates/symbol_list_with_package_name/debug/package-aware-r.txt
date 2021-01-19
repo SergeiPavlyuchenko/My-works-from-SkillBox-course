@@ -1703,6 +1703,7 @@ id decelerate
 id decelerateAndComplete
 id decor_content_parent
 id default_activity_button
+id deleteButton
 id deltaRelative
 id dependency_ordering
 id design_bottom_sheet
@@ -1765,6 +1766,7 @@ id imageView
 id info
 id invisible
 id italic
+id itemTextContainer
 id item_touch_helper_previous_elevation
 id jumpToEnd
 id jumpToStart
@@ -1923,6 +1925,7 @@ id textInput
 id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
+id textView
 id text_input_end_icon
 id text_input_start_icon
 id textinput_counter
@@ -2038,6 +2041,7 @@ layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
+layout item_text
 layout mtrl_alert_dialog
 layout mtrl_alert_dialog_actions
 layout mtrl_alert_dialog_title
