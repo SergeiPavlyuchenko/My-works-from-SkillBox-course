@@ -75,6 +75,7 @@ class MainActivity : AppCompatActivity() {
             Handler().postDelayed({
                 changeStates()
                 barToAdd.visibility = View.GONE
+                //Почему-то перестал отображаться данный Тост
                 Toast.makeText(this,"Success", Toast.LENGTH_LONG).show()
             }, 2000)
 
