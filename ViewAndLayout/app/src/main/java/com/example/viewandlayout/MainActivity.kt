@@ -3,56 +3,45 @@ package com.example.viewandlayout
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
-import android.text.Editable
-import android.text.TextWatcher
 import android.view.Gravity
-import android.view.View
 import android.widget.*
+import androidx.core.widget.doOnTextChanged
 import com.bumptech.glide.Glide
 import com.example.viewandlayout.databinding.ActivityMainBinding
+
+lateinit var binding: ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val binding: ActivityMainBinding = ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
 
 
         Glide.with(this)
-//           ссылка - https://www.ut6.ru/files/site/top-header-bg.jpg картинку не загрузила
-//           Просьба дать комментарий, как было бы правильно
-            .load(R.drawable.top)
+            .load("https://www.ut6.ru/files/site/top-header-bg.jpg")
+//                не работает centerCrop аналогично scaleType="centerCrop" в разметке.
+//                Не нашёл, как это можно ещё настроить(
+            .centerCrop()
             .into(binding.labelImage)
 
         var emailDefined = false
         var passwordDefined = false
-        var acceptChecked = false
+        val checkAcceptIsChecked = binding.checkAccept.isChecked
 
-        binding.inputEmail.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
-            override fun afterTextChanged(s: Editable?) {}
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                emailDefined = s?.isNotBlank() ?: false
-                binding.logButton.isEnabled =
-                    binding.checkAccept.isChecked && emailDefined && passwordDefined
-            }
+        binding.inputEmail.doOnTextChanged { text, _, _, _ ->
+            emailDefined = text?.isNotBlank() ?: false
+            logButtonValidate(checkAcceptIsChecked, emailDefined, passwordDefined)
+        }
 
-        })
-
-        binding.inputPass.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
-            override fun afterTextChanged(s: Editable?) {}
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                passwordDefined = s?.isNotBlank() ?: false
-                binding.logButton.isEnabled =
-                    binding.checkAccept.isChecked && emailDefined && passwordDefined
-            }
-
-        })
+        binding.inputPass.doOnTextChanged { text, _, _, _ ->
+            passwordDefined = text?.isNotBlank() ?: false
+            logButtonValidate(checkAcceptIsChecked, emailDefined, passwordDefined)
+        }
 
         binding.checkAccept.setOnCheckedChangeListener { _, isChecked ->
-            binding.logButton.isEnabled = isChecked && emailDefined && passwordDefined
+            logButtonValidate(isChecked, emailDefined, passwordDefined)
         }
 
         binding.logButton.setOnClickListener {
@@ -83,12 +72,20 @@ class MainActivity : AppCompatActivity() {
     }
 
 
+    private fun logButtonValidate(
+        firstParam: Boolean,
+        secondParam: Boolean,
+        thirdParam: Boolean
+    ) {
+        binding.logButton.isEnabled = firstParam && secondParam && thirdParam
+    }
+
     private fun changeStates() {
-        listOf<View>(
-        findViewById<EditText>(R.id.inputEmail),
-        findViewById<EditText>(R.id.inputPass),
-        findViewById<CheckBox>(R.id.checkAccept),
-        findViewById<Button>(R.id.logButton)
+        listOf(
+            binding.inputEmail,
+            binding.inputPass,
+            binding.checkAccept,
+            binding.logButton
         ).forEach {
             it.isEnabled = !it.isEnabled
         }

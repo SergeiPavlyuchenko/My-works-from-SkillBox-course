@@ -23,7 +23,6 @@ class MainActivity : AppCompatActivity() {
 
         var emailDefined = false
         var passwordDefined = false
-        var acceptChecked = false
 
         binding.inputEmail.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}

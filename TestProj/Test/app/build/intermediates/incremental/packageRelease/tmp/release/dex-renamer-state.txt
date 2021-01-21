@@ -1,4 +1,0 @@
-#Mon Jan 18 10:01:21 MSK 2021
-base.0=D\:\\Temp\\sbx_glb\\Test\\app\\build\\intermediates\\dex\\release\\mergeDexRelease\\classes.dex
-path.0=classes.dex
-renamed.0=classes.dex
