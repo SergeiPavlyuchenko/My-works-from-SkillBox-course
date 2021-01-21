@@ -27,13 +27,17 @@
             android:id="@+id/textViewEmail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="200dp"
             android:text="@string/text_email"
             android:textColor="@color/white"
             android:textSize="30sp"
+            app:layout_constraintBottom_toTopOf="@+id/inputEmail"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:layout_constraintVertical_weight="3" />
 
         <EditText
             android:id="@+id/inputEmail"
@@ -44,9 +48,14 @@
             android:ems="10"
             android:hint="@string/text_enter_you_address"
             android:inputType="textEmailAddress"
-            app:layout_constraintEnd_toEndOf="@+id/textViewEmail"
-            app:layout_constraintStart_toStartOf="@+id/textViewEmail"
-            app:layout_constraintTop_toBottomOf="@+id/textViewEmail" />
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/textViewPass"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewEmail"
+            app:layout_constraintVertical_weight="4" />
 
         <TextView
             android:id="@+id/textViewPass"
@@ -56,9 +65,12 @@
             android:text="@string/text_password"
             android:textColor="@color/white"
             android:textSize="30sp"
+            app:layout_constraintBottom_toTopOf="@+id/inputPass"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/inputEmail" />
+            app:layout_constraintTop_toBottomOf="@+id/inputEmail"
+            app:layout_constraintVertical_weight="3" />
 
         <EditText
             android:id="@+id/inputPass"
@@ -69,52 +81,38 @@
             android:ems="10"
             android:hint="@string/text_enter_you_password"
             android:inputType="textPassword"
-            app:layout_constraintStart_toEndOf="@id/barrier"
-            app:layout_constraintTop_toBottomOf="@+id/textViewPass" />
-
-        <androidx.constraintlayout.widget.Barrier
-            android:id="@+id/barrier"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:visibility="visible"
-            app:barrierDirection="start"
-            app:constraint_referenced_ids="inputEmail"
-            tools:layout_editor_absoluteX="101dp"
-            tools:layout_editor_absoluteY="731dp" />
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/checkAccept"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewPass"
+            app:layout_constraintVertical_weight="1" />
 
         <CheckBox
             android:id="@+id/checkAccept"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+            android:layout_marginBottom="32dp"
             android:text="@string/text_accept_user_agreement"
             android:textColor="#FFFFFF"
             android:textSize="15sp"
-            app:layout_constraintStart_toEndOf="@id/barrier"
-            app:layout_constraintTop_toBottomOf="@+id/inputPass" />
+            app:layout_constraintBottom_toTopOf="@+id/logButton"
+            app:layout_constraintStart_toStartOf="@+id/inputPass" />
 
         <Button
             android:id="@+id/logButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="550dp"
             android:enabled="false"
             android:text="@string/text_login"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/checkAccept" />
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <ProgressBar
-            android:id="@+id/progressBar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:visibility="gone"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/logButton"
-            tools:visibility="visible" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
