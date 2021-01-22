@@ -30,16 +30,18 @@
 
         <EditText
             android:id="@+id/inputEmail"
-            android:layout_marginStart="82dp"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="start"
+            android:layout_gravity="center"
+            android:layout_marginStart="32dp"
             android:layout_marginTop="16dp"
-            android:background="@color/white"
+            android:layout_marginEnd="32dp"
+            android:backgroundTint="#FFFFFF"
+            android:textCursorDrawable="@null"
             android:hint="@string/enter_email"
             android:inputType="textEmailAddress"
-            android:paddingStart="8dp"
-            android:paddingEnd="8dp"/>
+            android:textColor="#CCFFFFFF"
+            android:textColorHint="#888888" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -53,17 +55,20 @@
 
         <EditText
             android:id="@+id/inputPass"
-            android:layout_marginStart="82dp"
-
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="start"
+            android:layout_gravity="center"
+            android:layout_marginStart="32dp"
             android:layout_marginTop="16dp"
-            android:background="@color/white"
+            android:layout_marginEnd="32dp"
+            android:backgroundTint="#FFFFFF"
             android:hint="@string/enter_password"
             android:inputType="textPassword"
+            android:padding="8dp"
             android:paddingStart="8dp"
-            android:paddingEnd="8dp"/>
+            android:paddingEnd="8dp"
+            android:textColor="#CCFFFFFF"
+            android:textColorHint="#888888" />
 
         <CheckBox
             android:id="@+id/checkAccept"
@@ -71,7 +76,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="30dp"
-            android:layout_marginEnd="37dp"
             android:shadowColor="@color/white"
             android:text="@string/accept_user_agreement"
             android:textColor="@color/white"
