@@ -18,23 +18,16 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 
-        var emailDefined = false
-        var passwordDefined = false
-        val checkBoxIsChecked = binding.checkAccept.isChecked
-
-
-        binding.inputEmail.doOnTextChanged { text, _, _, _ ->
-            emailDefined = text?.isNotBlank() ?: false
-            logButtonValidate(checkBoxIsChecked, emailDefined, passwordDefined)
+        binding.inputEmail.doOnTextChanged { _, _, _, _ ->
+            logButtonValidate()
         }
 
-        binding.inputPass.doOnTextChanged { text, _, _, _ ->
-            passwordDefined = text?.isNotBlank() ?: false
-            logButtonValidate(checkBoxIsChecked, emailDefined, passwordDefined)
+        binding.inputPass.doOnTextChanged { _, _, _, _ ->
+            logButtonValidate()
         }
 
-        binding.checkAccept.setOnCheckedChangeListener { _, isChecked ->
-            logButtonValidate(isChecked, emailDefined, passwordDefined)
+        binding.checkAccept.setOnCheckedChangeListener { _, _ ->
+            logButtonValidate()
         }
 
 
@@ -92,11 +85,10 @@ class MainActivity : AppCompatActivity() {
 
 
     private fun logButtonValidate(
-        firstParam: Boolean,
-        secondParam: Boolean,
-        thirdParam: Boolean
     ) {
-        binding.logButton.isEnabled = firstParam && secondParam && thirdParam
+        binding.logButton.isEnabled = binding.inputEmail.text.isNotEmpty() &&
+                binding.inputPass.text.isNotEmpty() &&
+                binding.checkAccept.isChecked
     }
 
     private fun changeStates() {

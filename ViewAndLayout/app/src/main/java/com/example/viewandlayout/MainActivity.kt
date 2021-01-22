@@ -20,28 +20,20 @@ class MainActivity : AppCompatActivity() {
 
 
         Glide.with(this)
-            .load("https://www.ut6.ru/files/site/top-header-bg.jpg")
-//                не работает centerCrop аналогично scaleType="centerCrop" в разметке.
-//                Не нашёл, как это можно ещё настроить(
+            .load("https://photoplay.ru/sites/default/files/imce/2019/travel-photo_dk.jpg")
             .centerCrop()
             .into(binding.labelImage)
 
-        var emailDefined = false
-        var passwordDefined = false
-        val checkAcceptIsChecked = binding.checkAccept.isChecked
-
-        binding.inputEmail.doOnTextChanged { text, _, _, _ ->
-            emailDefined = text?.isNotBlank() ?: false
-            logButtonValidate(checkAcceptIsChecked, emailDefined, passwordDefined)
+        binding.inputEmail.doOnTextChanged { _, _, _, _ ->
+            logButtonValidate()
         }
 
-        binding.inputPass.doOnTextChanged { text, _, _, _ ->
-            passwordDefined = text?.isNotBlank() ?: false
-            logButtonValidate(checkAcceptIsChecked, emailDefined, passwordDefined)
+        binding.inputPass.doOnTextChanged { _, _, _, _ ->
+            logButtonValidate()
         }
 
-        binding.checkAccept.setOnCheckedChangeListener { _, isChecked ->
-            logButtonValidate(isChecked, emailDefined, passwordDefined)
+        binding.checkAccept.setOnCheckedChangeListener { _, _ ->
+            logButtonValidate()
         }
 
         binding.logButton.setOnClickListener {
@@ -73,11 +65,10 @@ class MainActivity : AppCompatActivity() {
 
 
     private fun logButtonValidate(
-        firstParam: Boolean,
-        secondParam: Boolean,
-        thirdParam: Boolean
     ) {
-        binding.logButton.isEnabled = firstParam && secondParam && thirdParam
+        binding.logButton.isEnabled = binding.inputEmail.text.isNotEmpty() &&
+                binding.inputPass.text.isNotEmpty() &&
+                binding.checkAccept.isChecked
     }
 
     private fun changeStates() {
