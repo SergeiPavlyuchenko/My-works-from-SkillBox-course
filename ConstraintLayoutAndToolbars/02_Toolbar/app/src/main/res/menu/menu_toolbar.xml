@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_search"
+        android:icon="@drawable/ic_search"
+        android:title="@string/menu_action1"
+        app:actionViewClass="androidx.appcompat.widget.SearchView"
+        app:showAsAction="ifRoom|collapseActionView" />
+    <item
+        android:id="@+id/action_changeLabel"
+        android:icon="@drawable/ic_change_label"
+        android:title="@string/menu_action2"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_showToast"
+        android:title="@string/menu_action3" />
+    <item
+        android:id="@+id/action_fiveAndTenSum"
+        android:title="@string/menu_action4" />
+</menu>
