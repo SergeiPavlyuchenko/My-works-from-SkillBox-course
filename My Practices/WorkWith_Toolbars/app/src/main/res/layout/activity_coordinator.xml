@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.Toolbar
+            app:layout_scrollFlags="scroll|enterAlways"
+            android:id="@+id/toolbar"
+            style="@style/ToolBarStyle"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            app:layout_constraintTop_toTopOf="parent"
+            app:title="@string/app_name">
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+
+
+
+    <androidx.core.widget.NestedScrollView
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <TextView
+            android:id="@+id/longText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="
+    — Скажи-ка, дядя, ведь не даром\n
+    Москва, спаленная пожаром,\n
+    Французу отдана?\n
+    Ведь были ж схватки боевые,\n
+    Да, говорят, еще какие!\n
+    Недаром помнит вся Россия\n
+    Про день Бородина!\n\n\n
+
+    — Да, были люди в наше время,\n
+    Не то, что нынешнее племя:\n
+    Богатыри — не вы!\n
+    Плохая им досталась доля:\n
+    Немногие вернулись с поля…\n
+    Не будь на то господня воля,\n
+    Не отдали б Москвы!\n\n\n
+
+    Мы долго молча отступали,\n
+    Досадно было, боя ждали,\n
+    Ворчали старики:\n
+    «Что ж мы? на зимние квартиры?\n
+    Не смеют, что ли, командиры\n
+    Чужие изорвать мундиры\n
+    О русские штыки?»\n\n\n
+
+    И вот нашли большое поле:\n
+    Есть разгуляться где на воле!\n
+    Построили редут.\n
+    У наших ушки на макушке!\n
+    Чуть утро осветило пушки\n
+    И леса синие верхушки —\n
+    Французы тут как тут.\n\n\n
+
+    Забил заряд я в пушку туго\n
+    И думал: угощу я друга!\n
+    Постой-ка, брат мусью!\n
+    Что тут хитрить, пожалуй к бою;\n
+    Уж мы пойдем ломить стеною,\n
+    Уж постоим мы головою\n
+    За родину свою!\n\n\n
+
+    Два дня мы были в перестрелке.\n
+    Что толку в этакой безделке?\n
+    Мы ждали третий день.\n
+    Повсюду стали слышны речи:\n
+    «Пора добраться до картечи!»\n
+    И вот на поле грозной сечи\n
+    Ночная пала тень.\n\n\n
+
+    Прилег вздремнуть я у лафета,\n
+    И слышно было до рассвета,\n
+    Как ликовал француз.\n
+    Но тих был наш бивак открытый:\n
+    Кто кивер чистил весь избитый,\n
+    Кто штык точил, ворча сердито,\n
+    Кусая длинный ус.\n\n\n
+
+    И только небо засветилось,\n
+    Все шумно вдруг зашевелилось,\n
+    Сверкнул за строем строй.\n
+    Полковник наш рожден был хватом:\n
+    Слуга царю, отец солдатам…\n
+    Да, жаль его: сражен булатом,\n
+    Он спит в земле сырой.\n\n\n
+    " />
+
+    </androidx.core.widget.NestedScrollView>
+
+<Button
+    app:layout_behavior="com.google.android.material.behavior.HideBottomViewOnScrollBehavior"
+    android:layout_gravity="bottom"
+    android:text="Bottom button"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"/>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
