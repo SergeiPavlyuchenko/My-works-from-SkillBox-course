@@ -8,6 +8,7 @@ import android.widget.*
 import androidx.core.widget.doOnTextChanged
 import com.bumptech.glide.Glide
 import com.example.viewandlayout.databinding.ActivityMainBinding
+import java.util.*
 
 lateinit var binding: ActivityMainBinding
 
@@ -16,7 +17,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
 
 
         Glide.with(this)
