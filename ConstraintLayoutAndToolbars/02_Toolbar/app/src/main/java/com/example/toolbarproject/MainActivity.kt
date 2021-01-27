@@ -50,6 +50,8 @@ class MainActivity : AppCompatActivity() {
         }, 2000)
     }
 
+
+
     private fun changeTitle() {
         binding.toolbar.title =
             if (binding.toolbar.title == resources.getString(R.string.app_name)) {

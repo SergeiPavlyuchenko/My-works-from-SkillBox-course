@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">ConstraintLayout</string>
+    <string name="text_email">E-mail</string>
+    <string name="text_enter_you_address">Enter you address</string>
+    <string name="text_password">Password</string>
+    <string name="text_enter_you_password">Enter you password</string>
+    <string name="text_accept_user_agreement">Accept user agreement</string>
+    <string name="text_login">Login</string>
+    <string name="text_arm_button">ARM Button</string>
+</resources>
