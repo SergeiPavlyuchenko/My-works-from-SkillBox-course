@@ -30,10 +30,7 @@
     </style>
 
     <style name="CollapsingToolbarTheme" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
-        <item name="android:background">@color/teal_200</item>
-        <item name="android:theme">@style/ThemeForToolbar</item>
-        <item name="android:elevation">8dp</item>
-        <item name="popupTheme">@style/ThemeOverlay.AppCompat.Light</item>
+
     </style>
 
 </resources>

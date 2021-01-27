@@ -12,7 +12,7 @@ import com.skillbox.toolbarproject.R
 import com.skillbox.toolbarproject.databinding.ActivityMainBinding
 
 
-lateinit var binding: ActivityMainBinding
+private lateinit var binding: ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -45,9 +45,9 @@ class MainActivity : AppCompatActivity() {
             binding.textViewForSum.text = "Good Bye!"
             Handler().postDelayed({
                 binding.textViewForSum.visibility = View.GONE
+                binding.textBorodino.visibility = View.VISIBLE
             }, 2000)
         }, 2000)
-        binding.textBorodino.visibility = View.VISIBLE //Почему-то не срабатывают эти строки
     }
 
     private fun changeTitle() {
@@ -58,6 +58,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initToolbar() {
+
         // setNavigationOnClickListener - слушает кнопку навигации(в данном случае стрелка назад)
         binding.toolbar.setNavigationOnClickListener {
             Toast.makeText(this, "You are clicked navigation button", Toast.LENGTH_SHORT).show()

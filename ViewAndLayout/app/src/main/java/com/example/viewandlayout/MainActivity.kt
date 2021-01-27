@@ -28,6 +28,8 @@ class MainActivity : AppCompatActivity() {
             logButtonValidate()
         }
 
+        binding.inputPass.addTextChangedListener()
+
         binding.inputPass.doOnTextChanged { _, _, _, _ ->
             logButtonValidate()
         }
