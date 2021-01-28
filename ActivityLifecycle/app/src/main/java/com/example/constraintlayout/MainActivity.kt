@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.util.Log
+import android.view.KeyCharacterMap
 import android.view.View
 import android.widget.*
 import androidx.constraintlayout.widget.ConstraintSet
@@ -110,15 +111,23 @@ class MainActivity : AppCompatActivity() {
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        outState.putParcelable(KEY_COUNTER, FormState(
-            binding.errorTextView.isVisible,
-            "State is ${binding.errorTextView.isVisible}"))
+        outState.putParcelable(
+            KEY_COUNTER, FormState(
+                binding.errorTextView.isVisible,
+                "State is ${binding.errorTextView.isVisible}"
+            )
+        )
+        outState.putParcelable(KEY_COUNTER, FormState(binding.logButton.isEnabled, ""))
     }
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         super.onRestoreInstanceState(savedInstanceState)
         binding.errorTextView.isVisible =
-            savedInstanceState.getParcelable<FormState>(KEY_COUNTER)?.valid ?: error("Unexpected state")
+            savedInstanceState.getParcelable<FormState>(KEY_COUNTER)?.valid
+                ?: error("Unexpected state")
+        binding.logButton.isEnabled =
+            savedInstanceState.getParcelable<FormState>(KEY_COUNTER)?.valid
+                ?: error("Unexpected state")
     }
 
     override fun onPause() {
