@@ -14,7 +14,5 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="ButtonStyle">
-        <item name="android:background">#DCE7FD</item>
-    </style>
+
 </resources>

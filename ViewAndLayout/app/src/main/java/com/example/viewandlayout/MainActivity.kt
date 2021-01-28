@@ -23,6 +23,7 @@ class MainActivity : AppCompatActivity() {
             .load("https://photoplay.ru/sites/default/files/imce/2019/travel-photo_dk.jpg")
             .centerCrop()
             .into(binding.labelImage)
+        
 
         binding.inputEmail.doOnTextChanged { _, _, _, _ ->
             logButtonValidate()

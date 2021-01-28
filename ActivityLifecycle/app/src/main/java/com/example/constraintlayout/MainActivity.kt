@@ -3,19 +3,42 @@ package com.example.constraintlayout
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.util.Log
 import android.view.View
 import android.widget.*
 import androidx.constraintlayout.widget.ConstraintSet
+import androidx.core.view.isVisible
 import androidx.core.widget.doOnTextChanged
 import com.example.constraintlayout.databinding.ActivityMainBinding
 
 private lateinit var binding: ActivityMainBinding
+private val tag = "MainActivity"
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+//        12.12
+
+        DebugLogger.d(tag, "onCreate")
+
+        binding.armButton.setOnClickListener {
+            Thread.sleep(10000)
+        }
+
+    }
+
+    override fun onStart() {
+        super.onStart()
+        DebugLogger.d(tag, "onStart")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        DebugLogger.d(tag, "onResume")
+
 
 
         binding.inputEmail.doOnTextChanged { _, _, _, _ ->
@@ -30,8 +53,8 @@ class MainActivity : AppCompatActivity() {
             logButtonValidate()
         }
 
-
         binding.logButton.setOnClickListener {
+            binding.errorTextView.isVisible = false
             binding.inputEmail.isEnabled = false
             binding.inputPass.isEnabled = false
             binding.checkAccept.isEnabled = false
@@ -75,30 +98,77 @@ class MainActivity : AppCompatActivity() {
             Handler().postDelayed({
                 changeStates()
                 barToAdd.visibility = View.GONE
-                Toast.makeText(this, "Success", Toast.LENGTH_SHORT).show()
+                if (!binding.inputEmail.text.contains("@")) {
+                    binding.errorTextView.isVisible = true
+                } else {
+                    Toast.makeText(this, "Success", Toast.LENGTH_SHORT).show()
+                }
             }, 2000)
 
         }
-
-
     }
 
-
-    private fun logButtonValidate(
-    ) {
-        binding.logButton.isEnabled = binding.inputEmail.text.isNotEmpty() &&
-                binding.inputPass.text.isNotEmpty() &&
-                binding.checkAccept.isChecked
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putParcelable(KEY_COUNTER, FormState(
+            binding.errorTextView.isVisible,
+            "State is ${binding.errorTextView.isVisible}"))
     }
 
-    private fun changeStates() {
-        listOf(
-            binding.inputEmail,
-            binding.inputPass,
-            binding.checkAccept,
-            binding.logButton
-        ).forEach {
-            it.isEnabled = !it.isEnabled
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+        binding.errorTextView.isVisible =
+            savedInstanceState.getParcelable<FormState>(KEY_COUNTER)?.valid ?: error("Unexpected state")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        DebugLogger.d(tag, "onPause")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        DebugLogger.d(tag, "onStop")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        DebugLogger.d(tag, "onDestroy")
+    }
+
+    companion object {
+        private const val KEY_COUNTER = "counter"
+    }
+
+}
+
+
+object DebugLogger {
+    fun d(tag: String, message: String) {
+        if (BuildConfig.DEBUG) {
+            Log.d(tag, message)
         }
+
+    }
+
+
+}
+
+
+private fun logButtonValidate(
+) {
+    binding.logButton.isEnabled = binding.inputEmail.text.isNotEmpty() &&
+            binding.inputPass.text.isNotEmpty() &&
+            binding.checkAccept.isChecked
+}
+
+private fun changeStates() {
+    listOf(
+        binding.inputEmail,
+        binding.inputPass,
+        binding.checkAccept,
+        binding.logButton
+    ).forEach {
+        it.isEnabled = !it.isEnabled
     }
 }

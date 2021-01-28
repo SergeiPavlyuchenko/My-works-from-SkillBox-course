@@ -111,11 +111,11 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <Button
-            android:backgroundTint="@color/white"
             android:id="@+id/logButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="550dp"
+            android:backgroundTint="@color/button_colors"
             android:enabled="false"
             android:text="@string/text_login"
             app:layout_constraintEnd_toEndOf="parent"
@@ -124,15 +124,29 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:backgroundTint="#DCE7FD"
-            style="@style/ButtonStyle"
             android:id="@+id/armButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/button_colors"
             android:text="@string/text_arm_button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+        <TextView
+            android:id="@+id/errorTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="35dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="32dp"
+            android:text="@string/text_incorrect_input"
+            android:textColor="@color/red"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/inputPass"
+            tools:text="Incorrect login or password" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

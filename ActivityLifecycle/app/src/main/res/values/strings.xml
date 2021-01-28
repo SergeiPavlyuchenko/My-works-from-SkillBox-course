@@ -7,4 +7,5 @@
     <string name="text_accept_user_agreement">Accept user agreement</string>
     <string name="text_login">Login</string>
     <string name="text_arm_button">ARM Button</string>
+    <string name="text_incorrect_input">Incorrect login or password</string>
 </resources>
