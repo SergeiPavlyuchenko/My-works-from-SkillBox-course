@@ -1,4 +1,4 @@
-package com.example.constraintlayout
+package com.skillbox.workwith_intents
 
 import org.junit.Test
 

@@ -1,21 +1,23 @@
-package com.example.constraintlayout
+package com.example.intents
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.util.Log
-import android.view.KeyCharacterMap
+import android.util.Patterns
 import android.view.View
-import android.widget.*
+import android.widget.ProgressBar
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintSet
 import androidx.core.view.isVisible
 import androidx.core.widget.doOnTextChanged
-import com.example.constraintlayout.databinding.ActivityMainBinding
+import androidx.viewbinding.BuildConfig
+import com.example.intents.databinding.ActivityMainBinding
 
 private lateinit var binding: ActivityMainBinding
-private val tag = "MainActivity"
+private val tag = "LoginActivity"
 
-class MainActivity : AppCompatActivity() {
+class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -39,7 +41,6 @@ class MainActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         DebugLogger.d(tag, "onResume")
-
 
 
         binding.inputEmail.doOnTextChanged { _, _, _, _ ->
@@ -96,10 +97,11 @@ class MainActivity : AppCompatActivity() {
             set.applyTo(binding.mainContainer)
 
 
+
             Handler().postDelayed({
                 changeStates()
                 barToAdd.visibility = View.GONE
-                if (!binding.inputEmail.text.contains("@")) {
+                if (!Patterns.EMAIL_ADDRESS.matcher(binding.inputEmail.text).matches()) {
                     binding.errorTextView.isVisible = true
                 } else {
                     Toast.makeText(this, "Success", Toast.LENGTH_SHORT).show()
@@ -181,3 +183,5 @@ private fun changeStates() {
         it.isEnabled = !it.isEnabled
     }
 }
+
+

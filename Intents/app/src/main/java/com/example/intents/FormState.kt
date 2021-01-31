@@ -1,16 +1,15 @@
-package com.example.constraintlayout
+package com.example.intents
 
 import android.os.Parcel
 import android.os.Parcelable
 
-data class FormState(val valid: Boolean, val message: String) : Parcelable {
 
+data class FormState(val valid: Boolean, val message: String) : Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readByte() != 0.toByte(),
         parcel.readString().orEmpty()
     ) {
     }
-
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeByte(if (valid) 1 else 0)
@@ -30,5 +29,4 @@ data class FormState(val valid: Boolean, val message: String) : Parcelable {
             return arrayOfNulls(size)
         }
     }
-
 }
