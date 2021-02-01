@@ -14,11 +14,20 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import com.skillbox.workwith_intents.databinding.ActivityMainBinding
+import com.example.intents.databinding.ActivityMainBinding
 
 private lateinit var binding: ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+
+    private val cameraLauncher = registerForActivityResult(
+        ActivityResultContracts.TakePicturePreview()
+    ) {
+        it ?: toast("Result code was canceled")
+        binding.resultPhotoImageView.setImageBitmap(it)
+    }
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -26,9 +35,6 @@ class MainActivity : AppCompatActivity() {
 
         Log.d("LifeCycleActivity", "MainActivity|onCreate|${hashCode()}")
 
-        registerForActivityResult(ActivityResultContracts.TakePicture()) {
-
-        }
 
     }
 
@@ -38,17 +44,6 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        if (requestCode == PHOTO_REQUEST_CODE) {
-            if (resultCode == Activity.RESULT_OK) {
-                val previewBitmap = data?.getParcelableExtra("data") as? Bitmap
-                binding.resultPhotoImageView.setImageBitmap(previewBitmap)
-            } else toast("Result code was canceled")
-        } else {
-            super.onActivityResult(requestCode, resultCode, data)
-        }
-
-    }
 
     //onResume
     override fun onResume() {
@@ -117,6 +112,22 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+//    This is custom work code without this dependencies
+//    implementation 'androidx.activity:activity:1.2.0-rc01'
+//    implementation 'androidx.activity:activity-ktx:1.2.0-rc01'
+
+//    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+//        if (requestCode == PHOTO_REQUEST_CODE) {
+//            if (resultCode == Activity.RESULT_OK) {
+//                val previewBitmap = data?.getParcelableExtra("data") as? Bitmap
+//                binding.resultPhotoImageView.setImageBitmap(previewBitmap)
+//            } else toast("Result code was canceled")
+//        } else {
+//            super.onActivityResult(requestCode, resultCode, data)
+//        }
+//
+//    }
+
     private fun dispatchTakePictureIntent() {
 
         val isCameraPermissionGranted =
@@ -132,10 +143,22 @@ class MainActivity : AppCompatActivity() {
                 PERMISSION_REQUEST_CODE
             )
         } else {
-            val cameraIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-            cameraIntent.resolveActivity(packageManager)?.also {
-                startActivityForResult(cameraIntent, PHOTO_REQUEST_CODE)
-            }
+
+//    This is custom work code without this dependencies
+//    implementation 'androidx.activity:activity:1.2.0-rc01'
+//    implementation 'androidx.activity:activity-ktx:1.2.0-rc01'
+
+//            val cameraIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+//            cameraIntent.resolveActivity(packageManager)?.also {
+//                startActivityForResult(cameraIntent, PHOTO_REQUEST_CODE)
+//            }
+
+//    This is code with this libraries
+//    implementation 'androidx.activity:activity:1.2.0-rc01'
+//    implementation 'androidx.activity:activity-ktx:1.2.0-rc01'
+
+            cameraLauncher.launch(null)
+
         }
 
 

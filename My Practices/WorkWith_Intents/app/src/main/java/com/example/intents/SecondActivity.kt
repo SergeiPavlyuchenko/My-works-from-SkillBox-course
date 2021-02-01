@@ -3,10 +3,9 @@ package com.skillbox.workwith_intents
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.os.Message
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import com.skillbox.workwith_intents.databinding.ActivitySecondBinding
+import com.example.intents.databinding.ActivitySecondBinding
 
 private lateinit var binding: ActivitySecondBinding
 

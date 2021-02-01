@@ -1,4 +1,4 @@
-package com.skillbox.workwith_intents
+package com.example.intents
 
 import org.junit.Test
 
