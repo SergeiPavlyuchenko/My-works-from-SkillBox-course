@@ -8,4 +8,6 @@
     <string name="text_login">Login</string>
     <string name="text_arm_button">ARM Button</string>
     <string name="text_incorrect_input">Incorrect login or password</string>
+    <string name="text_call">call</string>
+    <string name="text_enter_a_number">Enter a number</string>
 </resources>

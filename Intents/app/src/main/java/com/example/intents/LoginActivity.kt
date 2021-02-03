@@ -12,15 +12,15 @@ import androidx.constraintlayout.widget.ConstraintSet
 import androidx.core.view.isVisible
 import androidx.core.widget.doOnTextChanged
 import androidx.viewbinding.BuildConfig
-import com.example.intents.databinding.ActivityMainBinding
+import com.example.intents.databinding.ActivityLoginBinding
 
-private lateinit var binding: ActivityMainBinding
+private lateinit var binding: ActivityLoginBinding
 private val tag = "LoginActivity"
 
 class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
 //        12.12
@@ -104,7 +104,8 @@ class LoginActivity : AppCompatActivity() {
                 if (!Patterns.EMAIL_ADDRESS.matcher(binding.inputEmail.text).matches()) {
                     binding.errorTextView.isVisible = true
                 } else {
-                    Toast.makeText(this, "Success", Toast.LENGTH_SHORT).show()
+//                    Toast.makeText(this, "Success", Toast.LENGTH_SHORT).show()
+                    startActivity(MainActivity.getIntent(this))
                 }
             }, 2000)
 
@@ -140,6 +141,7 @@ class LoginActivity : AppCompatActivity() {
     override fun onStop() {
         super.onStop()
         DebugLogger.d(tag, "onStop")
+//        this.finish()
     }
 
     override fun onDestroy() {

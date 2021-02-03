@@ -1,5 +1,6 @@
 package com.skillbox.workwith_intents
 
+import android.Manifest
 import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -10,22 +11,26 @@ import android.provider.MediaStore
 import android.util.Log
 import android.util.Patterns
 import android.widget.Toast
+import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.core.content.FileProvider
 import com.example.intents.databinding.ActivityMainBinding
+import java.io.File
 
 private lateinit var binding: ActivityMainBinding
 
-class MainActivity : AppCompatActivity() {
 
-    private val cameraLauncher = registerForActivityResult(
-        ActivityResultContracts.TakePicturePreview()
-    ) {
-        it ?: toast("Result code was canceled")
-        binding.resultPhotoImageView.setImageBitmap(it)
-    }
+class MainActivity : AppCompatActivity() {
+    private var uri: Uri? = null
+    //    private val cameraLauncher = registerForActivityResult(
+//        ActivityResultContracts.TakePicturePreview()
+//    ) {
+//        it ?: toast("Result code was canceled")
+//        binding.resultPhotoImageView.setImageBitmap(it)
+//    }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,6 +41,16 @@ class MainActivity : AppCompatActivity() {
         Log.d("LifeCycleActivity", "MainActivity|onCreate|${hashCode()}")
 
 
+        val cameraLauncher = registerForActivityResult(
+            ActivityResultContracts.TakePicture()
+        ) {
+            if (it) binding.resultPhotoImageView.setImageURI(uri)
+            else toast("Result code was canceled")
+        }
+
+        binding.takePhotoButton.setOnClickListener {
+            dispatchTakePictureIntent(cameraLauncher)
+        }
     }
 
     override fun onStart() {
@@ -69,9 +84,6 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        binding.takePhotoButton.setOnClickListener {
-            dispatchTakePictureIntent()
-        }
 
     }
 
@@ -93,6 +105,14 @@ class MainActivity : AppCompatActivity() {
         Log.d("LifeCycleActivity", "MainActivity|onDestroy|${hashCode()}")
 
     }
+
+    private fun getFileForCamera() =
+        FileProvider.getUriForFile(
+            this,
+            "${applicationContext.packageName}.provider",
+            File(filesDir, "${System.currentTimeMillis()}.jpg")
+        )
+
 
     private fun toast(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
@@ -128,18 +148,20 @@ class MainActivity : AppCompatActivity() {
 //
 //    }
 
-    private fun dispatchTakePictureIntent() {
+    private fun dispatchTakePictureIntent(cameraLauncher: ActivityResultLauncher<Uri>) {
+        uri = getFileForCamera()
+
 
         val isCameraPermissionGranted =
             ContextCompat.checkSelfPermission(
                 this,
-                android.Manifest.permission.CAMERA
+                Manifest.permission.CAMERA
             ) == PackageManager.PERMISSION_GRANTED
 
         if (!isCameraPermissionGranted) {
             ActivityCompat.requestPermissions(
                 this,
-                arrayOf(android.Manifest.permission.CAMERA),
+                arrayOf(Manifest.permission.CAMERA),
                 PERMISSION_REQUEST_CODE
             )
         } else {
@@ -157,7 +179,7 @@ class MainActivity : AppCompatActivity() {
 //    implementation 'androidx.activity:activity:1.2.0-rc01'
 //    implementation 'androidx.activity:activity-ktx:1.2.0-rc01'
 
-            cameraLauncher.launch(null)
+            cameraLauncher.launch(uri)
 
         }
 
