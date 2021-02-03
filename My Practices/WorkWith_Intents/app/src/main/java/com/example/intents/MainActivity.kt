@@ -25,12 +25,6 @@ private lateinit var binding: ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private var uri: Uri? = null
-    //    private val cameraLauncher = registerForActivityResult(
-//        ActivityResultContracts.TakePicturePreview()
-//    ) {
-//        it ?: toast("Result code was canceled")
-//        binding.resultPhotoImageView.setImageBitmap(it)
-//    }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,6 +34,12 @@ class MainActivity : AppCompatActivity() {
 
         Log.d("LifeCycleActivity", "MainActivity|onCreate|${hashCode()}")
 
+        //    private val cameraLauncher = registerForActivityResult(
+//        ActivityResultContracts.TakePicturePreview()
+//    ) {
+//        it ?: toast("Result code was canceled")
+//        binding.resultPhotoImageView.setImageBitmap(it)
+//    }
 
         val cameraLauncher = registerForActivityResult(
             ActivityResultContracts.TakePicture()

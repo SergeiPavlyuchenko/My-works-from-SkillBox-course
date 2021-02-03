@@ -1,5 +1,6 @@
 package com.example.intents
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.util.Log
@@ -185,5 +186,8 @@ private fun changeStates() {
         it.isEnabled = !it.isEnabled
     }
 }
+
+
+
 
 

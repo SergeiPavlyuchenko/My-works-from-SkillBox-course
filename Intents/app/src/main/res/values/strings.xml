@@ -10,4 +10,10 @@
     <string name="text_incorrect_input">Incorrect login or password</string>
     <string name="text_call">call</string>
     <string name="text_enter_a_number">Enter a number</string>
+
+    <plurals name="text_numbers_of_times_of_call">
+        <item quantity="one">Совершен: %1$d звонок</item>
+        <item quantity="few">Совершено: %1$d звонка</item>
+        <item quantity="other">Совершено: %1$d звонков</item>
+    </plurals>
 </resources>
