@@ -1,5 +1,7 @@
 package com.example.intents
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.intents.databinding.ActivityDeeplinkBinding
@@ -11,6 +13,12 @@ class DeeplinkActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityDeeplinkBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        onNewIntent(Companion.getIntent(this))
+    }
+
+
+    override fun onNewIntent(intent: Intent?) {
+        super.onNewIntent(intent)
         handleIntentData()
     }
 
@@ -20,4 +28,11 @@ class DeeplinkActivity: AppCompatActivity() {
             binding.deeplinkTextView.text = it
         }
     }
+
+    companion object {
+        fun getIntent(context: Context): Intent {
+            return Intent(context, DeeplinkActivity::class.java)
+        }
+    }
+
 }

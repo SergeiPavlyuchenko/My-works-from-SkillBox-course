@@ -31,13 +31,15 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 
+
         binding.getCallButton.setOnClickListener {
             getCall()
         }
 
-
-
     }
+
+
+
 
     companion object {
         const val KEY_MESSAGE = "Main activity key"
