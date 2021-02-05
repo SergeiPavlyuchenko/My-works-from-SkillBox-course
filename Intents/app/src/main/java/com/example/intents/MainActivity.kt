@@ -7,6 +7,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.util.Patterns
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContract
@@ -33,12 +34,11 @@ class MainActivity : AppCompatActivity() {
 
 
         binding.getCallButton.setOnClickListener {
+            Log.d("MainActivity", "The message before getCall(), but after clicked button")
             getCall()
         }
 
     }
-
-
 
 
     companion object {
@@ -62,6 +62,7 @@ class MainActivity : AppCompatActivity() {
             .matches()
         if (isPhoneValid) {
             dialPhoneNumber(binding.phoneNumberEditTextView.text.toString())
+//            Log.d("MainActivity", "The message after dialPhoneNumber()")
         } else Toast.makeText(this, "Incorrect phone", Toast.LENGTH_SHORT).show()
     }
 
@@ -81,33 +82,38 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(Intent.ACTION_CALL).apply {
                 data = Uri.parse("tel:$phoneNumber")
             }
-//        val chooser = Intent.createChooser(intent, "What the app do you choose?")
+            //        val chooser = Intent.createChooser(intent, "What the app do you choose?")
             if (intent.resolveActivity(packageManager) != null) {
                 startActivityForResult(intent, DIAL_REQUEST_CODE)
-//            startActivity(chooser)
+                //            startActivity(chooser)
             }
         }
 
 
         //        Почему-то такой код с вызовом ACTION_DIAL не сработал
 
-        /*  val intent = Intent(Intent.ACTION_DIAL).apply {
-              data = Uri.parse("tel:$phoneNumber")
-          }
-  //        val chooser = Intent.createChooser(intent, "What the app do you choose?")
-          if (intent.resolveActivity(packageManager) != null) {
-              startActivity(intent)
-  //            startActivity(chooser)
-          }*/
+/*        val intent = Intent(Intent.ACTION_DIAL).apply {
+            data = Uri.parse("tel:$phoneNumber")
+        }
+        //        val chooser = Intent.createChooser(intent, "What the app do you choose?")
+        if (intent.resolveActivity(packageManager) != null) {
+            Log.d("MainActivity", "The message in dialPhoneNumber() before startActivity run")
+            startActivity(intent)
+            Log.d("MainActivity", "The message in dialPhoneNumber() after startActivity run")
+            //            startActivity(chooser)
+        } else {
+            Toast.makeText(this, "No component to handle intent", Toast.LENGTH_SHORT).show()
+        }*/
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
 
         if (requestCode == DIAL_REQUEST_CODE) {
 //            if (resultCode == Activity.RESULT_OK) {
-                count++
-                val pluralString = resources.getQuantityString(R.plurals.text_numbers_of_times_of_call, count, count)
-                binding.countDialTextView.text = pluralString
+            count++
+            val pluralString =
+                resources.getQuantityString(R.plurals.text_numbers_of_times_of_call, count, count)
+            binding.countDialTextView.text = pluralString
 //            } else Toast.makeText(this, "Dial process was canceled", Toast.LENGTH_SHORT).show()
         } else {
             super.onActivityResult(requestCode, resultCode, data)

@@ -15,6 +15,7 @@ private lateinit var binding: ActivityMainBinding
 private val tag = "MainActivity"
 
 class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
