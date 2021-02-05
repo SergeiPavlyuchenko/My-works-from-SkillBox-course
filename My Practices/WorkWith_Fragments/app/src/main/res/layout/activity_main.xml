@@ -14,7 +14,7 @@
         android:text="Replace Fragment"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/showFragmentButton" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/showFragmentButton"
@@ -23,7 +23,7 @@
         android:text="Show Fragment"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/replaceFragmentButton" />
 
     <EditText
         android:id="@+id/dataEditText"
@@ -33,7 +33,7 @@
         android:padding="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/replaceFragmentButton" />
+        app:layout_constraintTop_toBottomOf="@id/showFragmentButton" />
 
     <FrameLayout
         android:id="@+id/container"
