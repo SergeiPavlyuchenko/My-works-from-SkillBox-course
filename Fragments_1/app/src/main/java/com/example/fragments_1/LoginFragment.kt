@@ -30,8 +30,6 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        DebugLogger.d(tagFragment, "onActivityCreated")
-
         binding.inputEmail.doOnTextChanged { _, _, _, _ ->
             logButtonValidate()
         }
@@ -45,7 +43,6 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         }
 
         binding.logButton.setOnClickListener {
-            DebugLogger.d(tagFragment,"Into setOnClickListener")
             logButtonImplementation()
         }
     }
@@ -118,15 +115,13 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         Handler().postDelayed({
             changeStates()
             barToAdd.visibility = View.GONE
-            DebugLogger.d(tagFragment,"before Patterns.EMAIL")
 
             if (!PatternsCompat.EMAIL_ADDRESS.matcher(binding.inputEmail.text.toString())
                     .matches()
             ) {
                 binding.errorTextView.isVisible = true
             } else {
-                itemSelectListener?.mainFragmentLaunch()
-                DebugLogger.d(tagFragment,"after main Fragment launch")
+                itemSelectListener?.onItemSelected()
             }
         }, 2000)
 

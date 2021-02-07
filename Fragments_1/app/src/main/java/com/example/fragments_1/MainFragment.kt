@@ -12,15 +12,16 @@ open class MainFragment: Fragment(R.layout.fragment_main), ItemSelectListener {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        listFragmentLaunch()
+        childFragmentManager.beginTransaction()
+            .replace(binding.mainContainerIntoMainFragment.id, ListFragment())
+            .commit()
     }
 
 
-    override fun mainFragmentLaunch() = Unit
-
-    override fun listFragmentLaunch() {
+    override fun onItemSelected() {
+        DebugLogger.d("MainFragment", "onItemSelected()")
         childFragmentManager.beginTransaction()
-            .replace(binding.mainContainerIntoMainFragment.id, ListFragment())
+            .replace(binding.mainContainerIntoMainFragment.id, DetailFragment())
             .commit()
     }
 }

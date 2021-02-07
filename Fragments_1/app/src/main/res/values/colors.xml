@@ -10,4 +10,9 @@
     <color name="dark_blue">#0D1925</color>
     <color name="gray">#888888</color>
     <color name="red">#DD1313</color>
+    <color name="pineapple_color">#80FFC107</color>
+    <color name="apple_color">#B34CAF50</color>
+    <color name="pear_color">#998BC34A</color>
+    <color name="limon_color">#B3FFEB3B</color>
+    <color name="papper_color">#99DD1313</color>
 </resources>

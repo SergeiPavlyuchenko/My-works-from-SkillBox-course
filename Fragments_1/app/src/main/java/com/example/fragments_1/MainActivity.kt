@@ -21,13 +21,12 @@ class MainActivity : AppCompatActivity(), ItemSelectListener {
     }
 
 
-    override fun mainFragmentLaunch() {
+    override fun onItemSelected() {
         supportFragmentManager.beginTransaction()
             .replace(binding.container.id, MainFragment())
             .commit()
     }
 
-    override fun listFragmentLaunch() = Unit
 
 }
 
