@@ -4,6 +4,13 @@
 
 
     <uses-permission android:name="android.permission.CALL_PHONE" />
+
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.DIAL"/>
+        </intent>
+    </queries>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -12,11 +19,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Intents">
         <activity android:name="com.example.intents.LoginActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
 
-            </intent-filter>
         </activity>
         <activity android:name=".MainActivity" />
         <activity android:name=".DeeplinkActivity" android:launchMode="singleInstance">
@@ -32,6 +35,15 @@
                     android:pathPrefix="/info" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".FirstTestActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+
+            </intent-filter>
+        </activity>
+        <activity android:name=".SecondTestActivity"/>
 
     </application>
 
