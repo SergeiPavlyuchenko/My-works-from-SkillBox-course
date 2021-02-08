@@ -23,12 +23,11 @@
             android:background="@drawable/pineapple" />
 
         <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
             android:layout_marginTop="30dp"
-            android:layout_marginEnd="30dp"
-            android:background="@drawable/detail" />
+            android:background="@drawable/pineapple_label" />
 
     </LinearLayout>
 
@@ -49,12 +48,11 @@
             android:background="@drawable/apple" />
 
         <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
             android:layout_marginTop="30dp"
-            android:layout_marginEnd="30dp"
-            android:background="@drawable/detail" />
+            android:background="@drawable/apple_label" />
 
     </LinearLayout>
 
@@ -82,7 +80,7 @@
             android:layout_marginStart="30dp"
             android:layout_marginTop="30dp"
             android:layout_marginEnd="30dp"
-            android:background="@drawable/detail" />
+            android:background="@drawable/papper_label" />
 
     </LinearLayout>
 
@@ -103,12 +101,12 @@
             android:background="@drawable/pear" />
 
         <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
             android:layout_marginTop="30dp"
             android:layout_marginEnd="30dp"
-            android:background="@drawable/detail" />
+            android:background="@drawable/pear_label" />
 
     </LinearLayout>
 
@@ -129,12 +127,12 @@
             android:background="@drawable/limon" />
 
         <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
             android:layout_marginTop="30dp"
             android:layout_marginEnd="30dp"
-            android:background="@drawable/detail" />
+            android:background="@drawable/limon_label" />
 
     </LinearLayout>
 

@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity(), ItemSelectListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         supportFragmentManager.beginTransaction()
-            .add(binding.container.id, LoginFragment())
+            .replace(binding.container.id, LoginFragment())
             .commit()
     }
 

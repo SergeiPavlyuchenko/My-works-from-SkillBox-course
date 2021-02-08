@@ -5,13 +5,16 @@ import androidx.fragment.app.Fragment
 import android.os.Bundle
 import android.os.Handler
 import android.util.Log
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.widget.*
 import androidx.constraintlayout.widget.ConstraintSet
 import androidx.core.util.PatternsCompat
 import androidx.core.view.isVisible
 import androidx.core.widget.doOnTextChanged
 import by.kirich1409.viewbindingdelegate.viewBinding
+import com.bumptech.glide.Glide
 import com.example.fragments_1.databinding.FragmentLoginBinding
 
 
@@ -25,9 +28,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
     private val itemSelectListener: ItemSelectListener?
         get() = activity?.let { it as? ItemSelectListener }
 
-
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
+      override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
         binding.inputEmail.doOnTextChanged { _, _, _, _ ->
@@ -57,7 +58,8 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
     }
 
 
-    /*   override fun onViewStateRestored(savedInstanceState: Bundle?) {
+/*
+       override fun onViewStateRestored(savedInstanceState: Bundle?) {
            super.onViewStateRestored(savedInstanceState)
            binding.errorTextView.isVisible =
                savedInstanceState?.getParcelable<FormState>(KEY_COUNTER)?.valid
@@ -65,7 +67,8 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
            binding.logButton.isEnabled =
                savedInstanceState.getParcelable<FormState>(KEY_COUNTER)?.valid
                    ?: error("Unexpected state")
-       }*/
+       }
+*/
 
 
     private fun logButtonImplementation() {
@@ -146,7 +149,6 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
     }
 
     companion object {
-        private const val tagFragment = "LoginFragmentTag"
         private const val KEY_COUNTER = "counter"
 
     }

@@ -25,6 +25,7 @@ class DeeplinkActivity : AppCompatActivity(R.layout.activity_deeplink) {
         Log.d("DeeplinkActivity", "onCreate|${hashCode()}")
     }
 
+
     override fun onNewIntent(intent: Intent?) {
         super.onNewIntent(intent)
         Log.d("DeeplinkActivity", "onNewIntent|${hashCode()}")

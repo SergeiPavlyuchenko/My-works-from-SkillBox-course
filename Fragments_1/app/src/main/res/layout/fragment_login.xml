@@ -8,20 +8,20 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/mainContainerIntoLoginFragment"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/dark_blue"
         tools:context=".MainActivity1">
 
         <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="wrap_content"
-            android:layout_height="130dp"
+            android:id="@+id/topImageView"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
             android:scaleType="centerCrop"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/top" />
-
+            android:src="@drawable/fruit_mix"
+            />
+        <!--app:srcCompat="@drawable/top"-->
 
         <TextView
             android:id="@+id/textViewEmail"

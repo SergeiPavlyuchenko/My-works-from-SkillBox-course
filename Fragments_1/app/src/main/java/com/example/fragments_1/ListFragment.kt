@@ -12,7 +12,7 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.fragments_1.databinding.FragmentListBinding
 import com.example.fragments_1.databinding.FragmentMainBinding
 
-class ListFragment: Fragment(R.layout.fragment_list), ItemSelectListener  {
+class ListFragment: Fragment(R.layout.fragment_list)  {
 
     private val binding by viewBinding(FragmentListBinding::bind)
 
@@ -26,7 +26,6 @@ class ListFragment: Fragment(R.layout.fragment_list), ItemSelectListener  {
     override fun onAttach(context: Context) {
         super.onAttach(context)
         DebugLogger.d("ListFragment", "fragment = $parentFragment")
-
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -37,14 +36,12 @@ class ListFragment: Fragment(R.layout.fragment_list), ItemSelectListener  {
             .mapNotNull { it as? LinearLayout }
             .forEach { linearLayout ->
                 linearLayout.setOnClickListener {
-                    onItemSelected()
-                    DebugLogger.d("ListFragment", "after onItemSelected()")
+                    itemSelectListener?.onItemSelected()
+                    DebugLogger.d("ListFragment", "after onItemSelected()|fragment = $parentFragment")
                 }
             }
     }
 
-    override fun onItemSelected() {
-        itemSelectListener?.onItemSelected()
-    }
+
 
 }

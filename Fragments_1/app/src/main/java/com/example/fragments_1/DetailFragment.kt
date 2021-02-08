@@ -8,5 +8,9 @@ class DetailFragment: Fragment(R.layout.fragment_detail) {
 
     private val binding by viewBinding(FragmentDetailBinding::bind)
 
+    private val fragment = parentFragment
+    private val itemSelectListener: ItemSelectListener?
+        get() = fragment?.let { it as? ItemSelectListener }
+
 
 }

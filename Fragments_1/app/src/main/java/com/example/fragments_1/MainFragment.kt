@@ -1,6 +1,9 @@
 package com.example.fragments_1
 
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.fragments_1.databinding.FragmentMainBinding
@@ -14,6 +17,7 @@ open class MainFragment: Fragment(R.layout.fragment_main), ItemSelectListener {
         super.onActivityCreated(savedInstanceState)
         childFragmentManager.beginTransaction()
             .replace(binding.mainContainerIntoMainFragment.id, ListFragment())
+            .addToBackStack("ListFragment")
             .commit()
     }
 
@@ -21,7 +25,7 @@ open class MainFragment: Fragment(R.layout.fragment_main), ItemSelectListener {
     override fun onItemSelected() {
         DebugLogger.d("MainFragment", "onItemSelected()")
         childFragmentManager.beginTransaction()
-            .replace(binding.mainContainerIntoMainFragment.id, DetailFragment())
+            .add(binding.mainContainerIntoMainFragment.id, DetailFragment())
             .commit()
     }
 }
