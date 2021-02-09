@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.fragments_1.databinding.FragmentMainBinding
 
-open class MainFragment: Fragment(R.layout.fragment_main), ItemSelectListener {
+open class MainFragment : Fragment(R.layout.fragment_main), ItemSelectListener {
 
     private val binding by viewBinding(FragmentMainBinding::bind)
 
@@ -21,7 +21,7 @@ open class MainFragment: Fragment(R.layout.fragment_main), ItemSelectListener {
             }
         }
         super.onViewCreated(view, savedInstanceState)
-        activity?.onBackPressedDispatcher?.addCallback(viewLifecycleOwner,callback)
+        activity?.onBackPressedDispatcher?.addCallback(viewLifecycleOwner, callback)
     }
 
 
@@ -37,7 +37,10 @@ open class MainFragment: Fragment(R.layout.fragment_main), ItemSelectListener {
     override fun onItemSelected() {
         DebugLogger.d("MainFragment", "onItemSelected()")
         childFragmentManager.beginTransaction()
-            .replace(binding.mainContainerIntoMainFragment.id, DetailFragment())
+            .replace(
+                binding.mainContainerIntoMainFragment.id,
+                DetailFragment.newInstance(ListFragment.layoutId)
+            )
             .addToBackStack(null)
             .commit()
     }

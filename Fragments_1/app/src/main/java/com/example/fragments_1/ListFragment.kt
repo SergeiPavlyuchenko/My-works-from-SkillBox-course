@@ -16,7 +16,7 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.fragments_1.databinding.FragmentListBinding
 import com.example.fragments_1.databinding.FragmentMainBinding
 
-class ListFragment: Fragment(R.layout.fragment_list)  {
+class ListFragment : Fragment(R.layout.fragment_list) {
 
     private val binding by viewBinding(FragmentListBinding::bind)
 
@@ -28,6 +28,12 @@ class ListFragment: Fragment(R.layout.fragment_list)  {
 
     private var pressedTime: Long = 0
 
+    val defaultLayout = binding.pineappleLayout.id
+
+    val layouts: Map<Int, Int> = mapOf(
+        defaultLayout to R.layout.fragment_pineapple
+    )
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val callback = object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
@@ -36,10 +42,11 @@ class ListFragment: Fragment(R.layout.fragment_list)  {
                 } else {
                     Toast.makeText(context, "Press back again to exit", Toast.LENGTH_SHORT).show()
                 }
-                pressedTime = System.currentTimeMillis()            }
+                pressedTime = System.currentTimeMillis()
+            }
         }
         super.onViewCreated(view, savedInstanceState)
-        activity?.onBackPressedDispatcher?.addCallback(viewLifecycleOwner,callback)
+        activity?.onBackPressedDispatcher?.addCallback(viewLifecycleOwner, callback)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -50,64 +57,15 @@ class ListFragment: Fragment(R.layout.fragment_list)  {
             .mapNotNull { it as? LinearLayout }
             .forEach { linearLayout ->
                 linearLayout.setOnClickListener {
+                    layoutId = it.id
                     itemSelectListener?.onItemSelected()
-                    DebugLogger.d("ListFragment", "after onItemSelected()|fragment = $parentFragment")
                 }
             }
     }
 
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        Log.d("ListFragment", "onAttach|${hashCode()}")
-    }
+    companion object {
+        var layoutId: Int? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        Log.d("ListFragment", "onCreate|${hashCode()}")
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        Log.d("ListFragment", "onCreateView|${hashCode()}")
-        return super.onCreateView(inflater, container, savedInstanceState)
-    }
-
-    override fun onStart() {
-        super.onStart()
-        Log.d("ListFragment", "onStart|${hashCode()}")
-
-    }
-
-    override fun onResume() {
-        super.onResume()
-        Log.d("ListFragment", "onResume|${hashCode()}")
-
-    }
-
-    override fun onPause() {
-        super.onPause()
-        Log.d("ListFragment", "onPause|${hashCode()}")
-
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        Log.d("ListFragment", "onDestroyView|${hashCode()}")
-
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        Log.d("ListFragment", "onDestroy|${hashCode()}")
-
-    }
-
-    override fun onDetach() {
-        super.onDetach()
-        Log.d("ListFragment", "onDetach|${hashCode()}")
 
     }
 }
