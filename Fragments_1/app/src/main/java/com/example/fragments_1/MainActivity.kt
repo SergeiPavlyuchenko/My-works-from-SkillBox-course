@@ -1,12 +1,10 @@
 package com.example.fragments_1
 
 import android.os.Bundle
-import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.viewbinding.BuildConfig
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.fragments_1.databinding.ActivityMainBinding
-import com.example.fragments_1.databinding.FragmentLoginBinding
 
 
 class MainActivity : AppCompatActivity(), ItemSelectListener {
@@ -16,7 +14,7 @@ class MainActivity : AppCompatActivity(), ItemSelectListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         supportFragmentManager.beginTransaction()
-            .replace(binding.container.id, LoginFragment())
+            .add(binding.container.id, LoginFragment())
             .commit()
     }
 
@@ -28,6 +26,9 @@ class MainActivity : AppCompatActivity(), ItemSelectListener {
     }
 
 
+
 }
+
+
 
 
