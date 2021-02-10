@@ -14,6 +14,7 @@ open class MainFragment : Fragment(R.layout.fragment_main), ItemSelectListener {
     private val binding by viewBinding(FragmentMainBinding::bind)
 
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val callback = object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
@@ -44,4 +45,5 @@ open class MainFragment : Fragment(R.layout.fragment_main), ItemSelectListener {
             .addToBackStack(null)
             .commit()
     }
+
 }

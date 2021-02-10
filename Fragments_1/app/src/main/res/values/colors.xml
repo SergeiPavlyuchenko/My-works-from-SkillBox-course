@@ -13,6 +13,11 @@
     <color name="pineapple_color">#80FFC107</color>
     <color name="apple_color">#B34CAF50</color>
     <color name="pear_color">#998BC34A</color>
-    <color name="limon_color">#B3FFEB3B</color>
-    <color name="papper_color">#99DD1313</color>
+    <color name="lemon_color">#B3FFEB3B</color>
+    <color name="pepper_color">#99DD1313</color>
+    <color name="colors_pineapple_detail">#FFD3D7</color>
+    <color name="color_apple_detail">#D2DEDA</color>
+    <color name="color_pepper_detail">#49E3AF</color>
+    <color name="color_pear_detail">#FAAD9C</color>
+    <color name="color_lemon_detail">#FAFBFF</color>
 </resources>

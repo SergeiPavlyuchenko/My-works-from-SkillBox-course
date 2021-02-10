@@ -1,9 +1,6 @@
 package com.example.fragments_1
 
-import android.content.Context
 import android.os.Bundle
-import android.util.Log
-import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
@@ -11,14 +8,13 @@ import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.core.view.children
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.ListFragment
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.fragments_1.databinding.FragmentListBinding
-import com.example.fragments_1.databinding.FragmentMainBinding
 
 class ListFragment : Fragment(R.layout.fragment_list) {
 
     private val binding by viewBinding(FragmentListBinding::bind)
+
 
     private val fragment: Fragment?
         get() = parentFragment
@@ -28,11 +24,6 @@ class ListFragment : Fragment(R.layout.fragment_list) {
 
     private var pressedTime: Long = 0
 
-    val defaultLayout = binding.pineappleLayout.id
-
-    val layouts: Map<Int, Int> = mapOf(
-        defaultLayout to R.layout.fragment_pineapple
-    )
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val callback = object : OnBackPressedCallback(true) {
@@ -47,6 +38,15 @@ class ListFragment : Fragment(R.layout.fragment_list) {
         }
         super.onViewCreated(view, savedInstanceState)
         activity?.onBackPressedDispatcher?.addCallback(viewLifecycleOwner, callback)
+
+        defaultLayout = binding.pineappleLayout.id
+        layouts = mapOf(
+            binding.appleLayout.id to R.layout.fragment_apple,
+            binding.pineappleLayout.id to R.layout.fragment_pineapple,
+            binding.pepperLayout.id to R.layout.fragment_pepper,
+            binding.pearLayout.id to R.layout.fragment_pear,
+            binding.limonLayout.id to R.layout.fragment_limon
+        )
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -65,7 +65,7 @@ class ListFragment : Fragment(R.layout.fragment_list) {
 
     companion object {
         var layoutId: Int? = null
-
-
+        var defaultLayout: Int? = null
+        var layouts: Map<Int, Int> = mapOf()
     }
 }

@@ -18,15 +18,15 @@
         <ImageView
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="30dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="30dp"
             android:background="@drawable/pineapple" />
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_marginStart="30dp"
-            android:layout_marginTop="30dp"
             android:background="@drawable/pineapple_label" />
 
     </LinearLayout>
@@ -43,26 +43,26 @@
         <ImageView
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="30dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="30dp"
             android:background="@drawable/apple" />
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_marginStart="30dp"
-            android:layout_marginTop="30dp"
             android:background="@drawable/apple_label" />
 
     </LinearLayout>
 
 
     <LinearLayout
-        android:id="@+id/papperLayout"
+        android:id="@+id/pepper_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:background="@color/papper_color"
+        android:background="@color/pepper_color"
         android:orientation="horizontal"
         android:padding="8dp">
 
@@ -70,17 +70,17 @@
             android:id="@+id/previewImageView"
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="30dp"
-            android:background="@drawable/papper" />
+            android:layout_gravity="center"
+            android:layout_marginStart="30dp"
+            android:background="@drawable/pepper" />
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="80dp"
+            android:layout_gravity="center"
             android:layout_marginStart="30dp"
-            android:layout_marginTop="30dp"
             android:layout_marginEnd="30dp"
-            android:background="@drawable/papper_label" />
+            android:background="@drawable/pepper_label" />
 
     </LinearLayout>
 
@@ -96,15 +96,15 @@
         <ImageView
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="30dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="30dp"
             android:background="@drawable/pear" />
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_marginStart="30dp"
-            android:layout_marginTop="30dp"
             android:layout_marginEnd="30dp"
             android:background="@drawable/pear_label" />
 
@@ -115,24 +115,24 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:background="@color/limon_color"
+        android:background="@color/lemon_color"
         android:orientation="horizontal"
         android:padding="8dp">
 
         <ImageView
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="30dp"
-            android:background="@drawable/limon" />
+            android:layout_gravity="center"
+            android:layout_marginStart="30dp"
+            android:background="@drawable/lemon" />
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_marginStart="30dp"
-            android:layout_marginTop="30dp"
             android:layout_marginEnd="30dp"
-            android:background="@drawable/limon_label" />
+            android:background="@drawable/lemon_label" />
 
     </LinearLayout>
 

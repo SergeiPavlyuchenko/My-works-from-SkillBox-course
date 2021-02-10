@@ -3,11 +3,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/colors_pineapple_detail">
+    android:background="@color/color_pear_detail">
 
     <ImageView
-        android:id="@+id/pineappleImageView"
-        android:src="@drawable/pineapple_detail"
+        android:id="@+id/pearImageView"
+        android:src="@drawable/pear_detail"
         android:scaleType="centerCrop"
         android:layout_width="match_parent"
         android:layout_height="300dp"/>
@@ -21,7 +21,7 @@
             android:textColor="@color/dark_blue"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/text_about_pineapple"/>
+            android:text="@string/text_about_pear"/>
 
     </ScrollView>
 

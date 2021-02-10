@@ -18,9 +18,6 @@ import com.bumptech.glide.Glide
 import com.example.fragments_1.databinding.FragmentLoginBinding
 
 
-
-
-
 class LoginFragment : Fragment(R.layout.fragment_login) {
 
     private val binding by viewBinding(FragmentLoginBinding::bind)
@@ -28,7 +25,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
     private val itemSelectListener: ItemSelectListener?
         get() = activity?.let { it as? ItemSelectListener }
 
-      override fun onActivityCreated(savedInstanceState: Bundle?) {
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
         binding.inputEmail.doOnTextChanged { _, _, _, _ ->
@@ -51,9 +48,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        outState.putParcelable(
-            KEY_COUNTER, FormState(binding.errorTextView.isVisible, "")
-        )
+        outState.putParcelable(KEY_COUNTER, FormState(binding.errorTextView.isVisible, ""))
         outState.putParcelable(KEY_COUNTER, FormState(binding.logButton.isEnabled, ""))
     }
 
