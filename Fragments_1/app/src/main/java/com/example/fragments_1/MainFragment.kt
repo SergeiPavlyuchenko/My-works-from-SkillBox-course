@@ -1,5 +1,6 @@
 package com.example.fragments_1
 
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -14,7 +15,6 @@ open class MainFragment : Fragment(R.layout.fragment_main), ItemSelectListener {
     private val binding by viewBinding(FragmentMainBinding::bind)
 
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val callback = object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
@@ -23,13 +23,14 @@ open class MainFragment : Fragment(R.layout.fragment_main), ItemSelectListener {
         }
         super.onViewCreated(view, savedInstanceState)
         activity?.onBackPressedDispatcher?.addCallback(viewLifecycleOwner, callback)
+
     }
 
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         childFragmentManager.beginTransaction()
-            .replace(binding.mainContainerIntoMainFragment.id, ListFragment())
+            .replace(binding.mainFragment.id, ListFragment())
             .addToBackStack("ListFragment")
             .commit()
     }
@@ -38,8 +39,14 @@ open class MainFragment : Fragment(R.layout.fragment_main), ItemSelectListener {
     override fun onItemSelected() {
         DebugLogger.d("MainFragment", "onItemSelected()")
         childFragmentManager.beginTransaction()
+            .setCustomAnimations(
+                R.anim.slide_in,
+                R.anim.fade_out,
+                R.anim.fade_in,
+                R.anim.slide_out
+            )
             .replace(
-                binding.mainContainerIntoMainFragment.id,
+                binding.mainFragment.id,
                 DetailFragment.newInstance(ListFragment.layoutId)
             )
             .addToBackStack(null)

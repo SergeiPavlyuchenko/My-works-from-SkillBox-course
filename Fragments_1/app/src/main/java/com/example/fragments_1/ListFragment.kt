@@ -15,7 +15,6 @@ class ListFragment : Fragment(R.layout.fragment_list) {
 
     private val binding by viewBinding(FragmentListBinding::bind)
 
-
     private val fragment: Fragment?
         get() = parentFragment
 

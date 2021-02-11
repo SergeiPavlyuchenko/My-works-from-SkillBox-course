@@ -21,6 +21,12 @@ class MainActivity : AppCompatActivity(), ItemSelectListener {
 
     override fun onItemSelected() {
         supportFragmentManager.beginTransaction()
+            .setCustomAnimations(
+                R.anim.slide_up,
+                R.anim.fade_out,
+                R.anim.fade_in,
+                R.anim.slide_out
+            )
             .replace(binding.container.id, MainFragment())
             .commit()
     }
