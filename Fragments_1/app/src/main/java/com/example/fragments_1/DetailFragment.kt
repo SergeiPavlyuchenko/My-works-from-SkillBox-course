@@ -6,11 +6,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import by.kirich1409.viewbindingdelegate.viewBinding
+import com.example.fragments_1.databinding.FragmentDetailBinding
 import com.example.fragments_1.databinding.FragmentPineappleBinding
 
-class DetailFragment : Fragment() {
+class DetailFragment : Fragment(R.layout.fragment_detail) {
 
-    private val binding by viewBinding(FragmentPineappleBinding::bind)
+    private val binding by viewBinding(FragmentDetailBinding::bind)
+
 
 
     override fun onCreateView(
@@ -35,4 +37,6 @@ class DetailFragment : Fragment() {
             }
         }
     }
+
+
 }

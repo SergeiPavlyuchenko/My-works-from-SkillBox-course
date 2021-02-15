@@ -1,14 +1,12 @@
 package com.example.fragments_1
 
-import android.os.Build
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.fragments_1.databinding.FragmentMainBinding
+
 
 open class MainFragment : Fragment(R.layout.fragment_main), ItemSelectListener {
 
@@ -29,10 +27,13 @@ open class MainFragment : Fragment(R.layout.fragment_main), ItemSelectListener {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        childFragmentManager.beginTransaction()
-            .replace(binding.mainFragment.id, ListFragment())
-            .addToBackStack("ListFragment")
-            .commit()
+        if (context?.let { Device().isTablet(it) } == false) {
+            childFragmentManager.beginTransaction()
+                .replace(binding.mainFragment.id, ListFragment())
+                .addToBackStack("ListFragment")
+                .commit()
+        }
+
     }
 
 
@@ -52,5 +53,4 @@ open class MainFragment : Fragment(R.layout.fragment_main), ItemSelectListener {
             .addToBackStack(null)
             .commit()
     }
-
 }

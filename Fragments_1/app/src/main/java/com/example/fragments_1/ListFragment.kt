@@ -18,6 +18,7 @@ class ListFragment : Fragment(R.layout.fragment_list) {
     private val fragment: Fragment?
         get() = parentFragment
 
+
     private val itemSelectListener: ItemSelectListener?
         get() = fragment?.let { it as? ItemSelectListener }
 
@@ -67,4 +68,6 @@ class ListFragment : Fragment(R.layout.fragment_list) {
         var defaultLayout: Int? = null
         var layouts: Map<Int, Int> = mapOf()
     }
+
+
 }
