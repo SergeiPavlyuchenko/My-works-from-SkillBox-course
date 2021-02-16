@@ -16,7 +16,7 @@ open class MainFragment : Fragment(R.layout.fragment_main), ItemSelectListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val callback = object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
-                childFragmentManager.popBackStack("ListFragment", 0)
+                childFragmentManager.popBackStack(getString(R.string.text_list_fragment), 0)
             }
         }
         super.onViewCreated(view, savedInstanceState)
@@ -27,10 +27,10 @@ open class MainFragment : Fragment(R.layout.fragment_main), ItemSelectListener {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        if (context?.let { Device().isTablet(it) } == false) {
+        if (!requireContext().isTablet()) {
             childFragmentManager.beginTransaction()
                 .replace(binding.mainFragment.id, ListFragment())
-                .addToBackStack("ListFragment")
+                .addToBackStack(getString(R.string.text_list_fragment))
                 .commit()
         }
 

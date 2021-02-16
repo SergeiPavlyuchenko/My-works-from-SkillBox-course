@@ -11,10 +11,6 @@ import com.example.fragments_1.databinding.FragmentPineappleBinding
 
 class DetailFragment : Fragment(R.layout.fragment_detail) {
 
-    private val binding by viewBinding(FragmentDetailBinding::bind)
-
-
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
