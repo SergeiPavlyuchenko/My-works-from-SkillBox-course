@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">WorkWith_ViewPager</string>
+    <string name="text_1">Wallpapers 1</string>
+    <string name="text_2">Wallpapers 2</string>
+    <string name="text_3">Wallpapers 3</string>
+    <string name="text_SimpleDialog">SimpleDialog</string>
+    <string name="text_SimpleDialogMessage">SimpleDialogMessage</string>
+    <string name="text_show_simple_dialog">Show simple dialog</string>
+    <string name="text_show_button_dialog">Show dialog with buttons</string>
+    <string name="text_show_dialog_with_single_choice">Show dialog with single choice</string>
+    <string name="text_select_mail_provider">Select mail provider</string>
+    <string name="text_show_dialog_with_custom_layout">Show dialog with castom layout</string>
+    <string name="text_attention_text">Attention text</string>
+    <string name="text_show_dialog_fragment">Show dialog fragment</string>
+    <string name="text_show_bottomsheet_dialog_fragment">Show bottomSheet dialog fragment</string>
+</resources>
