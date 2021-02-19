@@ -73,6 +73,7 @@ class DialogActivity : AppCompatActivity(R.layout.activity_dialog) {
             .show()
     }
 
+    //Делается для того, чтобы при повороте экрана и т.д. диалог не пропадал с ошибкой
     private fun showDialogFragment() {
         ConfirmationDialogFragment()
             .show(supportFragmentManager,"confirmationDialogTag")

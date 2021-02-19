@@ -11,9 +11,10 @@ import androidx.core.view.isVisible
 import com.skillbox.toolbarproject.R
 import com.skillbox.toolbarproject.databinding.ActivityCollapsingBinding
 
-private lateinit var binding: ActivityCollapsingBinding
 
 class CollapsingActivity: AppCompatActivity() {
+
+    private lateinit var binding: ActivityCollapsingBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityCollapsingBinding.inflate(layoutInflater)
@@ -31,7 +32,6 @@ class CollapsingActivity: AppCompatActivity() {
 
     private fun initToolbar() {
 
-
-
     }
+
 }

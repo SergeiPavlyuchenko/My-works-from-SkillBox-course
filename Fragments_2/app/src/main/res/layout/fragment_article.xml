@@ -9,8 +9,19 @@
         android:id="@+id/imageViewArticle"
         android:layout_width="match_parent"
         android:layout_height="250dp"
+        android:layout_marginTop="5dp"
         android:scaleType="centerCrop"
         tools:src="@tools:sample/backgrounds/scenic" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/createBadgeButton"
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:layout_marginTop="4dp"
+        android:background="@color/red"
+        android:text="@string/text_create_event"
+        android:textColor="@color/light_grey"
+        android:textSize="12sp" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -20,7 +31,10 @@
             android:id="@+id/textViewArticle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:textSize="18sp"
             tools:text="@tools:sample/lorem/random" />
+
 
     </ScrollView>
 

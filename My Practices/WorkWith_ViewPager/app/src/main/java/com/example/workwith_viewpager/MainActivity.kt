@@ -65,15 +65,12 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         })
 
         //
-        binding.viewPager.setPageTransformer(object : ViewPager2.PageTransformer {
-            override fun transformPage(page: View, position: Float) {
-                when {
-                    position < -1 || position > 1 -> page.alpha = 0.4f
-                    position <= 0 -> page.alpha = 1.4f + position
-                    position <= 1 -> page.alpha = 1.4f - position
-                }
+        binding.viewPager.setPageTransformer { page, position ->
+            when {
+                position < -1 || position > 1 -> page.alpha = 0.4f
+                position <= 0 -> page.alpha = 1.4f + position
+                position <= 1 -> page.alpha = 1.4f - position
             }
-
-        })
+        }
     }
 }
