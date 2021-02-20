@@ -19,18 +19,43 @@ class MainFragment : Fragment(R.layout.fragment_main), ItemSelectListener, Dialo
     private val binding by viewBinding(FragmentMainBinding::bind)
 
     private val articles = listOf(
-        ArticleModel(R.string.text_lokomotiv, R.drawable.loko, ),
-        ArticleModel(R.string.text_sychev, R.drawable.sychev),
-        ArticleModel(R.string.text_loskov, R.drawable.loskov),
-        ArticleModel(R.string.text_miranchuk_al, R.drawable.miranchuk_al),
-        ArticleModel(R.string.text_miranchuk_an, R.drawable.miranchuk_an),
-        ArticleModel(R.string.text_barinov, R.drawable.barinov)
+        ArticleModel(
+            R.string.text_lokomotiv,
+            R.drawable.loko,
+            PositionState(listOf(ArticleTag.INFO))
+        ),
+        ArticleModel(
+            R.string.text_sychev,
+            R.drawable.sychev,
+            PositionState(listOf(ArticleTag.ST, ArticleTag.LW, ArticleTag.RW))
+        ),
+        ArticleModel(
+            R.string.text_loskov,
+            R.drawable.loskov,
+            PositionState(listOf(ArticleTag.CAM, ArticleTag.RM))
+        ),
+        ArticleModel(
+            R.string.text_miranchuk_al,
+            R.drawable.miranchuk_al,
+            PositionState(listOf(ArticleTag.CAM, ArticleTag.RM, ArticleTag.RW, ArticleTag.ST))
+        ),
+        ArticleModel(
+            R.string.text_miranchuk_an,
+            R.drawable.miranchuk_an,
+            PositionState(listOf(ArticleTag.LM, ArticleTag.LW, ArticleTag.CAM, ArticleTag.RM))
+        ),
+        ArticleModel(
+            R.string.text_barinov,
+            R.drawable.barinov,
+            PositionState(listOf(ArticleTag.CDM, ArticleTag.CB))
+        )
     )
 
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        binding.viewPager.adapter = ArticleAdapter(articles, this)
+//        binding.viewPager.adapter = ArticleAdapter(articles, this)
+        launchAdapter()
         binding.dotsIndicator.setViewPager2(binding.viewPager)
         binding.viewPager.setPageTransformer { page, position ->
             DepthTransformation().transformPage(page, position)
@@ -66,8 +91,7 @@ class MainFragment : Fragment(R.layout.fragment_main), ItemSelectListener, Dialo
     }
 
     private fun tagsDialog() {
-        TagsDialog(ArticleFragment.tags)
-            .show(childFragmentManager, "TagsDialogTag")
+        TagsDialog().show(childFragmentManager, "TagsDialogTag")
     }
 
     override fun onItemSelected() {
@@ -78,16 +102,21 @@ class MainFragment : Fragment(R.layout.fragment_main), ItemSelectListener, Dialo
         }
     }
 
-    override fun onConfirm() {
-        binding.viewPager.adapter = ArticleAdapter(
+    private fun launchAdapter() {
+        TagsDialog.tagsForFilter.forEach {
             articles.filter { articleModel ->
-                articleModel == TagsDialog.tagsForFilter.forEach { it }
-            },
-            this
-        )
+                articleModel.position.positions.contains(it)
+            }
+        }
+            binding.viewPager.adapter = ArticleAdapter(
+                articles,
+                this
+            )
     }
 
-    override fun onReject() {
+    override fun onConfirm() {
+        launchAdapter()
     }
+
 
 }

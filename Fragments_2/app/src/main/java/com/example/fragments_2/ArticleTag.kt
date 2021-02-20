@@ -1,6 +1,7 @@
 package com.example.fragments_2
 
 enum class ArticleTag(val position: String) {
+    INFO("INFO"),
     GK("В"),
     LB("ЛЗ"),
     CB("ЦЗ"),

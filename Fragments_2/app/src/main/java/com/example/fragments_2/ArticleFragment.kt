@@ -35,7 +35,7 @@ class ArticleFragment : Fragment(R.layout.fragment_article) {
         super.onActivityCreated(savedInstanceState)
         binding.textViewArticle.setText(requireArguments().getInt(KEY_TEXT))
         binding.imageViewArticle.setImageResource(requireArguments().getInt(KEY_IMAGE))
-        val position = requireArguments().getStringArrayList(KEY_POSITION)
+        val position = requireArguments().getParcelable<PositionState>(KEY_POSITION)?.positions
         binding.createBadgeButton.setOnClickListener { itemSelectListener?.onItemSelected() }
     }
 
@@ -51,6 +51,7 @@ class ArticleFragment : Fragment(R.layout.fragment_article) {
         private const val KEY_IMAGE = "article image"
         private const val KEY_POSITION = "article position on the field"
 
+
         val tags: List<ArticleTag> = listOf(
             ArticleTag.GK,
             ArticleTag.LB, ArticleTag.CB, ArticleTag.RB,
@@ -61,13 +62,12 @@ class ArticleFragment : Fragment(R.layout.fragment_article) {
         fun newInstance(
             @StringRes text: Int,
             @DrawableRes image: Int,
-            position: ArrayList<String>
+            position: PositionState
         ): ArticleFragment {
             return ArticleFragment().withArguments {
                 putInt(KEY_TEXT, text)
                 putInt(KEY_IMAGE, image)
-                putStringArrayList(KEY_POSITION, position)
-
+                putParcelable(KEY_POSITION, position)
             }
         }
     }
