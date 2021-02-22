@@ -50,6 +50,7 @@ dependencies {
     implementation 'com.kirich1409.viewbindingpropertydelegate:viewbindingpropertydelegate:1.4.1'
     implementation 'com.kirich1409.viewbindingpropertydelegate:vbpd-noreflection:1.4.1'
 
+
     implementation "androidx.viewpager2:viewpager2:1.0.0"
     implementation 'com.tbuonomo.andrui:viewpagerdotsindicator:4.1.2'
 

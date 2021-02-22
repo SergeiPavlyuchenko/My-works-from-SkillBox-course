@@ -4,6 +4,4 @@ import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
-data class PositionState(val positions: List<ArticleTag>) : Parcelable {
-
-}
+data class PositionState(val positions: List<ArticleTag>) : Parcelable

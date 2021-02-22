@@ -91,7 +91,7 @@ class MainFragment : Fragment(R.layout.fragment_main), ItemSelectListener, Dialo
     }
 
     private fun tagsDialog() {
-        TagsDialog().show(childFragmentManager, "TagsDialogTag")
+        TagsDialog.newInstance().show(childFragmentManager, "TagsDialogTag")
     }
 
     override fun onItemSelected() {

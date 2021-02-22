@@ -14,7 +14,6 @@ import androidx.core.util.PatternsCompat
 import androidx.core.view.isVisible
 import androidx.core.widget.doOnTextChanged
 import by.kirich1409.viewbindingdelegate.viewBinding
-import com.bumptech.glide.Glide
 import com.example.fragments_1.databinding.FragmentLoginBinding
 
 

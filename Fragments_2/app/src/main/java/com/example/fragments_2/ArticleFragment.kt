@@ -53,10 +53,11 @@ class ArticleFragment : Fragment(R.layout.fragment_article) {
 
 
         val tags: List<ArticleTag> = listOf(
+            ArticleTag.INFO,
             ArticleTag.GK,
             ArticleTag.LB, ArticleTag.CB, ArticleTag.RB,
             ArticleTag.LM, ArticleTag.CDM, ArticleTag.CAM, ArticleTag.RM,
-            ArticleTag.LW, ArticleTag.ST, ArticleTag.RW
+            ArticleTag.LW, ArticleTag.RW, ArticleTag.ST
         )
 
         fun newInstance(
