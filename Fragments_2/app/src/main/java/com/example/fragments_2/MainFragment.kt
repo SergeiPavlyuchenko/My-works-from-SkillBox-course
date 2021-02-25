@@ -1,12 +1,7 @@
 package com.example.fragments_2
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import androidx.core.view.children
 import androidx.fragment.app.Fragment
-import androidx.viewpager.widget.ViewPager
 import androidx.viewpager2.widget.ViewPager2
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.fragments_2.databinding.FragmentMainBinding
@@ -52,8 +47,11 @@ class MainFragment : Fragment(R.layout.fragment_main), ItemSelectListener, Dialo
     )
 
 
+
+
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+
 //        binding.viewPager.adapter = ArticleAdapter(articles, this)
         launchAdapter()
         binding.dotsIndicator.setViewPager2(binding.viewPager)
@@ -91,7 +89,10 @@ class MainFragment : Fragment(R.layout.fragment_main), ItemSelectListener, Dialo
     }
 
     private fun tagsDialog() {
-        TagsDialog.newInstance().show(childFragmentManager, "TagsDialogTag")
+        if (TagsDialog().newInstance().arguments == null) {
+            TagsDialog().show(childFragmentManager, "TagsDialogTag")
+        } else TagsDialog().newInstance().show(childFragmentManager, "TagsDialogTag")
+
     }
 
     override fun onItemSelected() {
@@ -103,20 +104,22 @@ class MainFragment : Fragment(R.layout.fragment_main), ItemSelectListener, Dialo
     }
 
     private fun launchAdapter() {
-        TagsDialog.tagsForFilter.forEach {
+        /*TagsDialog.tagsForFilter.forEach {
             articles.filter { articleModel ->
                 articleModel.position.positions.contains(it)
             }
-        }
-            binding.viewPager.adapter = ArticleAdapter(
-                articles,
-                this
-            )
+        }*/
+        binding.viewPager.adapter = ArticleAdapter(
+            articles,
+            this
+        )
     }
 
     override fun onConfirm() {
         launchAdapter()
     }
+
+
 
 
 }

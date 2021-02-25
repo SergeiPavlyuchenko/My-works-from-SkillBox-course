@@ -7,14 +7,17 @@ import com.example.fragments_2.databinding.ActivityMainBinding
 
 class AppActivity : AppCompatActivity(R.layout.activity_main) {
 
-    private val binding by viewBinding (ActivityMainBinding::bind)
+    private val binding by viewBinding(ActivityMainBinding::bind)
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        supportFragmentManager.beginTransaction()
-                .replace(binding.container.id,MainFragment())
+        if (savedInstanceState == null) {
+            supportFragmentManager.beginTransaction()
+                .add(binding.container.id, MainFragment())
                 .commit()
+        }
+
     }
 }
