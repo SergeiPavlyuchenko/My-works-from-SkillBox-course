@@ -22,41 +22,26 @@ class TagsDialog : DialogFragment() {
         get() = fragment?.let { it as? DialogInterfaceListener }
 
 
-    private val positions = ArticleFragment().tags.map { it.position }.toTypedArray()
+    private val positions = AppData.TAGS.map { it.position }.toTypedArray()
 
-    private lateinit var selectedItems: BooleanArray
-
-
-    override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
-        outState.putBooleanArray(KEY_SELECTED, selectedItems)
-        Log.d("TagsDialog", "onSaveInstanceState|${hashCode()}|$arguments")
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        selectedItems = savedInstanceState?.getBooleanArray(KEY_SELECTED) ?:
-        BooleanArray(ArticleFragment().tags.size) { true }
-        Log.d("TagsDialog", "onCreate|${hashCode()}|$arguments")
-    }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         Log.d("TagsDialog", "onCreateDialog|${hashCode()}|$arguments")
-        return dialogLaunch()
+        var selectedItems =  BooleanArray(AppData.TAGS.size)
+        arguments?.getBooleanArray(KEY_SELECTED)?.let { selectedItems = it }
+        return dialogLaunch(selectedItems)
     }
 
-    private fun dialogLaunch(): Dialog {
+    private fun dialogLaunch(selectedItems: BooleanArray): Dialog {
         Log.d("TagsDialog", "dialogLaunch|${hashCode()}|$arguments")
         return AlertDialog.Builder(requireContext())
             .setTitle("Отфильтровать по позиции:")
             .setMultiChoiceItems(positions, selectedItems) { _, which, isChecked ->
 
                 if (isChecked) {
-                    selectedItems[which] = isChecked
-//                   tagsForFilter.add(ArticleTag.valueOf(positions[which]))
+                    //selectedItems[which] = isChecked
                 } else {
-                    selectedItems[which] = !isChecked
+                   // selectedItems[which] = !isChecked
                 }
             }
             .setPositiveButton("Применить") { _: DialogInterface, _: Int ->
@@ -68,9 +53,9 @@ class TagsDialog : DialogFragment() {
             .create()
     }
 
-    fun newInstance(): TagsDialog {
+    fun newInstance(selectedPositionsTags : BooleanArray): TagsDialog {
         return TagsDialog().withArguments {
-            putBooleanArray(KEY_SELECTED, selectedItems)
+            putBooleanArray(KEY_SELECTED, selectedPositionsTags)
         }
     }
 

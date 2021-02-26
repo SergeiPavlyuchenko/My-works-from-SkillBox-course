@@ -13,47 +13,30 @@ class MainFragment : Fragment(R.layout.fragment_main), ItemSelectListener, Dialo
 
     private val binding by viewBinding(FragmentMainBinding::bind)
 
-    private val articles = listOf(
-        ArticleModel(
-            R.string.text_lokomotiv,
-            R.drawable.loko,
-            PositionState(listOf(ArticleTag.INFO))
-        ),
-        ArticleModel(
-            R.string.text_sychev,
-            R.drawable.sychev,
-            PositionState(listOf(ArticleTag.ST, ArticleTag.LW, ArticleTag.RW))
-        ),
-        ArticleModel(
-            R.string.text_loskov,
-            R.drawable.loskov,
-            PositionState(listOf(ArticleTag.CAM, ArticleTag.RM))
-        ),
-        ArticleModel(
-            R.string.text_miranchuk_al,
-            R.drawable.miranchuk_al,
-            PositionState(listOf(ArticleTag.CAM, ArticleTag.RM, ArticleTag.RW, ArticleTag.ST))
-        ),
-        ArticleModel(
-            R.string.text_miranchuk_an,
-            R.drawable.miranchuk_an,
-            PositionState(listOf(ArticleTag.LM, ArticleTag.LW, ArticleTag.CAM, ArticleTag.RM))
-        ),
-        ArticleModel(
-            R.string.text_barinov,
-            R.drawable.barinov,
-            PositionState(listOf(ArticleTag.CDM, ArticleTag.CB))
-        )
-    )
+    private var selectedItems = BooleanArray(AppData.TAGS.size) { true }
+    private lateinit var checkedTagsMap: Map<Boolean, ArticleTag>
 
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        savedInstanceState?.getBooleanArray(TagsDialog.KEY_SELECTED)?.let { selectedItems = it }
+    }
 
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putBooleanArray(TagsDialog.KEY_SELECTED, selectedItems)
+    }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-//        binding.viewPager.adapter = ArticleAdapter(articles, this)
-        launchAdapter()
+        selectedItems = TagsDialog().arguments?.getBooleanArray(TagsDialog.KEY_SELECTED)
+            ?: BooleanArray(AppData.TAGS.size) { true }
+
+        checkedTagsMap = selectedItems.zip(AppData.TAGS).toMap()
+
+        launchAdapter(AppData.ARTICLES)
+
         binding.dotsIndicator.setViewPager2(binding.viewPager)
         binding.viewPager.setPageTransformer { page, position ->
             DepthTransformation().transformPage(page, position)
@@ -89,10 +72,7 @@ class MainFragment : Fragment(R.layout.fragment_main), ItemSelectListener, Dialo
     }
 
     private fun tagsDialog() {
-        if (TagsDialog().newInstance().arguments == null) {
-            TagsDialog().show(childFragmentManager, "TagsDialogTag")
-        } else TagsDialog().newInstance().show(childFragmentManager, "TagsDialogTag")
-
+        TagsDialog().newInstance(selectedItems).show(childFragmentManager, "TagsDialogTag")
     }
 
     override fun onItemSelected() {
@@ -103,12 +83,7 @@ class MainFragment : Fragment(R.layout.fragment_main), ItemSelectListener, Dialo
         }
     }
 
-    private fun launchAdapter() {
-        /*TagsDialog.tagsForFilter.forEach {
-            articles.filter { articleModel ->
-                articleModel.position.positions.contains(it)
-            }
-        }*/
+    private fun launchAdapter(articles: List<ArticleModel>) {
         binding.viewPager.adapter = ArticleAdapter(
             articles,
             this
@@ -116,10 +91,9 @@ class MainFragment : Fragment(R.layout.fragment_main), ItemSelectListener, Dialo
     }
 
     override fun onConfirm() {
-        launchAdapter()
+        val checkedArticles: List<ArticleTag> = checkedTagsMap.filterKeys { it }.values.toList()
+        val articles: List<ArticleModel> = AppData.ARTICLES.filter { articleModel ->
+            articleModel.position.positions.any {checkedArticles.contains(it)} }
+        launchAdapter(articles)
     }
-
-
-
-
 }
