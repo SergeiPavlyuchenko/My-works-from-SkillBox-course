@@ -38,11 +38,11 @@ class TagsDialog : DialogFragment() {
             .setTitle("Отфильтровать по позиции:")
             .setMultiChoiceItems(positions, selectedItems) { _, which, isChecked ->
 
-                if (isChecked) {
-                    //selectedItems[which] = isChecked
+                /*if (isChecked) {
+                    selectedItems[which] = isChecked
                 } else {
-                   // selectedItems[which] = !isChecked
-                }
+                    selectedItems[which] = !isChecked
+                }*/
             }
             .setPositiveButton("Применить") { _: DialogInterface, _: Int ->
                 dialogInterfaceListener?.onConfirm()
