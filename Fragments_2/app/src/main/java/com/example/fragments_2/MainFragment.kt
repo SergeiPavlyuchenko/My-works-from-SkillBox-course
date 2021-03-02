@@ -17,7 +17,7 @@ class MainFragment : Fragment(R.layout.fragment_main), ItemSelectListener, Dialo
     private var selectedItems = BooleanArray(AppData.TAGS.size) { true }
 
     private lateinit var checkedTagsMap: Map<ArticleTag, Boolean>
-
+    private val dialog = TagsDialog()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,14 +32,14 @@ class MainFragment : Fragment(R.layout.fragment_main), ItemSelectListener, Dialo
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        val items = selectedItems.toTypedArray()
+
+
+        /*val items = selectedItems.toTypedArray()
         val result = AppData.TAGS.zip(items)
-
-
         checkedTagsMap = result.toMap()
-        Log.w("+++++", "Items: $items\nResult: $result")
+        Log.w("+++++", "Items: ${items.toList()}\nResult: $result")*/
 
-        TagsDialog().arguments?.getBooleanArray(TagsDialog.KEY_SELECTED)?.let { selectedItems = it }
+        dialog.arguments?.getBooleanArray(TagsDialog.KEY_SELECTED)?.let { selectedItems = it }
 
         checkedTagsMap = AppData.TAGS.zip(selectedItems.toTypedArray()).toMap()
 
@@ -64,7 +64,7 @@ class MainFragment : Fragment(R.layout.fragment_main), ItemSelectListener, Dialo
         binding.toolbar.setOnMenuItemClickListener {
             when (it.itemId) {
                 R.id.action_filter_by_teg -> {
-                    tagsDialog()
+                    tagsDialog(selectedItems)
                     true
                 }
                 else -> false
@@ -72,8 +72,8 @@ class MainFragment : Fragment(R.layout.fragment_main), ItemSelectListener, Dialo
         }
     }
 
-    private fun tagsDialog() {
-        TagsDialog().newInstance(selectedItems).show(childFragmentManager, "TagsDialogTag")
+    private fun tagsDialog(selectedItems: BooleanArray) {
+        dialog.newInstance(selectedItems).show(childFragmentManager, "TagsDialogTag")
     }
 
     override fun onItemSelected() {
