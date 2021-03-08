@@ -20,13 +20,13 @@ class ArticleFragment : Fragment(R.layout.fragment_article) {
     private val itemSelectListener: ItemSelectListener?
         get() = fragment?.let { it as? ItemSelectListener }
 
-    val tags: List<ArticleTag> = listOf(
+/*    val tags: List<ArticleTag> = listOf(
         ArticleTag.INFO,
         ArticleTag.GK,
         ArticleTag.LB, ArticleTag.CB, ArticleTag.RB,
         ArticleTag.LM, ArticleTag.CDM, ArticleTag.CAM, ArticleTag.RM,
         ArticleTag.LW, ArticleTag.RW, ArticleTag.ST
-    )
+    )*/
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -42,7 +42,6 @@ class ArticleFragment : Fragment(R.layout.fragment_article) {
         super.onActivityCreated(savedInstanceState)
         binding.textViewArticle.setText(requireArguments().getInt(KEY_TEXT))
         binding.imageViewArticle.setImageResource(requireArguments().getInt(KEY_IMAGE))
-        val position = requireArguments().getParcelable<PositionState>(KEY_POSITION)?.positions
         binding.createBadgeButton.setOnClickListener { itemSelectListener?.onItemSelected() }
     }
 

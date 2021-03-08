@@ -21,31 +21,38 @@ class TagsDialog : DialogFragment() {
     private val dialogInterfaceListener: DialogInterfaceListener?
         get() = fragment?.let { it as? DialogInterfaceListener }
 
+    private var selectedItems: BooleanArray = BooleanArray(AppData.TAGS.size)
 
     private val positions = AppData.TAGS.map { it.position }.toTypedArray()
 
+    private var checkedTagsMap: MutableMap<ArticleTag, Boolean> =
+        AppData.TAGS.zip(selectedItems.toTypedArray()).toMap().toMutableMap()
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        Log.d("TagsDialog", "onCreateDialog|${hashCode()}|$arguments")
-        var selectedItems =  BooleanArray(AppData.TAGS.size)
-        arguments?.getBooleanArray(KEY_SELECTED)?.let { selectedItems = it }
-        return dialogLaunch(selectedItems)
+        arguments?.getBooleanArray(KEY_SELECTED)?.let {
+            checkedTagsMap.clear()
+            selectedItems = it
+            checkedTagsMap = AppData.TAGS.zip(selectedItems.toTypedArray()).toMap().toMutableMap()
+            return dialogLaunch(selectedItems, checkedTagsMap)
+        }
+        return dialogLaunch(selectedItems, checkedTagsMap)
     }
 
-    private fun dialogLaunch(selectedItems: BooleanArray): Dialog {
+    private fun dialogLaunch(selectedItems: BooleanArray, checkedTagsMap: MutableMap<ArticleTag, Boolean>): Dialog {
         Log.d("TagsDialog", "dialogLaunch|${hashCode()}|$arguments")
         return AlertDialog.Builder(requireContext())
             .setTitle("Отфильтровать по позиции:")
             .setMultiChoiceItems(positions, selectedItems) { _, which, isChecked ->
 
-                /*if (isChecked) {
+         /*       if (isChecked) {
                     selectedItems[which] = isChecked
                 } else {
                     selectedItems[which] = !isChecked
                 }*/
             }
             .setPositiveButton("Применить") { _: DialogInterface, _: Int ->
-                dialogInterfaceListener?.onConfirm()
+                val checkedArticles: List<ArticleTag> = checkedTagsMap.filterValues { it }.keys.toList()
+                dialogInterfaceListener?.onConfirm(selectedItems, checkedArticles)
             }
             .setNegativeButton("Отмена") { dialog: DialogInterface, _: Int ->
                 dialog.dismiss()
@@ -53,7 +60,7 @@ class TagsDialog : DialogFragment() {
             .create()
     }
 
-    fun newInstance(selectedPositionsTags : BooleanArray): TagsDialog {
+    fun newInstance(selectedPositionsTags: BooleanArray): TagsDialog {
         return TagsDialog().withArguments {
             putBooleanArray(KEY_SELECTED, selectedPositionsTags)
         }
@@ -64,35 +71,10 @@ class TagsDialog : DialogFragment() {
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     override fun onAttach(context: Context) {
         super.onAttach(context)
         Log.d("TagsDialog", "onAttach|${hashCode()}|$arguments")
     }
-
 
 
     override fun onCreateView(

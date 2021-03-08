@@ -1,5 +1,5 @@
 package com.example.fragments_2
 
 interface DialogInterfaceListener {
-    fun onConfirm()
+    fun onConfirm(selectedItems: BooleanArray, checkedArticles: List<ArticleTag>)
 }

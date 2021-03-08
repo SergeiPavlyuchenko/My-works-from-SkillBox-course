@@ -1,6 +1,7 @@
 package com.example.fragments_2
 
 import android.os.Bundle
+import android.os.Parcelable
 import android.util.Log
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
@@ -16,41 +17,19 @@ class MainFragment : Fragment(R.layout.fragment_main), ItemSelectListener, Dialo
 
     private var selectedItems = BooleanArray(AppData.TAGS.size) { true }
 
-    private lateinit var checkedTagsMap: Map<ArticleTag, Boolean>
-
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        savedInstanceState?.getBooleanArray(TagsDialog.KEY_SELECTED)?.let { selectedItems = it }
-    }
+    private var filteredArticles: List<ArticleTag> = AppData.TAGS.toList()
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
         outState.putBooleanArray(TagsDialog.KEY_SELECTED, selectedItems)
+        outState.putParcelable(KEY_ARTICLES, PositionState(filteredArticles))
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        val items = selectedItems.toTypedArray()
-        val result = AppData.TAGS.zip(items)
-
-
-        checkedTagsMap = result.toMap()
-        Log.w("+++++", "Items: $items\nResult: $result")
-
-        TagsDialog().arguments?.getBooleanArray(TagsDialog.KEY_SELECTED)?.let { selectedItems = it }
-
-        checkedTagsMap = AppData.TAGS.zip(selectedItems.toTypedArray()).toMap()
-
-        /*val tempMap: MutableMap<ArticleTag, Boolean> = mutableMapOf()
-        AppData.TAGS.forEach { tag ->
-            selectedItems.forEach { item ->
-                tempMap += tag to item
-            }
-        }
-        checkedTagsMap = tempMap*/
-
+        savedInstanceState?.getBooleanArray(TagsDialog.KEY_SELECTED)?.let { selectedItems = it }
+        savedInstanceState?.getParcelable<PositionState>(KEY_ARTICLES)?.let { filteredArticles = it.positions }
 
         launchAdapter(AppData.ARTICLES)
 
@@ -71,6 +50,7 @@ class MainFragment : Fragment(R.layout.fragment_main), ItemSelectListener, Dialo
             }
         }
     }
+
 
     private fun tagsDialog() {
         TagsDialog().newInstance(selectedItems).show(childFragmentManager, "TagsDialogTag")
@@ -97,22 +77,34 @@ class MainFragment : Fragment(R.layout.fragment_main), ItemSelectListener, Dialo
         }
 
         TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab, position ->
-            when (position) {
-                0 -> tab.text = "Инфо"
-                1 -> tab.text = "Дмитрий\nСычев"
-                2 -> tab.text = "Дмитрий\nЛоськов"
-                3 -> tab.text = "Алексей\nМиранчук"
-                4 -> tab.text = "Антон\nМиранчук"
-                5 -> tab.text = "Дмитрий\nБаринов"
+            var increment = 0
+            articles.forEach {
+                if (position == increment)
+                    tab.text = it.name
+                increment++
             }
+            /*  when (position) {
+                  0 -> tab.text = "Инфо"
+                  1 -> tab.text = "Дмитрий\nСычев"
+                  2 -> tab.text = "Дмитрий\nЛоськов"
+                  3 -> tab.text = "Алексей\nМиранчук"
+                  4 -> tab.text = "Антон\nМиранчук"
+                  5 -> tab.text = "Дмитрий\nБаринов"
+              }*/
         }.attach()
     }
 
-    override fun onConfirm() {
-        val checkedArticles: List<ArticleTag> = checkedTagsMap.filterValues { it  }.keys.toList()
+    override fun onConfirm(selectedItems: BooleanArray, checkedArticles: List<ArticleTag>) {
+        this.selectedItems = selectedItems
+        this.filteredArticles = checkedArticles
         val articles: List<ArticleModel> = AppData.ARTICLES.filter { articleModel ->
             articleModel.position.positions.any { checkedArticles.contains(it) }
         }
         launchAdapter(articles)
     }
+
+    companion object {
+        private const val KEY_ARTICLES = "filtered articles"
+    }
+
 }

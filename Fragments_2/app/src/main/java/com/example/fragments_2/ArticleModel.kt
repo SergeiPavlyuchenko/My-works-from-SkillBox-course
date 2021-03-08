@@ -6,5 +6,6 @@ import androidx.annotation.StringRes
 data class ArticleModel(
         @StringRes val text: Int,
         @DrawableRes val image: Int,
-        val position: PositionState
+        val position: PositionState,
+        val name: String
 )
