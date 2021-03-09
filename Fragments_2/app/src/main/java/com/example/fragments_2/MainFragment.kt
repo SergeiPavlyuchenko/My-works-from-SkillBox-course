@@ -94,11 +94,11 @@ class MainFragment : Fragment(R.layout.fragment_main), ItemSelectListener, Dialo
         }.attach()
     }
 
-    override fun onConfirm(selectedItems: BooleanArray, checkedArticles: List<ArticleTag>) {
+    override fun onConfirm(selectedItems: BooleanArray, selectedTags: List<ArticleTag>) {
         this.selectedItems = selectedItems
-        this.filteredArticles = checkedArticles
+        this.filteredArticles = selectedTags
         val articles: List<ArticleModel> = AppData.ARTICLES.filter { articleModel ->
-            articleModel.position.positions.any { checkedArticles.contains(it) }
+            articleModel.position.positions.any { selectedTags.contains(it) }
         }
         launchAdapter(articles)
     }

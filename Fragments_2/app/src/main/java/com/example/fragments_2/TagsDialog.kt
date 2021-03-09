@@ -43,16 +43,14 @@ class TagsDialog : DialogFragment() {
         return AlertDialog.Builder(requireContext())
             .setTitle("Отфильтровать по позиции:")
             .setMultiChoiceItems(positions, selectedItems) { _, which, isChecked ->
-
-         /*       if (isChecked) {
                     selectedItems[which] = isChecked
-                } else {
-                    selectedItems[which] = !isChecked
-                }*/
             }
             .setPositiveButton("Применить") { _: DialogInterface, _: Int ->
-                val checkedArticles: List<ArticleTag> = checkedTagsMap.filterValues { it }.keys.toList()
-                dialogInterfaceListener?.onConfirm(selectedItems, checkedArticles)
+                val selectedTags = AppData.TAGS
+                    .zip(selectedItems.toTypedArray())
+                    .filter { it.second }
+                    .map { it.first }
+                dialogInterfaceListener?.onConfirm(selectedItems, selectedTags)
             }
             .setNegativeButton("Отмена") { dialog: DialogInterface, _: Int ->
                 dialog.dismiss()
@@ -69,6 +67,23 @@ class TagsDialog : DialogFragment() {
     companion object {
         const val KEY_SELECTED = "selected items from DialogFragment"
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     override fun onAttach(context: Context) {
