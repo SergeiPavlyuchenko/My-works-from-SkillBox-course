@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">WorkWith_RecyclerView</string>
+    <string name="text_developer">Разработчик</string>
+    <string name="text_rez">Rezunoffsky</string>
+    <string name="text_shepp">Shepp</string>
+    <string name="text_tyler">Tyler Neal</string>
+    <string name="text_e0212">E_0212</string>
+    <string name="text_kotlin">Kotlin</string>
+</resources>
