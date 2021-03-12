@@ -34,18 +34,18 @@
         android:layout_weight="1"
         android:background="@color/white" />
 
-    <com.tbuonomo.viewpagerdotsindicator.DotsIndicator
-        android:id="@+id/dotsIndicator"
+    <com.tbuonomo.viewpagerdotsindicator.WormDotsIndicator
+        android:id="@+id/worm_dots_indicator"
         android:layout_width="wrap_content"
         android:layout_height="7dp"
-        android:layout_gravity="center"
         android:layout_marginBottom="7dp"
-        app:dotsColor="@color/red"
+        app:dotsColor="@color/light_green"
+        android:layout_gravity="center"
+        app:dotsStrokeColor="@color/red"
         app:dotsCornerRadius="8dp"
         app:dotsSize="16dp"
         app:dotsSpacing="4dp"
-        app:dotsWidthFactor="1.5"
-        app:progressMode="false"
-        app:selectedDotColor="@color/light_green" />
-
+        app:dotsStrokeWidth="2dp"
+        />
 </LinearLayout>
+

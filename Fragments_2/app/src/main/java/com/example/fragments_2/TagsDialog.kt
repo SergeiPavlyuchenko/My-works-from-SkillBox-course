@@ -38,6 +38,8 @@ class TagsDialog : DialogFragment() {
         return dialogLaunch(selectedItems, checkedTagsMap)
     }
 
+
+
     private fun dialogLaunch(selectedItems: BooleanArray, checkedTagsMap: MutableMap<ArticleTag, Boolean>): Dialog {
         Log.d("TagsDialog", "dialogLaunch|${hashCode()}|$arguments")
         return AlertDialog.Builder(requireContext())

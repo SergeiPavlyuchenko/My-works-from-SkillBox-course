@@ -1,8 +1,6 @@
 package com.example.fragments_2
 
 import android.os.Bundle
-import android.os.Parcelable
-import android.util.Log
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import by.kirich1409.viewbindingdelegate.viewBinding
@@ -17,21 +15,25 @@ class MainFragment : Fragment(R.layout.fragment_main), ItemSelectListener, Dialo
 
     private var selectedItems = BooleanArray(AppData.TAGS.size) { true }
 
-    private var filteredArticles: List<ArticleTag> = AppData.TAGS.toList()
+    private var selectedTags: List<ArticleTag> = AppData.TAGS.toList()
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
         outState.putBooleanArray(TagsDialog.KEY_SELECTED, selectedItems)
-        outState.putParcelable(KEY_ARTICLES, PositionState(filteredArticles))
+        outState.putParcelable(KEY_ARTICLES, PositionState(selectedTags))
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
         savedInstanceState?.getBooleanArray(TagsDialog.KEY_SELECTED)?.let { selectedItems = it }
-        savedInstanceState?.getParcelable<PositionState>(KEY_ARTICLES)?.let { filteredArticles = it.positions }
+        savedInstanceState?.getParcelable<PositionState>(KEY_ARTICLES)?.let {
+            selectedTags = it.positions
+            val articles: List<ArticleModel> = getFilteredArticles(selectedTags)
+            launchAdapter(articles)
+        } ?: launchAdapter(AppData.ARTICLES)
 
-        launchAdapter(AppData.ARTICLES)
+
 
         binding.viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
@@ -70,7 +72,7 @@ class MainFragment : Fragment(R.layout.fragment_main), ItemSelectListener, Dialo
             this
         )
 
-        binding.dotsIndicator.setViewPager2(binding.viewPager)
+        binding.wormDotsIndicator.setViewPager2(binding.viewPager)
 
         binding.viewPager.setPageTransformer { page, position ->
             DepthTransformation().transformPage(page, position)
@@ -83,24 +85,20 @@ class MainFragment : Fragment(R.layout.fragment_main), ItemSelectListener, Dialo
                     tab.text = it.name
                 increment++
             }
-            /*  when (position) {
-                  0 -> tab.text = "Инфо"
-                  1 -> tab.text = "Дмитрий\nСычев"
-                  2 -> tab.text = "Дмитрий\nЛоськов"
-                  3 -> tab.text = "Алексей\nМиранчук"
-                  4 -> tab.text = "Антон\nМиранчук"
-                  5 -> tab.text = "Дмитрий\nБаринов"
-              }*/
         }.attach()
     }
 
     override fun onConfirm(selectedItems: BooleanArray, selectedTags: List<ArticleTag>) {
         this.selectedItems = selectedItems
-        this.filteredArticles = selectedTags
-        val articles: List<ArticleModel> = AppData.ARTICLES.filter { articleModel ->
+        this.selectedTags = selectedTags
+        val articles: List<ArticleModel> = getFilteredArticles(selectedTags)
+        launchAdapter(articles)
+    }
+
+    private fun getFilteredArticles(selectedTags: List<ArticleTag>): List<ArticleModel> {
+        return AppData.ARTICLES.filter { articleModel ->
             articleModel.position.positions.any { selectedTags.contains(it) }
         }
-        launchAdapter(articles)
     }
 
     companion object {
