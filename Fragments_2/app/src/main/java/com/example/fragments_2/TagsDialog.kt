@@ -25,22 +25,12 @@ class TagsDialog : DialogFragment() {
 
     private val positions = AppData.TAGS.map { it.position }.toTypedArray()
 
-    private var checkedTagsMap: MutableMap<ArticleTag, Boolean> =
-        AppData.TAGS.zip(selectedItems.toTypedArray()).toMap().toMutableMap()
-
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        arguments?.getBooleanArray(KEY_SELECTED)?.let {
-            checkedTagsMap.clear()
-            selectedItems = it
-            checkedTagsMap = AppData.TAGS.zip(selectedItems.toTypedArray()).toMap().toMutableMap()
-            return dialogLaunch(selectedItems, checkedTagsMap)
-        }
-        return dialogLaunch(selectedItems, checkedTagsMap)
+        arguments?.getBooleanArray(KEY_SELECTED)?.let { selectedItems = it }
+        return dialogLaunch(selectedItems)
     }
 
-
-
-    private fun dialogLaunch(selectedItems: BooleanArray, checkedTagsMap: MutableMap<ArticleTag, Boolean>): Dialog {
+    private fun dialogLaunch(selectedItems: BooleanArray): Dialog {
         Log.d("TagsDialog", "dialogLaunch|${hashCode()}|$arguments")
         return AlertDialog.Builder(requireContext())
             .setTitle("Отфильтровать по позиции:")
@@ -58,6 +48,7 @@ class TagsDialog : DialogFragment() {
                 dialog.dismiss()
             }
             .create()
+
     }
 
     fun newInstance(selectedPositionsTags: BooleanArray): TagsDialog {
