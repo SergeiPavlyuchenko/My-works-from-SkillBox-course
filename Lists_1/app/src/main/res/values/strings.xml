@@ -4,10 +4,11 @@
     <string name="text_enter_game_information">Enter game information:</string>
     <string name="text_name">Name</string>
     <string name="text_link_for_avatar">Link for avatar</string>
-    <string name="text_coop_mode">Coop mode</string>
+    <string name="text_isCoop_available">Coop Mode</string>
     <string name="text_shooter">Shooter</string>
     <string name="text_strategy">Strategy</string>
     <string name="text_ccg">CCG</string>
+    <string name="text_create_random_game">Create random game</string>
     <string-array name="gameGenres">
         <item>Shooter</item>
         <item>Strategy</item>

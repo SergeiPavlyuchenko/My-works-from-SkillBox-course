@@ -3,17 +3,11 @@ package com.skillbox.lists_1
 import android.app.AlertDialog
 import android.app.Dialog
 import android.content.DialogInterface
+import android.graphics.Paint
 import android.os.Bundle
 import android.view.View
-import android.view.ViewGroup
-import android.widget.CheckBox
-import android.widget.EditText
-import android.widget.Spinner
-import android.widget.TextView
+import android.widget.*
 import androidx.fragment.app.DialogFragment
-import by.kirich1409.viewbindingdelegate.viewBinding
-import com.skillbox.lists_1.databinding.DialogInputDataBinding
-import kotlin.properties.Delegates
 
 class InputDataDialog : DialogFragment() {
 
@@ -29,6 +23,8 @@ class InputDataDialog : DialogFragment() {
     private lateinit var genreSpinner: Spinner
     private lateinit var rateSpinner: Spinner
     private lateinit var isCoopCheckBox: CheckBox
+    private lateinit var isCoopTextView: TextView
+    private lateinit var createRandomGameButton: Button
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,42 +34,118 @@ class InputDataDialog : DialogFragment() {
         avatarLinkEditText = dialogViews.findViewById(R.id.avatarLinkEditText)
         genreSpinner = dialogViews.findViewById(R.id.gameGenresSpinner)
         rateSpinner = dialogViews.findViewById(R.id.rateGameSpinner)
-        isCoopCheckBox = dialogViews.findViewById(R.id.coopModeCheckBox)
+        isCoopCheckBox = dialogViews.findViewById(R.id.isCoopCheckBox)
+        isCoopTextView = dialogViews.findViewById(R.id.isCoopTextView)
+        createRandomGameButton = dialogViews.findViewById(R.id.createRandomGameButton)
     }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-
-        return dialogLaunch(/*name, avatarLink, genre, rate, isCoop*/)
+        ccgIsNotCoopControl()
+        createRandomGameButton.setOnClickListener {
+            createRandomGame(AppData.randomGames.random())
+        }
+        return dialogLaunch()
     }
+
 
     private fun dialogLaunch(): Dialog {
         return AlertDialog.Builder(requireContext())
             .setTitle("            ${getString(R.string.text_enter_game_information)}")
             .setView(dialogViews)
             .setPositiveButton("Add") { _: DialogInterface, _: Int ->
-                val name = nameEditText.text.toString()
-                val avatarLink = avatarLinkEditText.text.toString()
-                val genre = genreSpinner.selectedItem.toString()
-                val rate = rateSpinner.selectedItem.toString().toFloat()
-                val isCoop = isCoopCheckBox.isChecked
-                val game: GameGenre = when (genre) {
-                    getString(R.string.text_shooter) -> GameGenre.Shooters(
-                        name,
-                        avatarLink,
-                        rate,
-                        isCoop
-                    )
-                    getString(R.string.text_strategy) -> GameGenre.Strategy(
-                        name,
-                        avatarLink,
-                        rate,
-                        isCoop
-                    )
-                    getString(R.string.text_ccg) -> GameGenre.Ccg(name, avatarLink, rate)
-                    else -> error("Incorrectly selected genre")
-                }
-                dialogInterfaceListener?.onConfirm(game)
+                dialogInterfaceListener?.onConfirm(createGame())
             }
             .create()
+    }
+
+    private fun createGame(): GameGenre {
+        val name = nameEditText.text.toString()
+        val avatarLink = avatarLinkEditText.text.toString()
+        val genre = genreSpinner.selectedItem.toString()
+        val rate = rateSpinner.selectedItem.toString().toFloat()
+        val isCoop = isCoopCheckBox.isChecked
+
+        return when (genre) {
+            getString(R.string.text_shooter) -> GameGenre.Shooters(
+                name,
+                avatarLink,
+                rate,
+                genre,
+                isCoop
+            )
+            getString(R.string.text_strategy) -> GameGenre.Strategy(
+                name,
+                avatarLink,
+                rate,
+                genre,
+                isCoop
+            )
+            getString(R.string.text_ccg) -> GameGenre.Ccg(name, avatarLink, rate, genre)
+            else -> error("Incorrectly selected genre")
+        }
+    }
+
+    private fun createRandomGame(game: GameGenre) {
+        when (game) {
+            is GameGenre.Shooters -> {
+                resources.getStringArray(R.array.rateGame).forEachIndexed { index, s ->
+                    if (s.toFloat() == game.rate) rateSpinner.setSelection(index)
+                }
+                nameEditText.setText(game.name)
+                avatarLinkEditText.setText(game.avatarLink)
+                genreSpinner.setSelection(0, true)
+                isCoopCheckBox.isChecked = game.isCoop
+            }
+            is GameGenre.Strategy -> {
+                resources.getStringArray(R.array.rateGame).forEachIndexed { index, s ->
+                    if (s.toFloat() == game.rate) rateSpinner.setSelection(index)
+                }
+                nameEditText.setText(game.name)
+                avatarLinkEditText.setText(game.avatarLink)
+                genreSpinner.setSelection(1, true)
+                isCoopCheckBox.isChecked = game.isCoop
+            }
+            is GameGenre.Ccg -> {
+                resources.getStringArray(R.array.rateGame).forEachIndexed { index, s ->
+                    if (s.toFloat() == game.rate) rateSpinner.setSelection(index)
+                }
+                nameEditText.setText(game.name)
+                avatarLinkEditText.setText(game.avatarLink)
+                genreSpinner.setSelection(2, true)
+                isCoopCheckBox.isChecked = false
+            }
+            else -> error("Incorrect random game")
+        }
+    }
+
+    private fun ccgIsNotCoopControl() {
+        val arrayAdapter = ArrayAdapter(
+            requireContext(),
+            R.layout.support_simple_spinner_dropdown_item,
+            resources.getStringArray(R.array.gameGenres)
+        )
+        genreSpinner.adapter = arrayAdapter
+        genreSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                val genre = genreSpinner.selectedItem.toString()
+                if (genre == getString(R.string.text_ccg)) {
+                    isCoopCheckBox.isChecked = false
+                    isCoopCheckBox.isEnabled = false
+                    isCoopTextView.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
+                } else {
+                    isCoopTextView.paintFlags = 0
+                    isCoopCheckBox.isEnabled = true
+                }
+
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+            }
+        }
     }
 }

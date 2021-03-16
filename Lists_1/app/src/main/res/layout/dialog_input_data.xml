@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -47,7 +48,7 @@
         android:entries="@array/gameGenres"
         app:layout_constraintEnd_toStartOf="@id/rateGameSpinner"
         app:layout_constraintStart_toStartOf="@id/gameNameEditText"
-        app:layout_constraintTop_toBottomOf="@id/coopModeCheckBox" />
+        app:layout_constraintTop_toBottomOf="@id/isCoopCheckBox" />
 
     <Spinner
         android:id="@+id/rateGameSpinner"
@@ -58,23 +59,36 @@
         android:entries="@array/rateGame"
         app:layout_constraintEnd_toEndOf="@id/gameNameEditText"
         app:layout_constraintStart_toEndOf="@id/gameGenresSpinner"
-        app:layout_constraintTop_toBottomOf="@id/coopModeCheckBox" />
+        app:layout_constraintTop_toBottomOf="@id/isCoopCheckBox" />
 
     <CheckBox
-        android:id="@+id/coopModeCheckBox"
-        app:layout_constraintStart_toStartOf="@id/gameNameEditText"
-        app:layout_constraintTop_toBottomOf="@id/avatarLinkEditText"
+        android:id="@+id/isCoopCheckBox"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/gameNameEditText"
+        app:layout_constraintTop_toBottomOf="@id/avatarLinkEditText" />
 
     <TextView
-        android:id="@+id/coopModeTextView"
-        android:text="@string/text_coop_mode"
-        android:textSize="20sp"
-        app:layout_constraintStart_toEndOf="@id/coopModeCheckBox"
-        app:layout_constraintTop_toTopOf="@id/coopModeCheckBox"
-        app:layout_constraintBottom_toBottomOf="@id/coopModeCheckBox"
+        android:id="@+id/isCoopTextView"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:text="@string/text_isCoop_available"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@id/isCoopCheckBox"
+        app:layout_constraintStart_toEndOf="@id/isCoopCheckBox"
+        app:layout_constraintTop_toTopOf="@id/isCoopCheckBox" />
+
+
+    <Button
+        android:id="@+id/createRandomGameButton"
+        android:layout_width="0dp"
+        android:layout_height="35dp"
+        android:backgroundTint="@color/green"
+        android:layout_marginTop="8dp"
+        android:text="@string/text_create_random_game"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@+id/rateGameSpinner"
+        app:layout_constraintStart_toStartOf="@+id/gameGenresSpinner"
+        app:layout_constraintTop_toBottomOf="@+id/gameGenresSpinner" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,7 +2,6 @@ package com.skillbox.lists_1
 
 import android.view.View
 import android.view.ViewGroup
-import android.widget.CheckBox
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.view.isVisible
@@ -10,30 +9,32 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 
 class GamesAdapter(
-//    private val onItemClick: (position: Int) -> Unit
-): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+    private val onItemClick: (position: Int) -> Unit
+) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private var games: List<GameGenre> = emptyList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        return when(viewType) {
-            KEY_SHOOTER -> ShooterHolder(parent.inflate(R.layout.item_shooter), /*onItemClick*/)
-            KEY_STRATEGY -> StrategyHolder(parent.inflate(R.layout.item_strategy), /*onItemClick*/)
-            KEY_CCG -> CcgHolder(parent.inflate(R.layout.item_ccg), /*onItemClick*/)
+        return when (viewType) {
+            KEY_SHOOTER -> ShooterHolder(parent.inflate(R.layout.item_shooter), onItemClick)
+            KEY_STRATEGY -> StrategyHolder(parent.inflate(R.layout.item_strategy), onItemClick)
+            KEY_CCG -> CcgHolder(parent.inflate(R.layout.item_ccg), onItemClick)
+            KEY_KEEPCLEAR -> KeepClearHolder(parent.inflate(R.layout.item_clear_list), onItemClick)
             else -> error("Incorrect viewType = $viewType")
         }
     }
 
     override fun getItemViewType(position: Int): Int {
-        return when(games[position]) {
+        return when (games[position]) {
             is GameGenre.Shooters -> KEY_SHOOTER
             is GameGenre.Strategy -> KEY_STRATEGY
             is GameGenre.Ccg -> KEY_CCG
+            is GameGenre.KeepClear -> KEY_KEEPCLEAR
         }
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        when(holder) {
+        when (holder) {
             is ShooterHolder -> {
                 val gameShooter = games[position].let { it as? GameGenre.Shooters }
                     ?: error("Game at the position $position not a shooter")
@@ -49,6 +50,11 @@ class GamesAdapter(
                     ?: error("Game at the position $position not a ccg")
                 holder.bind(gameCcg)
             }
+            is KeepClearHolder -> {
+                val keepClear = games[position].let { it as? GameGenre.KeepClear }
+                    ?: error("Item at the position $position not a keepClear")
+                holder.bind(keepClear)
+            }
             else -> error("Incorrect viewHolder")
         }
     }
@@ -61,67 +67,79 @@ class GamesAdapter(
 
     abstract class BaseGames(
         view: View,
-//        onItemClick: (position: Int) -> Unit
-    ): RecyclerView.ViewHolder(view)  {
+        onItemClick: (position: Int) -> Unit
+    ) : RecyclerView.ViewHolder(view) {
         private val nameTextView: TextView = view.findViewById(R.id.nameTextView)
         private val avatarLinkImageView: ImageView = view.findViewById(R.id.avatarImageView)
         private val rateTextView: TextView = view.findViewById(R.id.rateGameTextView)
-        protected val isCoopCheckBox: CheckBox = view.findViewById(R.id.coopModeCheckBox)
+        private val genreTextView: TextView = view.findViewById(R.id.genreTextView)
 
         init {
-//            view.setOnClickListener {
-//                onItemClick(adapterPosition)
-//            }
+            view.setOnClickListener {
+                onItemClick(adapterPosition)
+            }
         }
 
         protected fun bindMainInfo(
             name: String,
             avatarLink: String,
-            rate: Float
+            rate: Float,
+            genre: String
         ) {
             nameTextView.text = name
             rateTextView.text = rate.toString()
+            genreTextView.text = genre
 
-            Glide.with(itemView)
-                .load(avatarLink)
-                .into(avatarLinkImageView)
+                Glide.with(itemView)
+                    .load(avatarLink)
+                    .centerCrop()
+                    .placeholder(R.drawable.ic_videogame)
+                    .error(R.drawable.ic_error)
+                    .into(avatarLinkImageView)
         }
     }
 
     class ShooterHolder(
         view: View,
-//        onItemClick: (position: Int) -> Unit
-    ): BaseGames(view, /*onItemClick*/) {
+        onItemClick: (position: Int) -> Unit
+    ) : BaseGames(view, onItemClick) {
         private val isCoopImageView: ImageView = view.findViewById(R.id.coopModeImageView)
 
-        init {
-            isCoopImageView.isVisible = isCoopCheckBox.isChecked
-        }
-
         fun bind(game: GameGenre.Shooters) {
-            bindMainInfo(game.name, game.avatarLink, game.rate)
+            bindMainInfo(game.name, game.avatarLink, game.rate, game.genre)
+            isCoopImageView.isVisible = game.isCoop
+
         }
     }
 
     class StrategyHolder(
         view: View,
-//        onItemClick: (position: Int) -> Unit
-    ): BaseGames(view, /*onItemClick*/) {
+        onItemClick: (position: Int) -> Unit
+    ) : BaseGames(view, onItemClick) {
 
         private val isCoopImageView: ImageView = view.findViewById(R.id.coopModeImageView)
 
         fun bind(game: GameGenre.Strategy) {
-            bindMainInfo(game.name, game.avatarLink, game.rate)
-            isCoopImageView.isVisible = isCoopCheckBox.isChecked
+            bindMainInfo(game.name, game.avatarLink, game.rate, game.genre)
+            isCoopImageView.isVisible = game.isCoop
         }
     }
 
     class CcgHolder(
         view: View,
-//        onItemClick: (position: Int) -> Unit
-    ): BaseGames(view, /*onItemClick*/) {
+        onItemClick: (position: Int) -> Unit
+    ) : BaseGames(view, onItemClick) {
         fun bind(game: GameGenre.Ccg) {
-            bindMainInfo(game.name, game.avatarLink, game.rate)
+            bindMainInfo(game.name, game.avatarLink, game.rate, game.genre)
+        }
+    }
+
+    class KeepClearHolder(
+        view: View,
+        onItemClick: (position: Int) -> Unit
+    ) : BaseGames(view, onItemClick) {
+        fun bind(game: GameGenre.KeepClear) {
+            bindMainInfo(game.name, game.avatarLink, game.rate, game.genre)
         }
     }
 
@@ -129,6 +147,7 @@ class GamesAdapter(
         private const val KEY_SHOOTER = 1
         private const val KEY_STRATEGY = 2
         private const val KEY_CCG = 3
+        private const val KEY_KEEPCLEAR = 4
     }
 
 }
