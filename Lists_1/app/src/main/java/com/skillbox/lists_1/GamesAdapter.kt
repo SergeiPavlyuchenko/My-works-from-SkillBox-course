@@ -1,9 +1,12 @@
 package com.skillbox.lists_1
 
+import android.content.Context
+import android.graphics.drawable.Drawable
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -19,7 +22,7 @@ class GamesAdapter(
             KEY_SHOOTER -> ShooterHolder(parent.inflate(R.layout.item_shooter), onItemClick)
             KEY_STRATEGY -> StrategyHolder(parent.inflate(R.layout.item_strategy), onItemClick)
             KEY_CCG -> CcgHolder(parent.inflate(R.layout.item_ccg), onItemClick)
-            KEY_KEEPCLEAR -> KeepClearHolder(parent.inflate(R.layout.item_clear_list), onItemClick)
+            KEY_KEEPCLEAR -> KeepClearHolder(parent.inflate(R.layout.item_keep_clear_), onItemClick)
             else -> error("Incorrect viewType = $viewType")
         }
     }
@@ -61,8 +64,18 @@ class GamesAdapter(
 
     override fun getItemCount(): Int = games.size
 
-    fun updateGames(newGames: List<GameGenre>) {
-        games = newGames
+    fun updateGames(newGames: List<GameGenre>, context: Context) {
+        val image: Drawable? = ContextCompat.getDrawable(context, R.drawable.keep_it_clear)
+        val keepClear: GameGenre = GameGenre.KeepClear(image = image)
+
+        if (newGames.isEmpty()) {
+            games = listOf(keepClear)
+        } else {
+            games = if (games[0] == keepClear) {
+                games.filter { it != keepClear }
+            } else newGames
+            notifyDataSetChanged()
+        }
     }
 
     abstract class BaseGames(

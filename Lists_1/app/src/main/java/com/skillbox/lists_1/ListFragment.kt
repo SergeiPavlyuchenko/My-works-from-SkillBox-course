@@ -22,7 +22,7 @@ class ListFragment : Fragment(R.layout.fragment_list), DialogInterfaceListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        savedInstanceState?.getParcelable<StateGameGenres>(KEY_GAMES)
+        savedInstanceState?.getParcelable<StateGameGenres>(KEY_GAMES)?.let { games = it.gameGenres }
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -46,27 +46,22 @@ class ListFragment : Fragment(R.layout.fragment_list), DialogInterfaceListener {
             adapter = gamesAdapter
             layoutManager = LinearLayoutManager(requireContext())
             setHasFixedSize(true)
-           /* if (adapter?.itemCount == 0) {
-                val image: Drawable = ContextCompat.getDrawable(requireContext(), R.drawable.keep_it_clear)!!
-                val keepClear: GameGenre = GameGenre.KeepClear(image = image)
-                gamesAdapter?.updateGames(listOf(keepClear))
-                gamesAdapter?.notifyItemInserted(0)
-            }*/
         }
+        gamesAdapter?.updateGames(games, requireContext())
+        gamesAdapter?.notifyItemInserted(0)
     }
 
 
     private fun deleteGame(position: Int) {
         games = games.filterIndexed { index, _ -> index != position }
-        gamesAdapter?.updateGames(games)
+        gamesAdapter?.updateGames(games, requireContext())
         gamesAdapter?.notifyItemRemoved(position)
+
     }
 
     override fun onConfirm(game: GameGenre) {
-        /*val keepClear = games[0].let { it as? GameGenre.KeepClear }
-        if (games[0] == keepClear) games = emptyList()*/
         games = listOf(game) + games
-        gamesAdapter?.updateGames(games)
+        gamesAdapter?.updateGames(games, requireContext())
         gamesAdapter?.notifyItemInserted(0)
         binding.gamesListRecyclerView.scrollToPosition(0)
     }

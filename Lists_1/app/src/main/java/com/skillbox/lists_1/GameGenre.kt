@@ -36,6 +36,6 @@ sealed class GameGenre {
         val avatarLink: String = "",
         val rate: Float = 0f,
         val genre: String = "",
-        val image: Drawable
+        val image: Drawable?
         ): GameGenre()
 }
