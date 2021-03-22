@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.skillbox.lists_1.databinding.FragmentListBinding
 
@@ -13,7 +14,7 @@ class ListFragment : Fragment(R.layout.fragment_list), DialogInterfaceListener {
     private val binding by viewBinding(FragmentListBinding::bind)
 
     private var games: List<GameGenre> = emptyList()
-    private var gamesAdapter: GamesAdapter? = null
+    private var gamesAdapter: GamesAdapter by AutoClearedValue<GamesAdapter>()
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
@@ -31,10 +32,10 @@ class ListFragment : Fragment(R.layout.fragment_list), DialogInterfaceListener {
         binding.addFab.setOnClickListener { launchDialog() }
     }
 
-    override fun onDestroyView() {
+   /* override fun onDestroyView() {
         super.onDestroyView()
         gamesAdapter = null
-    }
+    }*/
 
     private fun launchDialog() {
         InputDataDialog().show(childFragmentManager, "Show input dialog")
@@ -47,8 +48,8 @@ class ListFragment : Fragment(R.layout.fragment_list), DialogInterfaceListener {
             layoutManager = LinearLayoutManager(requireContext())
             setHasFixedSize(true)
         }
-        gamesAdapter?.updateGames(games, requireContext())
-        gamesAdapter?.notifyItemInserted(0)
+        gamesAdapter.updateGames(games, requireContext())
+        gamesAdapter.notifyItemInserted(0)
     }
 
 
@@ -61,8 +62,8 @@ class ListFragment : Fragment(R.layout.fragment_list), DialogInterfaceListener {
 
     override fun onConfirm(game: GameGenre) {
         games = listOf(game) + games
-        gamesAdapter?.updateGames(games, requireContext())
-        gamesAdapter?.notifyItemInserted(0)
+        gamesAdapter.updateGames(games, requireContext())
+        gamesAdapter.notifyItemInserted(0)
         binding.gamesListRecyclerView.scrollToPosition(0)
     }
 

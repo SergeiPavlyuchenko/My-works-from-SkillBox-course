@@ -71,10 +71,13 @@ class GamesAdapter(
         if (newGames.isEmpty()) {
             games = listOf(keepClear)
         } else {
-            games = if (games[0] == keepClear) {
-                games.filter { it != keepClear }
-            } else newGames
-            notifyDataSetChanged()
+            val hasEmptyPlaceholderBefore =
+                games.size == 1 && games[0] is GameGenre.KeepClear
+
+            games = newGames
+            if (hasEmptyPlaceholderBefore) {
+                notifyDataSetChanged()
+            }
         }
     }
 
