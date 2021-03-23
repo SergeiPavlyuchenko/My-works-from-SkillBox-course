@@ -144,6 +144,8 @@ class InputDataDialog : DialogFragment() {
 
             }
 
+
+
             override fun onNothingSelected(parent: AdapterView<*>?) {
             }
         }

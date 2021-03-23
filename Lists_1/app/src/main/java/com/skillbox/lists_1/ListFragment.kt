@@ -16,6 +16,7 @@ class ListFragment : Fragment(R.layout.fragment_list), DialogInterfaceListener {
     private var games: List<GameGenre> = emptyList()
     private var gamesAdapter: GamesAdapter by AutoClearedValue<GamesAdapter>()
 
+
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
         outState.putParcelable(KEY_GAMES, StateGameGenres(games))
@@ -25,6 +26,7 @@ class ListFragment : Fragment(R.layout.fragment_list), DialogInterfaceListener {
         super.onCreate(savedInstanceState)
         savedInstanceState?.getParcelable<StateGameGenres>(KEY_GAMES)?.let { games = it.gameGenres }
     }
+
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
@@ -55,8 +57,8 @@ class ListFragment : Fragment(R.layout.fragment_list), DialogInterfaceListener {
 
     private fun deleteGame(position: Int) {
         games = games.filterIndexed { index, _ -> index != position }
-        gamesAdapter?.updateGames(games, requireContext())
-        gamesAdapter?.notifyItemRemoved(position)
+        gamesAdapter.updateGames(games, requireContext())
+        gamesAdapter.notifyItemRemoved(position)
 
     }
 
