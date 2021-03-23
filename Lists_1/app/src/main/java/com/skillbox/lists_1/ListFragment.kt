@@ -17,6 +17,7 @@ class ListFragment : Fragment(R.layout.fragment_list), DialogInterfaceListener {
     private var gamesAdapter: GamesAdapter by AutoClearedValue<GamesAdapter>()
 
 
+
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
         outState.putParcelable(KEY_GAMES, StateGameGenres(games))
