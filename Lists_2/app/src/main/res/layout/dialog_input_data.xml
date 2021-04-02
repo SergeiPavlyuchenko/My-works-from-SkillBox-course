@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent">
+
+<TextView
+    android:id="@+id/informationTextView"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    android:gravity="center"
+    android:textSize="20sp"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
+
+
+<EditText
+    android:id="@+id/gameNameEditText"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:hint="@string/text_name"
+    android:textSize="16sp"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/informationTextView" />
+
+<EditText
+    android:id="@+id/avatarLinkEditText"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:hint="@string/text_link_for_avatar"
+    android:textSize="16sp"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/gameNameEditText" />
+
+<Spinner
+    android:id="@+id/gameGenresSpinner"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    android:layout_marginEnd="8dp"
+    android:entries="@array/gameGenres"
+    app:layout_constraintEnd_toStartOf="@id/rateGameSpinner"
+    app:layout_constraintStart_toStartOf="@id/gameNameEditText"
+    app:layout_constraintTop_toBottomOf="@id/isCoopCheckBox" />
+
+<Spinner
+    android:id="@+id/rateGameSpinner"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="8dp"
+    android:layout_marginTop="8dp"
+    android:entries="@array/rateGame"
+    app:layout_constraintEnd_toEndOf="@id/gameNameEditText"
+    app:layout_constraintStart_toEndOf="@id/gameGenresSpinner"
+    app:layout_constraintTop_toBottomOf="@id/isCoopCheckBox" />
+
+<CheckBox
+    android:id="@+id/isCoopCheckBox"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:layout_constraintStart_toStartOf="@id/gameNameEditText"
+    app:layout_constraintTop_toBottomOf="@id/avatarLinkEditText" />
+
+<TextView
+    android:id="@+id/isCoopTextView"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:text="@string/text_isCoop_available"
+    android:textSize="20sp"
+    app:layout_constraintBottom_toBottomOf="@id/isCoopCheckBox"
+    app:layout_constraintStart_toEndOf="@id/isCoopCheckBox"
+    app:layout_constraintTop_toTopOf="@id/isCoopCheckBox" />
+
+
+<Button
+    android:id="@+id/createRandomGameButton"
+    android:layout_width="0dp"
+    android:layout_height="35dp"
+    android:layout_marginTop="8dp"
+    android:backgroundTint="@color/green"
+    android:text="@string/text_create_random_game"
+    android:textSize="12sp"
+    app:layout_constraintEnd_toEndOf="@+id/rateGameSpinner"
+    app:layout_constraintStart_toStartOf="@+id/gameGenresSpinner"
+    app:layout_constraintTop_toBottomOf="@+id/gameGenresSpinner" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

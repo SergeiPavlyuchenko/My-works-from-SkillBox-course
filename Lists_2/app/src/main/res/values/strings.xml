@@ -1,0 +1,41 @@
+<resources>
+    <string name="app_name">Lists_2</string>
+    <string name="text_hint_name">Name: </string>
+    <string name="text_enter_game_information">Enter game information:</string>
+    <string name="text_name">Name</string>
+    <string name="text_link_for_avatar">Link for avatar</string>
+    <string name="text_isCoop_available">Coop Mode</string>
+    <string name="text_shooter">Shooter</string>
+    <string name="text_strategy">Strategy</string>
+    <string name="text_ccg">CCG</string>
+    <string name="text_create_random_game">Create random game</string>
+    <string name="text_recyclerview">recyclerView practice</string>
+    <string-array name="gameGenres">
+        <item>Shooter</item>
+        <item>Strategy</item>
+        <item>CCG</item>
+    </string-array>
+    <string-array name="rateGame">
+        <item>0.0</item>
+        <item>0.5</item>
+        <item>1.0</item>
+        <item>1.5</item>
+        <item>2.0</item>
+        <item>2.5</item>
+        <item>3.0</item>
+        <item>3.5</item>
+        <item>4.0</item>
+        <item>4.5</item>
+        <item>5.0</item>
+        <item>5.5</item>
+        <item>6.0</item>
+        <item>6.5</item>
+        <item>7.0</item>
+        <item>7.5</item>
+        <item>8.0</item>
+        <item>8.5</item>
+        <item>9.0</item>
+        <item>9.5</item>
+        <item>10.0</item>
+    </string-array>
+</resources>
