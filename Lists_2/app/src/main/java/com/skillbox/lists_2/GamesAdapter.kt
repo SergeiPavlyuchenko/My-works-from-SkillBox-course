@@ -10,6 +10,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.skillbox.lists_2.databinding.ItemShooterBinding
 import kotlinx.android.extensions.LayoutContainer
 
 class GamesAdapter(
@@ -85,8 +86,9 @@ class GamesAdapter(
     abstract class BaseGames(
         view: View,
         onItemClick: (position: Int) -> Unit,
-    ) : RecyclerView.ViewHolder(view) {
+    ) : RecyclerView.ViewHolder(view){
 
+        private val binding = ItemShooterBinding.bind(view)
 
         private val nameTextView: TextView = view.findViewById(R.id.nameTextView)
         private val avatarLinkImageView: ImageView = view.findViewById(R.id.avatarImageView)

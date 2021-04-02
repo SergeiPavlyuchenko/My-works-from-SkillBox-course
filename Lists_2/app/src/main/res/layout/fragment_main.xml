@@ -7,16 +7,49 @@
     android:background="@drawable/player">
 
     <Button
-        android:id="@+id/recyclerViewButton"
+        android:id="@+id/defaultRecyclerViewButton"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="200dp"
         android:backgroundTint="@color/button_colors"
-        android:text="@string/text_recyclerview"
+        android:text="@string/text_default_recyclerview"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/horizontalRecyclerViewButton"
+        android:layout_width="275dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:backgroundTint="@color/button_colors"
+        android:text="@string/text_horizontal_recyclerview"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/defaultRecyclerViewButton" />
+
+    <Button
+        android:id="@+id/gridRecyclerViewButton"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:backgroundTint="@color/button_colors"
+        android:text="@string/text_grid_recyclerview"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/horizontalRecyclerViewButton" />
+
+    <Button
+        android:id="@+id/staggeredRecyclerViewButton"
+        android:layout_width="325dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:backgroundTint="@color/button_colors"
+        android:text="@string/text_staggered_grid_recyclerview"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/gridRecyclerViewButton" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

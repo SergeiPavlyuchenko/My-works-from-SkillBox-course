@@ -9,7 +9,10 @@
     <string name="text_strategy">Strategy</string>
     <string name="text_ccg">CCG</string>
     <string name="text_create_random_game">Create random game</string>
-    <string name="text_recyclerview">recyclerView practice</string>
+    <string name="text_default_recyclerview">default recyclerView</string>
+    <string name="text_horizontal_recyclerview">horizontal recyclerView</string>
+    <string name="text_grid_recyclerview">grid recyclerView</string>
+    <string name="text_staggered_grid_recyclerview">Staggered Grid RecyclerView</string>
     <string-array name="gameGenres">
         <item>Shooter</item>
         <item>Strategy</item>
