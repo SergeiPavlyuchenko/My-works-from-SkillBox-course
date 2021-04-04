@@ -2,29 +2,31 @@ package com.skillbox.lists_2
 
 import android.content.Context
 import android.graphics.drawable.Drawable
-import android.view.View
+import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
+import androidx.viewbinding.ViewBinding
 import com.bumptech.glide.Glide
+import com.skillbox.lists_2.databinding.ItemCcgBinding
+import com.skillbox.lists_2.databinding.ItemKeepClearBinding
 import com.skillbox.lists_2.databinding.ItemShooterBinding
-import kotlinx.android.extensions.LayoutContainer
+import com.skillbox.lists_2.databinding.ItemStrategyBinding
 
 class GamesAdapter(
     private val onItemClick: (position: Int) -> Unit
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private var games: List<GameGenre> = emptyList()
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return when (viewType) {
-            KEY_SHOOTER -> ShooterHolder(parent.inflate(R.layout.item_shooter), onItemClick)
-            KEY_STRATEGY -> StrategyHolder(parent.inflate(R.layout.item_strategy), onItemClick)
-            KEY_CCG -> CcgHolder(parent.inflate(R.layout.item_ccg), onItemClick)
-            KEY_KEEPCLEAR -> KeepClearHolder(parent.inflate(R.layout.item_keep_clear_), onItemClick)
+            KEY_SHOOTER -> ShooterHolder(ItemShooterBinding.inflate(LayoutInflater.from(parent.context)), onItemClick)//ShooterHolder(parent.inflate(R.layout.item_shooter), onItemClick)
+            KEY_STRATEGY -> StrategyHolder(ItemStrategyBinding.inflate(LayoutInflater.from(parent.context)), onItemClick)
+            KEY_CCG -> CcgHolder(ItemCcgBinding.inflate(LayoutInflater.from(parent.context)), onItemClick)
+            KEY_KEEP_CLEAR -> KeepClearHolder(ItemKeepClearBinding.inflate(LayoutInflater.from(parent.context)), onItemClick)
             else -> error("Incorrect viewType = $viewType")
         }
     }
@@ -34,7 +36,7 @@ class GamesAdapter(
             is GameGenre.Shooters -> KEY_SHOOTER
             is GameGenre.Strategy -> KEY_STRATEGY
             is GameGenre.Ccg -> KEY_CCG
-            is GameGenre.KeepClear -> KEY_KEEPCLEAR
+            is GameGenre.KeepClear -> KEY_KEEP_CLEAR
         }
     }
 
@@ -84,24 +86,23 @@ class GamesAdapter(
     }
 
     abstract class BaseGames(
-        view: View,
+        binding: ViewBinding,
         onItemClick: (position: Int) -> Unit,
-    ) : RecyclerView.ViewHolder(view){
+    ) : RecyclerView.ViewHolder(binding.root){
 
-        private val binding = ItemShooterBinding.bind(view)
 
-        private val nameTextView: TextView = view.findViewById(R.id.nameTextView)
+        /*private val nameTextView: TextView = view.findViewById(R.id.nameTextView)
         private val avatarLinkImageView: ImageView = view.findViewById(R.id.avatarImageView)
         private val rateTextView: TextView = view.findViewById(R.id.rateGameTextView)
-        private val genreTextView: TextView = view.findViewById(R.id.genreTextView)
+        private val genreTextView: TextView = view.findViewById(R.id.genreTextView)*/
 
         init {
-            view.setOnClickListener {
+            binding.root.setOnClickListener {
                 onItemClick(adapterPosition)
             }
         }
 
-        protected fun bindMainInfo(
+        /*protected fun bindMainInfo(
             name: String,
             avatarLink: String,
             rate: Float,
@@ -117,50 +118,104 @@ class GamesAdapter(
                     .placeholder(R.drawable.ic_videogame)
                     .error(R.drawable.ic_error)
                     .into(avatarLinkImageView)
-        }
+        }*/
     }
 
     class ShooterHolder(
-        view: View,
+        binding: ItemShooterBinding,
         onItemClick: (position: Int) -> Unit
-    ) : BaseGames(view, onItemClick) {
-        private val isCoopImageView: ImageView = view.findViewById(R.id.coopModeImageView)
+    ) : BaseGames(binding, onItemClick) {
+        private val nameTextView: TextView = binding.nameTextView
+        private val avatarLinkImageView: ImageView = binding.avatarImageView
+        private val rateTextView: TextView = binding.rateGameTextView
+        private val genreTextView: TextView = binding.genreTextView
+        private val isCoopImageView: ImageView = binding.coopModeImageView
+
 
         fun bind(game: GameGenre.Shooters) {
-            bindMainInfo(game.name, game.avatarLink, game.rate, game.genre)
+            nameTextView.text = game.name
+            rateTextView.text = game.rate.toString()
+            genreTextView.text = game.genre
             isCoopImageView.isVisible = game.isCoop
 
+            Glide.with(itemView)
+                .load(game.avatarLink)
+                .centerCrop()
+                .placeholder(R.drawable.ic_videogame)
+                .error(R.drawable.ic_error)
+                .into(avatarLinkImageView)
         }
     }
 
     class StrategyHolder(
-        view: View,
+        binding: ItemStrategyBinding,
         onItemClick: (position: Int) -> Unit
-    ) : BaseGames(view, onItemClick) {
+    ) : BaseGames(binding, onItemClick) {
 
-        private val isCoopImageView: ImageView = view.findViewById(R.id.coopModeImageView)
+        private val nameTextView: TextView = binding.nameTextView
+        private val avatarLinkImageView: ImageView = binding.avatarImageView
+        private val rateTextView: TextView = binding.rateGameTextView
+        private val genreTextView: TextView = binding.genreTextView
+        private val isCoopImageView: ImageView = binding.coopModeImageView
 
         fun bind(game: GameGenre.Strategy) {
-            bindMainInfo(game.name, game.avatarLink, game.rate, game.genre)
+            nameTextView.text = game.name
+            rateTextView.text = game.rate.toString()
+            genreTextView.text = game.genre
             isCoopImageView.isVisible = game.isCoop
+
+            Glide.with(itemView)
+                .load(game.avatarLink)
+                .centerCrop()
+                .placeholder(R.drawable.ic_videogame)
+                .error(R.drawable.ic_error)
+                .into(avatarLinkImageView)
         }
     }
 
     class CcgHolder(
-        view: View,
+        binding: ItemCcgBinding,
         onItemClick: (position: Int) -> Unit
-    ) : BaseGames(view, onItemClick) {
+    ) : BaseGames(binding, onItemClick) {
+        private val nameTextView: TextView = binding.nameTextView
+        private val avatarLinkImageView: ImageView = binding.avatarImageView
+        private val rateTextView: TextView = binding.rateGameTextView
+        private val genreTextView: TextView = binding.genreTextView
+
         fun bind(game: GameGenre.Ccg) {
-            bindMainInfo(game.name, game.avatarLink, game.rate, game.genre)
+            nameTextView.text = game.name
+            rateTextView.text = game.rate.toString()
+            genreTextView.text = game.genre
+
+            Glide.with(itemView)
+                .load(game.avatarLink)
+                .centerCrop()
+                .placeholder(R.drawable.ic_videogame)
+                .error(R.drawable.ic_error)
+                .into(avatarLinkImageView)
         }
     }
 
     class KeepClearHolder(
-        view: View,
+        binding: ItemKeepClearBinding,
         onItemClick: (position: Int) -> Unit
-    ) : BaseGames(view, onItemClick) {
+    ) : BaseGames(binding, onItemClick) {
+        private val nameTextView: TextView = binding.nameTextView
+        private val avatarLinkImageView: ImageView = binding.avatarImageView
+        private val rateTextView: TextView = binding.rateGameTextView
+        private val genreTextView: TextView = binding.genreTextView
+
         fun bind(game: GameGenre.KeepClear) {
-            bindMainInfo(game.name, game.avatarLink, game.rate, game.genre)
+            nameTextView.text = game.name
+            rateTextView.text = game.rate.toString()
+            genreTextView.text = game.genre
+
+            Glide.with(itemView)
+                .load(game.avatarLink)
+                .centerCrop()
+                .placeholder(R.drawable.ic_videogame)
+                .error(R.drawable.ic_error)
+                .into(avatarLinkImageView)
         }
     }
 
@@ -168,7 +223,7 @@ class GamesAdapter(
         private const val KEY_SHOOTER = 1
         private const val KEY_STRATEGY = 2
         private const val KEY_CCG = 3
-        private const val KEY_KEEPCLEAR = 4
+        private const val KEY_KEEP_CLEAR = 4
     }
 
 }

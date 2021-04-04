@@ -2,6 +2,7 @@ package com.skillbox.lists_1
 
 import android.graphics.drawable.Drawable
 import android.os.Bundle
+import android.view.View
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -29,8 +30,8 @@ class ListFragment : Fragment(R.layout.fragment_list), DialogInterfaceListener {
     }
 
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         initList()
         binding.addFab.setOnClickListener { launchDialog() }
     }
