@@ -7,12 +7,14 @@
     android:background="?attr/selectableItemBackground"
     android:padding="16dp">
 
-    <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@id/avatarImageView"
         android:layout_width="96dp"
         android:layout_height="96dp"
         app:civ_border_color="@color/blue"
         app:civ_border_width="2dp"
+        app:layout_constraintEnd_toStartOf="@+id/nameTextView"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:src="@tools:sample/avatars" />
@@ -29,7 +31,8 @@
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/avatarImageView"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/avatarImageView"
         app:layout_constraintTop_toTopOf="@id/avatarImageView"
         tools:text="HearthStone" />
 
@@ -84,11 +87,10 @@
         app:layout_constraintVertical_bias="0.333"
         tools:text="9.8" />
 
-    <View
+     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_margin="16dp"
-        android:background="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/avatarImageView" />

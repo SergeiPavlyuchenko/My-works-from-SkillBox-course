@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.*
 import androidx.fragment.app.DialogFragment
+import kotlin.random.Random.Default.nextLong
 
 class InputDataDialog : DialogFragment() {
 
@@ -59,6 +60,7 @@ class InputDataDialog : DialogFragment() {
     }
 
     private fun createGame(): GameGenre {
+        val id = nextLong()
         val name = nameEditText.text.toString()
         val avatarLink = avatarLinkEditText.text.toString()
         val genre = genreSpinner.selectedItem.toString()
@@ -67,6 +69,7 @@ class InputDataDialog : DialogFragment() {
 
         return when (genre) {
             getString(R.string.text_shooter) -> GameGenre.Shooters(
+                id,
                 name,
                 avatarLink,
                 rate,
@@ -74,13 +77,14 @@ class InputDataDialog : DialogFragment() {
                 isCoop
             )
             getString(R.string.text_strategy) -> GameGenre.Strategy(
+                id,
                 name,
                 avatarLink,
                 rate,
                 genre,
                 isCoop
             )
-            getString(R.string.text_ccg) -> GameGenre.Ccg(name, avatarLink, rate, genre)
+            getString(R.string.text_ccg) -> GameGenre.Ccg(id, name, avatarLink, rate, genre)
             else -> error("Incorrectly selected genre")
         }
     }
@@ -146,8 +150,7 @@ class InputDataDialog : DialogFragment() {
 
 
 
-            override fun onNothingSelected(parent: AdapterView<*>?) {
-            }
+            override fun onNothingSelected(parent: AdapterView<*>?) = Unit
         }
     }
 }

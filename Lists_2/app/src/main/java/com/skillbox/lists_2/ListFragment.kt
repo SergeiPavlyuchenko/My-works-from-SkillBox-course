@@ -1,13 +1,14 @@
 package com.skillbox.lists_2
 
+import android.graphics.drawable.Drawable
 import android.os.Bundle
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import androidx.recyclerview.widget.*
 import by.kirich1409.viewbindingdelegate.viewBinding
+import com.skillbox.lists_2.adapters.GamesAdapter
 import com.skillbox.lists_2.databinding.FragmentListBinding
+import jp.wasabeef.recyclerview.animators.FlipInTopXAnimator
 
 class ListFragment : Fragment(R.layout.fragment_list), DialogInterfaceListener {
 
@@ -16,6 +17,8 @@ class ListFragment : Fragment(R.layout.fragment_list), DialogInterfaceListener {
     private var games: List<GameGenre> = emptyList()
     private var gamesAdapter: GamesAdapter by AutoClearedValue<GamesAdapter>()
     private lateinit var userLayoutManager: RecyclerView.LayoutManager
+    private var dividerItemDecoration: DividerItemDecoration? = null
+    private var itemOffsetDecoration: RecyclerView.ItemDecoration? = null
 
 
     override fun onSaveInstanceState(outState: Bundle) {
@@ -32,7 +35,7 @@ class ListFragment : Fragment(R.layout.fragment_list), DialogInterfaceListener {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        initList(userLayoutManager)
+        initList(userLayoutManager, dividerItemDecoration, itemOffsetDecoration)
         binding.addFab.setOnClickListener { launchDialog() }
     }
 
@@ -45,42 +48,76 @@ class ListFragment : Fragment(R.layout.fragment_list), DialogInterfaceListener {
         InputDataDialog().show(childFragmentManager, "Show input dialog")
     }
 
-    private fun initList(userLayoutManager: RecyclerView.LayoutManager) {
+    private fun initList(
+        userLayoutManager: RecyclerView.LayoutManager,
+        dividerItemDecoration: DividerItemDecoration?,
+        itemOffsetDecoration: RecyclerView.ItemDecoration?
+    ) {
         gamesAdapter = GamesAdapter { position -> deleteGame(position) }
         with(binding.gamesListRecyclerView) {
+            dividerItemDecoration?.let { addItemDecoration(it) }
+            itemOffsetDecoration?.let { addItemDecoration(it) }
             adapter = gamesAdapter
             layoutManager = userLayoutManager
             setHasFixedSize(true)
+            itemAnimator = FlipInTopXAnimator()
         }
-        gamesAdapter.updateGames(games, requireContext())
-        gamesAdapter.notifyItemInserted(0)
+
+        val image: Drawable? = ContextCompat.getDrawable(requireContext(), R.drawable.keep_it_clear)
+        val keepClear: GameGenre = GameGenre.KeepClear(image = image)
+
+        if (games.isEmpty()) {
+            gamesAdapter.items = listOf(keepClear)
+        } else {
+            gamesAdapter.items = games
+        }
+//        gamesAdapter.notifyItemInserted(0)
     }
 
 
     private fun deleteGame(position: Int) {
         games = games.filterIndexed { index, _ -> index != position }
-        gamesAdapter.updateGames(games, requireContext())
-        gamesAdapter.notifyItemRemoved(position)
+        val image: Drawable? = ContextCompat.getDrawable(requireContext(), R.drawable.keep_it_clear)
+        val keepClear: GameGenre = GameGenre.KeepClear(image = image)
+
+        if (games.isEmpty()) {
+            gamesAdapter.items = listOf(keepClear)
+        } else {
+            gamesAdapter.items = games
+        }
+//        gamesAdapter.notifyItemRemoved(position)
 
     }
 
     override fun onConfirm(game: GameGenre) {
         games = listOf(game) + games
-        gamesAdapter.updateGames(games, requireContext())
-        gamesAdapter.notifyItemInserted(0)
+        gamesAdapter.items = games
+//        gamesAdapter.notifyItemInserted(0)
         binding.gamesListRecyclerView.scrollToPosition(0)
     }
 
     private fun layoutManagerManagement() {
         when {
-            arguments?.getString(KEY_VERTICAL) == KEY_VERTICAL -> userLayoutManager =
-                LinearLayoutManager(requireContext())
+            arguments?.getString(KEY_VERTICAL) == KEY_VERTICAL -> {
+                userLayoutManager = LinearLayoutManager(requireContext())
+                dividerItemDecoration =
+                    DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL)
+            }
             arguments?.getString(KEY_HORIZONTAL) == KEY_HORIZONTAL -> userLayoutManager =
-                LinearLayoutManager(requireContext()).apply { orientation = LinearLayoutManager.HORIZONTAL }
+                LinearLayoutManager(requireContext()).apply {
+                    orientation = LinearLayoutManager.HORIZONTAL
+                }
             arguments?.getString(KEY_GRID) == KEY_GRID -> userLayoutManager =
-                GridLayoutManager(requireContext(), 3)
+                GridLayoutManager(requireContext(), 3).apply {
+                    itemOffsetDecoration = ItemOffsetDecoration(requireContext())
+                    spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
+                        override fun getSpanSize(position: Int): Int {
+                            return if (position % 3 == 0) 2 else 1
+                        }
+                    }
+                }
             arguments?.getString(KEY_STAGGER_GRID) == KEY_STAGGER_GRID -> userLayoutManager =
-                StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.HORIZONTAL)
+                StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL)
         }
     }
 
