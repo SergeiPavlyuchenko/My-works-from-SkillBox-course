@@ -40,28 +40,25 @@ class StrategyAdapterDelegate(
     }
 
     class StrategyHolder(
-        binding: ItemStrategyBinding,
+        private val binding: ItemStrategyBinding,
         onItemClick: (position: Int) -> Unit
     ) : GamesAdapter.BaseGames(binding, onItemClick) {
 
-        private val nameTextView: TextView = binding.nameTextView
-        private val avatarLinkImageView: ImageView = binding.avatarImageView
-        private val rateTextView: TextView = binding.rateGameTextView
-        private val genreTextView: TextView = binding.genreTextView
-        private val isCoopImageView: ImageView = binding.coopModeImageView
-
         fun bind(game: GameGenre.Strategy) {
-            nameTextView.text = game.name
-            rateTextView.text = game.rate.toString()
-            genreTextView.text = game.genre
-            isCoopImageView.isVisible = game.isCoop
+            with(binding) {
+                nameTextView.text = game.name
+                rateGameTextView.text = game.rate.toString()
+                genreTextView.text = game.genre
+                coopModeImageView.isVisible = game.isCoop
+            }
+
 
             Glide.with(itemView)
                 .load(game.avatarLink)
                 .centerCrop()
                 .placeholder(R.drawable.ic_videogame)
                 .error(R.drawable.ic_error)
-                .into(avatarLinkImageView)
+                .into(binding.avatarImageView)
         }
     }
 }

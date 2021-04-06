@@ -9,6 +9,7 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import com.skillbox.lists_2.adapters.GamesAdapter
 import com.skillbox.lists_2.databinding.FragmentListBinding
 import jp.wasabeef.recyclerview.animators.FlipInTopXAnimator
+import java.time.ZoneOffset
 
 class ListFragment : Fragment(R.layout.fragment_list), DialogInterfaceListener {
 
@@ -19,7 +20,7 @@ class ListFragment : Fragment(R.layout.fragment_list), DialogInterfaceListener {
     private lateinit var userLayoutManager: RecyclerView.LayoutManager
     private var dividerItemDecoration: DividerItemDecoration? = null
     private var itemOffsetDecoration: RecyclerView.ItemDecoration? = null
-
+    private val randomGames = List(10) { AppData.randomGames.random() }
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
@@ -35,6 +36,7 @@ class ListFragment : Fragment(R.layout.fragment_list), DialogInterfaceListener {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+        games = randomGames
         initList(userLayoutManager, dividerItemDecoration, itemOffsetDecoration)
         binding.addFab.setOnClickListener { launchDialog() }
     }
@@ -59,6 +61,9 @@ class ListFragment : Fragment(R.layout.fragment_list), DialogInterfaceListener {
             itemOffsetDecoration?.let { addItemDecoration(it) }
             adapter = gamesAdapter
             layoutManager = userLayoutManager
+
+            addOnScrollListener(endLessViewScroll(userLayoutManager))
+
             setHasFixedSize(true)
             itemAnimator = FlipInTopXAnimator()
         }
@@ -71,7 +76,30 @@ class ListFragment : Fragment(R.layout.fragment_list), DialogInterfaceListener {
         } else {
             gamesAdapter.items = games
         }
-//        gamesAdapter.notifyItemInserted(0)
+    }
+
+    private fun endLessViewScroll(layoutManager: RecyclerView.LayoutManager): EndlessRecyclerViewScrollListener {
+        return when (layoutManager) {
+            is LinearLayoutManager -> object :
+                EndlessRecyclerViewScrollListener(LinearLayoutManager(requireContext())) {
+                override fun onLoadMore(page: Int, totalItemsCount: Int, view: RecyclerView?) {
+                    gamesAdapter.items = gamesAdapter.items + randomGames
+                }
+            }
+            is GridLayoutManager -> object :
+                EndlessRecyclerViewScrollListener(GridLayoutManager(requireContext(), 5)) {
+                override fun onLoadMore(page: Int, totalItemsCount: Int, view: RecyclerView?) {
+                    gamesAdapter.items = gamesAdapter.items + randomGames
+                }
+            }
+            is StaggeredGridLayoutManager -> object : EndlessRecyclerViewScrollListener(
+                StaggeredGridLayoutManager(5, StaggeredGridLayoutManager.VERTICAL)) {
+                override fun onLoadMore(page: Int, totalItemsCount: Int, view: RecyclerView?) {
+                    gamesAdapter.items = gamesAdapter.items + randomGames
+                }
+            }
+            else -> error("Incorrect layoutManager")
+        }
     }
 
 
@@ -85,14 +113,12 @@ class ListFragment : Fragment(R.layout.fragment_list), DialogInterfaceListener {
         } else {
             gamesAdapter.items = games
         }
-//        gamesAdapter.notifyItemRemoved(position)
 
     }
 
     override fun onConfirm(game: GameGenre) {
         games = listOf(game) + games
         gamesAdapter.items = games
-//        gamesAdapter.notifyItemInserted(0)
         binding.gamesListRecyclerView.scrollToPosition(0)
     }
 

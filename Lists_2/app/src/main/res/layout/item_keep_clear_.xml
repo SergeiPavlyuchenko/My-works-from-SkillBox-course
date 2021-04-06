@@ -8,7 +8,7 @@
 
     <ImageView
         android:id="@+id/keepClearImageView"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="50dp"
         android:src="@drawable/keep_it_clear"

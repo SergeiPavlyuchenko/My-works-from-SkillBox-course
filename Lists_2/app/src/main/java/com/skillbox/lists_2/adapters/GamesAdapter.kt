@@ -1,19 +1,10 @@
 package com.skillbox.lists_2.adapters
 
-import android.content.Context
-import android.graphics.drawable.Drawable
-import android.view.LayoutInflater
-import android.view.ViewGroup
-import androidx.core.content.ContextCompat
-import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
-import com.hannesdorfmann.adapterdelegates4.AdapterDelegatesManager
 import com.hannesdorfmann.adapterdelegates4.AsyncListDifferDelegationAdapter
 import com.skillbox.lists_2.GameGenre
-import com.skillbox.lists_2.R
-import com.skillbox.lists_2.databinding.ItemKeepClearBinding
 
 class GamesAdapter(
     private val onItemClick: (position: Int) -> Unit
@@ -57,8 +48,8 @@ class GamesAdapter(
     class GamesDiffUtilCallBack : DiffUtil.ItemCallback<GameGenre>() {
         override fun areItemsTheSame(oldItem: GameGenre, newItem: GameGenre): Boolean {
             return when {
-                oldItem is GameGenre.Ccg && newItem is GameGenre.Ccg -> oldItem.id == newItem.id
-                oldItem is GameGenre.Ccg && newItem is GameGenre.Ccg -> oldItem.id == newItem.id
+                oldItem is GameGenre.Shooters && newItem is GameGenre.Shooters -> oldItem.id == newItem.id
+                oldItem is GameGenre.Strategy && newItem is GameGenre.Strategy -> oldItem.id == newItem.id
                 oldItem is GameGenre.Ccg && newItem is GameGenre.Ccg -> oldItem.id == newItem.id
                 oldItem is GameGenre.KeepClear && newItem is GameGenre.KeepClear -> oldItem.id == newItem.id
                 else -> false
