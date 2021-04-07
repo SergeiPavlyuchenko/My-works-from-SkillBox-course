@@ -45,6 +45,15 @@ class MainFragment : Fragment(R.layout.fragment_main) {
             )
         }
 
+        binding.paginationRecyclerViewButton.setOnClickListener {
+            parentFragmentManager.transaction(
+                R.id.containerHostFragment, ListFragment.newInstance(
+                    ListFragment.KEY_PAGINATION
+                )
+            )
+        }
+
+
     }
 
     companion object {

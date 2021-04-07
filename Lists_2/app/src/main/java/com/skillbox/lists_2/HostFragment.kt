@@ -12,8 +12,22 @@ class HostFragment: Fragment(R.layout.fragment_host) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        if (savedInstanceState == null) {
-            childFragmentManager.transaction(R.id.containerHostFragment, MainFragment(), false)
+        /*if (savedInstanceState == null) {
+            childFragmentManager.transaction(R.id.containerHostFragment, MainFragment(), true)
+        }*/
+
+        binding.test1TransactionRecyclerViewButton.setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.containerActivity, TestFragment(), "TestFragment")
+                .addToBackStack(null)
+                .commit()
+        }
+
+        binding.test2TransactionRecyclerViewButton.setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.containerActivity, TestFragment(), "TestFragment")
+                .addToBackStack(null)
+                .commit()
         }
     }
 

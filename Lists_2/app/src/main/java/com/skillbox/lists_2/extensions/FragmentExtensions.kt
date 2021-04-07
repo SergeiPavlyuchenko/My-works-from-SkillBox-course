@@ -19,6 +19,4 @@ fun <T : FragmentManager> T.transaction(
             .replace(container, inputFragment)
             .commit()
     }
-
-
 }

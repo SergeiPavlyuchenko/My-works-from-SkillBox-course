@@ -9,7 +9,6 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import com.skillbox.lists_2.adapters.GamesAdapter
 import com.skillbox.lists_2.databinding.FragmentListBinding
 import jp.wasabeef.recyclerview.animators.FlipInTopXAnimator
-import java.time.ZoneOffset
 
 class ListFragment : Fragment(R.layout.fragment_list), DialogInterfaceListener {
 
@@ -20,7 +19,9 @@ class ListFragment : Fragment(R.layout.fragment_list), DialogInterfaceListener {
     private lateinit var userLayoutManager: RecyclerView.LayoutManager
     private var dividerItemDecoration: DividerItemDecoration? = null
     private var itemOffsetDecoration: RecyclerView.ItemDecoration? = null
-    private val randomGames = List(10) { AppData.randomGames.random() }
+    private var isLastPage: Boolean = false
+    private var isLoading: Boolean = false
+    private var isPaginated: Boolean = false
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
@@ -36,7 +37,6 @@ class ListFragment : Fragment(R.layout.fragment_list), DialogInterfaceListener {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        games = randomGames
         initList(userLayoutManager, dividerItemDecoration, itemOffsetDecoration)
         binding.addFab.setOnClickListener { launchDialog() }
     }
@@ -62,7 +62,7 @@ class ListFragment : Fragment(R.layout.fragment_list), DialogInterfaceListener {
             adapter = gamesAdapter
             layoutManager = userLayoutManager
 
-            addOnScrollListener(endLessViewScroll(userLayoutManager))
+            if (isPaginated) addOnScrollListener(getPaginationScrollListener(userLayoutManager))
 
             setHasFixedSize(true)
             itemAnimator = FlipInTopXAnimator()
@@ -71,37 +71,48 @@ class ListFragment : Fragment(R.layout.fragment_list), DialogInterfaceListener {
         val image: Drawable? = ContextCompat.getDrawable(requireContext(), R.drawable.keep_it_clear)
         val keepClear: GameGenre = GameGenre.KeepClear(image = image)
 
-        if (games.isEmpty()) {
+        if (games.isEmpty() && !isPaginated) {
             gamesAdapter.items = listOf(keepClear)
         } else {
             gamesAdapter.items = games
         }
     }
 
-    private fun endLessViewScroll(layoutManager: RecyclerView.LayoutManager): EndlessRecyclerViewScrollListener {
+    private fun getPaginationScrollListener(layoutManager: RecyclerView.LayoutManager): PaginationScrollListener {
+        if (gamesAdapter.itemCount == 0) {
+            gamesAdapter.items = gamesAdapter.items + AppData.randomGames.random()
+        }
         return when (layoutManager) {
             is LinearLayoutManager -> object :
-                EndlessRecyclerViewScrollListener(LinearLayoutManager(requireContext())) {
-                override fun onLoadMore(page: Int, totalItemsCount: Int, view: RecyclerView?) {
-                    gamesAdapter.items = gamesAdapter.items + randomGames
+                PaginationScrollListener(layoutManager) {
+                override fun isLastPage(): Boolean {
+                    return isLastPage
                 }
-            }
-            is GridLayoutManager -> object :
-                EndlessRecyclerViewScrollListener(GridLayoutManager(requireContext(), 5)) {
-                override fun onLoadMore(page: Int, totalItemsCount: Int, view: RecyclerView?) {
-                    gamesAdapter.items = gamesAdapter.items + randomGames
+
+                override fun isLoading(): Boolean {
+                    return isLoading
                 }
-            }
-            is StaggeredGridLayoutManager -> object : EndlessRecyclerViewScrollListener(
-                StaggeredGridLayoutManager(5, StaggeredGridLayoutManager.VERTICAL)) {
-                override fun onLoadMore(page: Int, totalItemsCount: Int, view: RecyclerView?) {
-                    gamesAdapter.items = gamesAdapter.items + randomGames
+
+                override fun loadMoreItems() {
+                    if (gamesAdapter.itemCount <= 50) {
+                        isLoading = true
+                        getMoreData()
+                    } else {
+                        isLastPage = true
+                        isLoading = false
+                    }
                 }
             }
             else -> error("Incorrect layoutManager")
         }
     }
 
+    private fun getMoreData() {
+//        rvAdapter.addData(list)
+        val randomGames = List(5) { AppData.randomGames.random() }
+        gamesAdapter.items = gamesAdapter.items + randomGames
+        isLoading = false
+    }
 
     private fun deleteGame(position: Int) {
         games = games.filterIndexed { index, _ -> index != position }
@@ -144,6 +155,10 @@ class ListFragment : Fragment(R.layout.fragment_list), DialogInterfaceListener {
                 }
             arguments?.getString(KEY_STAGGER_GRID) == KEY_STAGGER_GRID -> userLayoutManager =
                 StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL)
+            arguments?.getString(KEY_PAGINATION) == KEY_PAGINATION -> {
+                userLayoutManager = LinearLayoutManager(requireContext())
+                isPaginated = true
+            }
         }
     }
 
@@ -153,6 +168,7 @@ class ListFragment : Fragment(R.layout.fragment_list), DialogInterfaceListener {
         const val KEY_HORIZONTAL = "ListFragment with horizontal layoutManager of RecyclerView"
         const val KEY_GRID = "ListFragment with grid layoutManager of RecyclerView"
         const val KEY_STAGGER_GRID = "ListFragment with staggeredGrid layoutManager of RecyclerView"
+        const val KEY_PAGINATION = "ListFragment with Pagination fun"
 
         fun newInstance(keyOfLayoutManager: String): ListFragment {
             return ListFragment().withArguments {

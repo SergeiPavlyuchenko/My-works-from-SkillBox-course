@@ -13,6 +13,9 @@
     <string name="text_horizontal_recyclerview">horizontal recyclerView</string>
     <string name="text_grid_recyclerview">grid recyclerView</string>
     <string name="text_staggered_grid_recyclerview">Staggered Grid RecyclerView</string>
+    <string name="text_pagination_recyclerview">pagination RecyclerView</string>
+    <string name="text_test_transaction">Test Transaction</string>
+    <string name="text_this_is_page_for_test_transaction_without_using_hostfragment">This is page for test transaction without using HostFragment</string>
     <string-array name="gameGenres">
         <item>Shooter</item>
         <item>Strategy</item>

@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     android:background="@drawable/player">
 
+
+
     <Button
         android:id="@+id/defaultRecyclerViewButton"
         android:layout_width="250dp"
@@ -50,6 +52,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/gridRecyclerViewButton" />
+
+    <Button
+        android:id="@+id/paginationRecyclerViewButton"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:backgroundTint="@color/button_colors"
+        android:text="@string/text_pagination_recyclerview"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/staggeredRecyclerViewButton" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

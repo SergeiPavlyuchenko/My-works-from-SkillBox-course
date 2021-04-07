@@ -15,13 +15,28 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        if (savedInstanceState == null)
+     /*   if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
                 .add(binding.containerActivity.id, HostFragment(), HostFragment.HOST_FRAGMENT_TAG)
+                .addToBackStack(null)
                 .commit()
+        }*/
+        //For Test Transaction
+        supportFragmentManager.beginTransaction()
+            .replace(binding.containerActivity.id, HostFragment(), HostFragment.HOST_FRAGMENT_TAG)
+            .commit()
+
     }
 
+    //For Test Transaction
     override fun onBackPressed() {
+        val backStackCount = supportFragmentManager.backStackEntryCount
+        if (backStackCount == 0) {
+            super.onBackPressed()
+        } else
+            supportFragmentManager.popBackStack()
+    }
+    /*override fun onBackPressed() {
         val backStackCount =
             supportFragmentManager.findFragmentByTag(HostFragment.HOST_FRAGMENT_TAG)?.childFragmentManager?.backStackEntryCount
         if (backStackCount == 0) {
@@ -34,7 +49,7 @@ class MainActivity : AppCompatActivity() {
         } else {
             supportFragmentManager.findFragmentByTag(HostFragment.HOST_FRAGMENT_TAG)?.childFragmentManager?.popBackStack()
         }
-    }
+    }*/
 
 }
 
