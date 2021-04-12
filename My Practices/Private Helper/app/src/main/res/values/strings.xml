@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Private Helper</string>
+    <string name="text_purchase">Покупки</string>
+    <string name="text_input_list_of_purchase">Введите список покупок:</string>
+</resources>
