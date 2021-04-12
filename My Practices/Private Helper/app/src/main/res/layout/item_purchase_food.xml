@@ -31,6 +31,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
+    <TextView
+        app:layout_constraintTop_toBottomOf="@id/listOfPurchasesTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="123"
+        android:gravity="center"/>
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
