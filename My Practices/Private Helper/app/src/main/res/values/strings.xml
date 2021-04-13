@@ -2,4 +2,5 @@
     <string name="app_name">Private Helper</string>
     <string name="text_purchase">Покупки</string>
     <string name="text_input_list_of_purchase">Введите список покупок:</string>
+    <string name="text_list_of_food">Хлеб, молоко, сыр, колбаса, яйца, бананы, яблоки греми, кефир 2,5%, вафли венские, корм коту</string>
 </resources>
