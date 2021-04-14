@@ -9,15 +9,25 @@ import com.hannesdorfmann.adapterdelegates4.AsyncListDifferDelegationAdapter
 
 class PurchaseAdapter(
     binding: ViewBinding,
-    private val onItemLongClick: (position: Int) -> Boolean
+    onItemLongClick: (position: Int) -> Boolean,
+    onLocationButtonClick: Unit,
+    onRememberButtonClick: Unit,
+    onEditButtonClick: Unit
 ) : AsyncListDifferDelegationAdapter<PurchaseModel>(PurchaseDiffUtilCallback()) {
 
     init {
-        delegatesManager.addDelegate(FoodAdapterDelegate(onItemLongClick))
+        delegatesManager.addDelegate(
+            FoodAdapterDelegate(
+                onItemLongClick,
+                onLocationButtonClick,
+                onRememberButtonClick,
+                onEditButtonClick
+            )
+        )
     }
 
 
-    class PurchaseDiffUtilCallback: DiffUtil.ItemCallback<PurchaseModel>() {
+    class PurchaseDiffUtilCallback : DiffUtil.ItemCallback<PurchaseModel>() {
         override fun areItemsTheSame(oldItem: PurchaseModel, newItem: PurchaseModel): Boolean {
             return when {
                 oldItem is PurchaseModel.Food && newItem is PurchaseModel.Food -> oldItem.id == newItem.id
@@ -34,12 +44,13 @@ class PurchaseAdapter(
     abstract class BasePurchaseHolder(
         binding: ViewBinding,
         onItemLongClick: (position: Int) -> Boolean
-    ): RecyclerView.ViewHolder(binding.root) {
+    ) : RecyclerView.ViewHolder(binding.root) {
 
         init {
             binding.root.setOnLongClickListener {
                 onItemLongClick(adapterPosition)
             }
+
         }
 
     }

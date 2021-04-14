@@ -9,7 +9,10 @@ import org.threeten.bp.ZoneId
 import org.threeten.bp.format.DateTimeFormatter
 
 class FoodAdapterDelegate(
-    private val onItemLongClick: (position: Int) -> Boolean
+    private val onItemLongClick: (position: Int) -> Boolean,
+    private val onLocationButtonClick: Unit,
+    private val onRememberButtonClick: Unit,
+    private val onEditButtonClick: Unit
 ) :
     AbsListItemAdapterDelegate<PurchaseModel.Food, PurchaseModel, FoodAdapterDelegate.FoodHolder>() {
 
@@ -24,7 +27,10 @@ class FoodAdapterDelegate(
     override fun onCreateViewHolder(parent: ViewGroup): FoodHolder {
         return FoodHolder(
             ItemPurchaseFoodBinding.inflate(LayoutInflater.from(parent.context)),
-            onItemLongClick
+            onItemLongClick,
+            onLocationButtonClick,
+            onRememberButtonClick,
+            onEditButtonClick
         )
     }
 
@@ -38,7 +44,10 @@ class FoodAdapterDelegate(
 
     class FoodHolder(
         private val binding: ItemPurchaseFoodBinding,
-        onItemLongClick: (position: Int) -> Boolean
+        onItemLongClick: (position: Int) -> Boolean,
+        private val onLocationButtonClick: Unit,
+        private val onRememberButtonClick: Unit,
+        private val onEditButtonClick: Unit
     ) : PurchaseAdapter.BasePurchaseHolder(binding, onItemLongClick) {
 
         fun bind(food: PurchaseModel.Food) {
@@ -47,7 +56,9 @@ class FoodAdapterDelegate(
             .ofPattern("HH:mm dd/MM/yy").withZone(ZoneId.systemDefault())
 
             with(binding) {
-
+                addLocationButton.setOnClickListener { onLocationButtonClick }
+                editRememberButton.setOnClickListener { onRememberButtonClick }
+                editItemButton.setOnClickListener { onEditButtonClick }
                 dateTextView.text = formatter.format(food.createdAt)
                 listOfPurchasesTextView.text = food.purchasesList
 
