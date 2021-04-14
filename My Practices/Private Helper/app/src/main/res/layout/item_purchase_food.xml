@@ -6,58 +6,25 @@
     android:layout_height="wrap_content"
     android:layout_margin="8dp">
 
-    <!--
-        <TextView
-            android:id="@+id/dateTextView"
-            android:textColor="@color/white"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:text="06:05 03/03/21"
-            android:gravity="center"
-            android:textSize="20sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:textColor="#376A68"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/dateTextView"
-            android:textSize="23sp"
-            android:gravity="center"
-            tools:text="Хлеб, молоко, сыр, колбаса, яйца, бананы, яблоки греми, кефир 2,5%, вафли венские, корм коту"
-            android:id="@+id/listOfPurchasesTextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-        <TextView
-            app:layout_constraintTop_toBottomOf="@id/listOfPurchasesTextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:text="123"
-            android:gravity="center"/>
-    -->
-
     <com.makeramen.roundedimageview.RoundedImageView
         android:id="@+id/roundedView"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:scaleType="centerCrop"
         android:src="@drawable/back_23"
-        app:layout_constraintBottom_toBottomOf="@id/containerItemFood"
-        app:layout_constraintEnd_toEndOf="@id/containerItemFood"
-        app:layout_constraintStart_toStartOf="@id/containerItemFood"
-        app:layout_constraintTop_toTopOf="@id/containerItemFood"
+        app:layout_constraintBottom_toBottomOf="@id/containerLocation"
+        app:layout_constraintEnd_toEndOf="@id/containerLocation"
+        app:layout_constraintStart_toStartOf="@id/containerLocation"
+        app:layout_constraintTop_toTopOf="@id/containerLocation"
         app:riv_border_color="@color/teal_700"
-        app:riv_border_width="10dip"
-        app:riv_corner_radius="10dip"
+        app:riv_border_width="7dip"
+        app:riv_corner_radius="30dip"
         app:riv_mutate_background="true"
         app:riv_oval="false"
         app:riv_tile_mode="repeat" />
 
     <LinearLayout
-        android:id="@+id/containerItemFood"
+        android:id="@+id/containerLocation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -105,7 +72,9 @@
             android:alpha="0.3"
             android:background="@color/white" />
 
+
         <LinearLayout
+            android:id="@+id/setOfButtonsLinearLayout"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginTop="10dp"
@@ -143,6 +112,7 @@
 
 
         </LinearLayout>
+
 
     </LinearLayout>
 

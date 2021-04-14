@@ -59,4 +59,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/setRememberButton"
         app:layout_constraintTop_toTopOf="@id/inputPurchaseEditText" />
+
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
