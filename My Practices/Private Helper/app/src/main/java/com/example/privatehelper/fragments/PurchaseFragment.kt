@@ -7,6 +7,8 @@ import android.content.pm.PackageManager
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -120,19 +122,6 @@ class PurchaseFragment : Fragment(R.layout.fragment_purchase), UpdatePurchasesIn
 
 
     override fun showCurrentLocationWithPermissionCheck() {
-        val isLocationPermissionGranted = ActivityCompat.checkSelfPermission(
-            requireContext(),
-            Manifest.permission.ACCESS_FINE_LOCATION
-        ) == PackageManager.PERMISSION_GRANTED
-
-        if (isLocationPermissionGranted) {
-            showLocationInfo()
-        } else {
-            ifNeedRationale()
-        }
-    }
-
-    override fun ifNeedRationale() {
         val needRationale = ActivityCompat.shouldShowRequestPermissionRationale(
             requireActivity(),
             Manifest.permission.ACCESS_FINE_LOCATION
@@ -140,24 +129,36 @@ class PurchaseFragment : Fragment(R.layout.fragment_purchase), UpdatePurchasesIn
         if (needRationale) {
             showLocationRationaleDialog()
         } else {
-            requestLocationPermission()
-        }
-    }
-
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<out String>,
-        grantResults: IntArray
-    ) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        if (grantResults.all { it == PackageManager.PERMISSION_GRANTED }) {
+            acceptPermission(askLocationPermission())
             showLocationInfo()
-        } else {
-            ifNeedRationale()
         }
     }
 
-    override fun showLocationInfo(){
+    override fun acceptPermission(launcher: ActivityResultLauncher<String>) {
+        launcher.launch(Manifest.permission.ACCESS_FINE_LOCATION)
+    }
+
+    override fun askLocationPermission(): ActivityResultLauncher<String> {
+        return registerForActivityResult(ActivityResultContracts.RequestPermission()) { granted ->
+            when {
+                granted -> {
+                    showLocationInfo()
+                }
+                !shouldShowRequestPermissionRationale(Manifest.permission.CAMERA) -> {
+                    Toast.makeText(
+                        requireContext(),
+                        getString(R.string.permission_loc_deny),
+                        Toast.LENGTH_LONG
+                    ).show()
+                }
+                else -> {
+                    showLocationRationaleDialog()
+                }
+            }
+        }
+    }
+
+    override fun showLocationInfo() {
         var location = ""
         val noLocation = "Локация отсутствует"
         if (ActivityCompat.checkSelfPermission(
@@ -165,7 +166,6 @@ class PurchaseFragment : Fragment(R.layout.fragment_purchase), UpdatePurchasesIn
                 Manifest.permission.ACCESS_FINE_LOCATION
             ) != PackageManager.PERMISSION_GRANTED
         ) {
-
             LocationServices.getFusedLocationProviderClient(requireContext())
                 .lastLocation
                 .addOnSuccessListener {
@@ -186,28 +186,19 @@ class PurchaseFragment : Fragment(R.layout.fragment_purchase), UpdatePurchasesIn
             if (location != noLocation) {
             }
         }
-
     }
 
     override fun showLocationRationaleDialog() {
         needRationaleDialog = AlertDialog.Builder(requireContext())
             .setMessage("Необходимо одобрение разрешения для отображения информации по локации")
-            .setPositiveButton("Принять") { _, _ -> requestLocationPermission() }
+            .setPositiveButton("Принять") { _, _ -> acceptPermission(askLocationPermission())}
             .setNegativeButton("Отменить", null)
             .show()
     }
 
-    override fun requestLocationPermission() {
-        requestPermissions(
-            arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
-            PERMISSION_REQUEST_CODE
-        )
-
-    }
 
     companion object {
         private const val KEY_PURCHASES = "Key of the purchases"
-        private const val PERMISSION_REQUEST_CODE = 713
         const val KEY_LOCATION_INFO = "Key of the location info"
     }
 }
