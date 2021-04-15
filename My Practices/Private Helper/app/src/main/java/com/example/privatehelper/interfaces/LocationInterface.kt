@@ -1,9 +1,11 @@
 package com.example.privatehelper.interfaces
 
+import androidx.activity.result.ActivityResultLauncher
+
 interface LocationInterface {
     fun showCurrentLocationWithPermissionCheck()
-    fun showLocationInfo()
+    fun askLocationPermission(): ActivityResultLauncher<String>
     fun showLocationRationaleDialog()
-    fun requestLocationPermission()
-    fun ifNeedRationale()
+    fun showLocationInfo()
+    fun acceptPermission(launcher: ActivityResultLauncher<String>)
 }
