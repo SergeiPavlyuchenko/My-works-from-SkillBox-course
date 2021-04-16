@@ -2,6 +2,7 @@ package com.example.privatehelper.fragments
 
 import android.Manifest
 import android.app.AlertDialog
+import android.content.Context
 import android.content.DialogInterface
 import android.content.pm.PackageManager
 import android.os.Bundle
@@ -65,9 +66,9 @@ class PurchaseFragment : Fragment(R.layout.fragment_purchase), UpdatePurchasesIn
     private fun initList() {
         purchaseAdapter = PurchaseAdapter(
             binding,
-            onEditButtonClick = onEditButtonClick(),
-            onLocationButtonClick = onLocationButtonClick(),
-            onRememberButtonClick = onRememberButtonClick(),
+            onEditButtonClick = { onEditButtonClick() },
+            onLocationButtonClick = { onLocationButtonClick() },
+            onRememberButtonClick = { onRememberButtonClick() },
             onItemLongClick = { position -> onItemLongClick(position) }
         )
         with(binding.purchasesRecyclerView) {
@@ -118,6 +119,7 @@ class PurchaseFragment : Fragment(R.layout.fragment_purchase), UpdatePurchasesIn
     }
 
     override fun onEditButtonClick() {
+        Toast.makeText(requireContext(), "onEditButtonClick()", Toast.LENGTH_SHORT).show()
     }
 
 
@@ -191,7 +193,7 @@ class PurchaseFragment : Fragment(R.layout.fragment_purchase), UpdatePurchasesIn
     override fun showLocationRationaleDialog() {
         needRationaleDialog = AlertDialog.Builder(requireContext())
             .setMessage("Необходимо одобрение разрешения для отображения информации по локации")
-            .setPositiveButton("Принять") { _, _ -> acceptPermission(askLocationPermission())}
+            .setPositiveButton("Принять") { _, _ -> acceptPermission(askLocationPermission()) }
             .setNegativeButton("Отменить", null)
             .show()
     }
