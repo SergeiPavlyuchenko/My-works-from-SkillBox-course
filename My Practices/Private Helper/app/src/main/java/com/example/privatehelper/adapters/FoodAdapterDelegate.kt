@@ -10,9 +10,9 @@ import org.threeten.bp.format.DateTimeFormatter
 
 class FoodAdapterDelegate(
     private val onItemLongClick: (position: Int) -> Boolean,
-    private val onLocationButtonClick: Unit,
-    private val onRememberButtonClick: Unit,
-    private val onEditButtonClick: Unit
+    private val onLocationButtonClick: () -> Unit,
+    private val onRememberButtonClick: () -> Unit,
+    private val onEditButtonClick: () -> Unit
 ) :
     AbsListItemAdapterDelegate<PurchaseModel.Food, PurchaseModel, FoodAdapterDelegate.FoodHolder>() {
 
@@ -26,7 +26,7 @@ class FoodAdapterDelegate(
 
     override fun onCreateViewHolder(parent: ViewGroup): FoodHolder {
         return FoodHolder(
-            ItemPurchaseFoodBinding.inflate(LayoutInflater.from(parent.context)),
+            ItemPurchaseFoodBinding.inflate(LayoutInflater.from(parent.context), parent, false),
             onItemLongClick,
             onLocationButtonClick,
             onRememberButtonClick,
@@ -45,15 +45,18 @@ class FoodAdapterDelegate(
     class FoodHolder(
         private val binding: ItemPurchaseFoodBinding,
         onItemLongClick: (position: Int) -> Boolean,
-        private val onLocationButtonClick: Unit,
-        private val onRememberButtonClick: Unit,
-        private val onEditButtonClick: Unit
-    ) : PurchaseAdapter.BasePurchaseHolder(binding, onItemLongClick) {
+        private val onLocationButtonClick: () -> Unit,
+        private val onRememberButtonClick: () -> Unit,
+        private val onEditButtonClick: () -> Unit
+    ) : PurchaseAdapter.BasePurchaseHolder(
+        binding,
+        onItemLongClick
+    ) {
 
         fun bind(food: PurchaseModel.Food) {
 
             val formatter = DateTimeFormatter
-            .ofPattern("HH:mm dd/MM/yy").withZone(ZoneId.systemDefault())
+                .ofPattern("HH:mm dd/MM/yy").withZone(ZoneId.systemDefault())
 
             with(binding) {
                 addLocationButton.setOnClickListener { onLocationButtonClick }
