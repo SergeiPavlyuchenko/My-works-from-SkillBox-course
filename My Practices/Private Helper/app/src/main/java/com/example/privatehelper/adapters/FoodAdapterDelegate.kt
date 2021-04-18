@@ -1,8 +1,14 @@
 package com.example.privatehelper.adapters
 
+import android.Manifest
+import android.annotation.SuppressLint
+import android.content.Context
+import android.content.pm.PackageManager
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.app.ActivityCompat
 import com.example.privatehelper.PurchaseModel
+import com.example.privatehelper.R
 import com.example.privatehelper.databinding.ItemPurchaseFoodBinding
 import com.hannesdorfmann.adapterdelegates4.AbsListItemAdapterDelegate
 import org.threeten.bp.ZoneId
@@ -10,7 +16,7 @@ import org.threeten.bp.format.DateTimeFormatter
 
 class FoodAdapterDelegate(
     private val onItemLongClick: (position: Int) -> Boolean,
-    private val onLocationButtonClick: () -> Unit,
+    private val onLocationButtonClick: (hasLocation: Boolean) -> Unit,
     private val onRememberButtonClick: () -> Unit,
     private val onEditButtonClick: () -> Unit
 ) :
@@ -45,7 +51,7 @@ class FoodAdapterDelegate(
     class FoodHolder(
         private val binding: ItemPurchaseFoodBinding,
         onItemLongClick: (position: Int) -> Boolean,
-        private val onLocationButtonClick: () -> Unit,
+        private val onLocationButtonClick: (hasLocation: Boolean) -> Unit,
         private val onRememberButtonClick: () -> Unit,
         private val onEditButtonClick: () -> Unit
     ) : PurchaseAdapter.BasePurchaseHolder(
@@ -53,15 +59,33 @@ class FoodAdapterDelegate(
         onItemLongClick
     ) {
 
+        @SuppressLint("ResourceAsColor")
         fun bind(food: PurchaseModel.Food) {
 
             val formatter = DateTimeFormatter
                 .ofPattern("HH:mm dd/MM/yy").withZone(ZoneId.systemDefault())
-
+            var hasLocation = false
             with(binding) {
-                addLocationButton.setOnClickListener { onLocationButtonClick }
-                editRememberButton.setOnClickListener { onRememberButtonClick }
-                editItemButton.setOnClickListener { onEditButtonClick }
+                addLocationButton.setOnClickListener {
+
+                    if (hasLocation) {
+                        onLocationButtonClick(hasLocation)
+                    } else {
+                        onLocationButtonClick(hasLocation)
+                        if (ActivityCompat.checkSelfPermission(
+                                binding.root.context,
+                                Manifest.permission.ACCESS_FINE_LOCATION
+                            ) == PackageManager.PERMISSION_GRANTED
+                        ) {
+                            with(binding) {
+                                addLocationButton.setImageResource(R.drawable.ic_location_on)
+                                hasLocation = !hasLocation
+                            }
+                        }
+                    }
+                }
+                editRememberButton.setOnClickListener { onRememberButtonClick() }
+                editItemButton.setOnClickListener { onEditButtonClick() }
                 dateTextView.text = formatter.format(food.createdAt)
                 listOfPurchasesTextView.text = food.purchasesList
 

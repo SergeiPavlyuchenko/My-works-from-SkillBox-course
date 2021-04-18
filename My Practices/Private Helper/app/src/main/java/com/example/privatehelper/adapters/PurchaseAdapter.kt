@@ -1,6 +1,5 @@
 package com.example.privatehelper.adapters
 
-import androidx.recyclerview.widget.AdapterListUpdateCallback
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
@@ -10,8 +9,8 @@ import com.hannesdorfmann.adapterdelegates4.AsyncListDifferDelegationAdapter
 class PurchaseAdapter(
     binding: ViewBinding,
     onItemLongClick: (position: Int) -> Boolean,
-    onLocationButtonClick:() -> Unit,
-    onRememberButtonClick:() -> Unit,
+    onLocationButtonClick: (hasLocation: Boolean) -> Unit,
+    onRememberButtonClick: () -> Unit,
     onEditButtonClick: () -> Unit
 ) : AsyncListDifferDelegationAdapter<PurchaseModel>(PurchaseDiffUtilCallback()) {
 
