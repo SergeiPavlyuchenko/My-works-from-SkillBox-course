@@ -5,12 +5,13 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
 import com.example.privatehelper.PurchaseModel
 import com.hannesdorfmann.adapterdelegates4.AsyncListDifferDelegationAdapter
+import kotlin.reflect.KFunction1
 
 class PurchaseAdapter(
     binding: ViewBinding,
     onItemLongClick: (position: Int) -> Boolean,
     onLocationButtonClick: (hasLocation: Boolean) -> Unit,
-    onRememberButtonClick: () -> Unit,
+    onRememberButtonClick: (hasRemember: Boolean, forEdit: Boolean) -> Unit,
     onEditButtonClick: () -> Unit
 ) : AsyncListDifferDelegationAdapter<PurchaseModel>(PurchaseDiffUtilCallback()) {
 

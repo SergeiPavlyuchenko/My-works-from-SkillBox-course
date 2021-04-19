@@ -2,7 +2,6 @@ package com.example.privatehelper.adapters
 
 import android.Manifest
 import android.annotation.SuppressLint
-import android.content.Context
 import android.content.pm.PackageManager
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -17,7 +16,7 @@ import org.threeten.bp.format.DateTimeFormatter
 class FoodAdapterDelegate(
     private val onItemLongClick: (position: Int) -> Boolean,
     private val onLocationButtonClick: (hasLocation: Boolean) -> Unit,
-    private val onRememberButtonClick: () -> Unit,
+    private val onRememberButtonClick: (hasRemember: Boolean, forEdit: Boolean) -> Unit,
     private val onEditButtonClick: () -> Unit
 ) :
     AbsListItemAdapterDelegate<PurchaseModel.Food, PurchaseModel, FoodAdapterDelegate.FoodHolder>() {
@@ -52,46 +51,61 @@ class FoodAdapterDelegate(
         private val binding: ItemPurchaseFoodBinding,
         onItemLongClick: (position: Int) -> Boolean,
         private val onLocationButtonClick: (hasLocation: Boolean) -> Unit,
-        private val onRememberButtonClick: () -> Unit,
+        private val onRememberButtonClick: (hasRemember: Boolean,forEdit: Boolean) -> Unit,
         private val onEditButtonClick: () -> Unit
     ) : PurchaseAdapter.BasePurchaseHolder(
         binding,
         onItemLongClick
     ) {
 
+        private var hasLocation = false
+        private var forEdit = true
+        private var hasRemember = false
+
         @SuppressLint("ResourceAsColor")
         fun bind(food: PurchaseModel.Food) {
 
             val formatter = DateTimeFormatter
                 .ofPattern("HH:mm dd/MM/yy").withZone(ZoneId.systemDefault())
-            var hasLocation = false
-            with(binding) {
-                addLocationButton.setOnClickListener {
 
-                    if (hasLocation) {
-                        onLocationButtonClick(hasLocation)
-                    } else {
-                        onLocationButtonClick(hasLocation)
-                        if (ActivityCompat.checkSelfPermission(
-                                binding.root.context,
-                                Manifest.permission.ACCESS_FINE_LOCATION
-                            ) == PackageManager.PERMISSION_GRANTED
-                        ) {
-                            with(binding) {
-                                addLocationButton.setImageResource(R.drawable.ic_location_on)
-                                hasLocation = !hasLocation
-                            }
-                        }
-                    }
-                }
-                editRememberButton.setOnClickListener { onRememberButtonClick() }
+            with(binding) {
+                addLocationButton.setOnClickListener { locBtnImplementation() }
+                editRememberButton.setOnClickListener { remBtnImplementation() }
                 editItemButton.setOnClickListener { onEditButtonClick() }
                 dateTextView.text = formatter.format(food.createdAt)
                 listOfPurchasesTextView.text = food.purchasesList
-
             }
+        }
 
+        private fun remBtnImplementation() {
+            if (hasRemember) {
+                onRememberButtonClick(hasRemember, forEdit)
+            } else {
+                onRememberButtonClick(hasRemember, forEdit)
+                binding.editRememberButton.setImageResource(R.drawable.ic_time_filled)
+                hasRemember = true
+            }
+        }
+
+        private fun locBtnImplementation() {
+            if (hasLocation) {
+                onLocationButtonClick(hasLocation)
+            } else {
+                onLocationButtonClick(hasLocation)
+                if (ActivityCompat.checkSelfPermission(
+                        binding.root.context,
+                        Manifest.permission.ACCESS_FINE_LOCATION
+                    ) == PackageManager.PERMISSION_GRANTED
+                ) {
+                    with(binding) {
+                        addLocationButton.setImageResource(R.drawable.ic_location_on)
+                        hasLocation = !hasLocation
+                    }
+                }
+            }
         }
     }
+
+
 
 }

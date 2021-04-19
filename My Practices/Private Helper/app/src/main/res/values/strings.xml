@@ -4,4 +4,11 @@
     <string name="text_input_list_of_purchase">Введите список покупок:</string>
     <string name="text_list_of_food">Хлеб, молоко, сыр, колбаса, яйца, бананы, яблоки греми, кефир 2,5%, вафли венские, корм коту</string>
     <string name="permission_loc_deny">Доступ к получению локации ограничен. Вы можете разрешить доступ в общих настройках приложения.</string>
+    <string name="question_delete">Удалить данный список покупок?</string>
+    <string name="coordination">\"Координаты: \"</string>
+    <string name="request_canceled">Запрос локации был отменён</string>
+    <string name="request_error">запрос локации завершился неудачно</string>
+    <string name="need_request_for_review">Необходимо одобрение разрешения для отображения информации по локации</string>
+    <string name="cancel">Отменить</string>
+    <string name="ok">OK</string>
 </resources>

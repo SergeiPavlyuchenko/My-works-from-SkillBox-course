@@ -2,13 +2,18 @@ package com.example.privatehelper.fragments
 
 import android.Manifest
 import android.app.AlertDialog
+import android.app.DatePickerDialog
+import android.app.TimePickerDialog
 import android.content.DialogInterface
 import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
@@ -22,6 +27,9 @@ import com.example.privatehelper.extensions.StatePurchase
 import com.example.privatehelper.interfaces.AdapterCallBackInterface
 import com.google.android.gms.location.LocationServices
 import org.threeten.bp.Instant
+import org.threeten.bp.LocalDateTime
+import org.threeten.bp.ZoneId
+import org.threeten.bp.format.DateTimeFormatter
 import kotlin.random.Random
 
 class PurchaseFragment : Fragment(R.layout.fragment_purchase),
@@ -74,7 +82,7 @@ class PurchaseFragment : Fragment(R.layout.fragment_purchase),
                 updatePurchase(createFoodPurchase())
             }
             setRememberButton.setOnClickListener {
-                onRememberButtonClick()
+                onRememberButtonClick(rememberPurchaseInstant != null)
             }
         }
 
@@ -95,7 +103,6 @@ class PurchaseFragment : Fragment(R.layout.fragment_purchase),
             layoutManager = LinearLayoutManager(requireContext())
             setHasFixedSize(true)
         }
-        initTimePiker()
     }
 
     private fun deletePurchase(position: Int): Boolean {
@@ -117,13 +124,19 @@ class PurchaseFragment : Fragment(R.layout.fragment_purchase),
             Toast.makeText(requireContext(), "Заполните список покупок", Toast.LENGTH_SHORT).show()
         } else purchases = listOf(purchase) + purchases
         purchaseAdapter.items = purchases
-        binding.inputPurchaseEditText.text.clear()
-        binding.purchasesRecyclerView.scrollToPosition(0)
+        with(binding) {
+            rememberTextView.isVisible = false
+            setRememberButton.setBackgroundColor(resources.getColor(R.color.dark_grey))
+            setRememberButton.setImageResource(R.drawable.ic_more_time)
+            inputPurchaseEditText.text.clear()
+            purchasesRecyclerView.scrollToPosition(0)
+        }
+
     }
 
     override fun onItemLongClick(position: Int): Boolean {
         confirmDeleteAlertDialog = AlertDialog.Builder(requireContext())
-            .setTitle("Удалить данный список покупок?")
+            .setTitle(getString(R.string.question_delete))
             .setPositiveButton("Да") { _: DialogInterface, _: Int -> deletePurchase(position) }
             .setNegativeButton("Нет") { dialog: DialogInterface, _: Int -> dialog.dismiss() }
             .show()
@@ -134,7 +147,29 @@ class PurchaseFragment : Fragment(R.layout.fragment_purchase),
         showCurrentLocationWithPermissionCheck(hasLocation)
     }
 
-    override fun onRememberButtonClick() {
+    override fun onRememberButtonClick(hasRemember: Boolean, forEdit: Boolean) {
+        val currentDateTime = LocalDateTime.now()
+        DatePickerDialog(
+            requireContext(),
+            { _, year, month, dayOfMonth ->
+                TimePickerDialog(
+                    requireContext(),
+                    { _, hourOfDay, minute ->
+                        if (forEdit) {
+                            editRememberTime(year, month, dayOfMonth, hourOfDay, minute)
+                        } else {
+                            setRememberTime(year, month, dayOfMonth, hourOfDay, minute)
+                        }
+                    },
+                    currentDateTime.hour,
+                    currentDateTime.minute,
+                    true
+                ).show()
+            },
+            currentDateTime.year,
+            currentDateTime.month.value - 1,
+            currentDateTime.dayOfMonth
+        ).show()
     }
 
     override fun onEditButtonClick() {
@@ -142,12 +177,47 @@ class PurchaseFragment : Fragment(R.layout.fragment_purchase),
     }
 
 
+    private fun setRememberTime(
+        year: Int,
+        month: Int,
+        dayOfMonth: Int,
+        hourOfDay: Int,
+        minute: Int
+    ) {
+        val zoneDateTime = LocalDateTime.of(year, month + 1, dayOfMonth, hourOfDay, minute)
+            .atZone(ZoneId.systemDefault())
+        val formatter = DateTimeFormatter
+            .ofPattern("Установленое время напоминания: HH:mm dd/MM/yy")
+            .withZone(ZoneId.systemDefault())
+        Toast.makeText(requireContext(), "Выбрано время: $zoneDateTime", Toast.LENGTH_SHORT).show()
+        rememberPurchaseInstant = zoneDateTime.toInstant()
+        with(binding.setRememberButton) {
+            setImageResource(R.drawable.ic_time_filled)
+            setBackgroundColor(resources.getColor(R.color.teal_700))
+        }
+        binding.rememberTextView.text = formatter.format(zoneDateTime)
+        binding.rememberTextView.isVisible = true
+    }
+
+    private fun editRememberTime(
+        year: Int,
+        month: Int,
+        dayOfMonth: Int,
+        hourOfDay: Int,
+        minute: Int
+    ) {
+        val zoneDateTime = LocalDateTime.of(year, month + 1, dayOfMonth, hourOfDay, minute)
+            .atZone(ZoneId.systemDefault())
+        Toast.makeText(requireContext(), "Время напомминания изменено на: $zoneDateTime", Toast.LENGTH_SHORT).show()
+        rememberPurchaseInstant = zoneDateTime.toInstant()
+    }
+
     private fun showCurrentLocationWithPermissionCheck(hasLocation: Boolean) {
         if (hasLocation) {
             AlertDialog.Builder(requireContext())
-                .setTitle("Координаты: ")
+                .setTitle(getString(R.string.coordination))
                 .setMessage(locationInfo)
-                .setPositiveButton("OK") { d, _ -> d.dismiss() }
+                .setPositiveButton(getString(R.string.ok)) { d, _ -> d.dismiss() }
                 .show()
         } else {
             val needRationale = ActivityCompat.shouldShowRequestPermissionRationale(
@@ -187,14 +257,14 @@ class PurchaseFragment : Fragment(R.layout.fragment_purchase),
                 .addOnCanceledListener {
                     Toast.makeText(
                         requireContext(),
-                        "Запрос локации был отменён",
+                        getString(R.string.request_canceled),
                         Toast.LENGTH_SHORT
                     ).show()
                 }
                 .addOnFailureListener {
                     Toast.makeText(
                         requireContext(),
-                        "запрос локации завершился неудачно",
+                        getString(R.string.request_error),
                         Toast.LENGTH_SHORT
                     ).show()
                 }
@@ -203,16 +273,12 @@ class PurchaseFragment : Fragment(R.layout.fragment_purchase),
 
     private fun showLocationRationaleDialog() {
         needRationaleDialog = AlertDialog.Builder(requireContext())
-            .setMessage("Необходимо одобрение разрешения для отображения информации по локации")
+            .setMessage(getString(R.string.need_request_for_review))
             .setPositiveButton("Принять") { _, _ ->
                 locationContract.launch(Manifest.permission.ACCESS_FINE_LOCATION)
             }
-            .setNegativeButton("Отменить", null)
+            .setNegativeButton(getString(R.string.cancel), null)
             .show()
-    }
-
-    private fun initTimePiker() {
-
     }
 
     override fun onDestroyView() {
