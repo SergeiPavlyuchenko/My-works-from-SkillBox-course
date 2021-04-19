@@ -11,8 +11,9 @@ class PurchaseAdapter(
     binding: ViewBinding,
     onItemLongClick: (position: Int) -> Boolean,
     onLocationButtonClick: (hasLocation: Boolean) -> Unit,
-    onRememberButtonClick: (hasRemember: Boolean, forEdit: Boolean) -> Unit,
-    onEditButtonClick: () -> Unit
+    onRemindButtonClick: (hasRemember: Boolean, forEdit: Boolean) -> Unit,
+    onEditButtonClick: () -> Unit,
+    onAlarmButtonClick: () -> Unit
 ) : AsyncListDifferDelegationAdapter<PurchaseModel>(PurchaseDiffUtilCallback()) {
 
     init {
@@ -20,8 +21,9 @@ class PurchaseAdapter(
             FoodAdapterDelegate(
                 onItemLongClick,
                 onLocationButtonClick,
-                onRememberButtonClick,
-                onEditButtonClick
+                onRemindButtonClick,
+                onEditButtonClick,
+                onAlarmButtonClick
             )
         )
     }

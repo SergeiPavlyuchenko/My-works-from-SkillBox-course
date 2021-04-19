@@ -6,6 +6,7 @@ import android.content.pm.PackageManager
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.app.ActivityCompat
+import androidx.core.view.isVisible
 import com.example.privatehelper.PurchaseModel
 import com.example.privatehelper.R
 import com.example.privatehelper.databinding.ItemPurchaseFoodBinding
@@ -16,8 +17,9 @@ import org.threeten.bp.format.DateTimeFormatter
 class FoodAdapterDelegate(
     private val onItemLongClick: (position: Int) -> Boolean,
     private val onLocationButtonClick: (hasLocation: Boolean) -> Unit,
-    private val onRememberButtonClick: (hasRemember: Boolean, forEdit: Boolean) -> Unit,
-    private val onEditButtonClick: () -> Unit
+    private val onRemindButtonClick: (hasRemember: Boolean, forEdit: Boolean) -> Unit,
+    private val onEditButtonClick: () -> Unit,
+    private val onAlarmButtonClick: () -> Unit
 ) :
     AbsListItemAdapterDelegate<PurchaseModel.Food, PurchaseModel, FoodAdapterDelegate.FoodHolder>() {
 
@@ -34,8 +36,9 @@ class FoodAdapterDelegate(
             ItemPurchaseFoodBinding.inflate(LayoutInflater.from(parent.context), parent, false),
             onItemLongClick,
             onLocationButtonClick,
-            onRememberButtonClick,
-            onEditButtonClick
+            onRemindButtonClick,
+            onEditButtonClick,
+            onAlarmButtonClick
         )
     }
 
@@ -51,8 +54,9 @@ class FoodAdapterDelegate(
         private val binding: ItemPurchaseFoodBinding,
         onItemLongClick: (position: Int) -> Boolean,
         private val onLocationButtonClick: (hasLocation: Boolean) -> Unit,
-        private val onRememberButtonClick: (hasRemember: Boolean,forEdit: Boolean) -> Unit,
-        private val onEditButtonClick: () -> Unit
+        private val onRemindButtonClick: (hasRemind: Boolean, forEdit: Boolean) -> Unit,
+        private val onEditButtonClick: () -> Unit,
+        private val onAlarmButtonClick: () -> Unit
     ) : PurchaseAdapter.BasePurchaseHolder(
         binding,
         onItemLongClick
@@ -60,7 +64,7 @@ class FoodAdapterDelegate(
 
         private var hasLocation = false
         private var forEdit = true
-        private var hasRemember = false
+        private var hasRemind = false
 
         @SuppressLint("ResourceAsColor")
         fun bind(food: PurchaseModel.Food) {
@@ -70,20 +74,22 @@ class FoodAdapterDelegate(
 
             with(binding) {
                 addLocationButton.setOnClickListener { locBtnImplementation() }
-                editRememberButton.setOnClickListener { remBtnImplementation() }
+                editRemindButton.setOnClickListener { remBtnImplementation() }
                 editItemButton.setOnClickListener { onEditButtonClick() }
+                hasAlarmImageButton.setOnClickListener { onAlarmButtonClick() }
                 dateTextView.text = formatter.format(food.createdAt)
                 listOfPurchasesTextView.text = food.purchasesList
             }
         }
 
         private fun remBtnImplementation() {
-            if (hasRemember) {
-                onRememberButtonClick(hasRemember, forEdit)
+            if (hasRemind) {
+                onRemindButtonClick(hasRemind, forEdit)
             } else {
-                onRememberButtonClick(hasRemember, forEdit)
-                binding.editRememberButton.setImageResource(R.drawable.ic_time_filled)
-                hasRemember = true
+                onRemindButtonClick(hasRemind, forEdit)
+                binding.editRemindButton.setImageResource(R.drawable.ic_time_filled)
+                binding.hasAlarmImageButton.isVisible = true
+                hasRemind = true
             }
         }
 
@@ -105,7 +111,6 @@ class FoodAdapterDelegate(
             }
         }
     }
-
 
 
 }

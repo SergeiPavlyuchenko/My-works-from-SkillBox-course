@@ -6,12 +6,10 @@ import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import android.content.DialogInterface
 import android.content.pm.PackageManager
-import android.os.Build
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
@@ -40,8 +38,9 @@ class PurchaseFragment : Fragment(R.layout.fragment_purchase),
     private var purchaseAdapter by AutoClearedValue<PurchaseAdapter>()
     private var confirmDeleteAlertDialog: AlertDialog? = null
     private var needRationaleDialog: AlertDialog? = null
+    private var showRemindDateDialog: AlertDialog? = null
     private var locationInfo = ""
-    private var rememberPurchaseInstant: Instant? = null
+    private var remindPurchaseInstant: Instant? = null
 
 
     private val locationContract =
@@ -82,7 +81,7 @@ class PurchaseFragment : Fragment(R.layout.fragment_purchase),
                 updatePurchase(createFoodPurchase())
             }
             setRememberButton.setOnClickListener {
-                onRememberButtonClick(rememberPurchaseInstant != null)
+                onRemindButtonClick(remindPurchaseInstant != null)
             }
         }
 
@@ -94,8 +93,9 @@ class PurchaseFragment : Fragment(R.layout.fragment_purchase),
             binding,
             onEditButtonClick = ::onEditButtonClick,
             onLocationButtonClick = { hasLocation -> onLocationButtonClick(hasLocation) },
-            onRememberButtonClick = ::onRememberButtonClick,
-            onItemLongClick = { position -> onItemLongClick(position) }
+            onRemindButtonClick = ::onRemindButtonClick,
+            onItemLongClick = { position -> onItemLongClick(position) },
+            onAlarmButtonClick = ::onAlarmButtonClick
         )
         with(binding.purchasesRecyclerView) {
             addItemDecoration(ItemOffsetDecoration(requireContext()))
@@ -147,7 +147,7 @@ class PurchaseFragment : Fragment(R.layout.fragment_purchase),
         showCurrentLocationWithPermissionCheck(hasLocation)
     }
 
-    override fun onRememberButtonClick(hasRemember: Boolean, forEdit: Boolean) {
+    override fun onRemindButtonClick(hasRemind: Boolean, forEdit: Boolean) {
         val currentDateTime = LocalDateTime.now()
         DatePickerDialog(
             requireContext(),
@@ -190,7 +190,7 @@ class PurchaseFragment : Fragment(R.layout.fragment_purchase),
             .ofPattern("Установленое время напоминания: HH:mm dd/MM/yy")
             .withZone(ZoneId.systemDefault())
         Toast.makeText(requireContext(), "Выбрано время: $zoneDateTime", Toast.LENGTH_SHORT).show()
-        rememberPurchaseInstant = zoneDateTime.toInstant()
+        remindPurchaseInstant = zoneDateTime.toInstant()
         with(binding.setRememberButton) {
             setImageResource(R.drawable.ic_time_filled)
             setBackgroundColor(resources.getColor(R.color.teal_700))
@@ -209,7 +209,7 @@ class PurchaseFragment : Fragment(R.layout.fragment_purchase),
         val zoneDateTime = LocalDateTime.of(year, month + 1, dayOfMonth, hourOfDay, minute)
             .atZone(ZoneId.systemDefault())
         Toast.makeText(requireContext(), "Время напомминания изменено на: $zoneDateTime", Toast.LENGTH_SHORT).show()
-        rememberPurchaseInstant = zoneDateTime.toInstant()
+        remindPurchaseInstant = zoneDateTime.toInstant()
     }
 
     private fun showCurrentLocationWithPermissionCheck(hasLocation: Boolean) {
@@ -234,6 +234,12 @@ class PurchaseFragment : Fragment(R.layout.fragment_purchase),
 
     }
 
+    override fun onAlarmButtonClick() {
+        showRemindDateDialog = AlertDialog.Builder(requireContext())
+            .setMessage("Установленное время напоминания: $remindPurchaseInstant")
+            .setPositiveButton("Ok") { d, _ -> d.dismiss() }
+            .show()
+    }
 
     private fun showLocationInfo() {
         if (ActivityCompat.checkSelfPermission(
@@ -287,6 +293,8 @@ class PurchaseFragment : Fragment(R.layout.fragment_purchase),
         confirmDeleteAlertDialog = null
         needRationaleDialog?.dismiss()
         needRationaleDialog = null
+        showRemindDateDialog?.dismiss()
+        showRemindDateDialog = null
     }
 
     companion object {

@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-   >
+    android:layout_height="wrap_content">
 
     <com.makeramen.roundedimageview.RoundedImageView
         android:id="@+id/roundedView"
@@ -72,7 +71,6 @@
             android:alpha="0.3"
             android:background="@color/white" />
 
-
         <LinearLayout
             android:id="@+id/setOfButtonsLinearLayout"
             android:layout_width="match_parent"
@@ -95,7 +93,7 @@
                 android:src="@drawable/ic_edit" />
 
             <ImageButton
-                android:id="@+id/editRememberButton"
+                android:id="@+id/editRemindButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -113,8 +111,18 @@
 
         </LinearLayout>
 
-
     </LinearLayout>
 
+    <ImageButton
+        android:id="@+id/hasAlarmImageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="42dp"
+        android:backgroundTint="@color/red"
+        android:src="@drawable/ic_alarm_on"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="gone"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
