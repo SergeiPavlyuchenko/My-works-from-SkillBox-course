@@ -15,16 +15,16 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        if (savedInstanceState == null) {
+        /*if (savedInstanceState == null) {
             supportFragmentManager.transaction(
                 R.id.containerActivity,
                 MainFragment(),
                 addToBackStack = false
             )
-        }
+        }*/
     }
 
-    override fun onBackPressed() {
+    /*override fun onBackPressed() {
         val backStackCount =
             supportFragmentManager.backStackEntryCount
         if (backStackCount == 0) {
@@ -37,5 +37,5 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         } else {
             supportFragmentManager.popBackStack()
         }
-    }
+    }*/
 }

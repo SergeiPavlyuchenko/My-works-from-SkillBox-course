@@ -37,7 +37,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:gravity="center"
-            android:textColor="@color/white"
+            android:textColor="@color/teal_700"
             android:textSize="20sp"
             tools:text="06:05 03/03/21" />
 
@@ -58,7 +58,8 @@
             android:gravity="center"
             android:paddingStart="20dp"
             android:paddingEnd="20dp"
-            android:textColor="@color/white"
+            android:textColor="@color/light_green"
+            android:textStyle="italic"
             android:textSize="23sp"
             tools:text="@string/text_list_of_food" />
 
@@ -89,7 +90,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:backgroundTint="@color/teal_700"
+                android:backgroundTint="@color/color_item_buttons"
                 android:src="@drawable/ic_edit" />
 
             <ImageButton
@@ -97,7 +98,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:backgroundTint="@color/teal_700"
+                android:backgroundTint="@color/color_item_buttons"
                 android:src="@drawable/ic_more_time" />
 
             <ImageButton
@@ -105,7 +106,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:backgroundTint="@color/teal_700"
+                android:backgroundTint="@color/color_item_buttons"
                 android:src="@drawable/ic_add_location" />
 
 

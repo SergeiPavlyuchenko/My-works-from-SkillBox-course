@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-parcelize'
+    id 'androidx.navigation.safeargs.kotlin'
 }
 
 android {
@@ -10,6 +11,7 @@ android {
 
     buildFeatures {
         viewBinding = true
+        
     }
 
     defaultConfig {
@@ -61,10 +63,11 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1"
     //LiveData
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.3.1"
+    implementation "androidx.lifecycle:lifecycle-common-java8:2.3.1"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.3.1"
     //Navigation
     implementation "androidx.navigation:navigation-fragment-ktx:2.3.5"
     implementation "androidx.navigation:navigation-ui-ktx:2.3.5"
-    //ViewBinding Property Delegate
     implementation 'com.github.kirich1409:viewbindingpropertydelegate:1.4.4'
     implementation 'com.github.kirich1409:viewbindingpropertydelegate-noreflection:1.4.4'
 

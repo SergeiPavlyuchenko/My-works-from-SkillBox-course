@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainFragment">
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.privatehelper.fragments.MainFragment"
+        tools:layout="@layout/fragment_main"
+        android:label="MainFragment" >
+        <action
+            android:id="@+id/action_mainFragment_to_purchaseFragment"
+            app:destination="@id/purchaseFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/purchaseFragment"
+        tools:layout="@layout/fragment_purchase"
+        android:name="com.example.privatehelper.fragments.PurchaseFragment"
+        android:label="PurchaseFragment" >
+        <action
+            android:id="@+id/action_purchaseFragment_to_locationDialogFragment"
+            app:destination="@id/locationDialogFragment" />
+        <action
+            android:id="@+id/action_purchaseFragment_to_detailItemDialog"
+            app:destination="@id/detailItemDialog" />
+    </fragment>
+    <dialog
+        android:id="@+id/locationDialogFragment"
+        tools:layout="@layout/dialog_location"
+        android:name="com.example.privatehelper.fragments.LocationDialogFragment"
+        android:label="LocationDialogFragment" >
+        <argument
+            android:name="locationInfo"
+            app:argType="string" />
+    </dialog>
+    <dialog
+        tools:layout="@layout/dialog_detail_item"
+        android:id="@+id/detailItemDialog"
+        android:name="com.example.privatehelper.fragments.DetailItemDialog"
+        android:label="DetailItemDialog" >
+        <argument
+            android:name="purchasesStringList"
+            app:argType="string[]" />
+        <argument
+            android:name="position"
+            app:argType="integer" />
+    </dialog>
+
+</navigation>

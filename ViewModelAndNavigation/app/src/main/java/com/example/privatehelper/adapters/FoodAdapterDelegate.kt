@@ -3,9 +3,19 @@ package com.example.privatehelper.adapters
 import android.Manifest
 import android.annotation.SuppressLint
 import android.content.pm.PackageManager
+import android.graphics.Color
+import android.graphics.Typeface
+import android.text.SpannableString
+import android.text.SpannableStringBuilder
+import android.text.Spanned
+import android.text.style.ForegroundColorSpan
+import android.text.style.StrikethroughSpan
+import android.text.style.StyleSpan
+import android.text.style.TypefaceSpan
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import com.example.privatehelper.PurchaseModel
 import com.example.privatehelper.R
@@ -15,6 +25,7 @@ import org.threeten.bp.ZoneId
 import org.threeten.bp.format.DateTimeFormatter
 
 class FoodAdapterDelegate(
+    private val onItemClick: (position: Int) -> Unit,
     private val onItemLongClick: (position: Int) -> Boolean,
     private val onLocationButtonClick: (hasLocation: Boolean) -> Unit,
     private val onRemindButtonClick: (hasRemember: Boolean, forEdit: Boolean) -> Unit,
@@ -34,6 +45,7 @@ class FoodAdapterDelegate(
     override fun onCreateViewHolder(parent: ViewGroup): FoodHolder {
         return FoodHolder(
             ItemPurchaseFoodBinding.inflate(LayoutInflater.from(parent.context), parent, false),
+            onItemClick,
             onItemLongClick,
             onLocationButtonClick,
             onRemindButtonClick,
@@ -52,6 +64,7 @@ class FoodAdapterDelegate(
 
     class FoodHolder(
         private val binding: ItemPurchaseFoodBinding,
+        onItemClick: (position: Int) -> Unit,
         onItemLongClick: (position: Int) -> Boolean,
         private val onLocationButtonClick: (hasLocation: Boolean) -> Unit,
         private val onRemindButtonClick: (hasRemind: Boolean, forEdit: Boolean) -> Unit,
@@ -59,6 +72,7 @@ class FoodAdapterDelegate(
         private val onAlarmButtonClick: () -> Unit
     ) : PurchaseAdapter.BasePurchaseHolder(
         binding,
+        onItemClick,
         onItemLongClick
     ) {
 
@@ -66,11 +80,59 @@ class FoodAdapterDelegate(
         private var forEdit = true
         private var hasRemind = false
 
+
         @SuppressLint("ResourceAsColor")
         fun bind(food: PurchaseModel.Food) {
 
             val formatter = DateTimeFormatter
                 .ofPattern("HH:mm dd/MM/yy").withZone(ZoneId.systemDefault())
+
+            val notCompletedPurchasesSpanBuilder = SpannableStringBuilder()
+            val completedPurchasesStringBuilder: StringBuilder = StringBuilder()
+            val indicesOfStrikeStrings = mutableListOf<Pair<Int, Int>>()
+            var finalSpanBuilder = SpannableStringBuilder()
+
+            food.notCompletedPurchasesList.forEachIndexed { index, str ->
+                notCompletedPurchasesSpanBuilder.append(str)
+                if (food.completedPurchasesList.isEmpty() && index == food.notCompletedPurchasesList.lastIndex) {
+                    notCompletedPurchasesSpanBuilder.append(".")
+                } else notCompletedPurchasesSpanBuilder.append(", ")
+            }
+
+            food.completedPurchasesList.forEachIndexed { index, str ->
+                val startIndex = completedPurchasesStringBuilder.length
+                completedPurchasesStringBuilder.append(str)
+                val pair: Pair<Int, Int> = Pair(startIndex, completedPurchasesStringBuilder.length)
+                indicesOfStrikeStrings.add(pair)
+                if (index == food.completedPurchasesList.lastIndex) {
+                    completedPurchasesStringBuilder.append(".")
+                } else completedPurchasesStringBuilder.append(", ")
+            }
+
+            val completedPurchasesSpanBuilder = SpannableString(completedPurchasesStringBuilder)
+
+            indicesOfStrikeStrings.forEach {
+                completedPurchasesSpanBuilder.setSpan(
+                    StrikethroughSpan(),
+                    it.first,
+                    it.second,
+                    Spanned.SPAN_INCLUSIVE_INCLUSIVE
+                )
+                completedPurchasesSpanBuilder.setSpan(
+                    ForegroundColorSpan(
+                        ContextCompat.getColor(
+                            binding.root.context,
+                            R.color.teal_700
+                        )
+                    ),
+                    it.first,
+                    it.second,
+                    Spanned.SPAN_INCLUSIVE_INCLUSIVE
+                )
+            }
+
+            finalSpanBuilder =
+                notCompletedPurchasesSpanBuilder.append(completedPurchasesSpanBuilder)
 
             with(binding) {
                 addLocationButton.setOnClickListener { locBtnImplementation() }
@@ -78,7 +140,8 @@ class FoodAdapterDelegate(
                 editItemButton.setOnClickListener { onEditButtonClick() }
                 hasAlarmImageButton.setOnClickListener { onAlarmButtonClick() }
                 dateTextView.text = formatter.format(food.createdAt)
-                listOfPurchasesTextView.text = food.purchasesList
+                listOfPurchasesTextView.text = finalSpanBuilder
+
             }
         }
 
@@ -88,6 +151,7 @@ class FoodAdapterDelegate(
             } else {
                 onRemindButtonClick(hasRemind, forEdit)
                 binding.editRemindButton.setImageResource(R.drawable.ic_time_filled)
+                binding.editRemindButton.isSelected = true
                 binding.hasAlarmImageButton.isVisible = true
                 hasRemind = true
             }

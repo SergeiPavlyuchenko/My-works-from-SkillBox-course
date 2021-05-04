@@ -11,5 +11,7 @@
     <string name="need_request_for_review">Необходимо одобрение разрешения для отображения информации по локации</string>
     <string name="cancel">Отменить</string>
     <string name="ok">OK</string>
-    <string name="enter_list_of_purchases">Заполните список покупок</string>
+    <string name="look_to_the_all_location_of_purchase">Посмотрите все локации по данной покупке:</string>
+    <string name="set_remind">Установлено время напоминания: 06:05 03/03/21</string>
+    <string name="purchases_list">Список покупок:</string>
 </resources>

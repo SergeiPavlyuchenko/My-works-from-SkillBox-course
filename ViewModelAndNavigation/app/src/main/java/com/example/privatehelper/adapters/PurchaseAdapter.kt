@@ -5,10 +5,10 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
 import com.example.privatehelper.PurchaseModel
 import com.hannesdorfmann.adapterdelegates4.AsyncListDifferDelegationAdapter
-import kotlin.reflect.KFunction1
 
 class PurchaseAdapter(
     binding: ViewBinding,
+    onItemClick: (position: Int) -> Unit,
     onItemLongClick: (position: Int) -> Boolean,
     onLocationButtonClick: (hasLocation: Boolean) -> Unit,
     onRemindButtonClick: (hasRemember: Boolean, forEdit: Boolean) -> Unit,
@@ -19,6 +19,7 @@ class PurchaseAdapter(
     init {
         delegatesManager.addDelegate(
             FoodAdapterDelegate(
+                onItemClick,
                 onItemLongClick,
                 onLocationButtonClick,
                 onRemindButtonClick,
@@ -45,6 +46,7 @@ class PurchaseAdapter(
 
     abstract class BasePurchaseHolder(
         binding: ViewBinding,
+        onItemClick: (position: Int) -> Unit,
         onItemLongClick: (position: Int) -> Boolean
     ) : RecyclerView.ViewHolder(binding.root) {
 
@@ -52,7 +54,9 @@ class PurchaseAdapter(
             binding.root.setOnLongClickListener {
                 onItemLongClick(adapterPosition)
             }
-
+            binding.root.setOnClickListener {
+                onItemClick(adapterPosition)
+            }
         }
 
     }
