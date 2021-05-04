@@ -5,6 +5,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical">
 
+    <Button
+        android:id="@+id/requestMoviesButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/request_movies"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="20dp"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvMoviesList"
         android:layout_width="match_parent"
