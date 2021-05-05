@@ -28,6 +28,7 @@ class MovieRepository {
                 Network.getMovieById(it)?.let { movie -> movies.add(movie) }
                 Log.d("fetchMovies", "add movie in ${Thread.currentThread().name}, movies.size: ${movies.size}")
             }
+
         }
 //        val movies1 = listOf(Movie("Hello", 2333), Movie("Hello1", 2332))
 //        handler.post {

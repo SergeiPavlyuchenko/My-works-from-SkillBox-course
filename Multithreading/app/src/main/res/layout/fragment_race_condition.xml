@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/resultTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:background="@color/lite_orange"
+        android:gravity="center"
+        android:text="0\n0"
+        android:textColor="@color/lite_purple"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/quantityOfThreadsEditText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="20dp"
+        android:backgroundTint="@color/lite_purple"
+        android:hint="@string/quantity_of_threads"
+        android:inputType="number"
+        android:padding="8dp"
+        android:textColorHint="@color/grey"
+        app:layout_constraintEnd_toStartOf="@id/incrementEditText"
+        app:layout_constraintStart_toStartOf="@id/resultTextView"
+        app:layout_constraintTop_toBottomOf="@id/resultTextView" />
+
+    <EditText
+        android:id="@+id/incrementEditText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="@color/lite_purple"
+        android:hint="@string/increment"
+        android:inputType="number"
+        android:padding="8dp"
+        android:textColorHint="@color/grey"
+        app:layout_constraintEnd_toEndOf="@id/resultTextView"
+        app:layout_constraintStart_toEndOf="@id/quantityOfThreadsEditText"
+        app:layout_constraintTop_toBottomOf="@id/resultTextView" />
+
+
+    <Button
+        android:id="@+id/notSynchronizedButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@color/lite_purple"
+        android:text="@string/not_sync_button"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="@id/quantityOfThreadsEditText"
+        app:layout_constraintStart_toStartOf="@id/quantityOfThreadsEditText"
+        app:layout_constraintTop_toBottomOf="@id/quantityOfThreadsEditText" />
+
+    <Button
+        android:id="@+id/synchronizedButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@color/lite_purple"
+        android:text="@string/sync_button"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="@id/incrementEditText"
+        app:layout_constraintStart_toStartOf="@id/incrementEditText"
+        app:layout_constraintTop_toBottomOf="@id/incrementEditText" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">Multithreading</string>
     <string name="request_movies">Request movies</string>
+    <string name="quantity_of_threads">Число потоков:</string>
+    <string name="increment">Инкремент:</string>
+    <string name="not_sync_button">not Sync Button</string>
+    <string name="sync_button">Sync Button</string>
+    <string name="result_string">ExpValue: %1d%2sCurVal: %3d%4sTotal Time:%5dms</string>
 </resources>
