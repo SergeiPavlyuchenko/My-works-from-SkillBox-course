@@ -13,14 +13,23 @@
         android:layout_marginTop="5dp"
         android:layout_marginBottom="20dp"/>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvMoviesList"
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swiperefresh"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:clipToPadding="true"
-        android:paddingBottom="60dp"
-        tools:itemCount="6"
-        tools:listitem="@layout/item_movie"
-        />
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvMoviesList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="true"
+            android:paddingBottom="60dp"
+            tools:itemCount="6"
+            tools:listitem="@layout/item_movie"
+            />
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+
 
 </LinearLayout>

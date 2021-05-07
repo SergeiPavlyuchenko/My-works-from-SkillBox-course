@@ -5,6 +5,9 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.view.View
+import android.widget.Toast
+import androidx.core.os.HandlerCompat.postDelayed
+import androidx.core.os.postDelayed
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
@@ -29,6 +32,14 @@ class ThreadingFragment : Fragment(R.layout.fragment_threading) {
       initRvMovieList()
       binding.requestMoviesButton.setOnClickListener {
          viewModel.requestMovies()
+         Handler().postDelayed(1000) {
+            Toast.makeText(requireContext(), "Movies updated", Toast.LENGTH_SHORT).show()
+         }
+      }
+
+      binding.swiperefresh.setOnRefreshListener {
+         viewModel.requestMovies()
+         binding.swiperefresh.isRefreshing = false
       }
    }
 
