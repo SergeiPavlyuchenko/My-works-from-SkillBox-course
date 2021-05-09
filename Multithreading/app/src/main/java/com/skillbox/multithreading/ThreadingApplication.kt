@@ -1,6 +1,7 @@
 package com.skillbox.multithreading
 
 import android.app.Application
+import com.skillbox.multithreading.threading.MovieRepository
 import java.util.concurrent.*
 
 class ThreadingApplication : Application() {
@@ -16,6 +17,10 @@ class ThreadingApplication : Application() {
         KEEP_ALIVE_TIME_UNIT,
         workQueue
     )
+
+    fun getMovieRepository(): MovieRepository {
+        return MovieRepository(threadPoolExecutor)
+    }
 
     companion object {
         private const val KEEP_ALIVE_TIME = 1L

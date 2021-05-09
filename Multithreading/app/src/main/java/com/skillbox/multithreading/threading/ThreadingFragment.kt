@@ -39,7 +39,6 @@ class ThreadingFragment : Fragment(R.layout.fragment_threading) {
 
       binding.swiperefresh.setOnRefreshListener {
          viewModel.requestMovies()
-         binding.swiperefresh.isRefreshing = false
       }
    }
 
@@ -59,6 +58,10 @@ class ThreadingFragment : Fragment(R.layout.fragment_threading) {
    private fun observeViewModelState() {
       viewModel.movies.observe(viewLifecycleOwner, Observer {
          threadingAdapter?.items = it
+      })
+
+      viewModel.isLoading.observe(viewLifecycleOwner, Observer {
+         binding.swiperefresh.isRefreshing = it
       })
    }
 

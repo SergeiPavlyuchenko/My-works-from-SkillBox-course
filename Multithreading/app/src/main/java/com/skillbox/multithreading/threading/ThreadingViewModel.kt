@@ -20,29 +20,17 @@ import java.util.concurrent.TimeUnit
 
 class ThreadingViewModel : ViewModel() {
 
-    private val NUMBER_OF_CORES = Runtime.getRuntime().availableProcessors()
-    private val workQueue: BlockingQueue<Runnable> =
-        LinkedBlockingQueue<Runnable>()
 
-    private val KEEP_ALIVE_TIME_UNIT = TimeUnit.SECONDS
-    private val threadPoolExecutor: ThreadPoolExecutor = ThreadPoolExecutor(
-        NUMBER_OF_CORES,
-        NUMBER_OF_CORES,
-        KEEP_ALIVE_TIME,
-        KEEP_ALIVE_TIME_UNIT,
-        workQueue
-    )
-
-    companion object {
-        private const val KEEP_ALIVE_TIME = 1L
-
-    }
-
-    private val repository = MovieRepository(threadPoolExecutor)
+    private val repository = ThreadingApplication().getMovieRepository()
     private val mainHandler = Handler(Looper.getMainLooper())
+
     private val moviesLiveData = MutableLiveData<List<Movie>>()
     val movies: LiveData<List<Movie>>
         get() = moviesLiveData
+
+    private val isLoadingLiveData =  MutableLiveData<Boolean>()
+    val isLoading: LiveData<Boolean>
+        get() = isLoadingLiveData
 
     private val movieIds = listOf(
         "tt0111161",
@@ -58,7 +46,10 @@ class ThreadingViewModel : ViewModel() {
         mainHandler.post {
         repository.fetchMovies(movieIds) {
             when(it) {
-                is ResultAction.Success<List<Movie>> -> moviesLiveData.postValue(it.data ?: listOf())
+                is ResultAction.Success<List<Movie>> -> {
+                    moviesLiveData.postValue(it.data.orEmpty())
+                    isLoadingLiveData.postValue(false)
+                }
                 else -> Error("Incorrect data")
             }
             }
