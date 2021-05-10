@@ -21,7 +21,9 @@ import com.skillbox.multithreading.networking.Movie
 
 class ThreadingFragment : Fragment(R.layout.fragment_threading) {
 
-   private val viewModel: ThreadingViewModel by viewModels()
+   private val viewModel: ThreadingViewModel by viewModels() {
+      ThreadingViewModel.ThreadingViewModelFactory(requireActivity().application)
+   }
    private val binding by viewBinding(FragmentThreadingBinding::bind)
    private var threadingAdapter: ThreadingAdapter? = null
 

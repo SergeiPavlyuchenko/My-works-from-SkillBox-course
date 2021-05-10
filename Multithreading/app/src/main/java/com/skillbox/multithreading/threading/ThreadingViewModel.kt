@@ -5,9 +5,7 @@ import android.os.Handler
 import android.os.Looper
 import android.widget.Toast
 import androidx.core.os.postDelayed
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.*
 import com.skillbox.multithreading.ResultAction
 import com.skillbox.multithreading.ThreadingApplication
 import com.skillbox.multithreading.networking.Movie
@@ -18,10 +16,10 @@ import java.util.concurrent.LinkedBlockingQueue
 import java.util.concurrent.ThreadPoolExecutor
 import java.util.concurrent.TimeUnit
 
-class ThreadingViewModel : ViewModel() {
+class ThreadingViewModel(app: Application) : AndroidViewModel(app) {
 
 
-    private val repository = ThreadingApplication().getMovieRepository()
+    private val repository = (app as ThreadingApplication).getMovieRepository()
     private val mainHandler = Handler(Looper.getMainLooper())
 
     private val moviesLiveData = MutableLiveData<List<Movie>>()
@@ -53,6 +51,12 @@ class ThreadingViewModel : ViewModel() {
                 else -> Error("Incorrect data")
             }
             }
+        }
+    }
+
+    class ThreadingViewModelFactory(private val application: Application): ViewModelProvider.NewInstanceFactory() {
+        override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+            return ThreadingViewModel(application) as T
         }
     }
 

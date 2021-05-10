@@ -2,7 +2,7 @@
     <string name="app_name">Networking</string>
     <string name="title">Title:</string>
     <string name="year">Year:</string>
-    <string name="choose_a_category">Choose a category</string>
+    <string name="category">Category</string>
     <string name="not_selected">Not selected</string>
     <string-array name="labels">
         <item>Series</item>
