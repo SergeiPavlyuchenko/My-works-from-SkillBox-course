@@ -1,21 +1,31 @@
 package com.example.networking
 
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
+import androidx.core.os.postDelayed
+import androidx.core.view.get
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.LinearLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
+import com.example.networking.adapter.MoviesAdapter
 import com.example.networking.databinding.FragmentMainBinding
 import com.example.networking.viewModel.MoviesViewModel
 
 
-class MainFragment: Fragment(R.layout.fragment_main) {
+class MainFragment : Fragment(R.layout.fragment_main) {
 
     private val binding by viewBinding(FragmentMainBinding::bind)
-    private val viewModel:MoviesViewModel by viewModels()
-    
+    private val viewModel: MoviesViewModel by viewModels()
+    private var moviesAdapter by AutoClearedValue<MoviesAdapter>()
+    private var userRequest = UserRequestFromGUI("", null, "")
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -23,13 +33,83 @@ class MainFragment: Fragment(R.layout.fragment_main) {
         val adapter = ArrayAdapter(requireContext(), R.layout.item_list, items)
         (binding.moviesCategory.editText as? AutoCompleteTextView)?.setAdapter(adapter)
 
-        binding.searchButton.setOnClickListener {
-            viewModel.search(
-                binding.titleEditText.toString(),
-                binding.yearEditText.toString(),
-                binding.moviesCategory.toString().lowercase()
-            )
+        initList()
+
+        binding.searchButton.setOnClickListener { searchButtonImpl() }
+
+        binding.retryButton.setOnClickListener { retryButtonImpl() }
+    }
+
+
+    private fun initList() {
+        observeStates()
+        moviesAdapter = MoviesAdapter()
+        val offsetDec = ItemOffsetDecoration(requireContext())
+
+        with(binding.moviesRv) {
+            adapter = moviesAdapter
+            layoutManager = LinearLayoutManager(requireContext())
+            addItemDecoration(offsetDec)
+            setHasFixedSize(true)
+        }
+    }
+
+    private fun observeStates() {
+        viewModel.movieList.observe(viewLifecycleOwner) {
+            moviesAdapter.items = it
         }
 
+        viewModel.isLoading.observe(viewLifecycleOwner) {
+            with(binding) {
+                titleEditText.isEnabled = !it
+                yearEditText.isEnabled = !it
+                moviesCategory.isEnabled = !it
+                searchButton.isVisible = !it
+                loadingProgressBar.isVisible = it
+            }
+        }
+
+        viewModel.isError.observe(viewLifecycleOwner) {
+            with(binding) {
+                titleEditText.isVisible = !it.second
+                yearEditText.isVisible = !it.second
+                moviesCategory.isVisible = !it.second
+                searchButton.isVisible = !it.second
+                moviesRv.isVisible = !it.second
+                loadingProgressBar.isVisible = !it.second
+                errorTextView.isVisible = it.second
+                retryButton.isVisible = it.second
+                errorTextView.text = it.first?.message
+            }
+        }
+    }
+
+    private fun searchButtonImpl() {
+        val type = if (binding.completeTextView.text
+                ?.toString() == resources.getString(R.string.not_selected)
+        ) null else binding.completeTextView.text?.toString()?.lowercase()
+        userRequest = UserRequestFromGUI(
+            binding.titleEditText.text.toString(),
+            binding.yearEditText.text?.toString(),
+            type
+        )
+        viewModel.search(userRequest)
+    }
+
+    private fun retryButtonImpl() {
+        viewModel.search(userRequest)
+//        Handler(Looper.getMainLooper()).postDelayed(500) {
+//            if (!hasError) {
+//                with(binding) {
+//                    titleEditText.isVisible = true
+//                    yearEditText.isVisible = true
+//                    moviesCategory.isVisible = true
+//                    searchButton.isVisible = true
+//                    moviesRv.isVisible = true
+//                    errorTextView.isVisible = false
+//                    retryButton.isVisible = false
+//                }
+//            }
+//        }
     }
 }
