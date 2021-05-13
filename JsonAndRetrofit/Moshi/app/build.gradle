@@ -1,7 +1,8 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
-    id 'kotlin-kapt'
+//    id 'kotlin-kapt'
+    id "org.jetbrains.kotlin.kapt"
 }
 
 android {
@@ -74,12 +75,11 @@ dependencies {
     implementation 'com.squareup.okhttp3:okhttp:4.8.0'
 
     //Moshi
-    def moshiVer = '1.11.0'
+    def moshiVer = '1.12.0'
     implementation "com.squareup.moshi:moshi:$moshiVer"
     implementation "com.squareup.moshi:moshi-kotlin:$moshiVer"
     //Автоматически позволяет подключить классы парсера
-    kapt "com.squareup.moshi:moshi-kotlin-codegen: $moshiVer"
-
+    kapt("com.squareup.moshi:moshi-kotlin-codegen:1.12.0")
 
     //ViewBinding Property Delegate
     implementation 'com.github.kirich1409:viewbindingpropertydelegate:1.4.4'

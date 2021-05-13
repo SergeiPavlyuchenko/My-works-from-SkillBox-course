@@ -3,12 +3,14 @@ package com.example.moshi.viewModel
 import android.util.Log
 import com.example.moshi.RemoteMovie
 import com.example.moshi.network.Network
+import com.squareup.moshi.Moshi
 import okhttp3.Call
 import okhttp3.Callback
 import okhttp3.Response
 import org.json.JSONException
 import org.json.JSONObject
 import java.io.IOException
+import java.lang.Exception
 
 class MoviesRepository {
 //    http://www.omdbapi.com/?apikey=[yourkey]&s=
@@ -61,18 +63,16 @@ class MoviesRepository {
 
     private fun parseMovieResponse(responseBodyString: String): List<RemoteMovie> {
         return try {
-            val jsonObject = JSONObject(responseBodyString)
-            val movieArray = jsonObject.getJSONArray("Search")
-            (0 until movieArray.length()).map { movieArray.getJSONObject(it) }
-                .map {
-                    val title = it.getString("Title")
-                    val year = it.getString("Year")
-                    val imdbID = it.getString("imdbID")
-                    val type = it.getString("Type")
-                    val poster = it.getString("Poster")
+            val moshi = Moshi.Builder().build()
+            val adapter = moshi.adapter(RemoteMovie::class.java).nonNull()
+            try {
+                val movie = adapter.fromJson(responseBodyString)
+                listOf(movie)
+            } catch (e: Exception) {
+                emptyList()
+            }
 
-                    RemoteMovie(title, year, type, imdbID, poster)
-                }
+            return emptyList()
         } catch (e: JSONException) {
             Log.d("Server", "parse response error = ${e.message}", e)
             emptyList()

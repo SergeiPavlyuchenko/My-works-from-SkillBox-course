@@ -71,14 +71,14 @@
         android:layout_width="150dp"
         android:layout_height="1dp"
         android:background="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/typeTextView"
+        app:layout_constraintBottom_toTopOf="@+id/rateTextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@id/titleTextView"
         app:layout_constraintTop_toBottomOf="@+id/yearTextView" />
 
     <TextView
-        android:id="@+id/typeTextView"
+        android:id="@+id/rateTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:paddingStart="16dp"
@@ -89,32 +89,74 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/titleTextView"
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
-        tools:text="Type: Movie" />
+        tools:text="Rated: 8.3" />
 
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="150dp"
         android:layout_height="1dp"
         android:background="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/imdbIDTextView"
+        app:layout_constraintBottom_toTopOf="@+id/genreTextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@id/titleTextView"
-        app:layout_constraintTop_toBottomOf="@+id/typeTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/rateTextView" />
 
     <TextView
-        android:id="@+id/imdbIDTextView"
+        android:id="@+id/genreTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:paddingStart="16dp"
         android:paddingEnd="16dp"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/evaluationTextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/titleTextView"
         app:layout_constraintTop_toBottomOf="@+id/imageView3"
-        tools:text="imdbID: tt0119905" />
+        tools:text="Genre: PG" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="150dp"
+        android:layout_height="1dp"
+        android:background="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/genreTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@id/titleTextView"
+        app:layout_constraintTop_toBottomOf="@+id/evaluationTextView" />
+
+    <TextView
+        android:id="@+id/sourceScoreTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/genreTextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/evaluationTextView"
+        app:layout_constraintHorizontal_weight="8"
+        tools:text="Metacritics"
+        app:layout_constraintStart_toStartOf="@id/titleTextView" />
+
+
+    <TextView
+        android:id="@+id/evaluationTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="start"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        tools:text="8.2"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/titleTextView"
+        app:layout_constraintHorizontal_weight="3"
+        app:layout_constraintStart_toEndOf="@id/sourceScoreTextView"
+        app:layout_constraintTop_toBottomOf="@id/genreTextView"
+        app:layout_constraintVertical_weight="2" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

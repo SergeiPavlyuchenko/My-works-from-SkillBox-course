@@ -12,7 +12,7 @@ class MoviesAdapter: AsyncListDifferDelegationAdapter<RemoteMovie>(RemoteMoviesD
 
    class RemoteMoviesDiffUtilCallback: DiffUtil.ItemCallback<RemoteMovie>() {
        override fun areItemsTheSame(oldItem: RemoteMovie, newItem: RemoteMovie): Boolean {
-           return oldItem.imdbID == newItem.imdbID
+           return true
        }
 
        override fun areContentsTheSame(oldItem: RemoteMovie, newItem: RemoteMovie): Boolean {

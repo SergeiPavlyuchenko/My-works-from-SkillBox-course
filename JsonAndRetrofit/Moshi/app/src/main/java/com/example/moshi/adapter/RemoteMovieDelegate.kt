@@ -39,9 +39,9 @@ class RemoteMovieDelegate :
 
         fun bind(movie: RemoteMovie) {
             binding.titleTextView.text = movie.title
-            binding.yearTextView.text = movie.year
-            binding.typeTextView.text = movie.type
-            binding.imdbIDTextView.text = movie.imdbID
+            binding.yearTextView.text = movie.year.toString()
+            binding.rateTextView.text = movie.rate
+            binding.genreTextView.text = movie.genre
 
             Glide.with(binding.root.context)
                 .load(movie.posterUrl)
