@@ -1,6 +1,5 @@
 package com.example.networking.network
 
-import com.example.networking.viewModel.MoviesRepository
 import okhttp3.Call
 import okhttp3.HttpUrl
 import okhttp3.OkHttpClient
@@ -13,7 +12,7 @@ object Network {
     private const val MOVIE_API_KEY = "fc1eb966"
 
     private val client = OkHttpClient.Builder()
-//        .addNetworkInterceptor(CustomApiKeyInterceptor("apikey", MOVIE_API_KEY))
+        .addNetworkInterceptor(CustomUrlRequestInterceptor())
         .addNetworkInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
         .build()
 
@@ -25,7 +24,7 @@ object Network {
         val url = HttpUrl.Builder()
             .scheme("http")
             .host("www.omdbapi.com")
-            .addQueryParameter("apikey", MOVIE_API_KEY)
+//            .addQueryParameter("apikey", MOVIE_API_KEY)
             .addQueryParameter("s", text)
             .addQueryParameter("type", type)
             .addQueryParameter("y", year)
