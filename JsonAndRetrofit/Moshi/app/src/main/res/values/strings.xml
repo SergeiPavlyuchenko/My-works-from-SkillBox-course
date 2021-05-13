@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Networking</string>
+    <string name="title">Title:</string>
+    <string name="year">Year:</string>
+    <string name="category">Category</string>
+    <string name="not_selected">Not selected</string>
+    <string name="search">search</string>
+    <string name="retry">Retry</string>
+    <string-array name="labels">
+        <item>Movie</item>
+        <item>Series</item>
+        <item>Episode</item>
+        <item>@string/not_selected</item>
+    </string-array>
+</resources>
