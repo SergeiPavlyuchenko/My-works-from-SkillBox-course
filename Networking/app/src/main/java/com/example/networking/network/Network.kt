@@ -9,10 +9,9 @@ import okhttp3.logging.HttpLoggingInterceptor
 object Network {
 
     //    http://www.omdbapi.com/?apikey=[yourkey]&s=
-    private const val MOVIE_API_KEY = "fc1eb966"
 
     private val client = OkHttpClient.Builder()
-        .addNetworkInterceptor(CustomUrlRequestInterceptor())
+        .addNetworkInterceptor(CustomApiKeyInterceptor())
         .addNetworkInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
         .build()
 
@@ -24,7 +23,6 @@ object Network {
         val url = HttpUrl.Builder()
             .scheme("http")
             .host("www.omdbapi.com")
-//            .addQueryParameter("apikey", MOVIE_API_KEY)
             .addQueryParameter("s", text)
             .addQueryParameter("type", type)
             .addQueryParameter("y", year)
