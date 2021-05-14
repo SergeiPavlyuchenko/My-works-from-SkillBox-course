@@ -1,0 +1,40 @@
+<<<<<<< HEAD
+<<<<<<< HEAD:PermissionsAndDate/app/src/androidTest/java/com/example/privatehelper/ExampleInstrumentedTest.kt
+package com.example.privatehelper
+=======
+package com.example.moshi
+>>>>>>> master:JsonAndRetrofit/Moshi/app/src/androidTest/java/com/example/moshi/ExampleInstrumentedTest.kt
+=======
+package com.example.privatehelper
+>>>>>>> master
+
+import androidx.test.platform.app.InstrumentationRegistry
+import androidx.test.ext.junit.runners.AndroidJUnit4
+
+import org.junit.Test
+import org.junit.runner.RunWith
+
+import org.junit.Assert.*
+
+/**
+ * Instrumented test, which will execute on an Android device.
+ *
+ * See [testing documentation](http://d.android.com/tools/testing).
+ */
+@RunWith(AndroidJUnit4::class)
+class ExampleInstrumentedTest {
+    @Test
+    fun useAppContext() {
+        // Context of the app under test.
+        val appContext = InstrumentationRegistry.getInstrumentation().targetContext
+<<<<<<< HEAD
+<<<<<<< HEAD:PermissionsAndDate/app/src/androidTest/java/com/example/privatehelper/ExampleInstrumentedTest.kt
+        assertEquals("com.example.privatehelper", appContext.packageName)
+=======
+        assertEquals("com.example.networking", appContext.packageName)
+>>>>>>> master:JsonAndRetrofit/Moshi/app/src/androidTest/java/com/example/moshi/ExampleInstrumentedTest.kt
+=======
+        assertEquals("com.example.privatehelper", appContext.packageName)
+>>>>>>> master
+    }
+}
