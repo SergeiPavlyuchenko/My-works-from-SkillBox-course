@@ -28,9 +28,14 @@ class MoviesViewModel : ViewModel() {
     val isError: LiveData<Pair<Throwable?, Boolean>>
         get() = isErrorLiveData
 
+    private val notFoundLiveData = MutableLiveData<Boolean>()
+    val  notFound: LiveData<Boolean>
+        get() = notFoundLiveData
+
     fun search(userRequest: UserRequestFromGUI) {
         isLoadingLiveData.postValue(true)
         isErrorLiveData.postValue(Pair(null, false))
+        notFoundLiveData.postValue(false)
         currentCall = repository.searchMovie(
             userRequest.title,
             userRequest.year,
@@ -40,6 +45,9 @@ class MoviesViewModel : ViewModel() {
                 currentCall = null
             }, {
                 isErrorLiveData.postValue(Pair(it, true))
+            }, {
+                notFoundLiveData.postValue(true)
+                isLoadingLiveData.postValue(false)
             })
     }
 

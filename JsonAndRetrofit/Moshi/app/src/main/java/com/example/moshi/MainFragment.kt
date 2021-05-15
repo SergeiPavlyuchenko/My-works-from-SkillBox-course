@@ -77,6 +77,20 @@ class MainFragment : Fragment(R.layout.fragment_main) {
                 errorTextView.text = it.first?.message
             }
         }
+
+        viewModel.notFound.observe(viewLifecycleOwner) {
+            with(binding) {
+                moviesRv.isVisible = !it
+                confusedImageView.isVisible = it
+                nothingFoundTextView.isVisible = it
+                youSearchedForTextView.isVisible = it
+                resultSearchTextView.isVisible = it
+                resultSearchTextView.text = resources.getString(
+                    R.string.result_not_found_search,
+                    titleEditText.text.toString()
+                )
+            }
+        }
     }
 
     private fun searchButtonImpl() {

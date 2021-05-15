@@ -18,6 +18,7 @@ data class RemoteMovie(
     val genre: String,
     @Json(name = "Poster")
     val posterUrl: String,
-//    val scores: List<Score>
+    @Json(name = "Ratings")
+    val scores: List<Score>
 ) {
 }

@@ -1,6 +1,7 @@
 package com.example.moshi.viewModel
 
 import android.util.Log
+import com.example.moshi.MovieRating
 import com.example.moshi.RemoteMovie
 import com.example.moshi.network.Network
 import com.squareup.moshi.Moshi
@@ -21,6 +22,7 @@ class MoviesRepository {
         type: String?,
         callback: (List<RemoteMovie>) -> Unit,
         errorCallback: (e: Throwable) -> Unit,
+        notFoundCallBack: () -> Unit
     ): Call {
 
         //Асинхронный метод обращения к серверу
@@ -38,7 +40,9 @@ class MoviesRepository {
                         val responseString = response.body?.string().orEmpty()
 //                        Log.d("Server", "responseString: $responseString")
                         val movies = parseMovieResponse(responseString)
-                        callback(movies)
+                        if (movies.isNotEmpty()) {
+                            callback(movies)
+                        } else notFoundCallBack()
                     } else
                         errorCallback(IOException())
                 }
@@ -67,12 +71,10 @@ class MoviesRepository {
             val adapter = moshi.adapter(RemoteMovie::class.java).nonNull()
             try {
                 val movie = adapter.fromJson(responseBodyString)
-                listOf(movie)
+                listOf(movie ?: RemoteMovie("",0, MovieRating.NOT_RATED, "", "", emptyList()))
             } catch (e: Exception) {
                 emptyList()
             }
-
-            return emptyList()
         } catch (e: JSONException) {
             Log.d("Server", "parse response error = ${e.message}", e)
             emptyList()

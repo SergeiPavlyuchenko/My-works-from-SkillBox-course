@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.moshi.R
 import com.example.moshi.RemoteMovie
 import com.example.moshi.databinding.ItemMovieBinding
 import com.hannesdorfmann.adapterdelegates4.AbsListItemAdapterDelegate
@@ -38,10 +39,32 @@ class RemoteMovieDelegate :
     ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(movie: RemoteMovie) {
-            binding.titleTextView.text = movie.title
-            binding.yearTextView.text = movie.year.toString()
-            binding.rateTextView.text = movie.rate
-            binding.genreTextView.text = movie.genre
+            with(binding) {
+                titleTextView.text = movie.title
+                yearTextView.text = movie.year.toString()
+                rateTextView.text = movie.rate.toString()
+                genreTextView.text = movie.genre
+
+                movie.scores.forEach {
+                    val currentScore = sourceScoreTextView.text.toString()
+                    val currentEvaluation = evaluationTextView.text.toString()
+                    sourceScoreTextView.text = sourceScoreTextView.resources.getString(
+                        R.string.sources,
+                        currentScore,
+                        "\n\n",
+                        it.score
+                    ).trim()
+                    evaluationTextView.text = evaluationTextView.resources.getString(
+                        R.string.evaluations,
+                        currentEvaluation,
+                        "\n\n",
+                        it.value
+                    ).trim()
+                }
+            }
+
+
+
 
             Glide.with(binding.root.context)
                 .load(movie.posterUrl)

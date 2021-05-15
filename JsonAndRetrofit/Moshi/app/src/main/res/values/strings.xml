@@ -6,6 +6,11 @@
     <string name="not_selected">Not selected</string>
     <string name="search">search</string>
     <string name="retry">Retry</string>
+    <string name="nothing_found">Nothing Found</string>
+    <string name="sources">%1s %2s %3s</string>
+    <string name="evaluations">%1s %2s %3s</string>
+    <string name="you_searched_for">You searched for:</string>
+    <string name="result_not_found_search">\"%1s\"</string>
     <string-array name="labels">
         <item>Movie</item>
         <item>Series</item>
