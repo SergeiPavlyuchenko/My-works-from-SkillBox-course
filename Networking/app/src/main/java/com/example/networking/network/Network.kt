@@ -1,5 +1,7 @@
 package com.example.networking.network
 
+import com.facebook.flipper.plugins.network.FlipperOkhttpInterceptor
+import com.facebook.flipper.plugins.network.NetworkFlipperPlugin
 import okhttp3.Call
 import okhttp3.HttpUrl
 import okhttp3.OkHttpClient
@@ -13,6 +15,7 @@ object Network {
     private val client = OkHttpClient.Builder()
         .addNetworkInterceptor(CustomApiKeyInterceptor())
         .addNetworkInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
+        .addNetworkInterceptor(FlipperOkhttpInterceptor(NetworkFlipperPlugin()))
         .build()
 
     fun getSearchMovieCall(
