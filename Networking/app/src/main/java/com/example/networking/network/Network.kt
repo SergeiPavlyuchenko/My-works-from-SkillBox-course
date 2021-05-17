@@ -12,10 +12,12 @@ object Network {
 
     //    http://www.omdbapi.com/?apikey=[yourkey]&s=
 
+    val flipperNetworkPlugin = NetworkFlipperPlugin()
+
     private val client = OkHttpClient.Builder()
         .addNetworkInterceptor(CustomApiKeyInterceptor())
         .addNetworkInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
-        .addNetworkInterceptor(FlipperOkhttpInterceptor(NetworkFlipperPlugin()))
+        .addNetworkInterceptor(FlipperOkhttpInterceptor(flipperNetworkPlugin))
         .build()
 
     fun getSearchMovieCall(
