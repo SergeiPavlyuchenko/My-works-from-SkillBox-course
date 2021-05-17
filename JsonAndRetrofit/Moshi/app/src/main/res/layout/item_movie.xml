@@ -122,7 +122,6 @@
         android:id="@+id/sourceScoreTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:paddingStart="16dp"
         android:paddingTop="4dp"
         android:paddingEnd="16dp"
@@ -161,6 +160,16 @@
         app:layout_constraintEnd_toEndOf="@id/evaluationTextView"
         app:layout_constraintStart_toStartOf="@+id/sourceScoreTextView"
         app:layout_constraintTop_toTopOf="@id/sourceScoreTextView" />
+
+    <Button
+        android:id="@+id/addScoreButton"
+        android:layout_width="match_parent"
+        android:layout_height="38dp"
+        android:backgroundTint="@color/lite_orange"
+        android:text="@string/add_score"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/sourceScoreTextView"
+        tools:layout_editor_absoluteX="16dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

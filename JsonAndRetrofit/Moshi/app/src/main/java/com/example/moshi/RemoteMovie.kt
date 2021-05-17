@@ -13,12 +13,12 @@ data class RemoteMovie(
     @Json(name = "Year")
     val year: Int,
     @Json(name = "Rated")
-    val rate: MovieRating,
+    val rate: MovieRating = MovieRating.NOT_RATED,
     @Json(name = "Genre")
     val genre: String,
     @Json(name = "Poster")
     val posterUrl: String,
     @Json(name = "Ratings")
-    val scores: List<Score>
+    val scores: Map<String, String> = emptyMap()//: List<Score> = emptyList()
 ) {
 }

@@ -4,10 +4,13 @@ import androidx.recyclerview.widget.DiffUtil
 import com.example.moshi.RemoteMovie
 import com.hannesdorfmann.adapterdelegates4.AsyncListDifferDelegationAdapter
 
-class MoviesAdapter: AsyncListDifferDelegationAdapter<RemoteMovie>(RemoteMoviesDiffUtilCallback()) {
+class MoviesAdapter(
+    onItemClicked: () -> Unit,
+    onItemChange: (f:() -> Map<String, Int>) -> Unit
+): AsyncListDifferDelegationAdapter<RemoteMovie>(RemoteMoviesDiffUtilCallback()) {
 
     init {
-        delegatesManager.addDelegate(RemoteMovieDelegate())
+        delegatesManager.addDelegate(RemoteMovieDelegate(onItemClicked, onItemChange))
     }
 
    class RemoteMoviesDiffUtilCallback: DiffUtil.ItemCallback<RemoteMovie>() {

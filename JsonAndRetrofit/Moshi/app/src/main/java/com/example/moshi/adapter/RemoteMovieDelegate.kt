@@ -2,6 +2,7 @@ package com.example.moshi.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.moshi.R
@@ -9,7 +10,10 @@ import com.example.moshi.RemoteMovie
 import com.example.moshi.databinding.ItemMovieBinding
 import com.hannesdorfmann.adapterdelegates4.AbsListItemAdapterDelegate
 
-class RemoteMovieDelegate :
+class RemoteMovieDelegate(
+    private val onItemClicked: () -> Unit,
+    private val onItemChanged: (f:() -> Map<String, Int>) -> Unit
+) :
     AbsListItemAdapterDelegate<RemoteMovie, RemoteMovie, RemoteMovieDelegate.MovieHolder>() {
 
     override fun isForViewType(
@@ -22,7 +26,9 @@ class RemoteMovieDelegate :
 
     override fun onCreateViewHolder(parent: ViewGroup): MovieHolder {
         return MovieHolder(
-            ItemMovieBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+            ItemMovieBinding.inflate(LayoutInflater.from(parent.context), parent, false),
+            onItemClicked,
+            onItemChanged
         )
     }
 
@@ -35,8 +41,11 @@ class RemoteMovieDelegate :
     }
 
     class MovieHolder(
-        private val binding: ItemMovieBinding
+        private val binding: ItemMovieBinding,
+        private val onItemClicked: () -> Unit,
+        private val onItemChange: (f:() -> Map<String, Int>) -> Unit
     ) : RecyclerView.ViewHolder(binding.root) {
+
 
         fun bind(movie: RemoteMovie) {
             with(binding) {
@@ -52,7 +61,7 @@ class RemoteMovieDelegate :
                         R.string.sources,
                         currentScore,
                         "\n\n",
-                        it.score
+                        it.key
                     ).trim()
                     evaluationTextView.text = evaluationTextView.resources.getString(
                         R.string.evaluations,
@@ -63,13 +72,17 @@ class RemoteMovieDelegate :
                 }
             }
 
-
-
-
             Glide.with(binding.root.context)
                 .load(movie.posterUrl)
                 .centerCrop()
                 .into(binding.posterImageView)
+
+            binding.addScoreButton.setOnClickListener {
+                onItemClicked()
+            }
+
+            onItemChange
+
         }
 
     }

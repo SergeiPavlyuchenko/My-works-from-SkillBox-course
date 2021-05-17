@@ -51,6 +51,8 @@ class MoviesViewModel : ViewModel() {
             })
     }
 
+
+
     override fun onCleared() {
         super.onCleared()
         currentCall?.cancel()

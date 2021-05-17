@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
+import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -14,7 +15,8 @@ import com.example.moshi.databinding.FragmentMainBinding
 import com.example.moshi.viewModel.MoviesViewModel
 
 
-class MainFragment : Fragment(R.layout.fragment_main) {
+class MainFragment : Fragment(R.layout.fragment_main), DialogInterfaceListener {
+
 
     private val binding by viewBinding(FragmentMainBinding::bind)
     private val viewModel: MoviesViewModel by viewModels()
@@ -28,17 +30,22 @@ class MainFragment : Fragment(R.layout.fragment_main) {
         val adapter = ArrayAdapter(requireContext(), R.layout.item_list, items)
         (binding.moviesCategory.editText as? AutoCompleteTextView)?.setAdapter(adapter)
 
+
+
         initList()
 
-        binding.searchButton.setOnClickListener { searchButtonImpl() }
+        with(binding) {
+            searchButton.setOnClickListener { searchButtonImpl() }
+            retryButton.setOnClickListener { retryButtonImpl() }
+        }
 
-        binding.retryButton.setOnClickListener { retryButtonImpl() }
+
     }
 
 
     private fun initList() {
         observeStates()
-        moviesAdapter = MoviesAdapter()
+        moviesAdapter = MoviesAdapter ( { addScore() }, { onItemChange() })
         val offsetDec = ItemOffsetDecoration(requireContext())
 
         with(binding.moviesRv) {
@@ -47,6 +54,10 @@ class MainFragment : Fragment(R.layout.fragment_main) {
             addItemDecoration(offsetDec)
             setHasFixedSize(true)
         }
+    }
+
+    private fun addScore() {
+        AddScoreDialog().show(childFragmentManager, "")
     }
 
     private fun observeStates() {
@@ -121,4 +132,8 @@ class MainFragment : Fragment(R.layout.fragment_main) {
 //            }
 //        }
     }
+
+    override fun onItemChange(score: String, value: Int) {
+    }
+
 }

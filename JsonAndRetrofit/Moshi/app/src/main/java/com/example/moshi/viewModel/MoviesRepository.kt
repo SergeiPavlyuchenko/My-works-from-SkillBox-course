@@ -3,6 +3,8 @@ package com.example.moshi.viewModel
 import android.util.Log
 import com.example.moshi.MovieRating
 import com.example.moshi.RemoteMovie
+import com.example.moshi.RemoteMovieJsonAdapter
+import com.example.moshi.adapter.RemoteMovieCustomJsonAdapter
 import com.example.moshi.network.Network
 import com.squareup.moshi.Moshi
 import okhttp3.Call
@@ -67,11 +69,13 @@ class MoviesRepository {
 
     private fun parseMovieResponse(responseBodyString: String): List<RemoteMovie> {
         return try {
-            val moshi = Moshi.Builder().build()
+            val moshi = Moshi.Builder()
+                .add(RemoteMovieCustomJsonAdapter())
+                .build()
             val adapter = moshi.adapter(RemoteMovie::class.java).nonNull()
             try {
                 val movie = adapter.fromJson(responseBodyString)
-                listOf(movie ?: RemoteMovie("",0, MovieRating.NOT_RATED, "", "", emptyList()))
+                listOf(movie ?: RemoteMovie("",0, MovieRating.NOT_RATED, "", "", emptyMap()))
             } catch (e: Exception) {
                 emptyList()
             }
