@@ -1,8 +1,8 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
-//    id 'kotlin-kapt'
     id "org.jetbrains.kotlin.kapt"
+    id "androidx.navigation.safeargs.kotlin"
 }
 
 android {
@@ -66,13 +66,14 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.3.1"
     //Navigation
     implementation "androidx.navigation:navigation-fragment-ktx:2.3.5"
+    implementation "androidx.navigation:navigation-ui-ktx:2.3.5"
 
     //Networking
     implementation 'com.google.code.gson:gson:2.8.6'
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
     implementation 'com.squareup.okhttp3:logging-interceptor:4.8.0'
-    implementation 'com.squareup.okhttp3:okhttp:4.8.0'
+    implementation 'com.squareup.okhttp3:okhttp:4.9.1'
 
     //Moshi
     def moshiVer = '1.12.0'

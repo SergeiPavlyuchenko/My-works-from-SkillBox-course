@@ -6,16 +6,19 @@ import com.example.moshi.Score
 import com.squareup.moshi.FromJson
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import com.squareup.moshi.ToJson
+import org.json.JSONObject
 
 class RemoteMovieCustomJsonAdapter {
 
     @FromJson
     fun fromJson(customMovie: CustomMovie): RemoteMovie {
         val scores = mutableMapOf<String, String>()
-        customMovie.scores.forEach{
+        customMovie.scores.forEach {
             scores[it.score] = it.value
         }
         return RemoteMovie(
+            id = customMovie.id,
             title = customMovie.title,
             year = customMovie.year,
             rate = customMovie.rate,
@@ -26,12 +29,16 @@ class RemoteMovieCustomJsonAdapter {
         )
     }
 
-    fun toJson(movie: RemoteMovie) {
+    @ToJson
+    fun toJson(movie: RemoteMovie): String {
+        return movie.id + " " + movie.title + " " + movie.year + " " + movie.rate + " " + movie.genre + " " + movie.posterUrl + " " + movie.scores
 
     }
 
     @JsonClass(generateAdapter = true)
     data class CustomMovie(
+        @Json(name = "imdbID")
+        val id: String,
         @Json(name = "Title")
         val title: String,
         @Json(name = "Year")

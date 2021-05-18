@@ -29,7 +29,7 @@ class MoviesViewModel : ViewModel() {
         get() = isErrorLiveData
 
     private val notFoundLiveData = MutableLiveData<Boolean>()
-    val  notFound: LiveData<Boolean>
+    val notFound: LiveData<Boolean>
         get() = notFoundLiveData
 
     fun search(userRequest: UserRequestFromGUI) {
@@ -51,6 +51,17 @@ class MoviesViewModel : ViewModel() {
             })
     }
 
+    fun updatePurchases(movies: List<RemoteMovie>, score: String, value: String, position: Int) {
+        isLoadingLiveData.postValue(true)
+        val updatedList = repository.modifyItemScore(
+            movies,
+            score,
+            value,
+            position
+        )
+        movieListLiveData.postValue(updatedList)
+        isLoadingLiveData.postValue(false)
+    }
 
 
     override fun onCleared() {

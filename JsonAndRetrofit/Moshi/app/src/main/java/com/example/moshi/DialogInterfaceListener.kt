@@ -1,5 +1,9 @@
 package com.example.moshi
 
 interface DialogInterfaceListener {
-    fun onItemChange(): Map<String, Int>
+    fun onItemChange(
+        score: String,
+        value: String,
+        position: Int
+    )
 }

@@ -4,10 +4,11 @@ import android.os.Bundle
 import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
-import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.NavDirections
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.moshi.adapter.MoviesAdapter
@@ -22,6 +23,7 @@ class MainFragment : Fragment(R.layout.fragment_main), DialogInterfaceListener {
     private val viewModel: MoviesViewModel by viewModels()
     private var moviesAdapter by AutoClearedValue<MoviesAdapter>()
     private var userRequest = UserRequestFromGUI("", null, "")
+    private var currentMovieList: List<RemoteMovie> = emptyList()
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -45,7 +47,7 @@ class MainFragment : Fragment(R.layout.fragment_main), DialogInterfaceListener {
 
     private fun initList() {
         observeStates()
-        moviesAdapter = MoviesAdapter ( { addScore() }, { onItemChange() })
+        moviesAdapter = MoviesAdapter { position -> addScore(position) }
         val offsetDec = ItemOffsetDecoration(requireContext())
 
         with(binding.moviesRv) {
@@ -56,13 +58,16 @@ class MainFragment : Fragment(R.layout.fragment_main), DialogInterfaceListener {
         }
     }
 
-    private fun addScore() {
-        AddScoreDialog().show(childFragmentManager, "")
+    private fun addScore(position: Int) {
+//        val action = MainFragmentDirections.actionMainFragmentToAddScoreDialog(position)
+//        findNavController().navigate(action)
+        AddScoreDialog.newInstance(position).show(childFragmentManager, "")
     }
 
     private fun observeStates() {
         viewModel.movieList.observe(viewLifecycleOwner) {
             moviesAdapter.items = it
+            currentMovieList = it
         }
 
         viewModel.isLoading.observe(viewLifecycleOwner) {
@@ -118,22 +123,10 @@ class MainFragment : Fragment(R.layout.fragment_main), DialogInterfaceListener {
 
     private fun retryButtonImpl() {
         viewModel.search(userRequest)
-//        Handler(Looper.getMainLooper()).postDelayed(500) {
-//            if (!hasError) {
-//                with(binding) {
-//                    titleEditText.isVisible = true
-//                    yearEditText.isVisible = true
-//                    moviesCategory.isVisible = true
-//                    searchButton.isVisible = true
-//                    moviesRv.isVisible = true
-//                    errorTextView.isVisible = false
-//                    retryButton.isVisible = false
-//                }
-//            }
-//        }
     }
 
-    override fun onItemChange(score: String, value: Int) {
+    override fun onItemChange(score: String, value: String, position: Int) {
+        viewModel.updatePurchases(currentMovieList, score, value, position)
     }
 
 }

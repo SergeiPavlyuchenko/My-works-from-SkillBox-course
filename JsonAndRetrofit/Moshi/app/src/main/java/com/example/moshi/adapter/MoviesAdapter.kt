@@ -5,17 +5,16 @@ import com.example.moshi.RemoteMovie
 import com.hannesdorfmann.adapterdelegates4.AsyncListDifferDelegationAdapter
 
 class MoviesAdapter(
-    onItemClicked: () -> Unit,
-    onItemChange: (f:() -> Map<String, Int>) -> Unit
+    onItemClicked: (position: Int) -> Unit,
 ): AsyncListDifferDelegationAdapter<RemoteMovie>(RemoteMoviesDiffUtilCallback()) {
 
     init {
-        delegatesManager.addDelegate(RemoteMovieDelegate(onItemClicked, onItemChange))
+        delegatesManager.addDelegate(RemoteMovieDelegate(onItemClicked))
     }
 
    class RemoteMoviesDiffUtilCallback: DiffUtil.ItemCallback<RemoteMovie>() {
        override fun areItemsTheSame(oldItem: RemoteMovie, newItem: RemoteMovie): Boolean {
-           return true
+           return oldItem.id == newItem.id
        }
 
        override fun areContentsTheSame(oldItem: RemoteMovie, newItem: RemoteMovie): Boolean {

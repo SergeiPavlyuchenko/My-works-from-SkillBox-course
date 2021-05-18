@@ -11,8 +11,7 @@ import com.example.moshi.databinding.ItemMovieBinding
 import com.hannesdorfmann.adapterdelegates4.AbsListItemAdapterDelegate
 
 class RemoteMovieDelegate(
-    private val onItemClicked: () -> Unit,
-    private val onItemChanged: (f:() -> Map<String, Int>) -> Unit
+    private val onItemClicked: (position: Int) -> Unit,
 ) :
     AbsListItemAdapterDelegate<RemoteMovie, RemoteMovie, RemoteMovieDelegate.MovieHolder>() {
 
@@ -28,7 +27,6 @@ class RemoteMovieDelegate(
         return MovieHolder(
             ItemMovieBinding.inflate(LayoutInflater.from(parent.context), parent, false),
             onItemClicked,
-            onItemChanged
         )
     }
 
@@ -42,8 +40,7 @@ class RemoteMovieDelegate(
 
     class MovieHolder(
         private val binding: ItemMovieBinding,
-        private val onItemClicked: () -> Unit,
-        private val onItemChange: (f:() -> Map<String, Int>) -> Unit
+        private val onItemClicked: (position: Int) -> Unit
     ) : RecyclerView.ViewHolder(binding.root) {
 
 
@@ -78,10 +75,9 @@ class RemoteMovieDelegate(
                 .into(binding.posterImageView)
 
             binding.addScoreButton.setOnClickListener {
-                onItemClicked()
+                onItemClicked(adapterPosition)
             }
 
-            onItemChange
 
         }
 

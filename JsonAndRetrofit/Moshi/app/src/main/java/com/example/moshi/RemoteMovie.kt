@@ -2,12 +2,15 @@ package com.example.moshi
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import kotlin.random.Random
 
 // Аннотация позволяет преобразовать Json объекты в объекты класса RemoteMovie и наоборот
 // generateAdapter = true указывает на то, что нужно создать класс, который будет заниматься
 // серриализацией и десерриализацией
 @JsonClass(generateAdapter = true)
 data class RemoteMovie(
+    @Json(name = "imdbID")
+    val id: String,
     @Json(name = "Title")
     val title: String,
     @Json(name = "Year")

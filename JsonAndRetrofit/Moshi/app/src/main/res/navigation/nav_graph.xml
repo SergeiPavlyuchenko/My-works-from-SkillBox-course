@@ -9,5 +9,17 @@
         android:id="@+id/mainFragment"
         android:name="com.example.moshi.MainFragment"
         android:label="MainFragment"
-        tools:layout="@layout/fragment_main"/>
+        tools:layout="@layout/fragment_main">
+        <action
+            android:id="@+id/action_mainFragment_to_addScoreDialog"
+            app:destination="@id/addScoreDialog" />
+    </fragment>
+    <fragment
+        android:id="@+id/addScoreDialog"
+        android:name="com.example.moshi.AddScoreDialog"
+        android:label="AddScoreDialog">
+        <argument
+            android:name="position"
+            app:argType="integer" />
+    </fragment>
 </navigation>

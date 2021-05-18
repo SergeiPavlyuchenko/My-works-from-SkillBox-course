@@ -3,7 +3,6 @@ package com.example.moshi.viewModel
 import android.util.Log
 import com.example.moshi.MovieRating
 import com.example.moshi.RemoteMovie
-import com.example.moshi.RemoteMovieJsonAdapter
 import com.example.moshi.adapter.RemoteMovieCustomJsonAdapter
 import com.example.moshi.network.Network
 import com.squareup.moshi.Moshi
@@ -11,9 +10,9 @@ import okhttp3.Call
 import okhttp3.Callback
 import okhttp3.Response
 import org.json.JSONException
-import org.json.JSONObject
 import java.io.IOException
 import java.lang.Exception
+import kotlin.random.Random
 
 class MoviesRepository {
 //    http://www.omdbapi.com/?apikey=[yourkey]&s=
@@ -75,13 +74,42 @@ class MoviesRepository {
             val adapter = moshi.adapter(RemoteMovie::class.java).nonNull()
             try {
                 val movie = adapter.fromJson(responseBodyString)
-                listOf(movie ?: RemoteMovie("",0, MovieRating.NOT_RATED, "", "", emptyMap()))
+                listOf(movie ?: RemoteMovie("","",0, MovieRating.NOT_RATED, "", "", emptyMap()))
             } catch (e: Exception) {
                 emptyList()
             }
         } catch (e: JSONException) {
             Log.d("Server", "parse response error = ${e.message}", e)
             emptyList()
+        }
+    }
+
+    fun modifyItemScore(
+        movies: List<RemoteMovie>,
+        score: String,
+        value: String,
+        position: Int
+    ): List<RemoteMovie> {
+        val currentMovie = movies[position]
+        val modifiedMovie = RemoteMovie(
+            id = currentMovie.id,
+            title = currentMovie.title,
+            year = currentMovie.year,
+            rate = currentMovie.rate,
+            genre = currentMovie.genre,
+            posterUrl = currentMovie.posterUrl,
+            scores = currentMovie.scores.toMutableMap().apply {
+                this[score] = value
+            }
+        )
+        val moshi = Moshi.Builder()
+            .add(RemoteMovieCustomJsonAdapter())
+            .build()
+        val adapter = moshi.adapter(RemoteMovie::class.java)
+        val movieToJson = adapter.toJson(modifiedMovie)
+        Log.d("MovieToJson", movieToJson)
+        return movies.toMutableList().apply {
+            this[position] = modifiedMovie
         }
     }
 
