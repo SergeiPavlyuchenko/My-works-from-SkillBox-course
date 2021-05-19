@@ -29,11 +29,10 @@ class RemoteMovieCustomJsonAdapter {
         )
     }
 
-    @ToJson
+ /*   @ToJson
     fun toJson(movie: RemoteMovie): String {
         return movie.id + " " + movie.title + " " + movie.year + " " + movie.rate + " " + movie.genre + " " + movie.posterUrl + " " + movie.scores
-
-    }
+    }*/
 
     @JsonClass(generateAdapter = true)
     data class CustomMovie(

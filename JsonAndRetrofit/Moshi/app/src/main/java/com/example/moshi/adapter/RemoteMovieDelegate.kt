@@ -50,6 +50,8 @@ class RemoteMovieDelegate(
                 yearTextView.text = movie.year.toString()
                 rateTextView.text = movie.rate.toString()
                 genreTextView.text = movie.genre
+                sourceScoreTextView.text = ""
+                evaluationTextView.text = ""
 
                 movie.scores.forEach {
                     val currentScore = sourceScoreTextView.text.toString()
