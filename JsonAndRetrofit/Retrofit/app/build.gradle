@@ -8,6 +8,10 @@ android {
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
 
+    buildFeatures {
+        viewBinding = true
+    }
+
     defaultConfig {
         applicationId "com.skillbox.github"
         minSdkVersion 21
@@ -90,4 +94,7 @@ dependencies {
     //AppAuth
     implementation 'net.openid:appauth:0.7.1'
 
+    // ViewBindingPropertyDelegate
+    implementation 'com.github.kirich1409:viewbindingpropertydelegate:1.4.4'
+    implementation 'com.github.kirich1409:viewbindingpropertydelegate-noreflection:1.4.4'
 }

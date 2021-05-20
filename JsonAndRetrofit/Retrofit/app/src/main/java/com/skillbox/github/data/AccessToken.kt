@@ -2,6 +2,6 @@ package com.skillbox.github.data
 
 object AccessToken {
 
-    val accessToken = response.accessToken.orEmpty()
+    var value: String = ""
 
 }
