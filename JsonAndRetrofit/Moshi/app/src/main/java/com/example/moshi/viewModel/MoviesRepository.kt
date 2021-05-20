@@ -102,12 +102,14 @@ class MoviesRepository {
                 this[score] = value
             }
         )
+
         val moshi = Moshi.Builder()
             .add(RemoteMovieCustomJsonAdapter())
             .build()
         val adapter = moshi.adapter(RemoteMovie::class.java)
         val movieToJson = adapter.toJson(modifiedMovie)
         Log.d("MovieToJson", movieToJson)
+
         return movies.toMutableList().apply {
             this[position] = modifiedMovie
         }

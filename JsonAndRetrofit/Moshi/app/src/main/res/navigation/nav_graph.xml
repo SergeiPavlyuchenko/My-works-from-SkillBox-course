@@ -14,12 +14,12 @@
             android:id="@+id/action_mainFragment_to_addScoreDialog"
             app:destination="@id/addScoreDialog" />
     </fragment>
-    <fragment
+    <dialog
         android:id="@+id/addScoreDialog"
         android:name="com.example.moshi.AddScoreDialog"
         android:label="AddScoreDialog">
         <argument
-            android:name="position"
-            app:argType="integer" />
-    </fragment>
+            android:name="CurrentItemState"
+            app:argType="com.example.moshi.CurrentItemState" />
+    </dialog>
 </navigation>

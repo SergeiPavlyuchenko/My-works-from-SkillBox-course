@@ -4,28 +4,31 @@ import android.app.Dialog
 import android.os.Bundle
 import android.view.View
 import android.widget.*
+import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.example.moshi.viewModel.MoviesViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.textfield.TextInputLayout
 
-class AddScoreDialog: BottomSheetDialogFragment() {
+class AddScoreDialog : BottomSheetDialogFragment() {
 
-//    private val args: AddScoreDialogArgs by navArgs()
+    private val args: AddScoreDialogArgs by navArgs()
 
     private val fragment
         get() = parentFragment
     private val dialogInterfaceListener: DialogInterfaceListener?
         get() = fragment.let { it as? DialogInterfaceListener }
 
-
+    private val viewModel: MoviesViewModel by viewModels()
     private lateinit var dialogView: View
     private lateinit var stringScoreEditText: EditText
     private lateinit var completeDigitalScoreTextView: TextView
     private lateinit var addScoreButton: Button
     private lateinit var digitalScore: TextInputLayout
     private lateinit var bottomSheetDialog: BottomSheetDialog
-    private var adapterPosition: Int = 0
+//    private var adapterPosition: Int = 0
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,12 +45,29 @@ class AddScoreDialog: BottomSheetDialogFragment() {
         (digitalScore.editText as? AutoCompleteTextView)?.setAdapter(digitalAdapter)
 
         bottomSheetDialog = BottomSheetDialog(requireContext())
-        arguments?.getInt(POSITION_KEY)?.let { adapterPosition = it }
+//        arguments?.getInt(POSITION_KEY)?.let { adapterPosition = it }
 
         addScoreButton.setOnClickListener {
             val score = stringScoreEditText.text.toString()
             val value = completeDigitalScoreTextView.text.toString()
-            dialogInterfaceListener?.onItemChange(score,"$value/10", adapterPosition/*args.position*/)
+            val currentItemState = args.currentItemState
+            viewModel.updateMovies(
+               currentItemState.currentMovieList,
+                score, value,
+                currentItemState.adapterPosition
+            )
+
+            /*val action = AddScoreDialogDirections.actionAddScoreDialogToMainFragment(
+                score,
+                "$value/10",
+                args.position
+            )
+            findNavController().navigate(action)*/
+            /*  dialogInterfaceListener?.onItemChange(
+                  score,
+                  "$value/10",
+                  args.position*//*adapterPosition*//*
+            )*/
             bottomSheetDialog.dismiss()
         }
     }
@@ -62,7 +82,7 @@ class AddScoreDialog: BottomSheetDialogFragment() {
         super.onViewCreated(view, savedInstanceState)
 
     }
-    companion object {
+    /*companion object {
         private const val POSITION_KEY = "Position Key"
         fun newInstance(position: Int): AddScoreDialog {
             return AddScoreDialog().apply {
@@ -72,6 +92,6 @@ class AddScoreDialog: BottomSheetDialogFragment() {
                 arguments = args
             }
         }
-    }
+    }*/
 
 }

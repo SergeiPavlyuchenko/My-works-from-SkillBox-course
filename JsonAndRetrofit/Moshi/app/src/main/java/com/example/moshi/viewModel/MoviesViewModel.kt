@@ -51,7 +51,7 @@ class MoviesViewModel : ViewModel() {
             })
     }
 
-    fun updatePurchases(movies: List<RemoteMovie>, score: String, value: String, position: Int) {
+    fun updateMovies(movies: List<RemoteMovie>, score: String, value: String, position: Int) {
         isLoadingLiveData.postValue(true)
         val updatedList = repository.modifyItemScore(
             movies,

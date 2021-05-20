@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.moshi.adapter.MoviesAdapter
@@ -59,9 +60,11 @@ class MainFragment : Fragment(R.layout.fragment_main), DialogInterfaceListener {
     }
 
     private fun addScore(position: Int) {
-//        val action = MainFragmentDirections.actionMainFragmentToAddScoreDialog(position)
-//        findNavController().navigate(action)
-        AddScoreDialog.newInstance(position).show(childFragmentManager, "")
+        val action = MainFragmentDirections.actionMainFragmentToAddScoreDialog(
+            CurrentItemState(currentMovieList, position)
+        )
+        findNavController().navigate(action)
+//        AddScoreDialog.newInstance(position).show(childFragmentManager, "")
     }
 
     private fun observeStates() {
@@ -125,8 +128,9 @@ class MainFragment : Fragment(R.layout.fragment_main), DialogInterfaceListener {
         viewModel.search(userRequest)
     }
 
-    override fun onItemChange(score: String, value: String, position: Int) {
-        viewModel.updatePurchases(currentMovieList, score, value, position)
-    }
+
+/*    override fun onItemChange(score: String, value: String, position: Int) {
+        viewModel.updateMovies(currentMovieList, score, value, position)
+    }*/
 
 }
