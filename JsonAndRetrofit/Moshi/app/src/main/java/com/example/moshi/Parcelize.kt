@@ -1,16 +1,15 @@
 package com.example.moshi
 
 import android.os.Parcelable
-import kotlinx.android.parcel.Parcelize
 import kotlinx.android.parcel.RawValue
 
-@Parcelize
+@kotlinx.parcelize.Parcelize
 data class CurrentItemState(
-    val currentMovieList: @RawValue List<RemoteMovie>,
+    val currentMovieList: @kotlinx.parcelize.RawValue List<RemoteMovie>,
     val adapterPosition: Int
 ): Parcelable
 
-@Parcelize
+@kotlinx.parcelize.Parcelize
 data class NewScore(
     val score: String,
     val value: String

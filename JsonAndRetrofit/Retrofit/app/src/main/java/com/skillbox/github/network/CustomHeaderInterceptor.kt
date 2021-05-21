@@ -8,7 +8,7 @@ class CustomHeaderInterceptor: Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
         val originalRequest = chain.request()
         val modifiedRequest = originalRequest.newBuilder()
-            .addHeader("Authorization", AccessToken.value)
+            .addHeader("Authorization", "token ${AccessToken.value}")
             .build()
 
         return chain.proceed(modifiedRequest)

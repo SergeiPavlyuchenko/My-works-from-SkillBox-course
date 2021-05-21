@@ -8,9 +8,8 @@ import retrofit2.http.Query
 
 interface GithubApi {
 
-    @GET("/{user}")
-    fun searchUser(
-        @Path("user") user: String
+    @GET("/user")
+    fun getCurrentUser(
     ): Call<RemoteUser>
 
 }

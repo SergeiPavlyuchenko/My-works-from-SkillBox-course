@@ -3,6 +3,8 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 apply plugin: "androidx.navigation.safeargs.kotlin"
+//apply plugin: 'kotlin-parcelize'
+
 
 android {
     compileSdkVersion 29
@@ -75,6 +77,7 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycleVersion"
     //Navigation
     implementation "androidx.navigation:navigation-fragment-ktx:2.3.5"
+    implementation 'androidx.navigation:navigation-ui-ktx:2.3.5'
 
     //Moshi
     def moshiVersion = '1.12.0'

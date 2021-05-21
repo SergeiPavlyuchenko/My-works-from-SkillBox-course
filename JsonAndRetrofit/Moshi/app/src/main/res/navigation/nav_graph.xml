@@ -19,7 +19,7 @@
         android:name="com.example.moshi.AddScoreDialog"
         android:label="AddScoreDialog">
         <argument
-            android:name="CurrentItemState"
+            android:name="currentItemState"
             app:argType="com.example.moshi.CurrentItemState" />
     </dialog>
 </navigation>

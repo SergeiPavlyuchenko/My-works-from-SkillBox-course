@@ -1,8 +1,11 @@
 package com.skillbox.github.ui.current_user
 
+import android.os.Parcelable
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 @JsonClass(generateAdapter = true)
 data class RemoteUser(
     @Json(name = "login")
@@ -15,5 +18,5 @@ data class RemoteUser(
     val email:String,
     @Json(name = "avatar_url")
     val avatarUrl: String
-) {
+): Parcelable {
 }

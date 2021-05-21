@@ -59,26 +59,26 @@ class MainFragment : Fragment(R.layout.fragment_main), DialogInterfaceListener {
 
         val navBackStackEntry = findNavController().getBackStackEntry(R.id.mainFragment)
         val observer = LifecycleEventObserver { source, event ->
-            var currentItemState: Parcelable? = CurrentItemState(emptyList(), 0)
-            var newScore: Parcelable? = NewScore("", "")
-            when {
-                event == Lifecycle.Event.ON_RESUME && navBackStackEntry
+            var currentItemState: Parcelable? = null
+            var newScore: Parcelable? = null
+            if (event == Lifecycle.Event.ON_RESUME && navBackStackEntry
                     .savedStateHandle
-                    .contains(ITEM_STATE_KEY) -> {
-                    currentItemState = navBackStackEntry.savedStateHandle.get(ITEM_STATE_KEY)
-                }
-                event == Lifecycle.Event.ON_RESUME && navBackStackEntry
+                    .contains(ITEM_STATE_KEY)
+            ) currentItemState = navBackStackEntry.savedStateHandle.get(ITEM_STATE_KEY)
+
+            if (event == Lifecycle.Event.ON_RESUME && navBackStackEntry
                     .savedStateHandle
-                    .contains(NEW_SCORE_KEY) -> {
-                      newScore = navBackStackEntry.savedStateHandle.get(NEW_SCORE_KEY)
-                    }
+                    .contains(NEW_SCORE_KEY) &&
+                currentItemState != null
+            ) {
+                newScore = navBackStackEntry.savedStateHandle.get(NEW_SCORE_KEY)
+                viewModel.modifyItemScore(
+                    (currentItemState as CurrentItemState).currentMovieList,
+                    (newScore as NewScore).score,
+                    newScore.value,
+                    currentItemState.adapterPosition,
+                )
             }
-            viewModel.modifyItemScore(
-                (currentItemState as CurrentItemState).currentMovieList,
-                (newScore as NewScore).score,
-                newScore.value,
-                currentItemState.adapterPosition,
-            )
         }
         navBackStackEntry.lifecycle.addObserver(observer)
     }

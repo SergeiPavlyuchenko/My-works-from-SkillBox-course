@@ -1,12 +1,13 @@
-package com.skillbox.github.ui.current_user
+package com.skillbox.github.ui.main
 
 import com.skillbox.github.network.Network
+import com.skillbox.github.ui.current_user.RemoteUser
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.lang.RuntimeException
 
-class CurrentUserRepository {
+class MainFragmentRepository {
 
     fun getCurrentUser(
         onComplete: (RemoteUser) -> Unit,
