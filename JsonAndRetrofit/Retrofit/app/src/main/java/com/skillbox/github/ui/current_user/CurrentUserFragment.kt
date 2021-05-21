@@ -22,6 +22,7 @@ class CurrentUserFragment: Fragment(R.layout.fragment_current_user) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         currentUser = args.currentUser
+
     }
 
 
@@ -29,7 +30,9 @@ class CurrentUserFragment: Fragment(R.layout.fragment_current_user) {
         super.onViewCreated(view, savedInstanceState)
         observeStates()
 //        val user = RemoteUser("123",33,"asdasd","12asdas","https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.qkD6ztlVKw7VLj2KyFnQ0wHaFj%26pid%3DApi&f=1")
-        bind(currentUser)
+        binding.refreshButton.setOnClickListener {
+            bind(currentUser)
+        }
     }
 
     private fun bind(user: RemoteUser) {
@@ -49,7 +52,7 @@ class CurrentUserFragment: Fragment(R.layout.fragment_current_user) {
 
     private fun observeStates() {
         viewModel.remoteUser.observe(viewLifecycleOwner) {
-            currentUser = it
+            bind(it)
         }
     }
 

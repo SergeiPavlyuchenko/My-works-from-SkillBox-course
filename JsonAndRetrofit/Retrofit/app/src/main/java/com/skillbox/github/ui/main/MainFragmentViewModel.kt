@@ -17,6 +17,7 @@ class MainFragmentViewModel: ViewModel() {
         get() = onErrorLiveData
 
     fun getCurrentUser() {
+
         repository.getCurrentUser({
             remoteUserLiveData.postValue(it)
         }) {

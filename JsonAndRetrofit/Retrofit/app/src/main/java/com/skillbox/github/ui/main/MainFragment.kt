@@ -22,7 +22,7 @@ class MainFragment : Fragment(R.layout.fragment_main) {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        var currentUSer: RemoteUser = RemoteUser("",0,"","","")
+        var currentUSer: RemoteUser = RemoteUser("Unknown",0,"","","")
         viewModel.remoteUser.observe(viewLifecycleOwner) {
             currentUSer = it
         }
