@@ -4,10 +4,9 @@ import android.app.Dialog
 import android.os.Bundle
 import android.view.View
 import android.widget.*
-import androidx.fragment.app.viewModels
+import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.example.moshi.viewModel.MoviesViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.textfield.TextInputLayout
@@ -21,13 +20,13 @@ class AddScoreDialog : BottomSheetDialogFragment() {
     private val dialogInterfaceListener: DialogInterfaceListener?
         get() = fragment.let { it as? DialogInterfaceListener }
 
-    private val viewModel: MoviesViewModel by viewModels()
     private lateinit var dialogView: View
     private lateinit var stringScoreEditText: EditText
     private lateinit var completeDigitalScoreTextView: TextView
     private lateinit var addScoreButton: Button
     private lateinit var digitalScore: TextInputLayout
     private lateinit var bottomSheetDialog: BottomSheetDialog
+    private lateinit var navController: NavController
 //    private var adapterPosition: Int = 0
 
 
@@ -39,6 +38,7 @@ class AddScoreDialog : BottomSheetDialogFragment() {
         addScoreButton = dialogView.findViewById(R.id.addScoreButton)
         stringScoreEditText = dialogView.findViewById(R.id.stringScoreEditText)
         digitalScore = dialogView.findViewById(R.id.digitalScore)
+        navController = findNavController()
 
         val valuesItems = resources.getStringArray(R.array.Values)
         val digitalAdapter = ArrayAdapter(requireContext(), R.layout.item_list, valuesItems)
@@ -48,14 +48,17 @@ class AddScoreDialog : BottomSheetDialogFragment() {
 //        arguments?.getInt(POSITION_KEY)?.let { adapterPosition = it }
 
         addScoreButton.setOnClickListener {
-            val score = stringScoreEditText.text.toString()
-            val value = completeDigitalScoreTextView.text.toString()
-            val currentItemState = args.currentItemState
-            viewModel.updateMovies(
-               currentItemState.currentMovieList,
-                score, value,
-                currentItemState.adapterPosition
+            val newScore = NewScore(
+            stringScoreEditText.text.toString(),
+            completeDigitalScoreTextView.text.toString()
             )
+            val currentItemState = CurrentItemState(
+                args.currentItemState.currentMovieList,
+                args.currentItemState.adapterPosition
+            )
+            val savedState = navController.previousBackStackEntry?.savedStateHandle
+            savedState?.set(MainFragment.NEW_SCORE_KEY, newScore)
+            savedState?.set(MainFragment.ITEM_STATE_KEY, currentItemState)
 
             /*val action = AddScoreDialogDirections.actionAddScoreDialogToMainFragment(
                 score,

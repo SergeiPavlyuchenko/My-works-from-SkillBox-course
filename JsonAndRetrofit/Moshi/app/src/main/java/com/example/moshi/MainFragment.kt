@@ -1,15 +1,16 @@
 package com.example.moshi
 
 import android.os.Bundle
+import android.os.Parcelable
 import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.NavDirections
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.LifecycleEventObserver
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.moshi.adapter.MoviesAdapter
@@ -33,8 +34,6 @@ class MainFragment : Fragment(R.layout.fragment_main), DialogInterfaceListener {
         val adapter = ArrayAdapter(requireContext(), R.layout.item_list, items)
         (binding.moviesCategory.editText as? AutoCompleteTextView)?.setAdapter(adapter)
 
-
-
         initList()
 
         with(binding) {
@@ -57,6 +56,31 @@ class MainFragment : Fragment(R.layout.fragment_main), DialogInterfaceListener {
             addItemDecoration(offsetDec)
             setHasFixedSize(true)
         }
+
+        val navBackStackEntry = findNavController().getBackStackEntry(R.id.mainFragment)
+        val observer = LifecycleEventObserver { source, event ->
+            var currentItemState: Parcelable? = CurrentItemState(emptyList(), 0)
+            var newScore: Parcelable? = NewScore("", "")
+            when {
+                event == Lifecycle.Event.ON_RESUME && navBackStackEntry
+                    .savedStateHandle
+                    .contains(ITEM_STATE_KEY) -> {
+                    currentItemState = navBackStackEntry.savedStateHandle.get(ITEM_STATE_KEY)
+                }
+                event == Lifecycle.Event.ON_RESUME && navBackStackEntry
+                    .savedStateHandle
+                    .contains(NEW_SCORE_KEY) -> {
+                      newScore = navBackStackEntry.savedStateHandle.get(NEW_SCORE_KEY)
+                    }
+            }
+            viewModel.modifyItemScore(
+                (currentItemState as CurrentItemState).currentMovieList,
+                (newScore as NewScore).score,
+                newScore.value,
+                currentItemState.adapterPosition,
+            )
+        }
+        navBackStackEntry.lifecycle.addObserver(observer)
     }
 
     private fun addScore(position: Int) {
@@ -128,6 +152,10 @@ class MainFragment : Fragment(R.layout.fragment_main), DialogInterfaceListener {
         viewModel.search(userRequest)
     }
 
+    companion object {
+        const val ITEM_STATE_KEY = "key for add score into item"
+        const val NEW_SCORE_KEY = "key for add new score in item"
+    }
 
 /*    override fun onItemChange(score: String, value: String, position: Int) {
         viewModel.updateMovies(currentMovieList, score, value, position)
