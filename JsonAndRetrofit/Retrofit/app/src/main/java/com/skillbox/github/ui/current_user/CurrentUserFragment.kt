@@ -38,10 +38,10 @@ class CurrentUserFragment: Fragment(R.layout.fragment_current_user) {
 
     private fun bind(user: RemoteUser) {
         with(binding) {
-            loginTextView.text = user.login
-            idTextView.text = user.id.toString()
-            locationTextView.text = user.location
-            emailTextView.text = user.email
+            loginTextView.text = resources.getString(R.string.Login_str, user.login)
+            idTextView.text = resources.getString(R.string.ID_str, user.id.toString())
+            locationTextView.text = resources.getString(R.string.Location_str, user.location)
+            emailTextView.text = resources.getString(R.string.Email_str, user.email ?: "Unknown")
 
             Glide.with(root)
                 .load(user.avatarUrl)
