@@ -13,9 +13,9 @@ data class RemoteUser(
     @Json(name = "id")
     val id: Int,
     @Json(name = "location")
-    val location: String,
+    val location: String?,
     @Json(name = "email")
-    val email:String,
+    val email:String?,
     @Json(name = "avatar_url")
     val avatarUrl: String
 ): Parcelable {

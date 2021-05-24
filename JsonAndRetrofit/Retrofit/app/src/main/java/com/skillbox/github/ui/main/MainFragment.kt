@@ -20,7 +20,7 @@ class MainFragment : Fragment(R.layout.fragment_main) {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-          binding.currentUserInfoButton.setOnClickListener {
+        binding.currentUserInfoButton.setOnClickListener {
             findNavController().navigate(MainFragmentDirections.actionMainFragmentToCurrentUserFragment())
         }
 

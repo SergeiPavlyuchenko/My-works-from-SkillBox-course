@@ -4,4 +4,8 @@
     <string name="main_repositories">Список репозиториев</string>
     <string name="auth_login">Войти</string>
     <string name="auth_canceled">Аутентификация не выполнена</string>
+    <string name="Login_str">Login: %1s</string>
+    <string name="ID_str">ID: %1s</string>
+    <string name="Location_str">Location: %1s</string>
+    <string name="Email_str">Email: %1s</string>
 </resources>

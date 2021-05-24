@@ -8,14 +8,22 @@ class CurrentUserViewModel: ViewModel() {
 
     private val repository = CurrentUserRepository()
     private val remoteUserLiveData = MutableLiveData<RemoteUser>()
+
     val remoteUser: LiveData<RemoteUser>
         get() = remoteUserLiveData
+
     private val onErrorLiveData = MutableLiveData<Throwable>()
     val onError: LiveData<Throwable>
         get() = onErrorLiveData
 
+    private val isLoadingLiveData = MutableLiveData<Boolean>()
+    val isLoading: LiveData<Boolean>
+        get() = isLoadingLiveData
+
     fun getCurrentUser() {
+        isLoadingLiveData.postValue(true)
         repository.getCurrentUser({
+            isLoadingLiveData.postValue(false)
             remoteUserLiveData.postValue(it)
         }) {
             onErrorLiveData.postValue(it)
