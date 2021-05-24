@@ -31,11 +31,7 @@
     <fragment
         android:id="@+id/currentUserFragment"
         android:name="com.skillbox.github.ui.current_user.CurrentUserFragment"
-        android:label="CurrentUserFragment" >
-        <argument
-            android:name="currentUser"
-            app:argType="com.skillbox.github.ui.current_user.RemoteUser" />
-    </fragment>
+        android:label="CurrentUserFragment" />
     <fragment
         android:id="@+id/repositoryListFragment"
         android:name="com.skillbox.github.ui.repository_list.RepositoryListFragment"

@@ -12,22 +12,16 @@ import com.skillbox.github.ui.current_user.RemoteUser
 class MainFragment : Fragment(R.layout.fragment_main) {
 
     private val binding by viewBinding(FragmentMainBinding::bind)
-    private val viewModel: MainFragmentViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel.getCurrentUser()
     }
 
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        var currentUSer: RemoteUser = RemoteUser("Unknown",0,"","","")
-        viewModel.remoteUser.observe(viewLifecycleOwner) {
-            currentUSer = it
-        }
-        binding.currentUserInfoButton.setOnClickListener {
-            findNavController().navigate(MainFragmentDirections.actionMainFragmentToCurrentUserFragment(currentUSer))
+          binding.currentUserInfoButton.setOnClickListener {
+            findNavController().navigate(MainFragmentDirections.actionMainFragmentToCurrentUserFragment())
         }
 
         binding.repositoryListButton.setOnClickListener {
