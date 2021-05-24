@@ -7,7 +7,9 @@ import com.bumptech.glide.Glide
 import com.hannesdorfmann.adapterdelegates4.AbsListItemAdapterDelegate
 import com.skillbox.github.databinding.ItemRemoteRepoBinding
 
-class RemoteRepoDelegate :
+class RemoteRepoDelegate(
+    private val onItemClick: (position: Int) -> Unit
+) :
     AbsListItemAdapterDelegate<RemoteRepo, RemoteRepo, RemoteRepoDelegate.RemoteRepoHolder>() {
 
 
@@ -25,7 +27,7 @@ class RemoteRepoDelegate :
                 LayoutInflater.from(parent.context),
                 parent,
                 false
-            )
+            ), onItemClick
         )
     }
 
@@ -38,16 +40,21 @@ class RemoteRepoDelegate :
     }
 
     class RemoteRepoHolder(
-       private val binding: ItemRemoteRepoBinding
+       private val binding: ItemRemoteRepoBinding,
+       private val onItemClick: (position: Int) -> Unit
     ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(repo: RemoteRepo) {
             binding.nameRepoTextView.text = repo.name
 
             Glide.with(binding.root.context)
-                .load("")
+                .load(repo.owner.avatarUrl)
                 .centerCrop()
                 .into(binding.avatarImageView)
+
+            binding.root.setOnClickListener {
+                onItemClick(bindingAdapterPosition)
+            }
         }
     }
 

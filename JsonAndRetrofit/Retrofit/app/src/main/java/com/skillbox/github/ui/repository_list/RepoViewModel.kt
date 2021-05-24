@@ -1,16 +1,16 @@
-package com.skillbox.github.ui.current_user
+package com.skillbox.github.ui.repository_list
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class CurrentUserViewModel: ViewModel() {
+class RepoViewModel: ViewModel() {
 
-    private val repository = CurrentUserRepository()
+    private val repository = RepoRepository()
 
-    private val remoteUserLiveData = MutableLiveData<RemoteUser>()
-    val remoteUser: LiveData<RemoteUser>
-        get() = remoteUserLiveData
+    private val remoteRepoListLiveData = MutableLiveData<List<RemoteRepo>>()
+    val remoteRepoList: LiveData<List<RemoteRepo>>
+        get() = remoteRepoListLiveData
 
     private val onErrorLiveData = MutableLiveData<Throwable>()
     val onError: LiveData<Throwable>
@@ -20,13 +20,16 @@ class CurrentUserViewModel: ViewModel() {
     val isLoading: LiveData<Boolean>
         get() = isLoadingLiveData
 
-    fun getCurrentUser() {
+    fun getRepositories() {
         isLoadingLiveData.postValue(true)
-        repository.getCurrentUser({
+        repository.getRepositories ({
             isLoadingLiveData.postValue(false)
-            remoteUserLiveData.postValue(it)
+            remoteRepoListLiveData.postValue(it.shuffled())
         }) {
             onErrorLiveData.postValue(it)
         }
     }
+
+
+
 }

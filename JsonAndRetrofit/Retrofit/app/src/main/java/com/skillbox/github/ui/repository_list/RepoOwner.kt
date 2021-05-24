@@ -7,11 +7,13 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 @JsonClass(generateAdapter = true)
-data class RemoteRepo(
-    @Json(name = "id")
-    val id: Int,
-    @Json(name = "name")
-    val name: String,
-    @Json(name = "owner")
-    val owner: RepoOwner
+data class RepoOwner(
+    @Json(name = "login")
+    val owner: String,
+    @Json(name = "avatar_url")
+    val avatarUrl: String,
+    @Json(name = "url")
+    val url: String,
+    @Json(name = "starred_url")
+    val starredUrl: String
 ): Parcelable

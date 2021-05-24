@@ -8,7 +8,7 @@
     android:padding="16dp">
 
     <ImageView
-        android:id="@+id/posterImageView"
+        android:id="@+id/avatarUserImageView"
         android:layout_width="130dp"
         android:layout_height="130dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,10 +21,10 @@
         android:layout_height="0dp"
         android:alpha="0.2"
         android:background="@color/colorAccent"
-        app:layout_constraintBottom_toBottomOf="@id/posterImageView"
+        app:layout_constraintBottom_toBottomOf="@id/avatarUserImageView"
         app:layout_constraintEnd_toEndOf="@id/loginTextView"
         app:layout_constraintStart_toStartOf="@+id/loginTextView"
-        app:layout_constraintTop_toTopOf="@id/posterImageView" />
+        app:layout_constraintTop_toTopOf="@id/avatarUserImageView" />
 
     <TextView
         android:id="@+id/loginTextView"
@@ -38,8 +38,8 @@
         app:layout_constraintBottom_toTopOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/posterImageView"
-        app:layout_constraintTop_toTopOf="@+id/posterImageView"
+        app:layout_constraintStart_toEndOf="@+id/avatarUserImageView"
+        app:layout_constraintTop_toTopOf="@+id/avatarUserImageView"
         tools:text="Login: SergeiPavlyuchenko" />
 
     <ImageView
