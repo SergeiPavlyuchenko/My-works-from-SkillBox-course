@@ -35,4 +35,32 @@ class DetailRepoViewModel: ViewModel() {
         }
     }
 
+    fun toStarRepo(repo: RemoteRepo) {
+        isLoadingLiveData.postValue(true)
+        repository.toStarRepo (
+            repo.owner.owner, repo.name,{
+                isLoadingLiveData.postValue(false)
+                repo.apply {
+                    isStarred = it
+                    remoteRepoLiveData.postValue(this)
+                }
+            }) {
+            onErrorLiveData.postValue(it)
+        }
+    }
+
+    fun unStarRepo(repo: RemoteRepo) {
+        isLoadingLiveData.postValue(true)
+        repository.unStarRepo (
+            repo.owner.owner, repo.name,{
+                isLoadingLiveData.postValue(false)
+                repo.apply {
+                    isStarred = it
+                    remoteRepoLiveData.postValue(this)
+                }
+            }) {
+            onErrorLiveData.postValue(it)
+        }
+    }
+
 }

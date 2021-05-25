@@ -19,13 +19,13 @@ class DetailRepoRepository {
         Network.githubApi.getRepoDetailInfo(owner, repo).enqueue(
             object : Callback<RemoteRepo> {
                 override fun onResponse(call: Call<RemoteRepo>, response: Response<RemoteRepo>) {
-                    when(response.code()) {
+                    when (response.code()) {
                         204 -> {
-                            Log.d("githubApi","response.code = ${response.code()}")
+                            Log.d("githubApi", "response.code = ${response.code()}")
                             isStarred(true)
                         }
                         404 -> {
-                            Log.d("githubApi","response.code = ${response.code()}")
+                            Log.d("githubApi", "response.code = ${response.code()}")
                             isStarred(false)
                         }
                         else -> onError(RuntimeException("Incorrect status code"))
@@ -39,6 +39,47 @@ class DetailRepoRepository {
                 }
             })
 
+    }
+
+
+    fun toStarRepo(
+        owner: String,
+        repo: String,
+        toStar: (Boolean) -> Unit,
+        onError: (Throwable) -> Unit
+    ) {
+        Network.githubApi.toStarRepo(owner, repo).enqueue(
+            object : Callback<RemoteRepo> {
+                override fun onResponse(call: Call<RemoteRepo>, response: Response<RemoteRepo>) {
+                    if (response.isSuccessful) {
+                        toStar(true)
+                    } else toStar(false)
+                }
+
+                override fun onFailure(call: Call<RemoteRepo>, t: Throwable) {
+                    onError(t)
+                }
+            })
+    }
+
+    fun unStarRepo(
+        owner: String,
+        repo: String,
+        toStar: (Boolean) -> Unit,
+        onError: (Throwable) -> Unit
+    ) {
+        Network.githubApi.unStarRepo(owner, repo).enqueue(
+            object : Callback<RemoteRepo> {
+                override fun onResponse(call: Call<RemoteRepo>, response: Response<RemoteRepo>) {
+                    if (response.isSuccessful) {
+                        toStar(false)
+                    } else toStar(true)
+                }
+
+                override fun onFailure(call: Call<RemoteRepo>, t: Throwable) {
+                    onError(t)
+                }
+            })
     }
 
 }

@@ -12,4 +12,6 @@
     <string name="id_repo_string">ID: %1s</string>
     <string name="url_repo_string">URL: %1s</string>
     <string name="starred_repo_string">Starred: %1s</string>
+    <string name="enter_your_new_location">Enter your new location</string>
+    <string name="set">Set</string>
 </resources>

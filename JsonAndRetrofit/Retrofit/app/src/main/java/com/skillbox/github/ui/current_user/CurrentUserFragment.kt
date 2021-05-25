@@ -25,7 +25,9 @@ class CurrentUserFragment: Fragment(R.layout.fragment_current_user) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         observeStates()
-
+        binding.setNewLocationButton.setOnClickListener {
+            viewModel.updateUser(binding.locationChangeEditText.text.toString())
+        }
     }
 
     private fun setCurrentUser(user: RemoteUser) {
@@ -61,6 +63,8 @@ class CurrentUserFragment: Fragment(R.layout.fragment_current_user) {
                 locationTextView.isVisible = !it
                 loginTextView.isVisible = !it
                 avatarUserImageView.isVisible = !it
+                locationChangeEditText.isVisible = !it
+                setNewLocationButton.isVisible = !it
             }
         }
     }

@@ -24,7 +24,7 @@
         android:layout_marginTop="20dp"
         android:alpha="0.4"
         android:background="#7986CB"
-        app:layout_constraintBottom_toBottomOf="@id/urlRepoTv"
+        app:layout_constraintBottom_toBottomOf="@id/isStarredTv"
         app:layout_constraintTop_toBottomOf="@id/avatarRepoIv" />
 
     <TextView
@@ -78,6 +78,27 @@
         android:textSize="25sp"
         app:layout_constraintTop_toBottomOf="@id/divider2"
         tools:text="URL: someURL" />
+
+    <ImageView
+        android:id="@+id/divider3"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
+        android:background="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/urlRepoTv" />
+
+    <TextView
+        android:id="@+id/isStarredTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:textColor="@color/white"
+        android:textSize="25sp"
+        app:layout_constraintTop_toBottomOf="@id/divider3"
+        tools:text="Starred: True" />
 
     <ProgressBar
         android:id="@+id/loadingProgressBar"

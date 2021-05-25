@@ -13,7 +13,7 @@ data class RemoteUser(
     @Json(name = "id")
     val id: Int,
     @Json(name = "location")
-    val location: String?,
+    var location: String?,
     @Json(name = "email")
     val email:String?,
     @Json(name = "avatar_url")

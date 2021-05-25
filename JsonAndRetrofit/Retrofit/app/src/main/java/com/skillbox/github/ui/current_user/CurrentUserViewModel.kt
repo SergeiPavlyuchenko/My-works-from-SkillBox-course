@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class CurrentUserViewModel: ViewModel() {
+class CurrentUserViewModel : ViewModel() {
 
     private val repository = CurrentUserRepository()
 
@@ -23,6 +23,17 @@ class CurrentUserViewModel: ViewModel() {
     fun getCurrentUser() {
         isLoadingLiveData.postValue(true)
         repository.getCurrentUser({
+            isLoadingLiveData.postValue(false)
+            remoteUserLiveData.postValue(it)
+        }) {
+            onErrorLiveData.postValue(it)
+        }
+    }
+
+    fun updateUser(newLocation: String) {
+        isLoadingLiveData.postValue(true)
+        repository.updateUser(newLocation, {
+            it.location = newLocation
             isLoadingLiveData.postValue(false)
             remoteUserLiveData.postValue(it)
         }) {

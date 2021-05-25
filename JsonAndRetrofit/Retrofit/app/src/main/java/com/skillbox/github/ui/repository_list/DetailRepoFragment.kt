@@ -30,6 +30,14 @@ class DetailRepoFragment: Fragment(R.layout.fragment_detail_repo) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         observeStates()
+
+        binding.emptyStarImageView.setOnClickListener {
+            viewModel.toStarRepo(currentRepo)
+        }
+
+        binding.filledStarImageView.setOnClickListener {
+            viewModel.unStarRepo(currentRepo)
+        }
     }
 
     private fun observeStates() {
@@ -42,6 +50,8 @@ class DetailRepoFragment: Fragment(R.layout.fragment_detail_repo) {
                 nameRepoTv.isVisible = !it
                 idRepoTv.isVisible = !it
                 urlRepoTv.isVisible = !it
+                infoContainer.isVisible = !it
+                isStarredTv.isVisible = !it
                 loadingProgressBar.isVisible = it
             }
         }
@@ -52,6 +62,7 @@ class DetailRepoFragment: Fragment(R.layout.fragment_detail_repo) {
             nameRepoTv.text = resources.getString(R.string.name_repo_string, repo.name)
             idRepoTv.text = resources.getString(R.string.id_repo_string, repo.id.toString())
             urlRepoTv.text = resources.getString(R.string.url_repo_string ,repo.owner.url)
+            isStarredTv.text = resources.getString(R.string.starred_repo_string, repo.isStarred.toString())
             emptyStarImageView.isVisible = !repo.isStarred
             filledStarImageView.isVisible = repo.isStarred
         }
@@ -60,5 +71,7 @@ class DetailRepoFragment: Fragment(R.layout.fragment_detail_repo) {
             .load(repo.owner.avatarUrl)
             .centerCrop()
             .into(avatarRepoIv)
+
+        currentRepo = repo
     }
 }

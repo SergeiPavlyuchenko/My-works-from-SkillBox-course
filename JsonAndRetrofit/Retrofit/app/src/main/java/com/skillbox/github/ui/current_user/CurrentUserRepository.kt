@@ -34,4 +34,28 @@ class CurrentUserRepository {
         )
     }
 
+    fun updateUser(
+        newLocation: String,
+        onComplete: (RemoteUser) -> Unit,
+        onError: (Throwable) -> Unit
+    ) {
+        Network.githubApi.updateUser(newLocation).enqueue(
+            object : Callback<RemoteUser> {
+                override fun onResponse(call: Call<RemoteUser>, response: Response<RemoteUser>) {
+                    if (response.isSuccessful) {
+                        Log.d("updateUser", "response.isSuccessful = ${response.isSuccessful}")
+                        getCurrentUser(onComplete, onError)
+                    } else {
+                        onError(RuntimeException("Incorrect status code"))
+                    }
+                }
+
+                override fun onFailure(call: Call<RemoteUser>, t: Throwable) {
+                    onError(t)
+                    Log.d("githubApi", "onFailure")
+                }
+            }
+        )
+    }
+
 }
