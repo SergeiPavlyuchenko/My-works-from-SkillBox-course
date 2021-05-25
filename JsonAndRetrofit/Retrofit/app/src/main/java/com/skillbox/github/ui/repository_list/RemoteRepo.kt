@@ -13,5 +13,6 @@ data class RemoteRepo(
     @Json(name = "name")
     val name: String,
     @Json(name = "owner")
-    val owner: RepoOwner
+    val owner: RepoOwner,
+    var isStarred: Boolean = true
 ): Parcelable

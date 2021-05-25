@@ -1,5 +1,6 @@
 package com.skillbox.github.ui.repository_list
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -25,7 +26,10 @@ class DetailRepoViewModel: ViewModel() {
         repository.isStarred (
             repo.owner.owner, repo.name,{
                 isLoadingLiveData.postValue(false)
-                remoteRepoLiveData.postValue(it)
+                repo.apply {
+                    isStarred = it
+                    remoteRepoLiveData.postValue(this)
+                }
             }) {
             onErrorLiveData.postValue(it)
         }

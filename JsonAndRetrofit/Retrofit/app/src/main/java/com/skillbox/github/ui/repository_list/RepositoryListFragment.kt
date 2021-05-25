@@ -32,9 +32,7 @@ class RepositoryListFragment : Fragment(R.layout.fragment_repository_list) {
 
     private fun initList() {
         repoAdapter = RepositoriesAdapter { position ->
-            currentRepoList?.get(position)?.let {
-                viewModel.isStarred(it)
-                showDetailInfo(it) }
+            currentRepoList?.get(position)?.let { showDetailInfo(it) }
         }
         with(binding.repoListRv) {
             adapter = repoAdapter

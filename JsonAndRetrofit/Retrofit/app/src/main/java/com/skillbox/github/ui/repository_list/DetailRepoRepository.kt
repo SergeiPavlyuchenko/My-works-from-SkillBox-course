@@ -12,8 +12,7 @@ class DetailRepoRepository {
     fun isStarred(
         owner: String,
         repo: String,
-        isStarred: (RemoteRepo) -> Unit,
-        notStarred: (RemoteRepo) -> Unit,
+        isStarred: (Boolean) -> Unit,
         onError: (Throwable) -> Unit
     ) {
         Log.d("githubApi", "start getRepositories")
@@ -22,14 +21,12 @@ class DetailRepoRepository {
                 override fun onResponse(call: Call<RemoteRepo>, response: Response<RemoteRepo>) {
                     when(response.code()) {
                         204 -> {
-                            Log.d(
-                                "githubApi",
-                                "response.isSuccessful = ${response.isSuccessful}, response.code = ${response.code()}"
-                            )
-                            response.body()?.let(isStarred)
+                            Log.d("githubApi","response.code = ${response.code()}")
+                            isStarred(true)
                         }
                         404 -> {
-                            response.body()?.let(notStarred)
+                            Log.d("githubApi","response.code = ${response.code()}")
+                            isStarred(false)
                         }
                         else -> onError(RuntimeException("Incorrect status code"))
 

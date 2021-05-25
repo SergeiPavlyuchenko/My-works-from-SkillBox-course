@@ -3,6 +3,7 @@ package com.skillbox.github.ui.repository_list
 import android.content.Context
 import android.os.Bundle
 import android.view.View
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
@@ -19,27 +20,44 @@ class DetailRepoFragment: Fragment(R.layout.fragment_detail_repo) {
     private val args: DetailRepoFragmentArgs by navArgs()
     private lateinit var currentRepo: RemoteRepo
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
         currentRepo = args.remoteRepo
         viewModel.isStarred(currentRepo)
     }
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setCurrentRepo()
+        observeStates()
     }
 
-    private fun setCurrentRepo() {
+    private fun observeStates() {
+        viewModel.remoteRepo.observe(viewLifecycleOwner) {
+            setCurrentRepo(it)
+        }
+
+        viewModel.isLoading.observe(viewLifecycleOwner) {
+            with(binding) {
+                nameRepoTv.isVisible = !it
+                idRepoTv.isVisible = !it
+                urlRepoTv.isVisible = !it
+                loadingProgressBar.isVisible = it
+            }
+        }
+    }
+
+    private fun setCurrentRepo(repo: RemoteRepo) {
         with(binding) {
-            nameRepoTv.text = resources.getString(R.string.name_repo_string, currentRepo.name)
-            idRepoTv.text = resources.getString(R.string.id_repo_string, currentRepo.id.toString())
-            urlRepoTv.text = resources.getString(R.string.url_repo_string ,currentRepo.owner.url)
-            starredRepoTv.text = resources.getString(R.string.starred_repo_string, currentRepo.owner.starredUrl)
+            nameRepoTv.text = resources.getString(R.string.name_repo_string, repo.name)
+            idRepoTv.text = resources.getString(R.string.id_repo_string, repo.id.toString())
+            urlRepoTv.text = resources.getString(R.string.url_repo_string ,repo.owner.url)
+            emptyStarImageView.isVisible = !repo.isStarred
+            filledStarImageView.isVisible = repo.isStarred
         }
 
         Glide.with(requireContext())
-            .load(currentRepo.owner.avatarUrl)
+            .load(repo.owner.avatarUrl)
             .centerCrop()
             .into(avatarRepoIv)
     }

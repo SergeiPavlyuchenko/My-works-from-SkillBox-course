@@ -20,7 +20,7 @@ class CurrentUserRepository {
                     Log.d("githubApi", "response.isSuccessful = ${response.isSuccessful}")
                     if (response.isSuccessful) {
                         Log.d("githubApi", "response.isSuccessful = ${response.isSuccessful}")
-                        response.body()?.let { onComplete(it) }
+                        response.body()?.let(onComplete)
                     } else {
                         onError(RuntimeException("Incorrect status code"))
                     }

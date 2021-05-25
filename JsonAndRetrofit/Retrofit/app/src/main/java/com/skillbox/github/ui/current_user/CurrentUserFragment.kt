@@ -22,11 +22,6 @@ class CurrentUserFragment: Fragment(R.layout.fragment_current_user) {
         viewModel.getCurrentUser()
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         observeStates()
