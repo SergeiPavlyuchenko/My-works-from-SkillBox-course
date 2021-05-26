@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Github</string>
+    <string name="main_profile">Профиль</string>
+    <string name="main_repositories">Список репозиториев</string>
+    <string name="auth_login">Войти</string>
+    <string name="auth_canceled">Аутентификация не выполнена</string>
+    <string name="Login_str">Login: %1s</string>
+    <string name="ID_str">ID: %1s</string>
+    <string name="Location_str">Location: %1s</string>
+    <string name="Email_str">Email: %1s</string>
+    <string name="name_repo_string">Name: %1s</string>
+    <string name="id_repo_string">ID: %1s</string>
+    <string name="url_repo_string">URL: %1s</string>
+    <string name="starred_repo_string">Starred: %1s</string>
+    <string name="enter_your_new_location">Enter your new location</string>
+    <string name="set">Set</string>
+</resources>
