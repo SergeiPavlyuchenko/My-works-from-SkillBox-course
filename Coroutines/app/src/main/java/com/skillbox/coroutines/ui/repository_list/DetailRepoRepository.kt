@@ -2,42 +2,57 @@ package com.skillbox.coroutines.ui.repository_list
 
 import android.util.Log
 import com.skillbox.coroutines.network.Network
+import kotlinx.coroutines.suspendCancellableCoroutine
+import kotlinx.coroutines.yield
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.lang.RuntimeException
+import kotlin.coroutines.resume
+import kotlin.coroutines.resumeWithException
 
 class DetailRepoRepository {
 
-    fun isStarred(
+    private var needCancel = false
+
+    suspend fun isStarred(
         owner: String,
         repo: String,
-        isStarred: (Boolean) -> Unit,
-        onError: (Throwable) -> Unit
-    ) {
+    ): Boolean {
         Log.d("githubApi", "start getRepositories")
-        Network.githubApi.getRepoDetailInfo(owner, repo).enqueue(
-            object : Callback<RemoteRepo> {
-                override fun onResponse(call: Call<RemoteRepo>, response: Response<RemoteRepo>) {
-                    when (response.code()) {
-                        204 -> {
-                            Log.d("githubApi", "response.code = ${response.code()}")
-                            isStarred(true)
-                        }
-                        404 -> {
-                            Log.d("githubApi", "response.code = ${response.code()}")
-                            isStarred(false)
-                        }
-                        else -> onError(RuntimeException("Incorrect status code"))
+        return suspendCancellableCoroutine<Boolean> { cancellableContinuation ->
+            cancellableContinuation.invokeOnCancellation {
+                it?.let { needCancel = true }
+            }
+            Network.githubApi.getRepoDetailInfo(owner, repo).enqueue(
+                object : Callback<RemoteRepo> {
+                    override fun onResponse(
+                        call: Call<RemoteRepo>,
+                        response: Response<RemoteRepo>
+                    ) {
+                        cancelCall(call, needCancel)
+                        when (response.code()) {
+                            204 -> {
+                                Log.d("githubApi", "response.code = ${response.code()}")
+                                cancellableContinuation.resume(true)
+                            }
+                            404 -> {
+                                Log.d("githubApi", "response.code = ${response.code()}")
+                                cancellableContinuation.resume(false)
+                            }
+                            else -> cancellableContinuation.resumeWithException(RuntimeException("Incorrect status code"))
 
+                        }
                     }
-                }
 
-                override fun onFailure(call: Call<RemoteRepo>, t: Throwable) {
-                    Log.d("githubApi", "onFailure")
-                    onError(t)
-                }
-            })
+                    override fun onFailure(call: Call<RemoteRepo>, t: Throwable) {
+                        cancelCall(call, needCancel)
+                        Log.d("githubApi", "onFailure")
+                        cancellableContinuation.resumeWithException(t)
+                    }
+                })
+        }
+
 
     }
 
@@ -80,6 +95,10 @@ class DetailRepoRepository {
                     onError(t)
                 }
             })
+    }
+
+    private fun cancelCall(call: Call<RemoteRepo>, needCancel: Boolean) {
+        if(needCancel) call.cancel()
     }
 
 }

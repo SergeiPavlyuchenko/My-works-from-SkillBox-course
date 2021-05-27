@@ -3,9 +3,11 @@ package com.skillbox.coroutines.ui.current_user
 import android.content.Context
 import android.os.Bundle
 import android.view.View
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import by.kirich1409.viewbindingdelegate.viewBinding
+import com.bumptech.glide.Glide
 import com.skillbox.coroutines.R
 import com.skillbox.coroutines.databinding.FragmentCurrentUserBinding
 

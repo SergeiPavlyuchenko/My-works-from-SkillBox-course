@@ -33,7 +33,7 @@ interface GithubApi {
 
     @PATCH("/user")
     fun updateUser(
-        @Query("location") location: String
+        @Body location: String
     ): Call<RemoteUser>
 
 }

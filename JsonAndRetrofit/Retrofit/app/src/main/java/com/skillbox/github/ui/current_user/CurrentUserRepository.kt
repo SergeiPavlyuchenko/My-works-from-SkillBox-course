@@ -39,7 +39,9 @@ class CurrentUserRepository {
         onComplete: (RemoteUser) -> Unit,
         onError: (Throwable) -> Unit
     ) {
-        Network.githubApi.updateUser(newLocation).enqueue(
+        val location = "\"location\":\"$newLocation\""
+        Log.d("githubApi", "start updateUser")
+        Network.githubApi.updateUser(location).enqueue(
             object : Callback<RemoteUser> {
                 override fun onResponse(call: Call<RemoteUser>, response: Response<RemoteUser>) {
                     if (response.isSuccessful) {

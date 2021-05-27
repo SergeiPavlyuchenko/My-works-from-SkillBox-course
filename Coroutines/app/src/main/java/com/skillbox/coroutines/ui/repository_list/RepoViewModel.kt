@@ -3,10 +3,12 @@ package com.skillbox.coroutines.ui.repository_list
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import kotlinx.coroutines.*
 
 class RepoViewModel: ViewModel() {
 
     private val repository = RepoRepository()
+    private val viewModelScope = CoroutineScope(SupervisorJob() + Dispatchers.Main)
 
     private val remoteRepoListLiveData = MutableLiveData<List<RemoteRepo>>()
     val remoteRepoList: LiveData<List<RemoteRepo>>
@@ -21,13 +23,25 @@ class RepoViewModel: ViewModel() {
         get() = isLoadingLiveData
 
     fun getRepositories() {
-        isLoadingLiveData.postValue(true)
-        repository.getRepositories ({
-            isLoadingLiveData.postValue(false)
-            remoteRepoListLiveData.postValue(it.shuffled())
-        }) {
-            onErrorLiveData.postValue(it)
+        viewModelScope.launch {
+            isLoadingLiveData.postValue(true)
+            try {
+                val repositories = repository.getRepositories()
+                remoteRepoListLiveData.postValue(repositories)
+            } catch (t: Throwable) {
+                onErrorLiveData.postValue(t)
+            } finally {
+                isLoadingLiveData.postValue(false)
+            }
+
         }
     }
+
+/*    override fun onCleared() {
+        super.onCleared()
+        // Обязательно если используем не SupervisorJob() (отменяем все дочерние корутины за счёт
+       // отмены родительской Job() в scope)
+        viewModelScope.cancel()
+    }*/
 
 }

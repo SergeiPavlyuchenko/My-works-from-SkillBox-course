@@ -50,6 +50,6 @@
         >
         <argument
             android:name="remoteRepo"
-            app:argType="com.skillbox.github.ui.repository_list.RemoteRepo" />
+            app:argType="com.skillbox.coroutines.ui.repository_list.RemoteRepo" />
     </fragment>
 </navigation>

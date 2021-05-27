@@ -3,8 +3,10 @@ package com.skillbox.coroutines.ui.repository_list
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.launch
 
-class DetailRepoViewModel: ViewModel() {
+class DetailRepoViewModel : ViewModel() {
 
     private val repository = DetailRepoRepository()
 
@@ -21,23 +23,30 @@ class DetailRepoViewModel: ViewModel() {
         get() = onErrorLiveData
 
     fun isStarred(repo: RemoteRepo) {
-        isLoadingLiveData.postValue(true)
-        repository.isStarred (
-            repo.owner.owner, repo.name,{
-                isLoadingLiveData.postValue(false)
+        viewModelScope.launch {
+            try {
+                isLoadingLiveData.postValue(true)
+                val isStarredRepo = repository.isStarred(
+                    repo.owner.owner, repo.name
+                )
                 repo.apply {
-                    isStarred = it
+                    isStarred = isStarredRepo
                     remoteRepoLiveData.postValue(this)
                 }
-            }) {
-            onErrorLiveData.postValue(it)
+            } catch (t: Throwable) {
+                onErrorLiveData.postValue(t)
+            } finally {
+                isLoadingLiveData.postValue(false)
+            }
+
         }
+
     }
 
     fun toStarRepo(repo: RemoteRepo) {
         isLoadingLiveData.postValue(true)
-        repository.toStarRepo (
-            repo.owner.owner, repo.name,{
+        repository.toStarRepo(
+            repo.owner.owner, repo.name, {
                 isLoadingLiveData.postValue(false)
                 repo.apply {
                     isStarred = it
@@ -50,8 +59,8 @@ class DetailRepoViewModel: ViewModel() {
 
     fun unStarRepo(repo: RemoteRepo) {
         isLoadingLiveData.postValue(true)
-        repository.unStarRepo (
-            repo.owner.owner, repo.name,{
+        repository.unStarRepo(
+            repo.owner.owner, repo.name, {
                 isLoadingLiveData.postValue(false)
                 repo.apply {
                     isStarred = it
