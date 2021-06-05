@@ -1,6 +1,7 @@
 package com.skillbox.github.network
 
 import com.skillbox.github.ui.current_user.RemoteUser
+import com.skillbox.github.ui.repository_list.DataForPatch
 import com.skillbox.github.ui.repository_list.RemoteRepo
 import retrofit2.Call
 import retrofit2.http.*
@@ -33,7 +34,7 @@ interface GithubApi {
 
     @PATCH("/user")
     fun updateUser(
-        @Query("location") location: String
+        @Body dataForPatch: DataForPatch
     ): Call<RemoteUser>
 
 }

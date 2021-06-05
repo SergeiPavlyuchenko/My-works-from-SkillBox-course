@@ -9,6 +9,7 @@ class CustomHeaderInterceptor: Interceptor {
         val originalRequest = chain.request()
         val modifiedRequest = originalRequest.newBuilder()
             .addHeader("Authorization", "token ${AccessToken.value}")
+            .addHeader("Accept", "application/vnd.github.v3+json")
             .build()
 
         return chain.proceed(modifiedRequest)

@@ -3,6 +3,7 @@ package com.skillbox.github.ui.current_user
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.skillbox.github.ui.repository_list.DataForPatch
 
 class CurrentUserViewModel : ViewModel() {
 
@@ -32,7 +33,8 @@ class CurrentUserViewModel : ViewModel() {
 
     fun updateUser(newLocation: String) {
         isLoadingLiveData.postValue(true)
-        repository.updateUser(newLocation, {
+        val dataForPatch = DataForPatch(newLocation)
+        repository.updateUser(dataForPatch, {
             it.location = newLocation
             isLoadingLiveData.postValue(false)
             remoteUserLiveData.postValue(it)

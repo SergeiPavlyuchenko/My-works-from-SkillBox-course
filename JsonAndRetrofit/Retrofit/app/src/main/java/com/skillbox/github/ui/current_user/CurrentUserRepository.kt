@@ -2,6 +2,9 @@ package com.skillbox.github.ui.current_user
 
 import android.util.Log
 import com.skillbox.github.network.Network
+import com.skillbox.github.ui.repository_list.DataForPatch
+import com.skillbox.github.ui.repository_list.PatchDataCustomJsonAdapter
+import com.squareup.moshi.Moshi
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -35,11 +38,11 @@ class CurrentUserRepository {
     }
 
     fun updateUser(
-        newLocation: String,
+        dataForPatch: DataForPatch,
         onComplete: (RemoteUser) -> Unit,
         onError: (Throwable) -> Unit
     ) {
-        Network.githubApi.updateUser(newLocation).enqueue(
+        Network.githubApi.updateUser(dataForPatch).enqueue(
             object : Callback<RemoteUser> {
                 override fun onResponse(call: Call<RemoteUser>, response: Response<RemoteUser>) {
                     if (response.isSuccessful) {
